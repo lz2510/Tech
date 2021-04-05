@@ -8,6 +8,9 @@
 
 # Operating System
 - Process vs Thread
+- CPU Schduling
+- Dead Lock
+- Page Replacement Algorithm
 
 # MySQL
 
