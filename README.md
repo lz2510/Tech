@@ -18,3 +18,8 @@
 # Redis
 - Data Structure
 - Persistence
+
+# OOP
+- what's oop
+- advantage
+- features
