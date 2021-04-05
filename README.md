@@ -8,10 +8,9 @@
 
 # Operating System
 - [Process vs Thread](OperatingSystem/process-vs-thread.md)
-- Process Management
 - [CPU Schduling Algorithm](OperatingSystem/SchedulingAlgorithm.md)
 - [Dead Lock](OperatingSystem/deadlock.md)
-- Page Replacement Algorithm
+- [Page Replacement Algorithm](OperatingSystem/PageReplaceAlgorithm.md)
 
 # MySQL
 
