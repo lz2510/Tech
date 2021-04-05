@@ -10,7 +10,7 @@
 - [Process vs Thread](OperatingSystem/process-vs-thread.md)
 - Process Management
 - CPU Schduling
-- Dead Lock
+- [Dead Lock](OperatingSystem/deadlock.md)
 - Page Replacement Algorithm
 
 # MySQL
