@@ -22,6 +22,6 @@
 - Persistence
 
 # OOP
-- what's oop
-- advantage
-- features
+- [what's oop](OOP/define.md)
+- [advantage](OOP/advantage.md)
+- [features](OOP/features.md)
