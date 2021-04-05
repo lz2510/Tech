@@ -1,5 +1,5 @@
 # Network
-- OSI 7
+- [OSI 7](Network/OSI%207.md)
 - TCP 3 way handshake & 4 way handshake
 - TCP/IP
 - UDP
