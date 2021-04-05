@@ -8,3 +8,5 @@ A URL may contain a request to HTML, image file or any other type.
 - Browser sends a HTTP request.
 - Server has a web server like Apache, IIS running that handles incoming HTTP request and sends an HTTP response.
 - Browser receives the HTTP response and renders the content.
+# ref
+https://www.geeksforgeeks.org/commonly-asked-computer-networks-interview-questions-set-1/
