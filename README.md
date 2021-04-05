@@ -8,6 +8,7 @@
 
 # Operating System
 - Process vs Thread
+- Process Management
 - CPU Schduling
 - Dead Lock
 - Page Replacement Algorithm
