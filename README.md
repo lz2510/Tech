@@ -16,3 +16,5 @@
 # MySQL
 
 # Redis
+- Data Structure
+- Persistence
