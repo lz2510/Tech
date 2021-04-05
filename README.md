@@ -7,7 +7,7 @@
 - Blocking & Non-Blocking I/O
 
 # Operating System
-- Process vs Thread
+- [Process vs Thread](OperatingSystem/process-vs-thread.md)
 - Process Management
 - CPU Schduling
 - Dead Lock
