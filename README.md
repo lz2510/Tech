@@ -9,7 +9,7 @@
 # Operating System
 - [Process vs Thread](OperatingSystem/process-vs-thread.md)
 - Process Management
-- CPU Schduling
+- [CPU Schduling Algorithm](OperatingSystem/SchedulingAlgorithm.md)
 - [Dead Lock](OperatingSystem/deadlock.md)
 - Page Replacement Algorithm
 
