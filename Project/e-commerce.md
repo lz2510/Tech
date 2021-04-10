@@ -9,3 +9,4 @@
 - COS(Cloud Object Storage) to save image, save disk space and can improve visit speed by CDN 
 
 ## enhancement
+- redis sorted set to enhance sort in activity
