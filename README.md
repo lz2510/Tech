@@ -18,7 +18,7 @@
 - [Transation ACID](MySQL/acid.md)
 
 # Redis
-- Data Structure
+- [Data Types](Redis/data-types.md)
 - Persistence
 
 # OOP
