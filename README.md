@@ -19,7 +19,7 @@
 
 # Redis
 - [Data Types](Redis/data-types.md)
-- Persistence
+- [Persistence](Redis/persistence.md)
 
 # OOP
 - [what's oop](OOP/define.md)
