@@ -6,6 +6,7 @@
 - [HTTP & HTTPS](Network/HttpvsHttps.md)
 - [Blocking & Non-Blocking I/O](Network/Blocking-NoBlocking-IO.md)
 - [What happens when you type a URL in the web browser](Network/type-url-in-brower.md)
+- http status code
 
 # Operating System
 - [Process vs Thread](OperatingSystem/process-vs-thread.md)
