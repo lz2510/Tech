@@ -1,5 +1,13 @@
 # Behavior Interview
 
+## Common Questions
+
+### how to identify priority
+
+-- Project in company priority
+-- Online bug
+-- Feature nearby deadline
+
 ## Conflict Management
 
 ## Leadership
