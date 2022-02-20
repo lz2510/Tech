@@ -4,9 +4,9 @@
 
 ### how to identify priority
 
--- Project in company priority
--- Online bug
--- Feature nearby deadline
+- Project in company priority
+- Online bug
+- Feature nearby deadline
 
 ## Conflict Management
 
