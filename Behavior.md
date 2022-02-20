@@ -4,8 +4,10 @@
 
 ### Why move to Germany
 
-1. Travel to Europe, Switzerland, Italy, France.
-2. A friend related to Germany and post articles introducing environment and work.
+1. life decision, live aboard
+2. travel to EU, good expression in nature view
+3. friend moved and post articles, cycle culture, beautiful nature, work life balance culture 
+4. many tech companies in berlin
 
 ### how to identify priority
 
