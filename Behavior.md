@@ -2,6 +2,11 @@
 
 ## Common Questions
 
+### Why move to Germany
+
+1. Travel to Europe, Switzerland, Italy, France.
+2. A friend related to Germany and post articles introducing environment and work.
+
 ### how to identify priority
 
 - Project in company priority
