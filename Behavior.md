@@ -17,6 +17,18 @@
 - Divisity culture
 - Best practice
 
+### How to handle with disagreement
+
+- Say my real thinking, advantage and disadvantage.
+- Listen teammate thinking, advantage and disadvantage.
+- Make an agreement in some way.
+
+### How to trade-off new technical in general
+
+1. First of all, use all know technology
+2. Solution is important, need consider scalability, learning new technology is neccessary, not only for the solution, also for professional skills
+3. Depends on the development time. If 2 months, have time to learn. If 1 month, no time to learn. Can use all know technology. however should leave enhancement space.
+
 ## Conflict Management
 
 ## Leadership
