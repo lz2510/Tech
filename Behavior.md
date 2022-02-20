@@ -8,6 +8,15 @@
 - Online bug
 - Feature nearby deadline
 
+### how to identify success in a project 
+
+### if a bug and a task conflict in time
+
+### Excepection in next career
+
+- Divisity culture
+- Best practice
+
 ## Conflict Management
 
 ## Leadership
