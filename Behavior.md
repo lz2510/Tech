@@ -52,6 +52,19 @@ Example: “I was working as a project manager on an IT project, and one technic
 ### reference
 https://www.indeed.com/career-advice/interviewing/handle-conflict-in-workplace
 
+## How to impress a hiring manager during an interview
+- Understand the culture.
+- Demonstrate relevant experience.
+- Be enthusiastic.
+- Show that you're easy to work with.
+- Be precise about why you want the job.
+- Ask thoughtful questions.
+- Show that you've been paying attention.
+- Relax and be yourself.
+
+### reference
+https://www.indeed.com/career-advice/interviewing/hiring-manager-interview
+
 ## Leadership
 
 ## Management
