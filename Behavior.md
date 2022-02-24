@@ -2,6 +2,8 @@
 
 ## Common questions to ask
 
+## Can you introduce the engineering team? What's the develop progress?
+
 ### what's the expecation of this position or what's the responsibility of this role?
 
 ## Common Questions to be asked
