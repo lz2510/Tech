@@ -15,7 +15,7 @@
 
 ### Do you know any other programming languages?
 - know basis of java, python, golang
-- there are similar thins between languages. for example how to divide feature to differenct class, method? how to write test? how to interact with database?
+- there are similar things between languages. for example how to divide feature to differenct class, method? how to write test? how to interact with database?
 
 ### how to identify priority
 
