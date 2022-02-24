@@ -1,6 +1,10 @@
 # Behavior Interview
 
-## Common Questions
+## Common questions to ask
+
+### what's the expecation of this position or what's the responsibility of this role?
+
+## Common Questions to be asked
 
 ### Why move to Germany
 
@@ -8,6 +12,10 @@
 2. travel to EU, good expression in nature view
 3. friend moved and post articles, cycle culture, beautiful nature, work life balance culture 
 4. many tech companies in berlin
+
+### Do you know other programming languages?
+- know basis of java, python, golang
+- there are similar thins between languages? for example how to divide feature to differenct class, method? how to write test? how to interact with database?
 
 ### how to identify priority
 
