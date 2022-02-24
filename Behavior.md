@@ -13,6 +13,10 @@
 3. friend moved and post articles, cycle culture, beautiful nature, work life balance culture 
 4. many tech companies in berlin
 
+## What’s your ideal role in your next company?
+- First of all, divise culture. I am from China, Asian. I want my next company have more nationalities.
+- The second, from the technology perspective. I want my next company follow the best pratices in engineering industry. For example, the SOLID principle in OOP.
+
 ### Do you write test?
 
 - I write unit test and integration test when write feature code.
