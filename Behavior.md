@@ -49,6 +49,10 @@ how to priority single task
 2. If I encounter a difficult area, I ask for suggestions from others (team members, supervisor, manager) then re-evaluate the project and make changes, as needed.
 3. If it is becoming clear the estimated deadline will not be met, I’ll evaluate the tasks then discuss the situation with my manager to make suggestions or recommendations.
 
+#### referenct
+https://www.glassdoor.com/blog/guide/how-do-you-prioritize-your-work/  
+https://www.indeed.com/career-advice/interviewing/how-do-you-prioritize-your-work-interview-question
+
 ### how to identify success in a project 
 
 ### if a bug and a task conflict in time
