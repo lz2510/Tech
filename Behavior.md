@@ -82,8 +82,36 @@ The STAR approach may prove helpful when answering this type of question. This a
 
 Example: “I was working as a project manager on an IT project, and one technician was constantly late finishing tasks. When I approached him about it, he reacted defensively. I kept calm and acknowledged that the deadlines were challenging and asked how I could assist him in improving his performance. He calmed down and told me that he was involved in another project where he had to do tasks that were not in his job description. After a meeting with the other project manager, we came to a resolution that alleviated the technician’s workload. For the remainder of the project, the technician delivered great work.”
 
-### reference
+#### reference
 https://www.indeed.com/career-advice/interviewing/handle-conflict-in-workplace
+
+### How to Manage Conflict Between Your Team Members
+
+#### Types of Workplace Conflict
+
+Generally, workplace conflicts fall into two categories:
+
+- Personality conflict or disagreements between individuals. These clashes are driven and perpetuated by emotions such as anger, stress and frustration.
+- Substantive conflict is tangible and task-related, like the decisions leaders make, the performance of a team member, or your company's direction.
+
+#### What Causes Conflict at Work?
+
+Some of the most common causes of workplace conflict are:
+
+- Unclear responsibilities. Some team members may feel they do more work than others, or resent those who seem to have fewer responsibilities. Blame and frustration can build due to duplicated work or unfinished tasks.
+- Competition for resources. Time, money, materials, equipment, and skillsets are finite resources. Competition for them can lead to conflict.
+- Different interests. People may focus on personal or departmental goals over organizational ones. Or be held up and frustrated by others who they rely on to do their jobs effectively.
+
+#### How to address
+1. Speak to team members individually.
+2. Bring people together.
+3. Ask the wider team for ideas.
+4. Draw up a plan.
+5. Follow up.
+
+#### reference
+https://www.mindtools.com/pages/article/newTMM_79.htm 
+https://www.mindtools.com/pages/article/newLDR_81.htm
 
 ## How to impress a hiring manager during an interview
 - Understand the culture.
