@@ -31,10 +31,27 @@
 - There are similar things between languages. For example how to divide feature to differenct class, method? how to write test? how to interact with database?
 
 ### how to identify priority
+An interviewer may ask about how you prioritize your work in a way similar to these examples:
 
-- Project in company priority
+1. Do you prioritize a project when it’s assigned? If so, explain the basic steps you use to set up a time management plan.
+2. When prioritizing a project, are there any areas you find more difficult to organize than others? If there are, how do you incorporate them into the priority list?
+3. When it’s clear the impending deadline for a project will not be met how do you handle the situation?  
+
+Example responses to the above questions:  
+Consider these examples to help you create your own response:
+
+1. I start with a checklist of all tasks then sort them between urgent (priority) and important (secondary). If a task is unclear, I acquire more information before rating it. New tasks being assigned to the project are evaluated then added to the appropriate list.  
+
+how to priority single task
+- Task which belongs project in company level priority
 - Online bug
-- Feature nearby deadline
+- Task nearby deadline
+2. If I encounter a difficult area, I ask for suggestions from others (team members, supervisor, manager) then re-evaluate the project and make changes, as needed.
+3. If it is becoming clear the estimated deadline will not be met, I’ll evaluate the tasks then discuss the situation with my manager to make suggestions or recommendations.
+
+#### referenct
+https://www.glassdoor.com/blog/guide/how-do-you-prioritize-your-work/  
+https://www.indeed.com/career-advice/interviewing/how-do-you-prioritize-your-work-interview-question
 
 ### how to identify success in a project 
 
