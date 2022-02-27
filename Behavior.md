@@ -82,8 +82,20 @@ The STAR approach may prove helpful when answering this type of question. This a
 
 Example: “I was working as a project manager on an IT project, and one technician was constantly late finishing tasks. When I approached him about it, he reacted defensively. I kept calm and acknowledged that the deadlines were challenging and asked how I could assist him in improving his performance. He calmed down and told me that he was involved in another project where he had to do tasks that were not in his job description. After a meeting with the other project manager, we came to a resolution that alleviated the technician’s workload. For the remainder of the project, the technician delivered great work.”
 
-### reference
+#### reference
 https://www.indeed.com/career-advice/interviewing/handle-conflict-in-workplace
+
+### How to Manage Conflict Between Your Team Members
+
+1. Speak to team members individually.
+2. Bring people together.
+3. Ask the wider team for ideas.
+4. Draw up a plan.
+5. Follow up.
+
+### reference
+https://www.mindtools.com/pages/article/newTMM_79.htm 
+https://www.mindtools.com/pages/article/newLDR_81.htm
 
 ## How to impress a hiring manager during an interview
 - Understand the culture.
