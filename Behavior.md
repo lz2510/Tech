@@ -57,12 +57,6 @@ https://www.indeed.com/career-advice/interviewing/how-do-you-prioritize-your-wor
 
 ### if a bug and a task conflict in time
 
-### How to handle with disagreement
-
-- Say my real thinking, advantage and disadvantage.
-- Listen teammate thinking, advantage and disadvantage.
-- Make an agreement in some way.
-
 ### How to trade-off new technical in general
 
 1. First of all, use all know technology
@@ -95,6 +89,12 @@ Example: “I was working as a project manager on an IT project, and one technic
 https://www.indeed.com/career-advice/interviewing/handle-conflict-in-workplace
 
 ### How do you handle disagreements when working as part of a team? Provide an example.
+
+- Say my real thinking, advantage and disadvantage.
+- Listen teammate thinking, advantage and disadvantage.
+- Make an agreement in some way.
+- ask more people how to think about it 
+- ask manager for help 
 
 When working on a team, conflict may arise between different people at any time. Your response to this question can demonstrate your ability to collaborate effectively with a variety of working styles.
 
