@@ -9,5 +9,20 @@
 ### reference
 https://kinsta.com/knowledgebase/convert-myisam-to-innodb/  
 
-### MyISAM vs InnoDBStorage: ACID Properties 
-ACID stands for Atomicity, Consistency, Isolation, and Durability. MyISAM doesn’t support ACID properties whereas InnoDB supports ACID properties.
+## Transaction
+
+Transactions are atomic units of work that can be committed or rolled back. When a transaction makes multiple changes to the database, either all the changes succeed when the transaction is committed, or all the changes are undone when the transaction is rolled back.
+
+### reference
+
+https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_transaction  
+https://en.wikipedia.org/wiki/Database_transaction
+
+## ACID
+
+In computer science, ACID (atomicity, consistency, isolation, durability) is a set of properties of database transactions intended to guarantee data validity despite errors, power failures, and other mishaps.
+
+### reference
+
+https://en.wikipedia.org/wiki/ACID
+https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_acid
