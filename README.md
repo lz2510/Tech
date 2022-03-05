@@ -33,14 +33,13 @@
 - [advantage](OOP/advantage.md)
 - [features](OOP/features.md)
 - SOLID  
-   Liskov substitution principle 
+   ## Liskov substitution principle 
    To achieve that, your subclasses need to follow these rules: 
    * Don’t implement any stricter validation rules on input parameters than implemented by the parent class. 
    * Apply at the least the same rules to all output parameters as applied by the parent class. 
-   https://en.wikipedia.org/wiki/Liskov_substitution_principle 
-   https://stackify.com/solid-design-liskov-substitution-principle/ 
-
-
+   https://en.wikipedia.org/wiki/Liskov_substitution_principle  
+   https://stackify.com/solid-design-liskov-substitution-principle/  
+   https://www.baeldung.com/solid-principles  
 
 # Project
 - [e-commerce](Project/e-commerce.md)
