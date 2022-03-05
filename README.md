@@ -21,8 +21,7 @@
 - [Page Replacement Algorithm](OperatingSystem/PageReplaceAlgorithm.md)
 
 # MySQL
-- [Transaction](MySQL/transaction.md)
-- [Transation ACID](MySQL/acid.md)
+- [mysql](mysql.md)
 
 # Redis
 - [Data Types](Redis/data-types.md)
