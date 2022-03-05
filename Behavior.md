@@ -116,6 +116,21 @@ Example: “When preparing data about the success of past projects to request fu
 
 https://www.indeed.com/career-advice/interviewing/interview-questions-about-conflict
 
+## How to impress a hiring manager during an interview
+- Understand the culture.
+- Demonstrate relevant experience.
+- Be enthusiastic.
+- Show that you're easy to work with.
+- Be precise about why you want the job.
+- Ask thoughtful questions.
+- Show that you've been paying attention.
+- Relax and be yourself.
+
+### reference
+https://www.indeed.com/career-advice/interviewing/hiring-manager-interview
+
+## Leadership
+
 ### How to Manage Conflict Between Your Team Members
 
 #### Types of Workplace Conflict
@@ -143,21 +158,6 @@ Some of the most common causes of workplace conflict are:
 #### reference
 https://www.mindtools.com/pages/article/newTMM_79.htm 
 https://www.mindtools.com/pages/article/newLDR_81.htm
-
-## How to impress a hiring manager during an interview
-- Understand the culture.
-- Demonstrate relevant experience.
-- Be enthusiastic.
-- Show that you're easy to work with.
-- Be precise about why you want the job.
-- Ask thoughtful questions.
-- Show that you've been paying attention.
-- Relax and be yourself.
-
-### reference
-https://www.indeed.com/career-advice/interviewing/hiring-manager-interview
-
-## Leadership
 
 ## Management
 
