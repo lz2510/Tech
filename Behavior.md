@@ -72,6 +72,7 @@ https://www.indeed.com/career-advice/interviewing/how-do-you-prioritize-your-wor
 ## Conflict Management
 
 ### Can you recall a time of conflict with a coworker?
+
 Behavioral questions require you to describe how you acted in a real-life situation. Prospective employers ask this type of question to learn more about your personality. Past behavior often indicates how you would react in comparable future situations, so be sure to provide an example you are proud of or to explain the lessons you took away from the experience. It is important to emphasize the resolution that took place, as opposed to dwelling on the conflict itself.  
 
 The STAR approach may prove helpful when answering this type of question. This acronym stands for:  
@@ -83,7 +84,37 @@ The STAR approach may prove helpful when answering this type of question. This a
 Example: “I was working as a project manager on an IT project, and one technician was constantly late finishing tasks. When I approached him about it, he reacted defensively. I kept calm and acknowledged that the deadlines were challenging and asked how I could assist him in improving his performance. He calmed down and told me that he was involved in another project where he had to do tasks that were not in his job description. After a meeting with the other project manager, we came to a resolution that alleviated the technician’s workload. For the remainder of the project, the technician delivered great work.”
 
 #### reference
+
 https://www.indeed.com/career-advice/interviewing/handle-conflict-in-workplace
+
+### How do you handle disagreements when working as part of a team? Provide an example.
+
+When working on a team, conflict may arise between different people at any time. Your response to this question can demonstrate your ability to collaborate effectively with a variety of working styles.
+
+When answering this question, explain how you respond to disagreements between multiple people and how you work to resolve them to accomplish the team goals. Provide an example from your experience that illustrates how you handle disagreements between team members. Try using the STAR method to form a thorough response. 
+Example: “In my previous experience, I was working with a group to prepare a presentation for leadership. The group was responsible for conceptualizing an idea and presenting a project plan to implement the idea. We selected an idea and developed an action plan for completing the presentation. Two of the team members wanted to hold daily meetings to discuss the plan and progress. Other team members, including myself, disagreed with this approach because the team had a log to report task progress and completion. 
+
+“As long as everyone knew their assigned tasks, we did not think we needed to divert time for meetings that would not move the project forward. We also thought these meetings would use valuable time needed to complete the project. Instead of starting an argument about the meetings, we gathered everyone together to explain their reasoning for their side. Eventually, we decided to hold a daily meeting that would last no more than ten minutes to provide short updates on task progress.”
+
+#### response
+
+https://www.indeed.com/career-advice/interviewing/interview-questions-about-conflict
+
+### Explain a situation in which you disagreed with your manager and how you handled it.
+
+Just as you could experience a conflict with team members, you may have also disagreed with a manager in the past. This question could determine how you respond to disagreements when it is with an authority figure and how it could impact your ability to perform assigned tasks. 
+
+Your response can show your ability to follow instructions and how you approach a disagreement with your manager or supervisor. When answering this question, provide an honest example of when you disagreed with a supervisor and how you were able to resolve that conflict. 
+
+Example: “When preparing data about the success of past projects to request funding for a new project in our department, a supervisor asked me to delete data records for projects that were less successful. I knew that deleting these records would skew the results and representation of our past performance. I expressed this concern to my supervisor, but she insisted that I remove the data. 
+
+“After careful consideration, I decided to discuss the issue with the next level of management, which dismissed my concerns and supported the decision to remove the data. Ultimately, I removed data as directed, but I also changed the language in the report to clearly communicate that the reported data represented successful projects to ensure I accurately represented the information. I also documented the situation, including data records removed from reported results, in the event of questioning or an audit. 
+
+“I understood my supervisor’s decision for the request, but I could not compromise my values. I tried to create a compromise in removing the data and adding the language. We did eventually receive funding for our project based on the reports.” 
+
+#### reference
+
+https://www.indeed.com/career-advice/interviewing/interview-questions-about-conflict
 
 ### How to Manage Conflict Between Your Team Members
 
