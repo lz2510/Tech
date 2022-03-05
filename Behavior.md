@@ -71,6 +71,13 @@ https://www.indeed.com/career-advice/interviewing/how-do-you-prioritize-your-wor
 
 ## Conflict Management
 
+Conflict interview questions are questions designed to assess how you respond to and resolve conflict in the workplace. Employers ask these questions to get an idea of how well you work under and manage stress as well as your ability to professionally and respectfully resolve conflict with others. Here are five questions about conflict that an interviewer may ask:
+1. How do you handle conflict?
+2. Explain a situation when you had a conflict at work and how you handled it.
+3. How do you handle disagreements when working as part of a team? Provide an example.
+4. Explain a situation when you disagreed with your boss and how you handled it.
+5. Explain a situation when you disagreed with a rule or policy and how you handled it.
+
 ### Can you recall a time of conflict with a coworker?
 
 Behavioral questions require you to describe how you acted in a real-life situation. Prospective employers ask this type of question to learn more about your personality. Past behavior often indicates how you would react in comparable future situations, so be sure to provide an example you are proud of or to explain the lessons you took away from the experience. It is important to emphasize the resolution that took place, as opposed to dwelling on the conflict itself.  
@@ -128,6 +135,10 @@ https://www.indeed.com/career-advice/interviewing/interview-questions-about-conf
 
 ### reference
 https://www.indeed.com/career-advice/interviewing/hiring-manager-interview
+
+## reference
+
+https://www.indeed.com/career-advice/interviewing/interview-questions-about-conflict
 
 ## Leadership
 
