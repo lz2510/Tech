@@ -44,7 +44,19 @@ https://www.geeksforgeeks.org/difference-between-sql-and-nosql/
 
 ## CAP
 
-- Consistency: Every request receives the most recent result, or an error. (Note this is different than in ACID)
-- Availability: Every request has a non-error result, regardless of how recent that result is.
-- Partition tolerance: Any delays or losses between nodes will not interrupt the system’s operation.
+In theoretical computer science, the CAP theorem, also named Brewer's theorem after computer scientist Eric Brewer, states that any distributed data store can only provide two of the following three guarantees:  
+- Consistency  
+Every read receives the most recent write or an error.
+- Availability      
+Every request receives a (non-error) response, without the guarantee that it contains the most recent write.
+- Partition tolerance   
+The system continues to operate despite an arbitrary number of messages being dropped (or delayed) by the network between nodes.
+
+When a network partition failure happens, it must be decided whether to
+- cancel the operation and thus decrease the availability but ensure consistency or to
+- proceed with the operation and thus provide availability but risk inconsistency.
+
+Thus, if there is a network partition, one has to choose between consistency and availability. Note that consistency as defined in the CAP theorem is quite different from the consistency guaranteed in ACID database transactions.
+
+Eric Brewer argues that the often-used "two out of three" concept can be somewhat misleading because system designers only need to sacrifice consistency or availability in the presence of partitions, but that in many systems partitions are rare.
 
