@@ -29,14 +29,25 @@ https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_acid
 
 ## SQL vs NoSQL
 
-- SQL databases are relational, NoSQL databases are non-relational.
-- SQL databases use structured query language and have a predefined schema. NoSQL databases have dynamic schemas for unstructured data.
-- SQL databases are vertically scalable, while NoSQL databases are horizontally scalable.
-- SQL databases are table-based, while NoSQL databases are document, key-value, graph, or wide-column stores.
-- SQL databases are better for multi-row transactions, while NoSQL is better for unstructured data like documents or JSON.
+SQL databases are relational, NoSQL databases are non-relational.
+1. Language
+SQL database use sql to query data while as a group NoSQL language lack of standard interface.
+2. Scalability
+SQL database can be scaled vertically while NoSQL database are scable horizontally.
+3. Structure
+SQL databases are table-based, while NoSQL databases are document, key-value, graph, or wide-column stores.
+4. Properties
+SQL database tranaction follows ACID while NoSQL database follows CAP.
 
 ### reference
 
+https://www.talend.com/resources/sql-vs-nosql/  
 https://www.integrate.io/blog/the-sql-vs-nosql-difference/
 https://www.geeksforgeeks.org/difference-between-sql-and-nosql/
+
+## CAP
+
+- Consistency: Every request receives the most recent result, or an error. (Note this is different than in ACID)
+- Availability: Every request has a non-error result, regardless of how recent that result is.
+- Partition tolerance: Any delays or losses between nodes will not interrupt the system’s operation.
 
