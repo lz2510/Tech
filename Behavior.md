@@ -82,10 +82,9 @@ The STAR approach may prove helpful when answering this type of question. This a
 - Action: Discuss what you did to resolve or address the situation.  
 - Result: Emphasize what you learned and how your actions had a positive outcome.  
 
-Example: “I was working as a project manager on an IT project, and one technician was constantly late finishing tasks. When I approached him about it, he reacted defensively. I kept calm and acknowledged that the deadlines were challenging and asked how I could assist him in improving his performance. He calmed down and told me that he was involved in another project where he had to do tasks that were not in his job description. After a meeting with the other project manager, we came to a resolution that alleviated the technician’s workload. For the remainder of the project, the technician delivered great work.”
+There was a cross team task. I ask the other team coworker to update code and db which they managed. He reacted defensively. I kept calm and talked with him. The reason was he thought it wasn't his responsibility. I arranaged a meeting with both teams managers to make the the responsibity clear. The result is positive.
 
-#### reference
-
+reference  
 https://www.indeed.com/career-advice/interviewing/handle-conflict-in-workplace
 
 ### How do you handle disagreements when working as part of a team? Provide an example.
