@@ -7,7 +7,6 @@
 ### Can you introduct the technology in detail? For exmpale the language, database.
 
 ### what's the expecation of this position or what's the responsibility of this role?
-1. what’s your typical day? from go to office to leave office.
 
 ## Common Questions to be asked
 
