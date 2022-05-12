@@ -14,8 +14,8 @@
 
 1. life decision, live aboard
 2. travel to EU, good expression in nature view
-3. friend moved and post articles, cycle culture, beautiful nature, work life balance culture 
-4. many tech companies in berlin
+3. many tech companies in berlin
+4. friend moved and post articles, cycle culture, beautiful nature, work life balance culture 
 
 ### What’s your ideal role in your next company?
 - First of all, divise culture. I am from China, Asian. I want my next company have more nationalities.
