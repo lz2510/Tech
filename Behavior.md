@@ -7,6 +7,7 @@
 3. Can you introduce the engineering team? What's the develop progress?
 4. Can you introduct the technology in detail? For exmpale the language, database.
 5. What's the expecation of this position or what's the responsibility of this role?
+6. What’s your typical day? From go to office to leave office.
 
 ## Common Questions to be asked
 
