@@ -2,11 +2,11 @@
 
 ## Common questions to ask
 
-### Can you introduce the engineering team? What's the develop progress?
-
-### Can you introduct the technology in detail? For exmpale the language, database.
-
-### what's the expecation of this position or what's the responsibility of this role?
+1. Do you sponsor the working visa?
+2. Do you speak English or Germany in office?
+3. Can you introduce the engineering team? What's the develop progress?
+4. Can you introduct the technology in detail? For exmpale the language, database.
+5. What's the expecation of this position or what's the responsibility of this role?
 
 ## Common Questions to be asked
 
