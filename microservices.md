@@ -28,5 +28,5 @@ This set us free from the response times of other services.
 - Messaging creates decoupled solution, where each Service may be in control of what they want to know (subscribe to).
 
 ### Reference
-https://blog.devgenius.io/how-to-integrate-microservices-a506fe2d1a48
+https://blog.devgenius.io/how-to-integrate-microservices-a506fe2d1a48  
 https://docs.microsoft.com/en-us/azure/architecture/microservices/design/interservice-communication
