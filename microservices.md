@@ -6,6 +6,18 @@
 
 ### Api composition
 
+### CQRS
+
+CQRS is an architectural pattern that separates the models for reading and writing data.  
+
+The basic idea is that you can divide a system's operations into two sharply separated categories:  
+- Queries. These queries return a result and do not change the state of the system, and they are free of side effects.
+- Commands. These commands change the state of a system.
+
+#### Reference
+
+https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/apply-simplified-microservice-cqrs-ddd-patterns  
+
 ## Communication style
 
 There are two basic messaging patterns that microservices can use to communicate with other microservices.  
