@@ -4,6 +4,13 @@
 
 ### Shared database
 
+### Saga
+
+Implement each business transaction that spans multiple services is a saga. A saga is a sequence of local transactions. Each local transaction updates the database and publishes a message or event to trigger the next local transaction in the saga. If a local transaction fails because it violates a business rule then the saga executes a series of compensating transactions that undo the changes that were made by the preceding local transactions.
+
+#### Reference
+https://microservices.io/patterns/data/saga.html
+
 ### Api composition
 
 ### CQRS
@@ -17,6 +24,16 @@ The basic idea is that you can divide a system's operations into two sharply sep
 #### Reference
 
 https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/apply-simplified-microservice-cqrs-ddd-patterns  
+
+### Event sourcing
+
+Event sourcing persists the state of a business entity such an Order or a Customer as a sequence of state-changing events. Whenever the state of a business entity changes, a new event is appended to the list of events. Since saving an event is a single operation, it is inherently atomic. The application reconstructs an entity’s current state by replaying the events.
+
+Applications persist events in an event store, which is a database of events. The store has an API for adding and retrieving an entity’s events. The event store also behaves like a message broker. It provides an API that enables services to subscribe to events. When a service saves an event in the event store, it is delivered to all interested subscribers.
+
+#### Reference
+
+https://microservices.io/patterns/data/event-sourcing.html
 
 ## Communication style
 
