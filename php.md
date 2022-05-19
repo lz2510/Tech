@@ -46,8 +46,8 @@ Then comes the routing part. All the routings configurations are in App\Provider
 
 ### final steps
 
-Once the route or controller method returns a response, the response will travel back outward through the route’s middleware, giving the application a chance to modify or examine the outgoing response.
-Finally, once the response travels back through the middleware, the HTTP kernel’s handle method returns the response object and the index.php file calls the send method on the returned response. The send method sends the response content to the user's web browser.
+Once the route or controller method returns a response, the response will travel back outward through the route’s middleware.
+Then the HTTP kernel’s handle method returns the response object and the index.php file calls the send method on the returned response. The send method sends the response content to the user's web browser.
 
 ### reference
 
