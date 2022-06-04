@@ -27,6 +27,9 @@
 - [Data Types](Redis/data-types.md)
 - [Persistence](Redis/persistence.md)
 
+# Kafka
+- [Kafka](kafka.md)
+
 # OOP
 - [what's oop](OOP/define.md)
 - [advantage](OOP/advantage.md)
