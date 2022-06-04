@@ -23,8 +23,7 @@
 - [mysql](mysql.md)
 
 # Redis
-- [Data Types](Redis/data-types.md)
-- [Persistence](Redis/persistence.md)
+- [redis](redis.md)
 
 # Kafka
 - [Kafka](kafka.md)
