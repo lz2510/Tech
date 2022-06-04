@@ -1,5 +1,12 @@
 # http
 
+## http status code
+
+200 get successfully  
+201 post successfully
+
+## restful
+
 ## What is the difference between HTTP and HTTPS?
 
 HTTP runs beyond the TCP and transfers the content with plaintext. Both client and server sides cannot verify each other’s identity.
