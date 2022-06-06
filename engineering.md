@@ -4,15 +4,13 @@
 
 Object Oriented Programming (OOP) is a programming paradigm where the complete software operates as a bunch of objects talking to each other. An object is a collection of data and methods that operate on its data.
 
-#### ref
-
 https://www.geeksforgeeks.org/commonly-asked-oop-interview-questions/
 
 ## What are main features of OOP?
 - Encapsulation
 - Polymorphism
 - Inheritance
-### ref
+
 https://www.geeksforgeeks.org/commonly-asked-oop-interview-questions/
 
 ## Advantages of OOP?
@@ -24,19 +22,24 @@ The main advantage of OOP is better manageable code that covers following.
 2) Object orientation eases maintenance by the use of encapsulation.   One can easily change the underlying representation by keeping the methods same.
 
 OOP paradigm is mainly useful for relatively big software.
-### ref
+
 https://www.geeksforgeeks.org/commonly-asked-oop-interview-questions/
 
-## SOLID  
+## SOLID 
 
-   ### Liskov substitution principle 
-   
-   To achieve that, your subclasses need to follow these rules: 
-   * Don’t implement any stricter validation rules on input parameters than implemented by the parent class. 
-   * Apply at the least the same rules to all output parameters as applied by the parent class. 
-   https://en.wikipedia.org/wiki/Liskov_substitution_principle  
-   https://stackify.com/solid-design-liskov-substitution-principle/  
-   https://www.baeldung.com/solid-principles  
+### Open closed principle
+
+https://mohasin-dev.medium.com/how-to-use-open-closed-principal-in-php-laravel-af4fa3b2a1c1
+
+### Liskov substitution principle 
+
+To achieve that, your subclasses need to follow these rules: 
+* Don’t implement any stricter validation rules on input parameters than implemented by the parent class. 
+* Apply at the least the same rules to all output parameters as applied by the parent class. 
+
+https://en.wikipedia.org/wiki/Liskov_substitution_principle  
+https://stackify.com/solid-design-liskov-substitution-principle/  
+https://www.baeldung.com/solid-principles  
    
 ## kiss principle 
 
