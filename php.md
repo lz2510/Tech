@@ -21,10 +21,16 @@ The new match is similar to switch and has the following features:
 - Match does strict comparisons.
 - https://wiki.php.net/rfc/match_expression_v2
 
+### Array unpacking support for string-keyed arrays
+
+PHP 7.4 added support for unpacking inside arrays through the spread_operator_for_array RFC. At the time, unpacking of string keys was prohibited, both due to uncertainty regarding the semantics, and because the same limitation existed for argument unpacking at the time. In the meantime, the argument unpacking limitation has been removed by the introduction of named arguments. This RFC proposes to permit unpacking of string keys into arrays as well.
+
 ### Reference
 
 https://www.php.net/releases/8_0_0.php 
-https://www.php.net/releases/8_0_0.php 
+https://www.php.net/releases/8.1/en.php  
+https://kvnc-inc.medium.com/php-8-1-new-features-array-is-a-list-array-unpack-c2e41cf826bc  
+https://wiki.php.net/rfc/array_unpacking_string_keys  
 
 ## Lifecycle of laravel
 
