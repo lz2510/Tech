@@ -45,3 +45,10 @@ Keep it simple and stupid
 ## dry principle
 
 Don't repeat yourself
+
+## code layer
+
+Service layer    
+Action layer  
+
+https://blog.devgenius.io/restructuring-a-laravel-controller-using-services-action-classes-288b802122b5
