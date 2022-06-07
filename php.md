@@ -61,4 +61,12 @@ Then the HTTP kernel’s handle method returns the response object and the index
 https://medium.com/@upinderjits/laravel-lifecycle-8f5baf625b41  
 https://laravel.com/docs/9.x/lifecycle  
 
+## E_ERROR
 
+PHP’s E_ERROR typically indicates a major issue with PHP. Normally, PHP may be able to recover from a lesser error and the PHP application could continue to run. However, with E_ERROR, PHP will usually outright fail and stop working entirely.
+
+1. E_ERROR (int)	Fatal run-time errors. These indicate errors that can not be recovered from, such as a memory allocation problem. <b>Execution of the script is halted</b>.	 
+2. E_WARNING (int)	Run-time warnings (non-fatal errors). Execution of the script is not halted.
+
+https://rollbar.com/blog/e_errors-in-php/  
+https://www.php.net/manual/en/errorfunc.constants.php
