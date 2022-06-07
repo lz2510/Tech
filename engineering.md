@@ -41,11 +41,11 @@ https://en.wikipedia.org/wiki/Liskov_substitution_principle
 https://stackify.com/solid-design-liskov-substitution-principle/  
 https://www.baeldung.com/solid-principles  
    
-## kiss principle 
+## KISS principle 
 
 Keep it simple and stupid
 
-## dry principle
+## DRY principle
 
 Don't repeat yourself
 
@@ -55,3 +55,14 @@ Service layer
 Action layer  
 
 https://blog.devgenius.io/restructuring-a-laravel-controller-using-services-action-classes-288b802122b5
+
+## clean controller
+
+if we’re handling authorization, validation, business logic and response building all in one place, controller will be bloated.
+
+1. move authorization and validation to request form
+2. move business logic to action or service
+3. use resources controller or single use controller
+4. use DTO
+
+https://medium.com/codex/cleaning-up-laravel-controllers-a2934b7bf1c
