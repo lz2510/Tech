@@ -49,6 +49,46 @@ Keep it simple and stupid
 
 Don't repeat yourself
 
+## the twelve-factor app
+
+I. Codebase  
+One codebase tracked in revision control, many deploys
+
+II. Dependencies  
+Explicitly declare and isolate dependencies
+
+III. Config  
+Store config in the environment
+
+IV. Backing services  
+Treat backing services as attached resources
+
+V. Build, release, run  
+Strictly separate build and run stages
+
+VI. Processes  
+Execute the app as one or more stateless processes
+
+VII. Port binding  
+Export services via port binding
+
+VIII. Concurrency  
+Scale out via the process model
+
+IX. Disposability  
+Maximize robustness with fast startup and graceful shutdown
+
+X. Dev/prod parity  
+Keep development, staging, and production as similar as possible
+
+XI. Logs  
+Treat logs as event streams
+
+XII. Admin processes  
+Run admin/management tasks as one-off processes
+
+https://12factor.net
+
 ## code layer
 
 Service layer    
@@ -66,3 +106,4 @@ if we’re handling authorization, validation, business logic and response build
 4. use DTO
 
 https://medium.com/codex/cleaning-up-laravel-controllers-a2934b7bf1c
+
