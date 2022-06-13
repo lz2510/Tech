@@ -119,3 +119,19 @@ PSR-2: Coding Style Guide
 PSR-4: Autoloader  
 
 https://www.php-fig.org/psr/  
+
+## Clean Code
+
+- General rules
+- Design rules
+- Understandability tips
+- Names rules
+- Functions rules
+- Comments rules
+- Source code structure
+- Objects and data structures
+- Tests
+- Code smells
+
+https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29  
+https://juanmacias.medium.com/cleancode-is-not-what-you-think-46c2d56e5d73  
