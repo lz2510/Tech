@@ -13,6 +13,8 @@ Any status code in the 500-599 range generally means that the HTTP request looke
 200 get successfully  
 201 post successfully
 
+https://stackoverflow.com/questions/1860645/create-request-with-post-which-response-codes-200-or-201-and-content
+
 ## restful
 
 ## What is the difference between HTTP and HTTPS?

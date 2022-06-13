@@ -33,7 +33,8 @@ Applications persist events in an event store, which is a database of events. Th
 
 #### Reference
 
-https://microservices.io/patterns/data/event-sourcing.html
+https://microservices.io/patterns/data/event-sourcing.html  
+https://medium.com/nerd-for-tech/starting-with-event-sourcing-in-php-161a83597d69
 
 ## Communication style
 
