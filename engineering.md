@@ -107,3 +107,10 @@ if we’re handling authorization, validation, business logic and response build
 
 https://medium.com/codex/cleaning-up-laravel-controllers-a2934b7bf1c
 
+## PSR
+
+PSR-1: Basic Coding Standard  
+PSR-2: Coding Style Guide  
+PSR-4: Autoloader  
+
+https://www.php-fig.org/psr/  
