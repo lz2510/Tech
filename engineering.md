@@ -25,6 +25,11 @@ OOP paradigm is mainly useful for relatively big software.
 
 https://www.geeksforgeeks.org/commonly-asked-oop-interview-questions/
 
+## code quality tools
+
+- PhpCS - PHP Code Sniffer
+- PHPMD - PHP Mess Dector
+
 ## SOLID 
 
 ### Open closed principle
