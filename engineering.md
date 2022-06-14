@@ -134,4 +134,3 @@ https://www.php-fig.org/psr/
 - Code smells
 
 https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29  
-https://juanmacias.medium.com/cleancode-is-not-what-you-think-46c2d56e5d73  
