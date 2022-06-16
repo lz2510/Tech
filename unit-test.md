@@ -1,9 +1,14 @@
 # unit test
 
-## how to make sure test is good engough
+## how to make sure code is good engough and don't introduce new bug
 
-1. test coverage
-2. follow best pritice
+- use code quality tool
+- follow best pritice
+- when fix a bug. write a test that reproduces the bug. then fix the bug.
+- use automaticed test tool to generate test coverage, if lower than coverage rate, then reject.
+when develop new feature, write unit and functional test.
+
+https://softwareengineering.stackexchange.com/questions/357343/how-can-i-avoid-causing-bugs-in-the-software-when-i-fix-unrelated-bugs  
 
 ## best pritice
 
