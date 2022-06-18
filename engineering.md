@@ -1,5 +1,27 @@
 # Enginering
 
+## how to make sure code is good engough and don't introduce new bug
+
+- use code quality tool
+- follow best pritice
+- when fix a bug. write a test that reproduces the bug. then fix the bug.
+- use automaticed test tool to generate test coverage, if lower than coverage rate, then reject.
+when develop new feature, write unit and functional test.
+
+## how to avoid introduing new bug when fixing bug
+
+- Write unit test. Every time a bug is discovered in your system, you should write an automated test that reproduces the bug. Then fix the bug. This will improve the system over time.
+
+- Inspect the code. Whenever you fix a bug, it's a good idea to inspect the usages of the function you've changed to try to identify any breaking changes you've introduced.
+
+- Talk to your coworkers about your proposed fix. This could take the form of code reviews but sometimes that won't catch the regressions. Code reviews aren't usually for catching bugs. As a corollary, make sure the rest of the team knows about the changes you're making and give them time to give you feedback on what other parts of the system might rely on the code. Do this even if you're the senior person on the team.
+
+- Familiarize yourself with the system, and work with software a long time. Practice makes perfect. Nobody expects a developer to not introduce bugs into a brand new system or when they're an intern. We've all done it.
+
+- Improve your code design so that code is more loosely coupled. That means following the SRP even it means sacrificing some DRY. Particularly, in OOP systems your code and data should be in the same class and the data should always be private. If this doesn't make sense, there is an impedance mismatch between the problem domain and the design. It should not be possible for a change in data structure in one class to affect the behavior of another class.
+
+https://softwareengineering.stackexchange.com/questions/357343/how-can-i-avoid-causing-bugs-in-the-software-when-i-fix-unrelated-bugs 
+
 ## What is OOP?
 
 Object Oriented Programming (OOP) is a programming paradigm where the complete software operates as a bunch of objects talking to each other. An object is a collection of data and methods that operate on its data.
