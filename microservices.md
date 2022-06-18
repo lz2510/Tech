@@ -65,4 +65,15 @@ https://docs.microsoft.com/en-us/azure/architecture/microservices/design/interse
 
 https://mp.weixin.qq.com/s/A-DcZJY9sJcTQSEoWEibww
 
+## logging
+
+1. Correlation  
+  gateway, ngnix request-id
+2. communized pattern  
+  Correlation id, service name/id, IP address, message received time in UTC, severity.
+3. centralized storage
+  - http/socket or file by ftp/rsync 
+  - ELK
+
+https://medium.com/insiderengineering/microservice-logging-6fb488a06681
 
