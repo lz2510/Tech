@@ -46,3 +46,18 @@ https://medium.com/star-gazers/laravel-testing-tips-tricks-fc69b1f02d5a
 https://laracasts.com/discuss/channels/testing/sqlite-in-memory-for-phpunit-testing  
 https://riptutorial.com/laravel/example/24356/testing-setup--using-in-memory-database  
 https://www.horuskol.net/blog/2018-11-10/dont-use-in-memory-sqlite-for-testing-laravel/  
+
+## automatically test
+
+gitlab CI
+
+https://w3guy.com/php-testing-gitlab-ci/
+
+## global state
+
+1. use setUp and tearDown
+2. use @backupGlobals
+
+https://stackoverflow.com/questions/29166680/how-would-you-test-php-code-which-uses-global-variable  
+https://phpunit.readthedocs.io/en/9.5/fixtures.html#global-state
+
