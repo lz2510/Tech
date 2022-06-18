@@ -70,3 +70,8 @@ PHP’s E_ERROR typically indicates a major issue with PHP. Normally, PHP may be
 
 https://rollbar.com/blog/e_errors-in-php/  
 https://www.php.net/manual/en/errorfunc.constants.php
+
+## Using Laravel Controllers, Events, Listeners, Services and Validation Together!
+
+https://rezakhademi.medium.com/using-laravel-controllers-events-listeners-services-and-validation-together-e1f1631de08c
+
