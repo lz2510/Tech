@@ -159,9 +159,14 @@ https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29
 
 ## how to handle with exception
 
-- logging is not a good practice 
 - Catch an exception only when you can handle it and take decision about it
   - retry
   - circuit break
+- Always create your own ApplicationError hierarchy
+- Never rescue more exceptions than you need to
+- Resist the urge to handle exceptions immediately
+- Not all exceptions need handling
+- Logger.log(everything)
 
-https://rhenache.medium.com/clean-code-handling-exceptions-3ad9aac2ea22
+https://rhenache.medium.com/clean-code-handling-exceptions-3ad9aac2ea22  
+https://www.toptal.com/abap/clean-code-and-the-art-of-exception-handling
