@@ -1,5 +1,30 @@
 # unit test 
 
+## how can i trust my test suits
+
+### test coverage   
+
+https://testing.googleblog.com/2020/08/code-coverage-best-practices.html?m=1
+
+### Cyclomatic complexity and C.R.A.P. index
+
+https://www.artima.com/weblogs/viewpost.jsp?thread=210575
+
+### Not all the units of code are equally important
+
+https://www.stickyminds.com/article/getting-empirical-about-refactoring
+
+###  churn-php
+
+https://github.com/bmitch/churn-php
+
+### Let’s talk about test quality, infection php
+
+https://infection.github.io  
+https://medium.com/@maks_rafalko/infection-mutation-testing-framework-c9ccf02eefd1
+
+https://blog.mollie.com/how-can-i-trust-my-test-suite-f884390e79f3
+
 ## best pritice
 
 1. Tests should have no I/O operations
