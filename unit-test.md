@@ -20,6 +20,11 @@ https://github.com/bmitch/churn-php
 
 ### Let’s talk about test quality, infection php
 
+How to use Mutation Testing?
+
+- Daily basis usage for developer
+- Daily basis usage for project
+
 https://infection.github.io  
 https://medium.com/@maks_rafalko/infection-mutation-testing-framework-c9ccf02eefd1
 
