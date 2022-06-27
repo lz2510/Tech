@@ -170,3 +170,13 @@ https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29
 
 https://rhenache.medium.com/clean-code-handling-exceptions-3ad9aac2ea22  
 https://www.toptal.com/abap/clean-code-and-the-art-of-exception-handling
+
+## DTD Data Transfer Object 
+
+spatie/data-transfer-object
+
+https://levelup.gitconnected.com/elegantly-consuming-apis-using-data-transfer-objects-in-php-38ac4d8225a8
+
+
+
+
