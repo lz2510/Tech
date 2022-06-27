@@ -77,3 +77,16 @@ https://mp.weixin.qq.com/s/A-DcZJY9sJcTQSEoWEibww
 
 https://medium.com/insiderengineering/microservice-logging-6fb488a06681
 
+## message types
+
+1. queue
+2. topic
+3. stream
+
+- Guaranteed delivery
+- Scalability
+- Order guaranteed between messages — FIFO
+- Reprocess Messages
+
+https://medium.com/@andrelucastic/microservices-communication-queues-topics-and-streams-597664d4b786
+
