@@ -17,6 +17,8 @@ https://stackoverflow.com/questions/1860645/create-request-with-post-which-respo
 
 ## restful
 
+https://docs.gitlab.com/ee/api/invitations.html
+
 ## What is the difference between HTTP and HTTPS?
 
 HTTP runs beyond the TCP and transfers the content with plaintext. Both client and server sides cannot verify each other’s identity.
