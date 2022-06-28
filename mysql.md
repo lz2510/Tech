@@ -30,12 +30,12 @@ https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_acid
 SQL databases are relational, NoSQL databases are non-relational.
 1. Language  
 SQL database use sql to query data while as a group NoSQL language lack of standard interface.
-2. Scalability   
-SQL database can be scaled vertically while NoSQL database are scable horizontally.
-3. Structure     
+2. Structure     
 SQL databases are table-based, while NoSQL databases are document, key-value, graph, or wide-column stores.
-4. Properties   
+3. Properties   
 SQL database tranaction follows ACID while NoSQL database follows CAP.
+4. Scalability   
+SQL database can be scaled vertically while NoSQL database are scable horizontally.
 
 reference      
 https://www.talend.com/resources/sql-vs-nosql/  
