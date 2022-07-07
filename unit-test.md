@@ -1,9 +1,34 @@
-# unit test
+# unit test 
 
-## how to make sure test is good engough
+## how can i trust my test suits
 
-1. test coverage
-2. follow best pritice
+### test coverage   
+
+https://testing.googleblog.com/2020/08/code-coverage-best-practices.html?m=1
+
+### Cyclomatic complexity and C.R.A.P. index
+
+https://www.artima.com/weblogs/viewpost.jsp?thread=210575
+
+### Not all the units of code are equally important
+
+https://www.stickyminds.com/article/getting-empirical-about-refactoring
+
+###  churn-php
+
+https://github.com/bmitch/churn-php
+
+### Let’s talk about test quality, infection php
+
+How to use Mutation Testing?
+
+- Daily basis usage for developer
+- Daily basis usage for project
+
+https://infection.github.io  
+https://medium.com/@maks_rafalko/infection-mutation-testing-framework-c9ccf02eefd1
+
+https://blog.mollie.com/how-can-i-trust-my-test-suite-f884390e79f3
 
 ## best pritice
 
@@ -23,7 +48,8 @@ Main reasoning: a test should be able to run and succeed in any order.
 
 Main reasoning: mocking global state is terrible, not being able to mock dependencies at all makes it impossible to test a feature.
 
-https://thephp.website/en/issue/clean-tests-with-php-and-phpunit/
+https://thephp.website/en/issue/clean-tests-with-php-and-phpunit/  
+https://juanmacias.medium.com/cleancode-is-not-what-you-think-46c2d56e5d73  
 
 ## intergration test
 
@@ -50,3 +76,18 @@ https://medium.com/star-gazers/laravel-testing-tips-tricks-fc69b1f02d5a
 https://laracasts.com/discuss/channels/testing/sqlite-in-memory-for-phpunit-testing  
 https://riptutorial.com/laravel/example/24356/testing-setup--using-in-memory-database  
 https://www.horuskol.net/blog/2018-11-10/dont-use-in-memory-sqlite-for-testing-laravel/  
+
+## automatically test
+
+gitlab CI
+
+https://w3guy.com/php-testing-gitlab-ci/
+
+## global state
+
+1. use setUp and tearDown
+2. use @backupGlobals
+
+https://stackoverflow.com/questions/29166680/how-would-you-test-php-code-which-uses-global-variable  
+https://phpunit.readthedocs.io/en/9.5/fixtures.html#global-state
+

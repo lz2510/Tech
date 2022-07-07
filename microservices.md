@@ -8,7 +8,6 @@
 
 Implement each business transaction that spans multiple services is a saga. A saga is a sequence of local transactions. Each local transaction updates the database and publishes a message or event to trigger the next local transaction in the saga. If a local transaction fails because it violates a business rule then the saga executes a series of compensating transactions that undo the changes that were made by the preceding local transactions.
 
-#### Reference
 https://microservices.io/patterns/data/saga.html
 
 ### Api composition
@@ -21,8 +20,6 @@ The basic idea is that you can divide a system's operations into two sharply sep
 - Queries. These queries return a result and do not change the state of the system, and they are free of side effects.
 - Commands. These commands change the state of a system.
 
-#### Reference
-
 https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/apply-simplified-microservice-cqrs-ddd-patterns  
 
 ### Event sourcing
@@ -30,8 +27,6 @@ https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-
 Event sourcing persists the state of a business entity such an Order or a Customer as a sequence of state-changing events. Whenever the state of a business entity changes, a new event is appended to the list of events. Since saving an event is a single operation, it is inherently atomic. The application reconstructs an entity’s current state by replaying the events.
 
 Applications persist events in an event store, which is a database of events. The store has an API for adding and retrieving an entity’s events. The event store also behaves like a message broker. It provides an API that enables services to subscribe to events. When a service saves an event in the event store, it is delivered to all interested subscribers.
-
-#### Reference
 
 https://microservices.io/patterns/data/event-sourcing.html  
 https://medium.com/nerd-for-tech/starting-with-event-sourcing-in-php-161a83597d69
@@ -57,6 +52,41 @@ However HTTP Integration has few drawbacks:
 This set us free from the response times of other services.
 - Messaging creates decoupled solution, where each Service may be in control of what they want to know (subscribe to).
 
-### Reference
 https://blog.devgenius.io/how-to-integrate-microservices-a506fe2d1a48  
 https://docs.microsoft.com/en-us/azure/architecture/microservices/design/interservice-communication
+
+## components
+
+- service register and discovery
+- config center
+- router
+- ratelimit 
+- circuit breaker
+
+https://mp.weixin.qq.com/s/A-DcZJY9sJcTQSEoWEibww
+
+## logging
+
+1. Correlation  
+  gateway, ngnix request-id
+2. communized pattern  
+  Correlation id, service name/id, IP address, message received time in UTC, severity.
+3. centralized storage
+  - http/socket or file by ftp/rsync 
+  - ELK
+
+https://medium.com/insiderengineering/microservice-logging-6fb488a06681
+
+## message types
+
+1. queue
+2. topic
+3. stream
+
+- Guaranteed delivery
+- Scalability
+- Order guaranteed between messages — FIFO
+- Reprocess Messages
+
+https://medium.com/@andrelucastic/microservices-communication-queues-topics-and-streams-597664d4b786
+
