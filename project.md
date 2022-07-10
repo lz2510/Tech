@@ -22,3 +22,9 @@ It transforms data between e-commerce platform and oms and wms.
 1. MongoDB, store interface log.
 1. kubernetes manage container docker and scale up application. It’s maintained by operation team.
 1. gitlab CI, deploy to production after merging to master branch.
+
+# Big challenge in project
+
+### Updating inventory to platform takes a few hours. 
+
+We change to use Kafka. Serval instances with same group id to consumer the inventory to update to platform.It enhance the performance to with 1 hour.
