@@ -91,6 +91,16 @@ https://www.indeed.com/career-advice/interviewing/how-do-you-prioritize-your-wor
 
 ### how to identify success in a project 
 
+### tell me about a time you made a mistake
+
+There is a function which get inventory file then backup. The file name is unique. So I design the function to move the file to another folder. Then one day there are two files with the same name. Moving to other folder failed because of permission.The program was stuck.
+
+We change the design, change name by adding timestamp when moving the file.
+
+What I learnn is that when design a program, we should always think about except situation.
+
+https://www.themuse.com/advice/3-rules-that-guarantee-youll-nail-the-answer-to-tell-me-about-a-time-you-made-a-mistake  
+
 ### if a bug and a task conflict in time
 
 ### How to trade-off new technical in general
