@@ -21,6 +21,18 @@
 - First of all, divise culture. I am from China, Asian. I want my next company have more nationalities.
 - The second, from the technology perspective. I want my next company follow the best pratices in engineering industry. For example, the SOLID principle in OOP.
 
+### Why do you want to work here?
+
+The best way to prepare for this question is to learn about the products, services, mission, history and culture of the company. In your answer, mention the aspects of the company that appeal to you and align with your career goals.
+
+https://www.glassdoor.com/blog/guide/why-do-you-want-to-work-here/  
+
+### What interests you about this role?
+
+Employers ask this question to make sure you understand the role, and to give you the opportunity to highlight your relevant skills. It can be helpful to compare the role requirements against your skills and experience. Choose a few things you particularly enjoy or excel at, and focus on those in your answer.
+
+https://www.indeed.com/career-advice/interviewing/how-to-prepare-for-an-interview  
+
 ### What’s your typical day? From go to office to leave office.
 
 ### Do you write test?
