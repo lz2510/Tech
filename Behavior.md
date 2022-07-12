@@ -91,6 +91,24 @@ https://www.indeed.com/career-advice/interviewing/how-do-you-prioritize-your-wor
 
 ### how to identify success in a project 
 
+How do you measure the success of a software application you built?
+
+This question can help the interviewer understand how you define success and what your goals are for a project. Use examples from past projects to explain how you measure success, and consider including specific metrics that show how your software applications helped businesses or organizations achieve their goals.
+
+Example: “I measure the success of a software application I built by looking at the impact it had on the organization’s bottom line. For example, in my last role as a senior engineer, we were tasked with creating an online shopping platform that would allow customers to purchase products from multiple vendors using one interface. We created this system so that each vendor could use our platform to sell their products while also tracking customer data and sales information.”
+
+https://climbtheladder.com/software-engineer-interview-questions/  
+
+### tell me about a time you made a mistake
+
+There is a function which get inventory file then backup. The file name is unique. So I design the function to move the file to another folder. Then one day there are two files with the same name. Moving to other folder failed because of permission.The program was stuck.
+
+We change the design, change name by adding timestamp when moving the file.
+
+What I learnn is that when design a program, we should always think about except situation.
+
+https://www.themuse.com/advice/3-rules-that-guarantee-youll-nail-the-answer-to-tell-me-about-a-time-you-made-a-mistake  
+
 ### if a bug and a task conflict in time
 
 ### How to trade-off new technical in general
