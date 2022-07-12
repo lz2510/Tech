@@ -57,6 +57,10 @@ https://www.indeed.com/career-advice/interviewing/how-to-prepare-for-an-intervie
 - I know basis of java, python, golang
 - There are similar things between languages. For example how to divide feature to differenct class, method? how to write test? how to interact with database?
 
+### what’s most proud of thing in your project?
+
+I build the middleware project core function. Then other people can follow this to add additional function. 
+
 ### what’s your motivation?
 
 - Follow best pratices. I like to read some blogs like MartinFlower, Robert Martin. There are some best practices in enginerring industry.
@@ -94,11 +98,6 @@ https://www.indeed.com/career-advice/interviewing/how-do-you-prioritize-your-wor
 1. First of all, use all know technology
 2. Solution is important, need consider scalability, learning new technology is neccessary, not only for the solution, also for professional skills
 3. Depends on the development time. If 2 months, have time to learn. If 1 month, no time to learn. Can use all know technology. however should leave enhancement space.
-
-### what’s most proud of thing in your project?
-
-live stream promotion activity, use kafka 
-
 
 ## Conflict Management
 
