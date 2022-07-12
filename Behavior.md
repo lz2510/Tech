@@ -35,6 +35,19 @@ https://www.indeed.com/career-advice/interviewing/how-to-prepare-for-an-intervie
 
 ### What’s your typical day? From go to office to leave office.
 
+- morning meeting. product manager and UX and engineers attend. we talk about the progress of the project, if have any problem in technical or requirement.
+- fix urge bug if have
+- do some development and test
+- do code review
+- attend some meetings
+
+### development process
+- agile
+- two weeks as a sprint
+- stand/morning meeting, about project task update, with PM, UX 
+- from stretch to production
+- routine, develop, code review, meeting 
+
 ### Do you write test?
 
 - I write unit test and integration test when write feature code.
@@ -43,6 +56,15 @@ https://www.indeed.com/career-advice/interviewing/how-to-prepare-for-an-intervie
 ### Do you know any other programming languages?
 - I know basis of java, python, golang
 - There are similar things between languages. For example how to divide feature to differenct class, method? how to write test? how to interact with database?
+
+### what’s most proud of thing in your project?
+
+I build the middleware project core function. Then other people can follow this to add additional function. 
+
+### what’s your motivation?
+
+- Follow best pratices. I like to read some blogs like MartinFlower, Robert Martin. There are some best practices in enginerring industry.
+- Follow new info. I subscribe Medium, they send me recommendation everyday. The recommedation is about software enginerring, like new features in php8, how to use laravel more effiently.
 
 ### how to identify priority
 An interviewer may ask about how you prioritize your work in a way similar to these examples:
