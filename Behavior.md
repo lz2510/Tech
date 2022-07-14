@@ -63,7 +63,7 @@ I build the middleware project core function. Then other people can follow this 
 
 ### what’s your motivation?
 
-- Follow best pratices. I like to read some blogs like MartinFlower, Robert Martin. There are some best practices in enginerring industry.
+- Follow best pratices. I like to read some blogs like MartinFlower, Robert Martin. There are some best practices in enginerring industry, like Clean Architecture
 - Follow new info. I subscribe Medium, they send me recommendation everyday. The recommedation is about software enginerring, like new features in php8, how to use laravel more effiently.
 
 ### how to identify priority
@@ -101,11 +101,11 @@ https://climbtheladder.com/software-engineer-interview-questions/
 
 ### tell me about a time you made a mistake
 
-There is a function which get inventory file then backup. The file name is unique. So I design the function to move the file to another folder. Then one day there are two files with the same name. Moving to other folder failed because of permission.The program was stuck.
+There is a feature which get inventory file then backup. The file name is unique. So I design to move the file to another folder. Then one day there are two files with the same name. Moving to other folder failed because of permission.
 
-We change the design, change name by adding timestamp when moving the file.
+I change the design to change name by adding timestamp when moving the file.
 
-What I learnn is that when design a program, we should always think about except situation.
+What I learnn is that when design a feature, we should always think about exception situation.
 
 https://www.themuse.com/advice/3-rules-that-guarantee-youll-nail-the-answer-to-tell-me-about-a-time-you-made-a-mistake  
 
