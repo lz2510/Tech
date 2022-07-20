@@ -42,7 +42,7 @@ https://stackoverflow.com/questions/50375196/how-to-mock-the-request-class-in-la
 
 ### Clean Architecture
 
-https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg![image](https://user-images.githubusercontent.com/1209204/179937113-5c7414d9-eea6-42e6-a615-3aa2f36df4af.png)
+![image](https://user-images.githubusercontent.com/1209204/179937113-5c7414d9-eea6-42e6-a615-3aa2f36df4af.png)
 
 
 #### The Dependence Rule
