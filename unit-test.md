@@ -91,3 +91,26 @@ https://w3guy.com/php-testing-gitlab-ci/
 https://stackoverflow.com/questions/29166680/how-would-you-test-php-code-which-uses-global-variable  
 https://phpunit.readthedocs.io/en/9.5/fixtures.html#global-state
 
+## global function
+
+Should be avoided, as they affect code extensibility, testability and modularity.
+
+https://dev.to/martinkordas/php-global-functions-how-they-affect-code-extensibility-testability-and-modularity-54h7
+
+## Should we unit test logging?
+
+It's not up to you to test the logging library. But it can be worthwhile to test that when an exception is thrown, your class logs a message at the right level. What you're testing is that your code does the right thing with the logging library.
+
+To make the code above testable, use dependency injection. 
+
+https://stackoverflow.com/questions/11998713/should-we-unit-test-logging
+
+## unit test logging in laravel
+
+mock the Log facade in your unit test 
+
+Log::shouldReceive('info')
+        ->with('Failed to Save Venue'. $venue);
+
+https://laracasts.com/discuss/channels/testing/testing-that-the-log-record-has-been-written  
+https://stackoverflow.com/questions/51246332/php-unit-testing-laravel-log-messages-with-unit-testing  
