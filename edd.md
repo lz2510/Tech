@@ -12,7 +12,8 @@ https://medium.com/rocco-scaramuzzi-tech/event-driven-microservice-architecture-
 
 ## Event sourcing
 
-https://microservices.io/patterns/data/event-sourcing.html
+https://microservices.io/patterns/data/event-sourcing.html  
+https://martinfowler.com/eaaDev/EventSourcing.html  
 
 ## Evento bus
 
