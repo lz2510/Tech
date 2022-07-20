@@ -32,6 +32,7 @@
 # engineering
 - [engineering](engineering.md)
 - [Clean Code](cleancode.md)
+- [Event Driven Development](edd.md)
 
 # Project
 - [project](project.md)
