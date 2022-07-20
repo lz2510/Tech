@@ -99,18 +99,23 @@ https://dev.to/martinkordas/php-global-functions-how-they-affect-code-extensibil
 
 ## Should we unit test logging?
 
-It's not up to you to test the logging library. But it can be worthwhile to test that when an exception is thrown, your class logs a message at the right level. What you're testing is that your code does the right thing with the logging library.
-
-To make the code above testable, use dependency injection. 
-
-https://stackoverflow.com/questions/11998713/should-we-unit-test-logging
-
-## unit test logging in laravel
-
-mock the Log facade in your unit test 
-
-Log::shouldReceive('info')
+1. no need for functionality, it’s library job.
+2. if want to test whether write the right log level. 
+- solution 1 is using dependence injection. 
+- solution 2 is use Log facade mock in laravel.
+     Log::shouldReceive('info')
         ->with('Failed to Save Venue'. $venue);
 
+https://stackoverflow.com/questions/11998713/should-we-unit-test-logging  
 https://laracasts.com/discuss/channels/testing/testing-that-the-log-record-has-been-written  
 https://stackoverflow.com/questions/51246332/php-unit-testing-laravel-log-messages-with-unit-testing  
+
+## Should I write log in development?
+Of course, it’s necessary for debugging.
+
+## Should I let logging write to file when testing?
+You can let it write. Or you can mock a logging object to not to write.
+
+
+
+
