@@ -11,10 +11,11 @@ A status code in the 400-499 range effectively means the user has caused an erro
 Any status code in the 500-599 range generally means that the HTTP request looked valid and all other conditions passed (authorized, not forbidden, etc), but that something has caused an error on the server. By far, the most common is the generic 500 status message meaning no other more-specific error message could be presented. Other common codes in this range are 504 for timeouts and 503 for a temporary outage.
 
 200 GET successfully  
-201 POST successfully
-200 PUT successfully
-400 validation failed
-500 application error
+201 POST successfully  
+200 PATCH successfully  
+200 PUT successfully  
+400 validation failed  
+500 application error  
 
 https://stackoverflow.com/questions/1860645/create-request-with-post-which-response-codes-200-or-201-and-content
 
