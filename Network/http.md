@@ -18,6 +18,14 @@ Any status code in the 500-599 range generally means that the HTTP request looke
 
 https://stackoverflow.com/questions/1860645/create-request-with-post-which-response-codes-200-or-201-and-content
 
+## http method
+
+## PUT vs Patch
+
+其中，PUT 和 PACTH 都是更新业务资源信息，如果资源对象不存在则可以新建一个，但他们两者的区别是，PUT 用于更新一个业务对象的所有完整信息，就像是我们通过表单提交所有的数据，而 PACTH 则对更为API化的数据更新操作，只需要更需要更新的字段（参看 RFC 5789 ）。
+
+https://coolshell.cn/articles/22173.html  
+
 ## restful
 
 https://docs.gitlab.com/ee/api/invitations.html
