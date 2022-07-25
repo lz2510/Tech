@@ -20,11 +20,25 @@ https://stackoverflow.com/questions/1860645/create-request-with-post-which-respo
 
 ## http method
 
+|方法	|描述	|幂等
+|---|---|---
+|GET	|用于查询操作，对应于数据库的 select 操作	|✔︎
+|PUT	|用于所有的信息更新，对应于数据库的 update 操作	|✔︎︎
+|DELETE	|用于更新操作，对应于数据库的 delete 操作	|✔︎︎
+|POST	|用于新增操作，对应于数据库的 insert 操作	|✘
+|HEAD	|用于返回一个资源对象的“元数据”，或是用于探测API是否健康	|✔︎
+|PATCH	|用于局部信息的更新，对应于数据库的 update 操作	|✘
+|OPTIONS	|获取API的相关的信息。	|✔︎
+
+https://www.rfc-editor.org/rfc/rfc7231#section-4.2.2  
+https://coolshell.cn/articles/22173.html  
+
 ## PUT vs Patch
 
 其中，PUT 和 PACTH 都是更新业务资源信息，如果资源对象不存在则可以新建一个，但他们两者的区别是，PUT 用于更新一个业务对象的所有完整信息，就像是我们通过表单提交所有的数据，而 PACTH 则对更为API化的数据更新操作，只需要更需要更新的字段（参看 RFC 5789 ）。
 
 https://coolshell.cn/articles/22173.html  
+https://tools.ietf.org/html/rfc5789  
 
 ## restful
 
