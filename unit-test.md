@@ -51,6 +51,16 @@ Main reasoning: mocking global state is terrible, not being able to mock depende
 https://thephp.website/en/issue/clean-tests-with-php-and-phpunit/  
 https://juanmacias.medium.com/cleancode-is-not-what-you-think-46c2d56e5d73  
 
+## test coverage
+
+Test coverage is a useful tool for finding untested parts of a codebase. Test coverage is of little use as a numeric statement of how good your tests are.
+
+Coverage percentage is upper 80% or 90%, which is good enough. It's not necessary to achieve 100%. Because high coverage numbers are too easy to reach with low quality testing.
+
+![image](https://user-images.githubusercontent.com/1209204/181197010-33e6b71d-533e-43cf-82ae-0056e4bed498.png)
+
+https://martinfowler.com/bliki/TestCoverage.html  
+
 ## intergration test
 
 Luckily for us Laravel 5 provides two useful methods to solve this problem:
