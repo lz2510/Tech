@@ -41,10 +41,6 @@ https://coolshell.cn/articles/22173.html
 https://coolshell.cn/articles/22173.html  
 https://tools.ietf.org/html/rfc5789  
 
-## restful
-
-https://docs.gitlab.com/ee/api/invitations.html
-
 ## What is the difference between HTTP and HTTPS?
 
 HTTP runs beyond the TCP and transfers the content with plaintext. Both client and server sides cannot verify each other’s identity.
@@ -53,3 +49,14 @@ Hence, the security of HTTPS is higher than HTTP, but HTTPS requires more resour
 
 ### ref
 https://towardsdatascience.com/all-you-should-know-about-computer-network-in-technical-interviews-5478f45368ac
+
+## restful
+
+https://docs.gitlab.com/ee/api/invitations.html
+
+## Api versioning
+- https://www.my-webside.com/api/v1/users
+- https://www.my-webside.com/api/v2/users
+
+https://restfulapi.net/versioning/  
+https://medium.com/mestredev/versioning-your-rest-api-with-laravel-646bcc1f70a4  
