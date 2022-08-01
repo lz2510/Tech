@@ -71,3 +71,28 @@ https://www.php.net/manual/en/errorfunc.constants.php
 
 https://rezakhademi.medium.com/using-laravel-controllers-events-listeners-services-and-validation-together-e1f1631de08c
 
+## constant
+
+constant is immutable. Once a constant is defined, it can never be changed or undefined.
+
+### how to define?
+
+define() function and const keyword
+
+### how many types?
+- normal constant
+- class constant
+- interface constant
+
+## constant vs static
+
+Bear in mind that in common English "constant" and "static" are analogous, but in programming usage they are for the most part unrelated. A constant is an immutable value. a static value is one that is specific to the class it's in, rather than an instance of that class. There's no overlap in the two notions in either of those contexts the terms have meaning.
+
+In the context of a class, static variables are on the class scope (not the object) scope, but unlike a const, their values can be changed.
+
+https://blog.adamcameron.me/2016/05/php-constants-vs-private-static.html  
+https://stackoverflow.com/questions/1685922/php-5-const-vs-static#:~:text=Constant%20is%20just%20a%20constant,the%20instances%20of%20a%20class. 
+https://www.php.net/manual/en/language.oop5.static.php 
+
+
+
