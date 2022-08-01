@@ -126,6 +126,16 @@ Of course, it’s necessary for debugging.
 ## Should I let logging write to file when testing?
 You can let it write. Or you can mock a logging object to not to write.
 
+## 测试边界
+理想的测试边界应该是这样的，系统中所有核心复杂的逻辑全部包含在了边界内部，然后边界外都是不包含逻辑的，非常简单的代码，比如就是一行接口调用。这样任何对于系统的改动都可以在单元测试中就得到快速且充分的验证，集成测试时只需要简单测试下即可，如果出现问题，一定是对外部接口的理解有误，而不是系统内部改错了。
 
+但是会实践中会发现，在繁忙的业务开发中想要先写测试用例是很困难的，可能会有以下原因：
+* 代码结构尚未完全确定，出入口尚未明确，即使提前写了单元测试，后面大概率也要修改 
+* 产品一句话需求，外加对系统不够熟悉，用例很难在开发之前写好
 
+因此本文的工作流将顺序做了一些调整，先写代码，然后再不断地重构代码适配单元测试，扩大系统的测试边界。
+不过从更广义的 TDD 思想上来说，这篇文章的总体思路和 TDD 是差不多的，或者标题也可以改叫做 “TDD 实践”。
 
+![IMG_9283](https://user-images.githubusercontent.com/1209204/182123301-ecaba424-236f-4bca-8b9d-4ccf56c736a3.png)
+
+https://mp.weixin.qq.com/s/ahLjLKmxk5bPZ_Zt52Zc-g  
