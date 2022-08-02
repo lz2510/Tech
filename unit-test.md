@@ -46,7 +46,11 @@ Main reasoning: a test should be able to run and succeed in any order.
 
 4. Always inject dependencies
 
+Avoid global state, static class and singleton instance.
+
 Main reasoning: mocking global state is terrible, not being able to mock dependencies at all makes it impossible to test a feature.
+
+Here is a lesson for life: Forget about stateful static classes and singleton instances. If your class depends on something, make it injectable.
 
 https://thephp.website/en/issue/clean-tests-with-php-and-phpunit/  
 https://juanmacias.medium.com/cleancode-is-not-what-you-think-46c2d56e5d73  
