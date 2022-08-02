@@ -99,10 +99,33 @@ https://w3guy.com/php-testing-gitlab-ci/
 
 ## global state
 
+### contains 2 types
+
+- global variable
+- static variable of class
+
+### why global state is untestable
+
+- you cannot control its creation
+- one test’s change to a global variable might break another test
+
+### solution
+
 1. use setUp and tearDown
 2. use @backupGlobals
 
 https://stackoverflow.com/questions/29166680/how-would-you-test-php-code-which-uses-global-variable  
+https://phpunit.readthedocs.io/en/9.5/fixtures.html#global-state
+
+## global varaible
+
+In PHP, global variables work like this:
+
+- A global variable $foo = 'bar'; is stored as $GLOBALS['foo'] = 'bar';.
+- The $GLOBALS variable is a so-called super-global variable.
+- Super-global variables are built-in variables that are always available in all scopes.
+- In the scope of a function or method, you may access the global variable $foo by either directly accessing $GLOBALS['foo'] or by using global $foo; to create a local variable with a reference to the global variable.
+
 https://phpunit.readthedocs.io/en/9.5/fixtures.html#global-state
 
 ## global function
