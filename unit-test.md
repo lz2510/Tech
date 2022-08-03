@@ -104,7 +104,7 @@ https://w3guy.com/php-testing-gitlab-ci/
 - global variable
 - static variable of class
 
-### why global state is untestable
+### why global state is poor testability
 
 - you cannot control its creation
 - one test’s change to a global variable might break another test
@@ -115,7 +115,8 @@ https://w3guy.com/php-testing-gitlab-ci/
 2. use @backupGlobals
 
 https://stackoverflow.com/questions/29166680/how-would-you-test-php-code-which-uses-global-variable  
-https://phpunit.readthedocs.io/en/9.5/fixtures.html#global-state
+https://phpunit.readthedocs.io/en/9.5/fixtures.html#global-state  
+https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil
 
 ## global varaible
 
