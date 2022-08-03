@@ -60,3 +60,14 @@ Thus, if there is a network partition, one has to choose between consistency and
 
 Eric Brewer argues that the often-used "two out of three" concept can be somewhat misleading because system designers only need to sacrifice consistency or availability in the presence of partitions, but that in many systems partitions are rare.
 
+## mysql 8 remove int length
+
+Display width specification for integer data types was deprecated in MySQL 8.0.17, and now statements that include data type definitions in their output no longer show the display width for integer types.
+
+The "length" of integer columns has been a confusing feature of MySQL for years. **It's only a hint that affects the display width, not the storage or the range of values.**
+
+The "length" of an integer column doesn't mean anything. A column of int(11) is the same as int(2) or int(40). They are all a fixed-size, 32-bit integer data type. They support the same minimum and maximum value.
+
+
+https://stackoverflow.com/questions/60892749/mysql-8-ignoring-integer-lengths  
+https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-19.html  
