@@ -54,11 +54,19 @@ https://www.geeksforgeeks.org/commonly-asked-oop-interview-questions/
 
 ## SOLID 
 
+### single-responsibility principle
+
+"There should never be more than one reason for a class to change."[5] In other words, every class should have only one responsibility.
+
 ### Open closed principle
+
+"Software entities ... should be open for extension, but closed for modification."
 
 https://mohasin-dev.medium.com/how-to-use-open-closed-principal-in-php-laravel-af4fa3b2a1c1
 
 ### Liskov substitution principle 
+
+ "Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it."
 
 To achieve that, your subclasses need to follow these rules: 
 * Don’t implement any stricter validation rules on input parameters than implemented by the parent class. 
@@ -67,6 +75,15 @@ To achieve that, your subclasses need to follow these rules:
 https://en.wikipedia.org/wiki/Liskov_substitution_principle  
 https://stackify.com/solid-design-liskov-substitution-principle/  
 https://www.baeldung.com/solid-principles  
+
+### interface segregation principle
+
+ "Clients should not be forced to depend upon interfaces that they do not use."
+ 
+### dependency inversion principle
+
+"Depend upon abstractions, [not] concretions."
+ 
    
 ## KISS principle 
 
