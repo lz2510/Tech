@@ -61,10 +61,13 @@ https://www.indeed.com/career-advice/interviewing/how-to-prepare-for-an-intervie
 
 I build the middleware project core function. Then other people can follow this to add additional function. 
 
-### what’s your motivation?
+### what’s your motivation or what motivates you?
 
-- Follow best pratices. I like to read some blogs like MartinFlower, Robert Martin. There are some best practices in enginerring industry, like Clean Architecture
+- Follow best pratices. I like to read some blogs like MartinFlower, Robert Martin. There are some best practices in enginerring industry, like Clean Architecture.
 - Follow new info. I subscribe Medium, they send me recommendation everyday. The recommedation is about software enginerring, like new features in php8, how to use laravel more effiently.
+- I'd like to solve technical challenging problems. By using best pratices and new technologies, it can give me some help.
+
+https://careersidekick.com/what-motivates-you/  
 
 ### how to identify priority
 An interviewer may ask about how you prioritize your work in a way similar to these examples:
