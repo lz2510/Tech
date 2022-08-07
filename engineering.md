@@ -201,6 +201,12 @@ spatie/data-transfer-object
 
 https://levelup.gitconnected.com/elegantly-consuming-apis-using-data-transfer-objects-in-php-38ac4d8225a8
 
+## Scrum vs Kanban
 
+Kanban is a methodology centered around visualizing tasks, while Scrum is a methodology that structures workflow and team culture to deliver projects in short timelines. 
+
+Kanban delivers tasks continuously until the project is finished, while Scrum delivers chunks of deliverables in one- to four-week periods.
+
+https://www.coursera.org/articles/kanban-vs-scrum  
 
 
