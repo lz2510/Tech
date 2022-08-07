@@ -66,7 +66,7 @@ https://mohasin-dev.medium.com/how-to-use-open-closed-principal-in-php-laravel-a
 
 ### Liskov substitution principle 
 
- "Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it."
+The principle defines that objects of a superclass shall be replaceable with objects of its subclasses without breaking the application. That requires the objects of your subclasses to behave in the same way as the objects of your superclass. 
 
 To achieve that, your subclasses need to follow these rules: 
 * Don’t implement any stricter validation rules on input parameters than implemented by the parent class. 
@@ -83,6 +83,13 @@ https://www.baeldung.com/solid-principles
 ### dependency inversion principle
 
 "Depend upon abstractions, [not] concretions."
+
+The principle states:[1]
+
+- High-level modules should not import anything from low-level modules. Both should depend on abstractions (e.g., interfaces).
+- Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
+
+https://en.wikipedia.org/wiki/Dependency_inversion_principle  
  
    
 ## KISS principle 
