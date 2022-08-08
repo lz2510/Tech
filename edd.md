@@ -1,5 +1,9 @@
 # Event Driven Development
 
+## event in laravel
+
+Event and Listener bind together.
+
 ## Event vs Command
 
 <img width="747" alt="Commands" src="https://user-images.githubusercontent.com/1209204/179933570-d8996a3b-8408-4807-9b44-3ac3e763dfcf.png">
