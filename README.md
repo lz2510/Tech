@@ -33,7 +33,7 @@
 # engineering
 - [engineering](engineering.md)
 - [Clean Code](cleancode.md)
-- [Event Driven Development](edd.md)
+- [Event Driven Architecture](eda.md)
 - [Domain Driven Development](ddd.md)
 
 # Project
