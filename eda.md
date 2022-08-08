@@ -1,6 +1,9 @@
 # Event Driven Architecture
 
 ## what's is event driven architecture
+
+<img width="747" alt="Commands" src="https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/images/event-driven.svg">
+
 An event-driven architecture uses events to trigger and communicate between decoupled services and is common in modern applications built with microservices. 
 
 An event is a change in state, like an item being placed in a shopping cart on an e-commerce website. 
