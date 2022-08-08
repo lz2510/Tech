@@ -38,8 +38,11 @@ https://coolshell.cn/articles/22173.html
 
 其中，PUT 和 PACTH 都是更新业务资源信息，如果资源对象不存在则可以新建一个，但他们两者的区别是，PUT 用于更新一个业务对象的所有完整信息，就像是我们通过表单提交所有的数据，而 PACTH 则对更为API化的数据更新操作，只需要更需要更新的字段（参看 RFC 5789 ）。
 
+Patch applies a partial update to an object. PATCH has been standardized by IETF as the method to be used for updating an existing object incrementally (see RFC 5789). Microsoft REST API Guidelines compliant APIs SHOULD support PATCH.
+
 https://coolshell.cn/articles/22173.html  
 https://tools.ietf.org/html/rfc5789  
+https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#742-patch  
 
 ## What is the difference between HTTP and HTTPS?
 
@@ -54,9 +57,23 @@ https://towardsdatascience.com/all-you-should-know-about-computer-network-in-tec
 
 https://docs.gitlab.com/ee/api/invitations.html
 
+## Get parameter should be put in query string or request boyd?
+
+All remaining request message fields shall map to the URL query parameters. There is no request body; 
+
+https://cloud.google.com/apis/design/standard_methods  
+
 ## Api versioning
 - https://www.my-webside.com/api/v1/users
 - https://www.my-webside.com/api/v2/users
 
 https://restfulapi.net/versioning/  
 https://medium.com/mestredev/versioning-your-rest-api-with-laravel-646bcc1f70a4  
+
+## Nested collections and properties
+
+Collection items MAY contain other collections. For example, a user collection MAY contain user resources that have multiple addresses:
+
+    GET https://api.contoso.com/v1.0/people/123/addresses
+
+https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#93-collection-url-patterns  
