@@ -1,4 +1,4 @@
-# Event Driven Development
+# Event Driven Architecture
 
 ## event in laravel
 
