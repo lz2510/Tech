@@ -35,6 +35,7 @@
 - [Clean Code](cleancode.md)
 - [Event Driven Architecture](eda.md)
 - [Domain Driven Development](ddd.md)
+- [Design Pattern](design-pattern.md)
 
 # Project
 - [project](project.md)
