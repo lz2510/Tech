@@ -16,6 +16,19 @@ https://aws.amazon.com/event-driven-architecture/
 https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven  
 https://en.wikipedia.org/wiki/Event-driven_architecture  
 
+## Benefits
+
+- Producers and consumers are decoupled.
+- No point-to-point integrations. It's easy to add new consumers to the system.
+- Highly scalable and distributed.
+
+## Challedges
+
+- Guaranteed delivery. 
+- Processing events in order or exactly once. Each consumer type typically runs in multiple instances, for resiliency and scalability. This can create a challenge if the events must be processed in order (within a consumer type), or if the processing logic is not idempotent.
+
+https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven  
+
 ## two models
 
 An event driven architecture can use a pub/sub model or an event stream model.
@@ -24,6 +37,19 @@ An event driven architecture can use a pub/sub model or an event stream model.
 
 - Event streaming: Events are written to a log, like Apache Kafka. Events are strictly ordered (within a partition) and durable. Clients don't subscribe to the stream, instead a client can read from any part of the stream. The client is responsible for advancing its position in the stream. That means a client can join at any time, and can replay events.
 
+https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven  
+
+## Event processing styles
+
+There are three general styles of event processing: simple, stream, and complex. The three styles are often used together in a mature event-driven architecture.[6]
+
+- Simple event processing. An event immediately triggers an action in the consumer.
+
+- Event stream processing. Use a data streaming platform, such as Apache Kafka, as a pipeline to ingest events and feed them to stream processors. 
+
+- Complex event processing. A consumer processes a series of events, looking for patterns in the event data, using a technology such as Apache Storm. For example, you could aggregate readings.
+
+https://en.wikipedia.org/wiki/Event-driven_architecture#Event_processing_styles  
 https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven  
 
 ## event in laravel
