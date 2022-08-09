@@ -32,6 +32,7 @@
 
 # engineering
 - [engineering](engineering.md)
+- [SOLID principles](solid.md)
 - [Clean Code](cleancode.md)
 - [Event Driven Architecture](eda.md)
 - [Domain Driven Development](ddd.md)
