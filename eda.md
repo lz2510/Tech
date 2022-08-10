@@ -43,9 +43,9 @@ https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/ev
 
 There are three general styles of event processing: simple, stream, and complex. The three styles are often used together in a mature event-driven architecture.[6]
 
-- Simple event processing. An event immediately triggers an action in the consumer.
+- Simple event processing. An event immediately triggers an action in the consumer. Immediately just means near real-time. In IT there is no hard real time, which means asynchronously wait for response of sub after publishing event. Just near real-time asynchronously, like pub/sub model by rabbitMQ or redis, which is push-based delivery.
 
-- Event stream processing. Use a data streaming platform, such as Apache Kafka, as a pipeline to ingest events and feed them to stream processors. 
+- Event stream processing. Use a data streaming platform, such as Apache Kafka, as a pipeline to ingest events and feed them to stream processors. It's pull-based delivery.
 
 - Complex event processing. A consumer processes a series of events, looking for patterns in the event data, using a technology such as Apache Storm. For example, you could aggregate readings.
 
