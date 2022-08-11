@@ -34,8 +34,8 @@
 - [engineering](engineering.md)
 - [SOLID principles](solid.md)
 - [Clean Code](cleancode.md)
-- [Event Driven Architecture](eda.md)
-- [Domain Driven Development](ddd.md)
+- [Event-Driven Architecture](eda.md)
+- [Domain-Driven Design](ddd.md)
 - [Design Pattern](design-pattern.md)
 
 # Project
