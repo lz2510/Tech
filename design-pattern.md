@@ -25,7 +25,7 @@ https://en.wikipedia.org/wiki/Software_design_pattern#Classification_and_list
 | Behavioral patterns | Strategy |
 | Behavioral patterns | Chain of responsibility |
 
-## Observe
+## Observe pattern
 
 ### 2 kinds of implementations
 
@@ -33,6 +33,26 @@ https://en.wikipedia.org/wiki/Software_design_pattern#Classification_and_list
 
 - Typical pub-sub implementation. In some (non-polling) implementations of the publish-subscribe pattern (aka the pub-sub pattern), this is solved by creating a dedicated "message queue" server (and sometimes an extra "message handler" object) as an extra stage between the observer and the object being observed, thus decoupling the components. In these cases, the message queue server is accessed by the observers with the observer pattern, "subscribing to certain messages" knowing only about the expected message (or not, in some cases), while knowing nothing about the message sender itself; the sender also may know nothing about the observers. 
 
+## Facade pattern
 
+### Facade pattern definition:
+Facade helps you to hide any complex implementation of a class to get an instance of it
 
+Wikipedia:
+a facade is an object that serves as a front-facing interface masking more complex underlying or structural code
+
+https://dev.to/ahmedash95/design-patterns-in-php-facade-with-laravel-j24  
+https://brainlet.medium.com/what-is-laravel-facade-9ce26397942d  
+https://en.wikipedia.org/wiki/Facade_pattern  
+
+### facade in larvel is facade pattern or not?
+
+Facade in laravel is not a real facade pattern, just a feature similar to facade pattern.
+
+Apparently some people don’t consider facade in laravel to be a real facade pattern, but I feel like it does coordinate complex interactions behind the scenes so that we can easily use the tools that Laravel provides for us.
+
+The Laravel framework has a feature similar to this pattern, also termed Facades.
+
+http://snags88.github.io/facade-pattern-in-laravel  
+https://shishirthedev.medium.com/facade-in-laravel-application-d2a3053f5a71  
 
