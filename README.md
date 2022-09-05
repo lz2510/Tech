@@ -6,6 +6,12 @@
 # Microservices
 - [cloud native](cloud-native.md)
 - [microservices](microservices.md)
+- [microservices communication](microservices-communication.md)
+- [microservices residency](microservices-residency.md)
+- [microservices data](microservices-data.md)
+- [monitoring and health](monitoring-health.md)
+- [DevOps](DevOps.md)
+- [microservices identity](microservices-identity.md)
 
 # Network
 - [HTTP](Network/http.md)
