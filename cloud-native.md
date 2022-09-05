@@ -12,6 +12,14 @@
 
 ## Microservices
 
+### Microservice challenges
+
+#### Communication
+
+#### Resiliency
+
+#### Distributed Data
+
 ## Containers
 
 ## Backing services
