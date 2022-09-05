@@ -14,11 +14,11 @@
 
 ### Microservice challenges
 
-#### Communication
+#### [Communication](microservices-communication.md)
 
-#### Resiliency
+#### [Resiliency](microservices-residency.md)
 
-#### Distributed Data
+#### [Distributed Data](microservices-data.md)
 
 ## Containers
 
