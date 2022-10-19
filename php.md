@@ -13,6 +13,12 @@
 - Arguments are order-independent and self-documented.
 - https://wiki.php.net/rfc/named_params
 
+### mixed type
+
+mixed is equivalent to the union type object|resource|array|string|int|float|bool|null. Available as of PHP 8.0.0.
+
+https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.mixed
+
 ### Match Expression
 
 The new match is similar to switch and has the following features:  
