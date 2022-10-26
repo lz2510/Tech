@@ -70,6 +70,11 @@ I build the middleware project core function. Then other people can follow this 
 
 https://careersidekick.com/what-motivates-you/  
 
+### Are you familiar with Linux?
+
+- do some administrator work, install software, check logs
+- developing machine is MacBook, I use commands to do some work, like git
+
 ### how to identify priority
 An interviewer may ask about how you prioritize your work in a way similar to these examples:
 
