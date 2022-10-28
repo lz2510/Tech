@@ -71,3 +71,13 @@ The "length" of an integer column doesn't mean anything. A column of int(11) is 
 
 https://stackoverflow.com/questions/60892749/mysql-8-ignoring-integer-lengths  
 https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-19.html  
+
+## prepared statement protects from SQL injection
+
+The idea is very simple - the query and the data are sent to the database server separately.
+
+The root of the SQL injection problem is in the mixing of the code and the data.
+
+In fact, our SQL query is a legitimate program. And we are creating such a program dynamically, adding some data on the fly. Thus, the data may interfere with the program code and even alter it.
+
+https://stackoverflow.com/questions/8263371/how-can-prepared-statements-protect-from-sql-injection-attacks  
