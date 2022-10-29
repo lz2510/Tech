@@ -17,9 +17,10 @@
 3. many tech companies in berlin
 4. friend moved and post articles, cycle culture, beautiful nature, work life balance culture 
 
-### What’s your ideal role in your next company?
-- First of all, divise culture. I am from China, Asian. I want my next company have more nationalities.
-- The second, from the technology perspective. I want my next company follow the best pratices in engineering industry. For example, the SOLID principle in OOP.
+### What’s your ideal role in your next company? or What are you looking for in a job?
+
+- First of all, diverse cultures. I am from China, Asia. I want my next company to have more nationalities.
+- The second is from the technology perspective. I want my next company to follow the best practices in the engineering industry. For example, the SOLID principle in OOP.
 
 ### Why do you want to work here?
 
@@ -42,6 +43,7 @@ https://www.indeed.com/career-advice/interviewing/how-to-prepare-for-an-intervie
 - attend some meetings
 
 ### development process
+
 - agile
 - two weeks as a sprint
 - stand/morning meeting, about project task update, with PM, UX 
@@ -54,21 +56,25 @@ https://www.indeed.com/career-advice/interviewing/how-to-prepare-for-an-intervie
 - When fixing bug, I usually write test first, failed the test, then I fix the bug, finally pass the test.
 
 ### Do you know any other programming languages?
+
 - I know basis of java, python, golang
 - There are similar things between languages. For example how to divide feature to differenct class, method? how to write test? how to interact with database?
 
 ### what’s most proud of thing in your project?
 
-I build the middleware project core function. Then other people can follow this to add additional function. 
+I built the middleware project core function. Then other people can follow this to add additional functions.
 
-### what’s your motivation or what motivates you?
+### what’s your motivation or what motivates you? or Please tell us something about yourself we can’t read on your cv.
 
-- I'd like to solve technical challenging problems. How? By using best pratices and new technologies, they can give me some help.
-- Follow best pratices. I like to read some blogs like MartinFlower, Robert Martin. There are some best practices in enginerring industry, like Clean Architecture.
-- Follow new technology. I subscribe Medium, they send me recommendation everyday. The recommedation is about software enginerring, like new features in php8, how to use laravel more effiently.
-
+- I'd like to solve technical challenging problems. How? By using best practices and new technologies, they can give me some help.
+- Follow best practices. I like to read blogs like MartinFlower and Robert Martin. There are some best practices in the engineering industry, like Clean Architecture.
+- Follow new technology. I subscribe to Medium, they send me recommendations every day. The recommendation is about software engineering, like new features in php8, and how to use laravel more efficiently.
 
 https://careersidekick.com/what-motivates-you/  
+
+### Please describe your usual role on a team.
+
+I'm a core developer on a team. When developing a project, I design features and do core development like authentication, I can also do some server setup work.
 
 ### Are you familiar with Linux?
 
@@ -108,13 +114,13 @@ Example: “I measure the success of a software application I built by looking a
 
 https://climbtheladder.com/software-engineer-interview-questions/  
 
-### tell me about a time you made a mistake
+### tell me about a time you made a mistake and what you learned from this?
 
-There is a feature which get inventory file then backup. The file name is unique. So I design to move the file to another folder. Then one day there are two files with the same name. Moving to other folder failed because of permission.
+There is a feature that gets inventory files and then backups. The file name is unique. So I design to move the file to another folder. Then one day there are two files with the same name. Moving to another folder failed because of permission.
 
-I change the design to change name by adding timestamp when moving the file.
+I changed the design to change the name by adding a timestamp when moving the file.
 
-What I learnn is that when design a feature, we should always think about exception situation.
+What I learned is that when designing a feature, we should always think about exceptional situations.
 
 https://www.themuse.com/advice/3-rules-that-guarantee-youll-nail-the-answer-to-tell-me-about-a-time-you-made-a-mistake  
 
