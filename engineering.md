@@ -169,4 +169,23 @@ Kanban delivers tasks continuously until the project is finished, while Scrum de
 
 https://www.coursera.org/articles/kanban-vs-scrum  
 
+## .env
 
+### why .env
+
+You should never store sensitive credentials in your code. Storing configuration in the environment is one of the tenets of a twelve-factor app. Anything that is likely to change between deployment environments – such as database credentials or credentials for 3rd party services – should be extracted from the code into environment variables.
+
+Basically, a .env file is an easy way to load custom configuration variables that your application needs without having to modify nginx virtual hosts. This means you won't have to edit any files outside the project, and all the environment variables are always set no matter how you run your project - Nginx, CLI.
+
+NO editing virtual hosts in Nginx
+EASY portability and sharing of required ENV values
+COMPATIBLE with CLI runner
+
+### usage
+The .env file is generally kept out of version control since it can contain sensitive API keys and passwords. 
+
+A separate .env.example file is created with all the required environment variables defined except for the sensitive ones, which are either user-supplied for their own development environments or are communicated elsewhere to project collaborators. The project collaborators then independently copy the .env.example file to a local .env and ensure all the settings are correct for their local environment, filling in the secret keys or providing their own values when necessary. 
+
+In this usage, the .env file should be added to the project's .gitignore file so that it will never be committed by collaborators. This usage ensures that no sensitive passwords or API keys will ever be in the version control history so there is less risk of a security breach, and production values will never have to be shared with all project collaborators.
+
+https://github.com/vlucas/phpdotenv  
