@@ -19,6 +19,12 @@ mixed is equivalent to the union type object|resource|array|string|int|float|boo
 
 https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.mixed
 
+### constructor properties and readonly properties
+
+Both can eliminate boilerplate
+
+https://medium.com/@benr77/how-to-eliminate-boilerplate-code-with-php-8-1-766637d48353
+
 ### Match Expression
 
 The new match is similar to switch and has the following features:  
