@@ -19,19 +19,28 @@ mixed is equivalent to the union type object|resource|array|string|int|float|boo
 
 https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.mixed
 
-### constructor properties and readonly properties
+## readonly properties
 
-Both can eliminate boilerplate
+This RFC introduces a readonly property modifier, which prevents modification of the property after initialization.
 
-https://medium.com/@benr77/how-to-eliminate-boilerplate-code-with-php-8-1-766637d48353
+Value objects are often immutable: Properties are initialized once in the constructor, and should not be modified afterwards. PHP currently has no way to enforce this constraint. The closest alternative is to declare the property private, and only expose a public getter:
 
-### Match Expression
+This doesn't actually make the property readonly, but it does tighten the scope where modification could occur to a single class declaration. Unfortunately, this requires the use of getter boilerplate, which results in worse ergonomics for the consumer.
 
-The new match is similar to switch and has the following features:  
-- Match is an expression, meaning its result can be stored in a variable or returned.
-- Match branches only support single-line expressions and do not need a break; statement.
-- Match does strict comparisons.
-- https://wiki.php.net/rfc/match_expression_v2
+Support for first-class readonly properties allows you to directly expose public readonly properties, without fear that class invariants could be broken through external modification:
+
+https://wiki.php.net/rfc/readonly_properties_v2  
+
+### constructor properties
+
+Currently, the definition of simple value objects requires a lot of boilerplate, because all properties need to be repeated at least four times.
+
+Especially for value objects, which commonly do not contain anything more than property declarations and a constructor, this results in a lot of boilerplate, and makes changes more complicated and error prone.
+
+This RFC proposes to introduce a short hand syntax, which allows combining the definition of properties and the constructor:
+
+https://wiki.php.net/rfc/constructor_promotion  
+https://medium.com/@benr77/how-to-eliminate-boilerplate-code-with-php-8-1-766637d48353  
 
 ### Reference
 
