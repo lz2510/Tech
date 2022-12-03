@@ -1,10 +1,23 @@
 # Sort
 
+## summary
+
+selection sort, insertion sort and bubble sort
+
+- basic sorts
+- not test in a interview. 
+- time complexity are all O(n2) . 
+
+Quick sort and merge sort 
+- advanced. 
+- They will be tested in a interview.
+- Both are O(nlogn) time complexity. 
+
 ## categories
 
 ![image](https://user-images.githubusercontent.com/1209204/205418495-864e869d-cc4b-412d-a211-d2e89fa4b8d3.png)
 
-## complecity
+## complexity
 
 <img width="941" alt="image" src="https://user-images.githubusercontent.com/1209204/205418548-482f1813-e728-49d8-8d70-18f0a7d1ba53.png">
 
