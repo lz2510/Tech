@@ -38,6 +38,9 @@ Quick sort and merge sort
 https://www.geeksforgeeks.org/quick-sort/  
 https://en.wikipedia.org/wiki/Quicksort  
 
+
+![Sorting_quicksort_anim](https://user-images.githubusercontent.com/1209204/205549416-cc28da1d-84d4-4024-95de-b058124dd2a2.gif)
+
 ![image](https://user-images.githubusercontent.com/1209204/205418598-eb0d72d9-0846-426b-a830-5bf8c9b61596.gif)
 
 ## merge sort
