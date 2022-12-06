@@ -1,6 +1,12 @@
 # Quick Sort
 
-About the index of smaller element, there are two approaches.
+## code implementation
+
+[code](files/quick_sort.php)
+
+## topic
+
+### About the index of smaller element, there are two approaches.
 
 One is low -1, then plus 1 first then swap. And return itself plus 1.
 
@@ -23,7 +29,8 @@ if($arr[$i] < $arr[$pivot]){
 return $counter;
 
 
-condition of coming out loop
+### condition of coming out loop
+
 //end is count($arr) - 1, which means index of last element, not number of all elements.
 //the end is pivot, don't need to compare the end with pivot self
 //condition of coming out loop is $i <= $end - 1 or $i < $end
@@ -37,7 +44,7 @@ wrong:
 for($i = $begin; $i <= $end; $i++){
 
 
-
+## anaimation
 
 ![Sorting_quicksort_anim](https://user-images.githubusercontent.com/1209204/205549416-cc28da1d-84d4-4024-95de-b058124dd2a2.gif)
 
