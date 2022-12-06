@@ -35,15 +35,6 @@ Quick sort and merge sort
 
 ## quick sort
 
-https://www.geeksforgeeks.org/quick-sort/  
-https://en.wikipedia.org/wiki/Quicksort  
-https://en.wikipedia.org/wiki/Introduction_to_Algorithms  
-
-
-![Sorting_quicksort_anim](https://user-images.githubusercontent.com/1209204/205549416-cc28da1d-84d4-4024-95de-b058124dd2a2.gif)
-
-![image](https://user-images.githubusercontent.com/1209204/205418598-eb0d72d9-0846-426b-a830-5bf8c9b61596.gif)
-
 ## merge sort
 
 ![image](https://user-images.githubusercontent.com/1209204/205418589-403b80ba-3ae9-4a93-9bd2-dd4a20825628.gif)
