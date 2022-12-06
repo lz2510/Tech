@@ -2,7 +2,7 @@
 
 ## code implementation
 
-[code](files/quick_sort.php)
+[code](https://github.com/lz2510/algorithm_camp/blob/main/sort/QuickSort.php)
 
 ## topic
 
