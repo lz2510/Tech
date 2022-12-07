@@ -33,12 +33,4 @@ Quick sort and merge sort
 
 ![image](https://user-images.githubusercontent.com/1209204/205418575-4f76b060-1d83-45df-afa6-2ffeacf530e8.gif)
 
-## quick sort
-
-## merge sort
-
-![image](https://user-images.githubusercontent.com/1209204/205418589-403b80ba-3ae9-4a93-9bd2-dd4a20825628.gif)
-
-
-
 https://www.cnblogs.com/onepixel/p/7674659.html
