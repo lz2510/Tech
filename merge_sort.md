@@ -12,6 +12,10 @@ Think of it as a recursive algorithm continuously splits the array in half until
 
 ![image](https://user-images.githubusercontent.com/1209204/206084920-5e893768-b277-4005-b79c-f405bb9a61d0.gif)
 
+## process
+
+![image](https://user-images.githubusercontent.com/1209204/206085373-28032256-5187-4876-8cc2-53ce6b7a1b11.png)
+
 ## code implementation
 
 [code](https://github.com/lz2510/algorithm_camp/blob/main/sort/MergeSort.php)
