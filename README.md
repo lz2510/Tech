@@ -44,7 +44,8 @@
 
 # Data structure & Algorithm
 - [Sort](sort.md)
-- [QuickSort](quick_sort.md)
+- [Quick Sort](quick_sort.md)
+- [Merge Sort](merge_sort.md)
 
 # Network
 - [HTTP](Network/http.md)
