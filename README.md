@@ -46,6 +46,7 @@
 - [Sort](sort.md)
 - [Quick Sort](quick_sort.md)
 - [Merge Sort](merge_sort.md)
+- [Binary Search](binary_search.md)
 
 # Network
 - [HTTP](Network/http.md)
