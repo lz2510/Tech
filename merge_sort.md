@@ -35,7 +35,7 @@ But in next loop, when $left is 4 and $right is 6, then $mid is 1, actually it s
 
 right:
 
-    $mid = floor(($right + $left) / 2);
+    $mid = floor(($right + $left) / 2); //$right + $left may exceed the biggest int, so below is better.
 or
 
     $mid = $left + floor(($right - $left) / 2);
