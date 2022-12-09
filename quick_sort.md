@@ -15,6 +15,10 @@ The key process in quickSort is a partition(). The target of partitions is, give
 
 There can be many ways to do partition, following pseudo-code adopts the method given in the CLRS book. The logic is simple, we start from the leftmost element and keep track of the index of smaller (or equal to) elements as i. While traversing, if we find a smaller element, we swap the current element with arr[i]. Otherwise, we ignore the current element. 
 
+## INTRODUCTION TO ALGORITHMS
+7 Quicksort
+P170
+
 ## code implementation
 
 [code](https://github.com/lz2510/algorithm_camp/blob/main/sort/QuickSort.php)

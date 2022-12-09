@@ -8,6 +8,10 @@ Merge Sort Working Process:
 
 Think of it as a recursive algorithm continuously splits the array in half until it cannot be further divided. This means that if the array becomes empty or has only one element left, the dividing will stop, i.e. it is the base case to stop the recursion. If the array has multiple elements, split the array into halves and recursively invoke the merge sort on each of the halves. Finally, when both halves are sorted, the merge operation is applied. Merge operation is the process of taking two smaller sorted arrays and combining them to eventually make a larger one.
 
+## INTRODUCTION TO ALGORITHMS
+2.3.1 The divide-and-conquer approach
+P30
+
 ## animation
 
 ![image](https://user-images.githubusercontent.com/1209204/206084920-5e893768-b277-4005-b79c-f405bb9a61d0.gif)
@@ -31,7 +35,7 @@ But in next loop, when $left is 4 and $right is 6, then $mid is 1, actually it s
 
 right:
 
-    $mid = floor(($right + $left) / 2);
+    $mid = floor(($right + $left) / 2); //$right + $left may exceed the biggest int, so below is better.
 or
 
     $mid = $left + floor(($right - $left) / 2);
@@ -60,3 +64,4 @@ right:
     
 https://www.geeksforgeeks.org/merge-sort/  
 https://en.wikipedia.org/wiki/Merge_sort  
+https://sd.blackball.lv/library/Introduction_to_Algorithms_Third_Edition_(2009).pdf  
