@@ -43,6 +43,7 @@
 - [Behavior](Behavior.md)
 
 # Data structure & Algorithm
+- [Algorithm](algorithm.md)
 - [Sort](sort.md)
 - [Quick Sort](quick_sort.md)
 - [Merge Sort](merge_sort.md)
