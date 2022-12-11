@@ -44,6 +44,8 @@
 
 # Data structure & Algorithm
 - [Algorithm](algorithm.md)
+- [Recursion](recursion.md)
+- [Divide and Conque](divide-conque.md)
 - [Sort](sort.md)
 - [Quick Sort](quick_sort.md)
 - [Merge Sort](merge_sort.md)
