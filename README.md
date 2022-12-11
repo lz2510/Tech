@@ -50,6 +50,7 @@
 - [Quick Sort](quick_sort.md)
 - [Merge Sort](merge_sort.md)
 - [Binary Search](binary_search.md)
+- [Dynamic Programming](dp.md)
 
 # Network
 - [HTTP](Network/http.md)
