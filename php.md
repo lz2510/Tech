@@ -111,5 +111,9 @@ https://blog.adamcameron.me/2016/05/php-constants-vs-private-static.html
 https://stackoverflow.com/questions/1685922/php-5-const-vs-static#:~:text=Constant%20is%20just%20a%20constant,the%20instances%20of%20a%20class. 
 https://www.php.net/manual/en/language.oop5.static.php 
 
+## void functions
 
+Functions declared with void as their return type must either omit their return statement altogether, or use an empty return statement. null is not a valid return value for a void function.
+
+https://www.php.net/manual/en/migration71.new-features.php  
 
