@@ -117,3 +117,41 @@ Functions declared with void as their return type must either omit their return 
 
 https://www.php.net/manual/en/migration71.new-features.php  
 
+## class abstraction
+
+### any class that contains at least one abstract method must also be abstract.
+
+Fatal error: Class AbstractClass contains 2 abstract methods and must therefore be declared abstract or implement the remaining methods (AbstractClass::getValue, AbstractClass::prefixValue) in /box/script.php on line 2
+
+    class AbstractClass
+    {
+      abstract protected function getValue();
+      abstract protected function prefixValue($prefix);
+    }
+    
+right:
+
+    abstract class AbstractClass
+    {
+      abstract protected function getValue();
+      abstract protected function prefixValue($prefix);
+    }
+
+### a class can be declared as abstract but without any abstract method.
+
+    abstract class AbstractClass
+    {
+        public function printOut() {
+          echo "test";
+        }
+    }
+
+### an abstract class can have properties, constant.
+
+    abstract class AbstractClass
+    {
+      public string $url;
+      const NAME = 'abs';
+    }
+
+https://www.php.net/manual/en/language.oop5.abstract.php  
