@@ -2,24 +2,19 @@
 
 ## php8 new features
 
-### Union Types
+### type system completement
 
-- Instead of PHPDoc annotations for a combination of types, you can use native union type declarations that are validated at runtime.
+PHP has added support for the top type mixed, the bottom type never and nul, false and true type.
+
+And support for composite types union types,intersection types and DNF types which combine union and intersection types..
+
 - https://wiki.php.net/rfc/union_types_v2
+- https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.mixed
+- https://wiki.php.net/rfc/null-false-standalone-types
+- https://wiki.php.net/rfc/true-type
+- https://wiki.php.net/rfc/dnf_types
 
-### Named Arguments
-
-- Specify only required parameters, skipping optional ones.
-- Arguments are order-independent and self-documented.
-- https://wiki.php.net/rfc/named_params
-
-### mixed type
-
-mixed is equivalent to the union type object|resource|array|string|int|float|bool|null. Available as of PHP 8.0.0.
-
-https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.mixed
-
-## readonly properties
+## readonly properties and readonly classes
 
 This RFC introduces a readonly property modifier, which prevents modification of the property after initialization.
 
@@ -30,6 +25,13 @@ This doesn't actually make the property readonly, but it does tighten the scope 
 Support for first-class readonly properties allows you to directly expose public readonly properties, without fear that class invariants could be broken through external modification:
 
 https://wiki.php.net/rfc/readonly_properties_v2  
+https://wiki.php.net/rfc/readonly_classes  
+
+### Named Arguments
+
+- Specify only required parameters, skipping optional ones.
+- Arguments are order-independent and self-documented.
+- https://wiki.php.net/rfc/named_params
 
 ### constructor properties
 
