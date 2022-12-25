@@ -1,4 +1,4 @@
-## Graph
+# Graph
 
 Graph is a useful data structure for representing most of the real world problems involving a set of users/candidates/nodes and their relations. A Graph consists of two parameters :
 
@@ -16,7 +16,7 @@ An example of directed edge graph the **follow** feature of social media. If you
 Example: Social media graph, where if two persons are friend, it implies that both are friend with each other.
 
 
-### Representation
+## Representation
 
 1.  **Adjacency Lists**: Each node is represented as an entry and all the edges are represented as a list emerging from the corresponding node. So if vertex `1` has eadges to 2,3, and 6, the list corresponding to 1 will have 2,3 and 6 as entries. Consider the following graph.
 
@@ -40,3 +40,5 @@ The mtrix for the above graph:
 3  1 0 0 0 1
 4  0 0 0 1 0
 ```
+
+https://github.com/TheAlgorithms/Java/tree/e96f567bfc6e980dc5c4c48ccf185d7f7c7108ab/src/main/java/com/thealgorithms/datastructures/graphs  
