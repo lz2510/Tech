@@ -51,6 +51,7 @@
 - [Merge Sort](merge_sort.md)
 - [Binary Search](binary_search.md)
 - [Dynamic Programming](dp.md)
+- [Priority Queue](priority-queue.md)
 - [Heap](heap.md)
 - [Graph](graph.md)
 
