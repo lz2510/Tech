@@ -49,6 +49,8 @@
 - [Sort](sort.md)
 - [Quick Sort](quick_sort.md)
 - [Merge Sort](merge_sort.md)
+- [BFS](bfs.md)
+- [DFS](dfs.md)
 - [Binary Search](binary_search.md)
 - [Dynamic Programming](dp.md)
 - [Priority Queue](priority-queue.md)
