@@ -2,24 +2,19 @@
 
 ## php8 new features
 
-### Union Types
+### type system completement
 
-- Instead of PHPDoc annotations for a combination of types, you can use native union type declarations that are validated at runtime.
+PHP has added support for the top type mixed, the bottom type never and nul, false and true type.
+
+And support for composite types union types,intersection types and DNF types which combine union and intersection types..
+
 - https://wiki.php.net/rfc/union_types_v2
+- https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.mixed
+- https://wiki.php.net/rfc/null-false-standalone-types
+- https://wiki.php.net/rfc/true-type
+- https://wiki.php.net/rfc/dnf_types
 
-### Named Arguments
-
-- Specify only required parameters, skipping optional ones.
-- Arguments are order-independent and self-documented.
-- https://wiki.php.net/rfc/named_params
-
-### mixed type
-
-mixed is equivalent to the union type object|resource|array|string|int|float|bool|null. Available as of PHP 8.0.0.
-
-https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.mixed
-
-## readonly properties
+## readonly properties and readonly classes
 
 This RFC introduces a readonly property modifier, which prevents modification of the property after initialization.
 
@@ -30,6 +25,13 @@ This doesn't actually make the property readonly, but it does tighten the scope 
 Support for first-class readonly properties allows you to directly expose public readonly properties, without fear that class invariants could be broken through external modification:
 
 https://wiki.php.net/rfc/readonly_properties_v2  
+https://wiki.php.net/rfc/readonly_classes  
+
+### Named Arguments
+
+- Specify only required parameters, skipping optional ones.
+- Arguments are order-independent and self-documented.
+- https://wiki.php.net/rfc/named_params
 
 ### constructor properties
 
@@ -111,5 +113,61 @@ https://blog.adamcameron.me/2016/05/php-constants-vs-private-static.html
 https://stackoverflow.com/questions/1685922/php-5-const-vs-static#:~:text=Constant%20is%20just%20a%20constant,the%20instances%20of%20a%20class. 
 https://www.php.net/manual/en/language.oop5.static.php 
 
+## void functions
 
+Functions declared with void as their return type must either omit their return statement altogether, or use an empty return statement. null is not a valid return value for a void function.
 
+https://www.php.net/manual/en/migration71.new-features.php  
+
+## class abstraction
+
+### any class that contains at least one abstract method must also be abstract.
+
+Fatal error: Class AbstractClass contains 2 abstract methods and must therefore be declared abstract or implement the remaining methods (AbstractClass::getValue, AbstractClass::prefixValue) in /box/script.php on line 2
+
+    class AbstractClass
+    {
+      abstract protected function getValue();
+      abstract protected function prefixValue($prefix);
+    }
+    
+right:
+
+    abstract class AbstractClass
+    {
+      abstract protected function getValue();
+      abstract protected function prefixValue($prefix);
+    }
+
+### a class can be declared as abstract but without any abstract method.
+
+    abstract class AbstractClass
+    {
+        public function printOut() {
+          echo "test";
+        }
+    }
+
+### an abstract class can have properties, constant.
+
+    abstract class AbstractClass
+    {
+      public string $url;
+      const NAME = 'abs';
+    }
+
+https://www.php.net/manual/en/language.oop5.abstract.php  
+
+## how to log error
+
+There are 2 types of errors.
+1. Errors emitted by the PHP engine itself when a core function fails or if code can’t be parsed
+2. Custom errors your application triggers, usually caused by missing or incorrect user input
+
+For type 1, it should be logged in error.log in php.ini. Because it automatically includes stack trace.
+
+For type 2, it should be logged in application log file. As it belongs to application level. And if only error message are logged, as it's throw in application, so it can be easily located.
+
+That's also why throwable can't be used in catch. As it catches both types. throwable exception can be 2 types. One is php built-in function thrown exception. The one is user defined function thrown exception.
+
+https://stackoverflow.com/questions/15245184/log-caught-exception-with-stack-trace%
