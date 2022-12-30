@@ -157,3 +157,17 @@ right:
     }
 
 https://www.php.net/manual/en/language.oop5.abstract.php  
+
+## how to log error
+
+There are 2 types of errors.
+1. Errors emitted by the PHP engine itself when a core function fails or if code can’t be parsed
+2. Custom errors your application triggers, usually caused by missing or incorrect user input
+
+For type 1, it should be logged in error.log in php.ini. Because it automatically includes stack trace.
+
+For type 2, it should be logged in application log file. As it belongs to application level. And if only error message are logged, as it's throw in application, so it can be easily located.
+
+That's also why throwable can't be used in catch. As it catches both types. throwable exception can be 2 types. One is php built-in function thrown exception. The one is user defined function thrown exception.
+
+https://stackoverflow.com/questions/15245184/log-caught-exception-with-stack-trace%
