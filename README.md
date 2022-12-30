@@ -54,6 +54,7 @@
 - [Binary Search](binary_search.md)
 - [Dynamic Programming](dp.md)
 - [Priority Queue](priority-queue.md)
+- [Tree](tree.md)
 - [Heap](heap.md)
 - [Graph](graph.md)
 
