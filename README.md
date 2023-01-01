@@ -44,6 +44,7 @@
 
 # Data structure & Algorithm
 - [Algorithm](algorithm.md)
+- [Hash table](hash-table.md)
 - [Queue](queue.md)
 - [Stack](stack.md)
 - [Recursion](recursion.md)
