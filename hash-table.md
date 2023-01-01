@@ -22,3 +22,5 @@ In PHP, arrays are used to implement sets, just like hash tables.
 
     isset($lightBulbs['LED']);  // true
     isset($lightBulbs['halogen']);  // false
+    
+https://www.interviewcake.com/concept/php/hash-map  
