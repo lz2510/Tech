@@ -9,3 +9,5 @@ array_pop
 
 array_push
 array_shift
+
+https://wpshout.com/thorough-introduction-php-arrays/  
