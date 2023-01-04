@@ -9,7 +9,7 @@
 
 ## array vs linked list
 
-Array is O(1) in access operation, other operations all are O(n). Linked list is the oppisite.
+Array is O(1) in access operation, other operations all are O(n). Linked list is O(1) in insertion and deletion.
 
 
 https://www.geeksforgeeks.org/time-complexities-of-different-data-structures/
