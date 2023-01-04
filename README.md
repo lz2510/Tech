@@ -43,6 +43,7 @@
 - [Behavior](Behavior.md)
 
 # Data structure & Algorithm
+- [Data structure](data-structure.md)
 - [Algorithm](algorithm.md)
 - [Hash table](hash-table.md)
 - [Queue](queue.md)
