@@ -13,3 +13,9 @@ Abstract data types are implemented by data structures.
 - Queue
   - Linked List
 - Tree
+
+## List (abstract data type)
+
+Lists are typically implemented either as linked lists (either singly or doubly linked) or as arrays.
+
+
