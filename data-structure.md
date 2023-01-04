@@ -15,6 +15,10 @@ Abstract data types are implemented by data structures.
   - Linked List
 - Tree
 
+## String
+
+Strings are typically implemented as arrays of bytes, characters, or code units.
+
 ## Associative array (map)
 
 The two major approaches to implementing dictionaries are a hash table or a search tree.
@@ -25,4 +29,4 @@ Lists are typically implemented either as linked lists (either singly or doubly 
 
 https://en.wikipedia.org/wiki/Associative_array#Implementation  
 https://en.wikipedia.org/wiki/List_(abstract_data_type)#Implementations  
-
+https://en.wikipedia.org/wiki/String_(computer_science)  
