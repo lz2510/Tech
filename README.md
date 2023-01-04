@@ -45,6 +45,7 @@
 # Data structure & Algorithm
 - [Data structure](data-structure.md)
 - [Algorithm](algorithm.md)
+- [Time and Space Complexity](complexity.md)
 - [Hash table](hash-table.md)
 - [Queue](queue.md)
 - [Stack](stack.md)
