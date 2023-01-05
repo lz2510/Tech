@@ -2,10 +2,14 @@
 
 ## The average time complexity of different data structures
 
-|Data structure|	Access/Get at index/Indexing|	Search|	Insertion|	Deletion
-|--|--|--|--|--|
-|Array|	O(1)|	O(N)|	O(N)|	O(N)
-|Linked list|	O(N)|	O(N)|	O(1)|	O(1)
+| Data structure | Access/Get at index/Indexing | Search| Insertion | Deletion |
+| -- | -- | -- | -- | -- |
+| Array |	O(1) | O(N) | O(N) |	O(N) |
+| Linked list | O(N) |O(N) |O(1)	|O(1 )|
+| Stack	| N/A | O(N)	|O(1)	|O(1) |
+| Queue	| N/A | O(N)	|O(1)	|O(1) |
+| Hash Table | N/A | O(1) | O(1) | O(1) |
+| Binary Search Tree | N/A | O(log N) | O(log N) | O(log N) |
 
 ## Access/Get at index/Indexing vs Search
 
@@ -18,3 +22,4 @@ Array is O(1) in access operation, other operations all are O(n). Linked list is
 
 https://www.geeksforgeeks.org/time-complexities-of-different-data-structures/  
 https://en.wikipedia.org/wiki/Best,_worst_and_average_case#Data_structures  
+https://en.wikipedia.org/wiki/Search_data_structure#Asymptotic_worst-case_analysis  
