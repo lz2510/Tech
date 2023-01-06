@@ -2,17 +2,21 @@
 
 Abstract data types are implemented by data structures.
 
-## Abstract Data Type(ADT)
+## Abstract Data Type(ADT) and Data Structure to implemente ADT 
 - String
+  - Array (data structrue)
 - Array (Data Type or Abstract Data Type)
   - Array (data structure)
-- Associative array (map)
 - List
   - Linked List
 - Stack
   - Linked List
 - Queue
   - Linked List
+- Map/Associative array
+  - Hash table
+- Set
+  - Hash table
 - Tree
 
 ## String
