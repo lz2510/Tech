@@ -17,6 +17,7 @@ Abstract data types are implemented by data structures.
 
 ## String
 
+String is a abstract data type, not a data structure.
 Strings are typically implemented as arrays of bytes, characters, or code units.
 
 ## Associative array (map)
