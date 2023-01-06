@@ -36,3 +36,5 @@ Lists are typically implemented either as linked lists (either singly or doubly 
 https://en.wikipedia.org/wiki/Associative_array#Implementation  
 https://en.wikipedia.org/wiki/List_(abstract_data_type)#Implementations  
 https://en.wikipedia.org/wiki/String_(computer_science)  
+https://en.wikipedia.org/wiki/Set_(abstract_data_type)#Implementations  
+https://en.wikipedia.org/wiki/Associative_array#Implementation  
