@@ -14,7 +14,8 @@ Abstract data types are implemented by data structures.
 - Queue
   - Linked List
 - Map/Associative array
-  - Hash table
+  - Hash table implementation
+  - Tree implementation (Self-balancing binary search trees like, such as an AVL tree or a red–black tree)
 - Set
   - Hash table
 - Tree
