@@ -25,6 +25,8 @@ Linked lists allow constant time removal and insertion in the middle but take li
 
 Array is O(1) in access operation, insert and delete are O(n). Linked list access is O(n), insert and delet are O(1). Both search are O(n).
 
+For random access, use array. For insert and delete frequently, use linked list.
+
 ![4f63e92598ec2551069a0eef69db7168](https://user-images.githubusercontent.com/1209204/210755595-5f23dc71-b8a9-4a96-8225-e1d911fbad1a.jpeg)
 
 https://www.geeksforgeeks.org/time-complexities-of-different-data-structures/  
