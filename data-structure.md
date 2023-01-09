@@ -25,6 +25,12 @@ Abstract data types are implemented by data structures.
 String is a abstract data type, not a data structure.
 Strings are typically implemented as arrays of bytes, characters, or code units.
 
+### String access and modification by character in PHP
+
+Characters within strings may be accessed and modified by specifying the zero-based offset of the desired character after the string using square array brackets, as in $str[42]. 
+
+https://www.php.net/manual/en/language.types.string.php
+
 ## Associative array (map)
 
 The two major approaches to implementing dictionaries are a hash table or a search tree.
