@@ -167,3 +167,15 @@ You can let it write. Or you can mock a logging object to not to write.
 ![IMG_9283](https://user-images.githubusercontent.com/1209204/182123301-ecaba424-236f-4bca-8b9d-4ccf56c736a3.png)
 
 https://mp.weixin.qq.com/s/ahLjLKmxk5bPZ_Zt52Zc-g  
+
+## how to create instance
+
+1. new classname(). it's not recommanded, as if add construct argument, the test will broke.
+2. dependency inject, like app()->make(). it will automatically instanice argument.
+3. if need mock. createMock will ignore constuct. 
+4. if you need to use construct argument in mock. then use getMockBulder()->setConsturctorArgs()
+
+## Alibaba unit test
+
+https://mp.weixin.qq.com/s/wzGxqNv58Zig9_Izi3VhDg  
+
