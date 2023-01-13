@@ -48,6 +48,7 @@
 - [Algorithm](algorithm.md)
 - [Time and Space Complexity](complexity.md)
 - [Hash table](hash-table.md)
+- [Two pointers](two-pointers.md)
 - [Queue](queue.md)
 - [Stack](stack.md)
 - [Recursion](recursion.md)
