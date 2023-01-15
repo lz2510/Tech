@@ -8,6 +8,10 @@
 
 [visual algorithm](https://visualgo.net) 
 
+## no idea
+
+<img width="226" alt="Screenshot 2023-01-15 at 12 13 26" src="https://user-images.githubusercontent.com/1209204/212522608-3d1d7724-a80a-429c-acb5-52b29191a29c.png">
+
 ## list
 
 ![image](img/algorithm-list.png)
