@@ -5,6 +5,8 @@
 
 O(n)
 
+The precondition is array is sorted. If it's not, sort first. Usually sort time complexity is O(nlogn), so overall complexity would be O(nlogn).
+
 ## two types
 
 - One slow-runner and the other fast-runner.
