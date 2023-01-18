@@ -21,6 +21,38 @@ Have fast advanced in every iteration, but slow is only advanced when two pointe
 
 That means, the elements after nums[slow] and before nums[fast] are numbers we've seen before and don't need anymore (one copy of these numbers is already saved before the current slow (inclusive)).
 
+### code sample
+
+    function removeDuplicates(&$nums) {
+        $j = 0;
+        for ($i = 1; $i < count($nums); $i++) {
+            if ($nums[$i] != $nums[$j]) {
+                $j++;
+                $nums[$j] = $nums[$i];
+            }
+        }
+        return $j + 1;
+    }
+    
+## One pointer starts from the beginning while the other pointer starts from the end.
+
+### code sample
+
+    function twoSum($numbers, $target) {
+        $i = 0;
+        $j = count($numbers) - 1;
+        while ($i < $j) {
+            $sum = $numbers[$i] + $numbers[$j];
+            if ($sum == $target) {
+                return [$i + 1, $j + 1];
+            } elseif ($sum < $target) {
+                $i++;
+            } else {
+                $j--;
+            }
+        }
+    }
+
 ## Classic problems:
 
 1. [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
