@@ -21,6 +21,10 @@ Have fast advanced in every iteration, but slow is only advanced when two pointe
 
 That means, the elements after nums[slow] and before nums[fast] are numbers we've seen before and don't need anymore (one copy of these numbers is already saved before the current slow (inclusive)).
 
+## One pointer starts from the beginning while the other pointer starts from the end.
+
+In this approach, two pointers are used to process two array elements at the same time. Usual implementation is to set one pointer in the beginning and one at the end and then to move them until they both meet.
+
 ### code sample
 
     function removeDuplicates(&$nums) {
@@ -38,6 +42,8 @@ That means, the elements after nums[slow] and before nums[fast] are numbers we'v
 
 ### code sample
 
+#### end condition is while ($i < $j), ++ and -- are in the loop, initilizition is before the loop
+
     function twoSum($numbers, $target) {
         $i = 0;
         $j = count($numbers) - 1;
@@ -50,6 +56,18 @@ That means, the elements after nums[slow] and before nums[fast] are numbers we'v
             } else {
                 $j--;
             }
+        }
+    }
+    
+#### end condition is in for statement, ++ and -- as well, initializtion as well.
+    
+    function reverseString(&$s) {
+        //end condition is $i < $j, not $i < count($s) -1, $j >=0
+        //for ($i = 0, $j = count($s) - 1; $i < count($s) -1, $j >=0; $i++, $j--) {
+        for ($i = 0, $j = count($s) - 1; $i < $j; $i++, $j--) {
+            $tmp = $s[$j];
+            $s[$j] = $s[$i];
+            $s[$i] = $tmp;
         }
     }
 
@@ -67,3 +85,4 @@ https://leetcode.com/articles/two-pointer-technique/
 https://medium.com/@kevinlai76/algorithm-two-pointer-technique-a27103ed7ea1  
 https://www.geeksforgeeks.org/two-pointers-technique/  
 https://leetcode.com/problems/remove-duplicates-from-sorted-array/solutions/2107606/py-all-4-methods-intuitions-walk-through-wrong-answer-explanations-for-beginners-python/?orderBy=most_votes  
+https://leetcode.com/problems/reverse-string/solutions/404367/reverse-string/?orderBy=most_votes  
