@@ -1,5 +1,60 @@
 # unit test 
 
+## FIRST priniples
+
+### Fast
+
+- A developer should not hesitate to run the tests as they are slow.
+- All of these including setup, the actual test and tear down should execute really fast (milliseconds) as you may have thousands of tests in your entire project.
+
+### Indenpendent/Isolated
+
+- For any given unit test, for its environment variables or for its setup. It should be independent of everything else should so that it results is not influenced by any other factor.
+- Should follow the 3 A’s of testing: Arrange, Act, Assert
+- In some literature, it’s also called as Given, when, then.
+
+#### 3A's
+
+- Arrange: The data used in a test should not depend on the environment in which the test is running. All the data needed for a test should be arranged as part of the test.
+- Act: Invoke the actual method under test.
+- Assert: A test method should test for a single logical outcome, implying that typically there should be only a single logical assert. A logical assert could have multiple physical asserts as long as all the asserts test the state of a single object. In a few cases, an action can update multiple objects.
+
+#### one assert per test
+
+What about the notion of having “one assert per test”?
+
+I don’t follow that guideline too closely. I consider it for two things: 
+
+A series of assertions may indicate the object is missing functionality which should be added (and tested). The classical case is equals(): It’s better to define an equals() method than (possibly create and) repeat a bunch of assertions about held data.
+A series of similar assertions might benefit from a helper (assertion) method.
+
+### Repeatable
+
+- tests should be repeatable and deterministic, their values shouldn’t change based on being run on different environments.
+- Each test should set up its own data and should not depend on any external factors to run its test
+
+### Self-validating
+
+- you shouldn’t need to check manually, whether the test passed or not.
+
+### Through
+
+- should cover all the happy paths
+- try covering all the edge cases, where the author would feel the function would fail.
+- test for illegal arguments and variables.
+
+#### Through or Timely
+
+People who believe in TDD, Robert. C. Martin included, explain this letter as Timely and state that tests should be written in the correct time—for TDD it means while writing a production code. This should force you to write a cleaner and more testable code. Additionally, they claim that writing tests after your production code can lead to a more dirty and less testable code. It may bring some benefits for the unit tests but may not be so good for other test types. 
+
+That is one of the reasons why I, personally, prefer to explain this letter as Thorough. It means that when we test a method, we should cover not only the execution of happy paths but also possible errors and negative paths. It helps make our tests more meaningful, more complete, and gives us a better understanding of more complex parts of our code. Naturally, there is no big deal in following these two explanations together and combining their advantages.
+
+https://github.com/tekguard/Principles-of-Unit-Testing  
+https://medium.com/@tasdikrahman/f-i-r-s-t-principles-of-testing-1a497acda8d6  
+https://dzone.com/articles/first-principles-solid-rules-for-tests  
+https://xp123.com/articles/3a-arrange-act-assert/  
+https://martinfowler.com/bliki/GivenWhenThen.html  
+
 ## how can i trust my test suits
 
 ### test coverage   
