@@ -37,13 +37,13 @@ A series of similar assertions might benefit from a helper (assertion) method.
 
 - you shouldn’t need to check manually, whether the test passed or not.
 
-### Through
+### Thorough
 
 - should cover all the happy paths
 - try covering all the edge cases, where the author would feel the function would fail.
 - test for illegal arguments and variables.
 
-#### Through or Timely
+#### Thorough or Timely
 
 People who believe in TDD, Robert. C. Martin included, explain this letter as Timely and state that tests should be written in the correct time—for TDD it means while writing a production code. This should force you to write a cleaner and more testable code. Additionally, they claim that writing tests after your production code can lead to a more dirty and less testable code. It may bring some benefits for the unit tests but may not be so good for other test types. 
 
