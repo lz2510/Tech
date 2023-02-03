@@ -261,3 +261,35 @@ https://mp.weixin.qq.com/s/wzGxqNv58Zig9_Izi3VhDg
 
 https://mp.weixin.qq.com/s/R4ZKWcB4TMFAiQlnIRqNeQ  
 
+## Simplify test
+
+### 简化模拟数据对象
+
+- 利用JSON反序列化简化数据对象赋值语句
+- 利用虚拟数据对象简化返回值模拟语句
+- 利用虚拟数据对象简化参数值模拟语句
+
+### 简化模拟依赖方法
+
+- 利用默认返回值简化模拟依赖方法
+- 利用任意匹配参数简化模拟依赖方法
+- 利用do/thenAnswer简化模拟依赖方法
+- 利用Mock参数简化模拟链式调用方法
+
+### 简化验证数据对象
+
+- 利用JSON序列化简化数据对象验证语句
+- 利用数据对象相等简化返回值验证语句
+- 利用数据对象相等简化参数值验证语句
+
+### 简化验证依赖方法
+
+- 利用ArgumentCaptor简化验证依赖方法
+
+### 简化单元测试用例
+
+- 简化单元测试用例
+- 利用JUnit的参数化测试简化单元测试用例
+
+https://mp.weixin.qq.com/s/HROhxieLa_g394QiYZUpuw  
+
