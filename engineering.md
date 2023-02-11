@@ -189,3 +189,10 @@ A separate .env.example file is created with all the required environment variab
 In this usage, the .env file should be added to the project's .gitignore file so that it will never be committed by collaborators. This usage ensures that no sensitive passwords or API keys will ever be in the version control history so there is less risk of a security breach, and production values will never have to be shared with all project collaborators.
 
 https://github.com/vlucas/phpdotenv  
+
+### edge case return false programming
+
+https://www.geeksforgeeks.org/dont-forget-edge-cases/  
+https://softwareengineering.stackexchange.com/questions/72761/how-do-you-identify-edge-cases-on-algorithms  
+
+
