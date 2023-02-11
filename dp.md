@@ -69,5 +69,11 @@ https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithm
         }
     }
     return $dp[$m][$n];
+    
+https://leetcode.com/problems/longest-common-subsequence
+https://leetcode.com/problems/longest-common-subsequence/submissions/890580919/
+https://leetcode.com/problems/longest-common-subsequence/solutions/348884/c-with-picture-o-nm/?orderBy=most_votes
+
+
 
         
