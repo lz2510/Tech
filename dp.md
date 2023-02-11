@@ -38,3 +38,36 @@ https://en.wikipedia.org/wiki/Dynamic_programming#Computer_programming
 <img width="477" alt="fib_dp" src="https://user-images.githubusercontent.com/1209204/215318592-21b81a47-8c5a-41a7-acbe-165b2e34475b.png">
 
 https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/dynamicprogramming/Fibonacci.java  
+
+## How to initialize first row and column? 
+
+1. it can be easy to assign 0 or 1 like unique path. 
+
+2. Another is to add an extra row and column on $dp because the initial first element needs to use the same logic as other elements, so $dp adds one more element and initializes all to 0. $text1[1] and $text2[1] is based on $dp[0], in iterate, $dp[i] relates $text[i-1]. The example is long common sequence.
+
+![image_1564691262](https://user-images.githubusercontent.com/1209204/218236964-e76e201c-d6b6-4fa4-9495-fba9f2f2056d.png)
+
+
+    //$dp length is $m+1,$n+1, $text1 and $text 2 length is $m, $n
+    //so $dp is from 0 to $m+1, $n+1, the last element $dp[$m][$n]
+    //because the length is different, $dp[$i][$j] relates $text1[$i-1] and $text2[$j-1]
+    $dp = [];
+    //initialize also need $i < $m + 1, not $i < $n
+    for ($i = 0; $i < $m + 1; $i++) {
+        $dp[$m][0] = 0;
+    }
+    for ($i = 0; $i < $n + 1; $i++) {
+        $dp[0][$n] = 0;
+    }
+    for ($i = 1; $i < $m + 1; $i++) {
+        for ($j = 1; $j < $n + 1; $j++) {
+            if ($text1[$i-1] != $text2[$j-1]) {
+                $dp[$i][$j] = max($dp[$i-1][$j], $dp[$i][$j-1]);
+            } else {
+                $dp[$i][$j] = $dp[$i-1][$j-1] + 1;
+            }
+        }
+    }
+    return $dp[$m][$n];
+
+        
