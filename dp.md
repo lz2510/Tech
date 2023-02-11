@@ -41,7 +41,36 @@ https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithm
 
 ## How to initialize first row and column? 
 
-1. it can be easy to assign 0 or 1 like unique path. 
+1. It can be easy to assign 0 or 1 like unique path and for do some calculation like unique path 2. 
+
+1.1 For unique path, there is only one path to reach the cells in the first row: right->right->...->right. The same is valid for the first column, though the path here is down->down-> ...->down.
+
+<img width="285" alt="Screenshot 2023-02-11 at 12 08 00" src="https://user-images.githubusercontent.com/1209204/218238427-427e031b-0699-4798-ac80-e09e2ae5e7c9.png">
+
+        for ($i = 0; $i < $m; $i++) {
+            $dp[$i][0] = 1;
+        }
+        for ($i = 0; $i < $n; $i++) {
+            $dp[0][$i] = 1;
+        }
+
+1.2 For unique path2, there are obstacles. If any cell has an obstacle, we won't let that cell contribute to any path.As the reboot is put in the first cel, so $dp[0][0] = 1;
+
+<img width="629" alt="Screenshot 2023-02-11 at 12 07 38" src="https://user-images.githubusercontent.com/1209204/218238437-c06dd1db-0a78-4add-be43-b2a29fe3fd7d.png">
+
+        $dp[0][0] = 1;
+        //$dp[$i-1][0] == 1 or $dp[0][$j-1] == 1 use $dp to check if last row or column has stone
+        for ($i = 1; $i < $m; $i++) {
+            $dp[$i][0] = $obstacleGrid[$i][0] == 0 && $dp[$i-1][0] == 1 ? 1 : 0;
+        }
+
+        for ($j = 1; $j < $n; $j++) {
+            $dp[0][$j] = ($obstacleGrid[0][$j] == 0 && $dp[0][$j-1] == 1) ? 1 : 0;
+        }
+
+
+https://leetcode.com/problems/unique-paths/solutions/504514/unique-paths/?orderBy=most_votes
+https://leetcode.com/problems/unique-paths-ii/solutions/184772/unique-paths-ii/?orderBy=most_votes
 
 2. Another is to add an extra row and column on $dp because the initial first element needs to use the same logic as other elements, so $dp adds one more element and initializes all to 0. $text1[1] and $text2[1] is based on $dp[0], in iterate, $dp[i] relates $text[i-1]. The example is long common sequence.
 
