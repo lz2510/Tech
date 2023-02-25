@@ -99,3 +99,13 @@ https://stackoverflow.com/questions/8263371/how-can-prepared-statements-protect-
 `$name = 'one';`  
 `$value = 1;`  
 `$stmt->execute();`  
+
+## When should I use UNSIGNED and SIGNED INT in MySQL?
+
+UNSIGNED only stores positive numbers (or zero). On the other hand, signed can store negative numbers (i.e., may have a negative sign).
+
+UNSIGNED ranges from 0 to n, while signed ranges from about -n/2 to n/2.
+
+In this case, you have an AUTO_INCREMENT ID column, so you would not have negatives. Thus, use UNSIGNED. If you do not use UNSIGNED for the AUTO_INCREMENT column, your maximum possible value will be half as high (and the negative half of the value range would go unused).
+
+https://stackoverflow.com/questions/11515594/when-should-i-use-unsigned-and-signed-int-in-mysql  
