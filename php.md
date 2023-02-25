@@ -148,6 +148,8 @@ right:
         }
     }
 
+## abstract class vs interface
+
 ### an abstract class can have properties, constant.
 
     abstract class AbstractClass
@@ -157,6 +159,27 @@ right:
     }
 
 https://www.php.net/manual/en/language.oop5.abstract.php  
+
+### interface can have constant, but can't have properties.
+
+interface officials, it’s possible for interfaces to have constant.
+
+Below is ok.
+
+    interface Template
+    {
+        const NAME = 'movie';
+    }
+
+Below is wrong.
+
+    interface Template
+    {
+        public string $url;
+    }
+Fatal error: Interfaces may not include properties 
+
+https://www.php.net/manual/en/language.oop5.interfaces.php
 
 ## how to log error
 
