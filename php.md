@@ -18,6 +18,8 @@ And support for composite types union types,intersection types and DNF types whi
 
 This RFC introduces a readonly property modifier, which prevents modification of the property after initialization.
 
+There is no need getter as property is public and setter as you can’t modify after initialization. If you don't initialize in constructor, you still can assign in setter method.
+
 Value objects are often immutable: Properties are initialized once in the constructor, and should not be modified afterwards. PHP currently has no way to enforce this constraint. The closest alternative is to declare the property private, and only expose a public getter:
 
 This doesn't actually make the property readonly, but it does tighten the scope where modification could occur to a single class declaration. Unfortunately, this requires the use of getter boilerplate, which results in worse ergonomics for the consumer.
