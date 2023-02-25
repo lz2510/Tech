@@ -108,4 +108,6 @@ UNSIGNED ranges from 0 to n, while signed ranges from about -n/2 to n/2.
 
 In this case, you have an AUTO_INCREMENT ID column, so you would not have negatives. Thus, use UNSIGNED. If you do not use UNSIGNED for the AUTO_INCREMENT column, your maximum possible value will be half as high (and the negative half of the value range would go unused).
 
+Do note, however, that UNSIGNED is MySQL-specific and not a standard SQL feature. This means that using UNSIGNED can make a future migration to a different RDBMS more complicated or cause you difficulties when using software libraries targeting standard SQL such as SQLAlchemy. 
+
 https://stackoverflow.com/questions/11515594/when-should-i-use-unsigned-and-signed-int-in-mysql  
