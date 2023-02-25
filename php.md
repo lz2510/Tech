@@ -194,3 +194,11 @@ For type 2, it should be logged in application log file. As it belongs to applic
 That's also why throwable can't be used in catch. As it catches both types. throwable exception can be 2 types. One is php built-in function thrown exception. The one is user defined function thrown exception.
 
 https://stackoverflow.com/questions/15245184/log-caught-exception-with-stack-trace%
+
+## Type hinting – Difference between `Closure` and `Callable`
+
+The difference is, that a Closure must be an anonymous function, where callable also can be a normal function.
+
+So if you only want to type hint anonymous function use: Closure and if you want also to allow normal functions use callable as type hint.
+
+https://stackoverflow.com/questions/29730720/type-hinting-difference-between-closure-and-callable  
