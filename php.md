@@ -4,7 +4,7 @@
 
 ### type system completement
 
-PHP has added support for the top type mixed, the bottom type never and nul, false and true type.
+PHP has added support for the top type mixed, the bottom type never and null, false and true type.
 
 And support for composite types union types,intersection types and DNF types which combine union and intersection types..
 
