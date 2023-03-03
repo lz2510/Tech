@@ -47,3 +47,12 @@ The repository pattern is a collection of business entities that simplifies the 
 
 https://docs.microsoft.com/en-us/archive/msdn-magazine/2009/february/best-practice-an-introduction-to-domain-driven-design  
 https://medium.com/microtica/the-concept-of-domain-driven-design-explained-3184c0fd7c3f  
+
+## value object
+
+There are two main characteristics for value objects:
+- They have no identity.
+- They are immutable.
+
+https://learn.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/implement-value-objects  
+https://martinfowler.com/bliki/ValueObject.html  
