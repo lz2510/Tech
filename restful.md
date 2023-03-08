@@ -1,0 +1,39 @@
+# Restful API
+
+## restful
+
+https://docs.gitlab.com/ee/api/invitations.html
+
+## Get parameter should be put in query string or request boyd?
+
+All remaining request message fields shall map to the URL query parameters. There is no request body; 
+
+https://cloud.google.com/apis/design/standard_methods  
+
+## Api versioning
+- https://www.my-webside.com/api/v1/users
+- https://www.my-webside.com/api/v2/users
+
+https://restfulapi.net/versioning/  
+https://medium.com/mestredev/versioning-your-rest-api-with-laravel-646bcc1f70a4  
+
+## Nested collections and properties
+
+Collection items MAY contain other collections. For example, a user collection MAY contain user resources that have multiple addresses:
+
+    GET https://api.contoso.com/v1.0/people/123/addresses
+
+https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#93-collection-url-patterns  
+
+## pagination
+
+### Server-driven paging
+
+Paginated responses MUST indicate a partial result by including a continuation token in the response. The absence of a continuation token means that no additional pages are available.
+
+For example, amazon selling partner uses NextToken to indicate if still has additional pages. And tiktok use more is false or true to do the same thing, but NextToken is safter.
+
+### Client-driven paging
+
+Clients MAY use $start and $offset query parameters to specify a number of results to return and an offset into the collection.
+
