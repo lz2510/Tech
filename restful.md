@@ -26,3 +26,14 @@ Collection items MAY contain other collections. For example, a user collection M
 https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#93-collection-url-patterns  
 
 ## pagination
+
+### Server-driven paging
+
+Paginated responses MUST indicate a partial result by including a continuation token in the response. The absence of a continuation token means that no additional pages are available.
+
+For example, amazon selling partner uses NextToken to indicate if still has additional pages. And tiktok use more is false or true to do the same thing, but NextToken is safter.
+
+### Client-driven paging
+
+Clients MAY use $start and $offset query parameters to specify a number of results to return and an offset into the collection.
+
