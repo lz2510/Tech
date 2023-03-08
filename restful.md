@@ -10,6 +10,23 @@ All remaining request message fields shall map to the URL query parameters. Ther
 
 https://cloud.google.com/apis/design/standard_methods  
 
+## path params vs. query params
+
+Best practice for RESTful API design is that path params are used to identify a specific resource or resources, while query parameters are used to sort/filter those resources.
+
+GET /cars
+GET /cars/:id
+
+This way you are only using path parameters when you are specifying which resource to fetch, but this does not sort/filter the resources in any way.
+
+Now suppose you wanted to add the capability to filter the cars by color in your GET requests. Because color is not a resource (it is a property of a resource), you could add a query parameter that does this. You would add that query parameter to your GET /cars request like this:
+
+GET /cars?color=blue
+
+This endpoint would be implemented so that only blue cars would be returned.
+
+https://stackoverflow.com/questions/30967822/when-do-i-use-path-params-vs-query-params-in-a-restful-api  
+
 ## Api versioning
 - https://www.my-webside.com/api/v1/users
 - https://www.my-webside.com/api/v2/users
