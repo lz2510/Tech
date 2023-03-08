@@ -4,6 +4,15 @@
 
 https://tools.ietf.org/html/rfc6749  
 
+## protocol flow
+
+<img width="632" alt="Screenshot 2023-03-08 at 21 41 44" src="https://user-images.githubusercontent.com/1209204/223728211-c1203d4f-fc88-41bb-a92e-c0c13f9905d2.png">
+
+<img width="734" alt="Screenshot 2023-03-08 at 21 43 43" src="https://user-images.githubusercontent.com/1209204/223728697-ceabf7ef-1e36-4624-a772-8ede94e9b375.png">
+
+<img width="705" alt="Screenshot 2023-03-08 at 21 44 23" src="https://user-images.githubusercontent.com/1209204/223728788-8ba8e559-a96f-4c89-abe5-44513fd3c7fe.png">
+
+
 ## Access Token
 
 An OAuth Access Token is a string that the OAuth client uses to make requests to the resource server.
