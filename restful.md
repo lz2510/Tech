@@ -26,6 +26,21 @@ GET /cars?color=blue
 This endpoint would be implemented so that only blue cars would be returned.
 
 https://stackoverflow.com/questions/30967822/when-do-i-use-path-params-vs-query-params-in-a-restful-api  
+https://swagger.io/docs/specification/describing-parameters/#:~:text=Path%20parameters%20are%20variable%20parts,denoted%20with%20curly%20braces%20%7B%20%7D%20.  
+
+### Parameter Locations
+
+There are four possible parameter locations specified by the in field:
+
+path - Used together with Path Templating, where the parameter value is actually part of the operation’s URL. This does not include the host or base path of the API. For example, in /items/{itemId}, the path parameter is itemId.
+
+query - Parameters that are appended to the URL. For example, in /items?id=###, the query parameter is id.
+
+header - Custom headers that are expected as part of the request. Note that [RFC7230] states header names are case insensitive.
+
+cookie - Used to pass a specific cookie value to the API.
+
+https://spec.openapis.org/oas/latest.html
 
 ## Api versioning
 - https://www.my-webside.com/api/v1/users
