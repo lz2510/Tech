@@ -29,6 +29,14 @@ An OAuth Refresh Token is a string that the OAuth client can use to get a new ac
 
 https://oauth.net/2/refresh-tokens/  
 
+### How about refresh token expired
+
+If a refresh token expires for any reason, then the only action the application can take is to ask the user to log in again, starting a new OAuth flow from scratch, which will issue a new access token and refresh token to the application.
+
+https://www.oauth.com/oauth2-servers/making-authenticated-requests/refreshing-an-access-token/#:~:text=If%20a%20refresh%20token%20expires,refresh%20token%20to%20the%20application.  
+
+https://stackoverflow.com/questions/40555855/does-the-refresh-token-expire-and-if-so-when
+
 ## Grant Types
 
 The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.
@@ -53,3 +61,13 @@ A Bearer Token is an opaque string, not intended to have any meaning to clients 
 
 https://oauth.net/2/bearer-tokens/  
 tools.ietf.org/html/rfc6750  
+
+### Bearer Token vs Basic Token
+
+The Basic and Digest authentication schemes are dedicated to the authentication using a username and a secret (see RFC7616 and RFC7617).
+
+The Bearer authentication scheme is dedicated to the authentication using a token and is described by the RFC6750. Even if this scheme comes from an OAuth2 specification, you can still use it in any other context where tokens are exchange between a client and a server.
+
+Concerning the JWT authentication and as it is a token, the best choice is the Bearer authentication scheme. Nevertheless, nothing prevent you from using a custom scheme that could fit on your requirements.
+
+https://stackoverflow.com/questions/34013299/web-api-authentication-basic-vs-bearer  
