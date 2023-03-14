@@ -190,6 +190,14 @@ Should be avoided, as they affect code extensibility, testability and modularity
 
 https://dev.to/martinkordas/php-global-functions-how-they-affect-code-extensibility-testability-and-modularity-54h7
 
+## for global constants, can use cons in phpunit.xml
+
+https://stackoverflow.com/questions/3906968/global-constants-in-phpunit
+
+## setProperty for private method
+
+mock by reflection.
+
 ## Should we unit test logging?
 
 1. no need for functionality, it’s library job.
