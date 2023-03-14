@@ -75,3 +75,43 @@ The Bearer authentication scheme is dedicated to the authentication using a toke
 Concerning the JWT authentication and as it is a token, the best choice is the Bearer authentication scheme. Nevertheless, nothing prevent you from using a custom scheme that could fit on your requirements.
 
 https://stackoverflow.com/questions/34013299/web-api-authentication-basic-vs-bearer  
+
+### Bear vs Basic Token in detail
+
+1. Access Authentication Framework
+
+HTTP provides a simple challenge-response authentication mechanism that MAY be used by a server to challenge a client request and by a client to provide authentication information.
+
+      auth-scheme    = token
+      auth-param     = token "=" ( token | quoted-string )
+
+challenge   = auth-scheme 1*SP 1#auth-param
+credentials = auth-scheme #auth-param
+
+Note: auth-scheme is a token, like Basic, Bearer. 
+challenge is for server to send response. 
+credentials is for client to send request.
+auth-param uses token "=" ( token | quoted-string ) like attribute-value pairs. but in basic and bearer, only use value. like "Basic" basic-credentials, "Bearer" 1*SP b64token. Doc is here Note that, as with Basic, it does not conform to the generic syntax defined in Section 1.2 of [RFC2617] 
+
+2. Basic Authentication Scheme
+For Basic, the framework above is utilized as follows:
+
+      credentials = "Basic" basic-credentials
+
+      basic-credentials calculation is as below:
+      basic-credentials = base64-user-pass
+      base64-user-pass  = <base64 [4] encoding of user-pass,
+      user-pass   = userid ":" password
+      userid      = *<TEXT excluding ":">
+      password    = *TEXT
+
+3. Bearer Authentication Scheme
+The syntax for Bearer credentials is as follows:
+
+     b64token    = 1*( ALPHA / DIGIT /
+                       "-" / "." / "_" / "~" / "+" / "/" ) *"="
+     credentials = "Bearer" 1*SP b64token
+
+https://www.rfc-editor.org/rfc/rfc2617#section-2.1  
+https://www.rfc-editor.org/rfc/rfc6750#section-2.1  
+https://www.rfc-editor.org/rfc/rfc7617  
