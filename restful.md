@@ -1,7 +1,16 @@
 # Restful API
 
+## API benefits
+
+- APIs provide **information hiding**: neither side of the API (the provider and the consumer) know the implementation details of the other one. As long as both adhere to the API, they can be changed as much as needed without the other party even noticing.
+
+- APIs are also called **Contracts**, because they are assumed to be unbreakable: The provider promises not to change its API and to keep honoring it in the years to come. With this promise in hand consumers can start developing their parts and rely on the functionality offered up by the API with confidence.
+
+https://oai.github.io/Documentation/introduction.html  
+
 ## restful
 
+https://github.com/microsoft/api-guidelines
 https://docs.gitlab.com/ee/api/invitations.html
 
 ## Get parameter should be put in query string or request boyd?
