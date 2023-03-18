@@ -204,3 +204,9 @@ The difference is, that a Closure must be an anonymous function, where callable 
 So if you only want to type hint anonymous function use: Closure and if you want also to allow normal functions use callable as type hint.
 
 https://stackoverflow.com/questions/29730720/type-hinting-difference-between-closure-and-callable  
+
+## Variable-length argument lists
+
+PHP has support for variable-length argument lists in user-defined functions by using the ... token.
+
+https://www.php.net/manual/en/functions.arguments.php  
