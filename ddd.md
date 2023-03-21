@@ -45,6 +45,14 @@ At the same time, the application service is another layer that doesn’t contai
 
 The repository pattern is a collection of business entities that simplifies the data infrastructure. It releases the domain model from infrastructure concerns. The layering concept enforces the separation of concerns.
 
+#### benefits of repository pattern
+
+1. **Separation of Concerns**: The pattern separates the data access logic from the application logic, making it easier to maintain and test the code. It allows for different data sources to be used without changing the application code.
+
+2. **Testability**: The pattern makes it easier to write unit tests for the application code by mocking data access logic.
+
+3. **Reusability**: The repository pattern allows for code reuse across different parts of the application.
+
 https://docs.microsoft.com/en-us/archive/msdn-magazine/2009/february/best-practice-an-introduction-to-domain-driven-design  
 https://medium.com/microtica/the-concept-of-domain-driven-design-explained-3184c0fd7c3f  
 
