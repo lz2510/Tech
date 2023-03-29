@@ -29,12 +29,6 @@ Support for first-class readonly properties allows you to directly expose public
 https://wiki.php.net/rfc/readonly_properties_v2  
 https://wiki.php.net/rfc/readonly_classes  
 
-### Named Arguments
-
-- Specify only required parameters, skipping optional ones.
-- Arguments are order-independent and self-documented.
-- https://wiki.php.net/rfc/named_params
-
 ### constructor properties
 
 Currently, the definition of simple value objects requires a lot of boilerplate, because all properties need to be repeated at least four times.
@@ -45,6 +39,24 @@ This RFC proposes to introduce a short hand syntax, which allows combining the d
 
 https://wiki.php.net/rfc/constructor_promotion  
 https://medium.com/@benr77/how-to-eliminate-boilerplate-code-with-php-8-1-766637d48353  
+
+### Enum
+
+- similar to class but has return type
+
+#### Enum vs Number and Constants
+
+- First of all, there is readability. compared use numbers directly not constants.
+
+- Notice that this ambiguity is not finally solved when you move the values to a (class) constant.
+
+Sure, you would keep a little order by using constants, but at a very low level you still deal with primitive values(it means you are using int, strings primitive values, but enum is php level type) and there is technically no obstacle to use a hardcoded value instead of the constant.
+
+#### Enum benefits
+
+Personally, I classify enums under “type safety” and a good tool to increase strictness of source code. There are no more value checks, type castings, null checks and so on — you simply define an enum parameter in your method and the programming language is doing all the work.
+
+https://doganoo.medium.com/unlocking-the-power-of-php-enums-best-practices-for-effective-use-2c3fbbf529e8  
 
 ### Reference
 
