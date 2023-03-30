@@ -222,3 +222,10 @@ https://stackoverflow.com/questions/29730720/type-hinting-difference-between-clo
 PHP has support for variable-length argument lists in user-defined functions by using the ... token.
 
 https://www.php.net/manual/en/functions.arguments.php  
+
+## ReflectionClass
+
+- dependency injection 
+- test private and protected properties and methods 
+
+https://rakibdevs.medium.com/exploring-the-power-of-reflectionclass-in-php-a26d5ce533f3  
