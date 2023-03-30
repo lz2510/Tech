@@ -37,6 +37,7 @@
 - [Event-Driven Architecture](eda.md)
 - [Domain-Driven Design](ddd.md)
 - [Design Pattern](design-pattern.md)
+- [Messaging](messaging.md)
 
 # Project
 - [project](project.md)
