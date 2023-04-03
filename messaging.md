@@ -22,3 +22,11 @@ In a pub/sub model, any message published to a topic is immediately received by 
 
 https://aws.amazon.com/message-queue/  
 https://aws.amazon.com/pub-sub-messaging/  
+
+## Poll model in SQS
+
+Amazon SQS is a message queue service used by distributed applications to exchange messages through a polling model.
+
+Receiver direction is from receiver to sqs, as receiver retrieve message actively, not wait to receive.
+
+<img width="967" alt="Screenshot 2023-04-02 at 09 30 51" src="https://user-images.githubusercontent.com/1209204/229521980-3c4f689b-b2c7-4a33-928e-13c1a44db98b.png">
