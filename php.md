@@ -6,13 +6,16 @@
 
 PHP has added support for the top type mixed, the bottom type never and null, false and true type.
 
-And support for composite types union types,intersection types and DNF types which combine union and intersection types..
+And support for composite types union types,intersection types and DNF types which combine union and intersection types.
+
+One benefit of union type is improved type safety: Union types can help to catch errors at compile-time rather than run-time, which can make code more reliable and easier to maintain.
 
 - https://wiki.php.net/rfc/union_types_v2
 - https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.mixed
 - https://wiki.php.net/rfc/null-false-standalone-types
 - https://wiki.php.net/rfc/true-type
 - https://wiki.php.net/rfc/dnf_types
+- https://medium.com/@moslem.deris/a-guide-to-union-types-in-php-8-examples-best-practices-and-benefits-d51c292f5f54  
 
 ## readonly properties and readonly classes
 
