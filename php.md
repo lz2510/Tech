@@ -232,3 +232,15 @@ https://www.php.net/manual/en/functions.arguments.php
 - test private and protected properties and methods 
 
 https://rakibdevs.medium.com/exploring-the-power-of-reflectionclass-in-php-a26d5ce533f3  
+
+## Dependency Injection
+
+The basic principle remains the same: rather than having objects create their own dependencies, we pass them in from outside. The benefits are as below:
+
+1. Our class is no longer tightly coupled to the database implementation. We can easily swap out the database object for a different implementation
+
+2. It also make testing better because you can change the real classes for mock classes, or change implementations for the speed of testing, like an SQLite in-memory database.
+
+https://darkghosthunter.medium.com/php-a-noob-explanation-for-dependency-injection-and-di-container-a7179390b26c  
+https://medium.com/@miqayelsrapionyan/php-dependency-injection-for-beginners-8eed8f105b4  
+
