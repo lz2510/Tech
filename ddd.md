@@ -43,7 +43,7 @@ At the same time, the application service is another layer that doesn’t contai
 
 ### repository
 
-The repository pattern is a collection of business entities that simplifies the data infrastructure. It releases the domain model from infrastructure concerns. The layering concept enforces the separation of concerns.
+The Repository Pattern is a widely-used software design pattern that separates the application logic from the underlying data storage mechanism. It provides an abstraction layer between the application code and the database.
 
 #### benefits of repository pattern
 
@@ -55,6 +55,7 @@ The repository pattern is a collection of business entities that simplifies the 
 
 https://docs.microsoft.com/en-us/archive/msdn-magazine/2009/february/best-practice-an-introduction-to-domain-driven-design  
 https://medium.com/microtica/the-concept-of-domain-driven-design-explained-3184c0fd7c3f  
+https://medium.com/@soulaimaneyh/laravel-repository-pattern-da4e1e3efc01  
 
 ## value object
 
