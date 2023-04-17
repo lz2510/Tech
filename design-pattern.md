@@ -60,3 +60,9 @@ The Laravel framework has a feature similar to this pattern, also termed Facades
 http://snags88.github.io/facade-pattern-in-laravel  
 https://shishirthedev.medium.com/facade-in-laravel-application-d2a3053f5a71  
 
+## Strategy Pattern vs State Pattern
+
+Patterns are not only about UML, but their definition and idea that stand behind them. While Strategy define different algorithms, State implements a finite state machine.
+
+https://medium.com/@iamprovidence/strategy-vs-state-pattern-6168cc102c91  
+
