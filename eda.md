@@ -60,7 +60,14 @@ Event and Listener bind together.
 
 <img width="747" alt="Commands" src="https://user-images.githubusercontent.com/1209204/179933570-d8996a3b-8408-4807-9b44-3ac3e763dfcf.png">
 
-https://codeopinion.com/commands-events-whats-the-difference/
+Event — Describes something that has happened in the past. Consumers of the Event are reacting to it. The producer shares that an Event occurred, and the consumer(s) can optionally listen to that Event.
+
+Command — Intent to change something or perform an action. The requestor instructs the receiver to do something.
+
+Query — A request for information. The requestor asks the receiver to share some information it holds.
+
+https://codeopinion.com/commands-events-whats-the-difference/  
+https://betterprogramming.pub/commands-in-an-event-driven-architecture-2b01892bf2dc  
 
 ## use command rather than event
 
@@ -71,7 +78,7 @@ https://medium.com/rocco-scaramuzzi-tech/event-driven-microservice-architecture-
 https://microservices.io/patterns/data/event-sourcing.html  
 https://martinfowler.com/eaaDev/EventSourcing.html  
 
-## Evento bus
+## Event bus
 
 Event bus is a software component that can be used to exchange messages between different parts of the system. In other words, event bus is a centralized software communication hub.
 
