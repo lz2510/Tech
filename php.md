@@ -42,6 +42,7 @@ This RFC proposes to introduce a short hand syntax, which allows combining the d
 
 https://wiki.php.net/rfc/constructor_promotion  
 https://medium.com/@benr77/how-to-eliminate-boilerplate-code-with-php-8-1-766637d48353  
+https://medium.com/@nemanjamilenkovic_58178/constructor-property-promotion-shakes-up-the-php-world-3c9e1c3d9ed4  
 
 ### Enum
 
