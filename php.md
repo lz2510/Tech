@@ -197,7 +197,8 @@ Below is wrong.
     }
 Fatal error: Interfaces may not include properties 
 
-https://www.php.net/manual/en/language.oop5.interfaces.php
+https://www.php.net/manual/en/language.oop5.interfaces.php  
+https://medium.com/@ibrbayazit/php-interface-vs-abstract-class-2b708ea4347c  
 
 ## how to log error
 
