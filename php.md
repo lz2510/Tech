@@ -246,3 +246,45 @@ The basic principle remains the same: rather than having objects create their ow
 https://darkghosthunter.medium.com/php-a-noob-explanation-for-dependency-injection-and-di-container-a7179390b26c  
 https://medium.com/@miqayelsrapionyan/php-dependency-injection-for-beginners-8eed8f105b4  
 
+## array type hint of objects of a specific calss
+
+option 1:
+/** @var ProductSku[] */
+private $skus;
+
+option 2:
+/** @var ProductSku[] */
+private array $skus;
+
+The phpdoc ProductSku[] is only for IDE or static analytic tool like phpstan to check or auto-completed. 
+It still works even $skus are assigned not ProductSku[].
+Option 2 at least type hint array, while option 1 type hint nothing. Option 2 is better.
+
+Below syntax is not supported by PHP.
+option 3:
+private ProductSku[] $skus;
+private string[] $skus;
+
+https://stackoverflow.com/questions/71265229/is-there-a-type-hint-for-an-array-of-objects-of-a-specific-class-in-php-8-2  
+https://externals.io/message/108175  
+
+## array type hint for general
+
+type[] is preferred than array<type>
+if type hint key, only array<key, type>
+
+typehint in nested array for phpstan
+
+https://github.com/phpstan/phpstan/discussions/7316  
+https://phpstan.org/writing-php-code/phpdoc-types#local-type-aliases
+https://stackoverflow.com/questions/20543050/phpdoc-typehint-in-nested-arrays-with-e-g-2-dimensions  
+https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc.md  
+https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc-tags.md  
+    
+## phpdoc official syntax
+
+There’s no official. psr is standard and preferred . PHPDocumentor isn’t.
+
+I found the reference of PHPDocumentor, but I have the feeling, that it is not the official PHP one and not (yet) compatible with PHP 8.0+.
+
+https://stackoverflow.com/questions/66711759/official-phpdoc-reference-for-documenting-php-code  
