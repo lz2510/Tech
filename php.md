@@ -276,15 +276,64 @@ if type hint key, only array<key, type>
 typehint in nested array for phpstan
 
 https://github.com/phpstan/phpstan/discussions/7316  
-https://phpstan.org/writing-php-code/phpdoc-types#local-type-aliases
+https://phpstan.org/writing-php-code/phpdoc-types#local-type-aliases  
 https://stackoverflow.com/questions/20543050/phpdoc-typehint-in-nested-arrays-with-e-g-2-dimensions  
 https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc.md  
 https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc-tags.md  
     
 ## phpdoc official syntax
-
+    
 There’s no official. psr is standard and preferred . PHPDocumentor isn’t.
-
+    
 I found the reference of PHPDocumentor, but I have the feeling, that it is not the official PHP one and not (yet) compatible with PHP 8.0+.
+https://stackoverflow.com/questions/66711759/official-phpdoc-reference-for-documenting-php-code   
+    
+## if nullable type should set default value or not
 
-https://stackoverflow.com/questions/66711759/official-phpdoc-reference-for-documenting-php-code  
+
+public function getReverseList(string $storerKey, ?string $reverseOrderId, ?int $interval = '', ?int $size=20): void
+
+The default is used only when the parameter is not specified; in particular, note that passing null does not assign the default value. the parameter is not specified means don't pass the parameter, passing null still means the parameter is specified.
+
+If the parameter could be not specified in some scinerio, then the default value is needed. For example, there are two calls. Only pass full parameters, another only passes part of parameters.
+
+If the parameters must be specified in any scineria, then the default value is not needed. If the paremeter could be null which means still be specified, then use nullable type. If the paremeter can't be null based on business logic, then don't use nullable type, let php language do the type hint check when the parameter is null incorrectly. If don’t want php level error and want   custom error, then type hint nullable and check in function code and throw custom exception.
+
+
+### Nullable types
+    
+Nullable types means null can be passed as an argument. But if there's no default and the parameter is not specified, an error will emit.
+
+    function test(?string $name)
+    {
+        var_dump($name);
+    }
+
+    test('elePHPant');
+    test(null);
+    test();
+
+    string(10) "elePHPant"
+    NULL
+    Uncaught Error: Too few arguments to function test(), 0 passed in...
+
+https://www.php.net/manual/en/migration71.new-features.php
+
+
+
+### default values
+    
+The default is used only when the parameter is not specified; in particular, note that passing null does not assign the default value.
+
+    function test2(?string $name='default_value')
+    {
+        var_dump($name);
+    }
+
+    test2(null);
+    test2();
+
+    NULL
+    string(13) "default_value"
+
+https://www.php.net/manual/en/functions.arguments.php#functions.arguments.default
