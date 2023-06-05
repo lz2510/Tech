@@ -222,6 +222,26 @@ So if you only want to type hint anonymous function use: Closure and if you want
 
 https://stackoverflow.com/questions/29730720/type-hinting-difference-between-closure-and-callable  
 
+### Invokable Objects
+
+Invokable Objects: Objects that implement the __invoke() method can be treated as callables.
+
+    class Greeting {
+        public function __invoke($name) {
+            echo "Hello, $name!";
+        }
+    }
+
+    $obj = new Greeting();
+    $callable = $obj;
+    $callable('John'); // Output
+
+In this example, the Greeting class implements the __invoke() method, allowing objects of that class to be callable.
+
+To summarize, “callable” is a type hint or declaration that denotes a parameter or return value as being a function or method reference, whereas “closure” refers specifically to an anonymous function that can capture variables from its surrounding scope. Closures are a subset of callables but offer additional features such as variable encapsulation.
+
+https://medium.com/@miladev95/php-closure-and-callable-and-difference-2e5d176b3fca
+
 ## Variable-length argument lists
 
 PHP has support for variable-length argument lists in user-defined functions by using the ... token.
