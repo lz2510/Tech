@@ -246,3 +246,94 @@ The basic principle remains the same: rather than having objects create their ow
 https://darkghosthunter.medium.com/php-a-noob-explanation-for-dependency-injection-and-di-container-a7179390b26c  
 https://medium.com/@miqayelsrapionyan/php-dependency-injection-for-beginners-8eed8f105b4  
 
+## array type hint of objects of a specific calss
+
+option 1:
+/** @var ProductSku[] */
+private $skus;
+
+option 2:
+/** @var ProductSku[] */
+private array $skus;
+
+The phpdoc ProductSku[] is only for IDE or static analytic tool like phpstan to check or auto-completed. 
+It still works even $skus are assigned not ProductSku[].
+Option 2 at least type hint array, while option 1 type hint nothing. Option 2 is better.
+
+Below syntax is not supported by PHP.
+option 3:
+private ProductSku[] $skus;
+private string[] $skus;
+
+https://stackoverflow.com/questions/71265229/is-there-a-type-hint-for-an-array-of-objects-of-a-specific-class-in-php-8-2  
+https://externals.io/message/108175  
+
+## array type hint for general
+
+type[] is preferred than array<type>
+if type hint key, only array<key, type>
+
+typehint in nested array for phpstan
+
+https://github.com/phpstan/phpstan/discussions/7316  
+https://phpstan.org/writing-php-code/phpdoc-types#local-type-aliases  
+https://stackoverflow.com/questions/20543050/phpdoc-typehint-in-nested-arrays-with-e-g-2-dimensions  
+https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc.md  
+https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc-tags.md  
+    
+## phpdoc official syntax
+    
+There’s no official. psr is standard and preferred . PHPDocumentor isn’t.
+    
+I found the reference of PHPDocumentor, but I have the feeling, that it is not the official PHP one and not (yet) compatible with PHP 8.0+.
+https://stackoverflow.com/questions/66711759/official-phpdoc-reference-for-documenting-php-code   
+    
+## if nullable type should set default value or not
+
+
+public function getReverseList(string $storerKey, ?string $reverseOrderId, ?int $interval = '', ?int $size=20): void
+
+The default is used only when the parameter is not specified; in particular, note that passing null does not assign the default value. the parameter is not specified means don't pass the parameter, passing null still means the parameter is specified.
+
+If the parameter could be not specified in some scinerio, then the default value is needed. For example, there are two calls. Only pass full parameters, another only passes part of parameters.
+
+If the parameters must be specified in any scineria, then the default value is not needed. If the paremeter could be null which means still be specified, then use nullable type. If the paremeter can't be null based on business logic, then don't use nullable type, let php language do the type hint check when the parameter is null incorrectly. If don’t want php level error and want   custom error, then type hint nullable and check in function code and throw custom exception.
+
+
+### Nullable types
+    
+Nullable types means null can be passed as an argument. But if there's no default and the parameter is not specified, an error will emit.
+
+    function test(?string $name)
+    {
+        var_dump($name);
+    }
+
+    test('elePHPant');
+    test(null);
+    test();
+
+    string(10) "elePHPant"
+    NULL
+    Uncaught Error: Too few arguments to function test(), 0 passed in...
+
+https://www.php.net/manual/en/migration71.new-features.php
+
+
+
+### default values
+    
+The default is used only when the parameter is not specified; in particular, note that passing null does not assign the default value.
+
+    function test2(?string $name='default_value')
+    {
+        var_dump($name);
+    }
+
+    test2(null);
+    test2();
+
+    NULL
+    string(13) "default_value"
+
+https://www.php.net/manual/en/functions.arguments.php#functions.arguments.default
