@@ -65,3 +65,12 @@ There are two main characteristics for value objects:
 
 https://learn.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/implement-value-objects  
 https://martinfowler.com/bliki/ValueObject.html  
+
+## should a repository return eloquent model or domain model?
+
+Should return domain model. Can add a mapper to transfer from eloquent model to domain model.  The same as Request of http.
+
+As repository interface is defined in domain. A domain shouldn’t rely on Eloquent of the framework or Request from http. A domain only rely on domain. Even return an array, the element should also be domain instead of eloquent model.
+
+https://github.com/Orphail/laravel-ddd/blob/master/src/Agenda/Company/Application/Repositories/Eloquent/CompanyRepository.php  
+https://github.com/Orphail/laravel-ddd/blob/master/src/Agenda/Company/Application/Mappers/CompanyMapper.php  
