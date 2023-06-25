@@ -5,6 +5,7 @@
 - [laravel](laravel.md)
 - [code review](code-review.md)
 - [class](class.md)
+- [exception](exception.md)
 
 # Microservices
 - [cloud native](cloud-native.md)
