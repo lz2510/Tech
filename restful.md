@@ -13,6 +13,12 @@ https://oai.github.io/Documentation/introduction.html
 https://github.com/microsoft/api-guidelines
 https://docs.gitlab.com/ee/api/invitations.html
 
+## Use hyphens or underscores to separate words
+
+Use hyphens or underscores to separate words: Hyphens and underscores are both acceptable ways to separate words in resource URIs. For example, /blog-posts or /blog_posts are both valid URIs.
+
+https://medium.com/@bubu.tripathy/best-practices-for-designing-rest-apis-5b1809545e3c
+
 ## Get parameter should be put in query string or request boyd?
 
 All remaining request message fields shall map to the URL query parameters. There is no request body; 
@@ -52,11 +58,19 @@ cookie - Used to pass a specific cookie value to the API.
 https://spec.openapis.org/oas/latest.html
 
 ## Api versioning
+
+### URI-based versioning
+
 - https://www.my-webside.com/api/v1/users
 - https://www.my-webside.com/api/v2/users
 
+### Header-based versioning
+
+#### Media type-based versioning
+
 https://restfulapi.net/versioning/  
-https://medium.com/mestredev/versioning-your-rest-api-with-laravel-646bcc1f70a4  
+https://medium.com/mestredev/versioning-your-rest-api-with-laravel-646bcc1f70a4    
+https://medium.com/@mukesh.ram/laravel-api-versioning-strategies-for-managing-api-versions-in-laravel-applications-69d388900d4  
 
 ## Nested collections and properties
 
@@ -77,4 +91,20 @@ For example, amazon selling partner uses NextToken to indicate if still has addi
 ### Client-driven paging
 
 Clients MAY use $start and $offset query parameters to specify a number of results to return and an offset into the collection.
+
+## Use Caching
+
+Use HTTP caching headers: HTTP caching headers such as Cache-Control and ETag can help control how clients cache responses. By setting appropriate caching headers, you can ensure that clients cache responses for an appropriate length of time and avoid caching stale data.
+
+    HTTP/1.1 200 OK
+    Cache-Control: max-age=3600
+    ETag: "abc123"
+    
+    {
+      "id": 1234,
+      "name": "John Doe",
+      "email": "johndoe@example.com"
+    }
+
+https://medium.com/@bubu.tripathy/best-practices-for-designing-rest-apis-5b1809545e3c  
 
