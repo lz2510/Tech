@@ -310,15 +310,17 @@ https://stackoverflow.com/questions/66711759/official-phpdoc-reference-for-docum
     
 ## if nullable type should set default value or not
 
-
-public function getReverseList(string $storerKey, ?string $reverseOrderId, ?int $interval = '', ?int $size=20): void
+    public function getReverseList(string $storerKey, ?string $reverseOrderId, ?int $interval = '', ?int $size=20): void
 
 The default is used only when the parameter is not specified; in particular, note that passing null does not assign the default value. the parameter is not specified means don't pass the parameter, passing null still means the parameter is specified.
 
-If the parameter could be not specified in some scinerio, then the default value is needed. For example, there are two calls. Only pass full parameters, another only passes part of parameters.
+If a parameter could not be specified in some scenario, then the default value is needed. For example, there are two calls. One pass full parameters, another only passes part of parameters.
 
-If the parameters must be specified in any scineria, then the default value is not needed. If the paremeter could be null which means still be specified, then use nullable type. If the paremeter can't be null based on business logic, then don't use nullable type, let php language do the type hint check when the parameter is null incorrectly. If don’t want php level error and want   custom error, then type hint nullable and check in function code and throw custom exception.
+If the parameters must be specified in any scenario, then the default value is not needed. 
 
+If the parameter could be null which means still be specified, then use nullable type.
+
+If the parameter can't be null based on business logic, then don't use nullable type, let php language do the type hint check when the parameter is null incorrectly.
 
 ### Nullable types
     
