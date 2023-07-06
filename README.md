@@ -41,6 +41,7 @@
 - [Messaging](messaging.md)
 - [Webhook](webhook.md)
 - [JWT](jwt.md)
+- [Class Diagram](class-diagram.md)
 
 # Project
 - [project](project.md)
