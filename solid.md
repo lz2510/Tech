@@ -1,5 +1,13 @@
 # SOLID principles
 
+## Purpose of SOLID Principles
+
+- To make code easier to read and understand
+- To make it easier to quickly extend with new functionality without breaking the existing one
+- To make the code more testable.
+
+https://medium.com/@niranjan.sth8/boosting-laravel-quality-with-solid-principles-best-practices-and-examples-cf84f1651393
+
 ## SOLID list
 
 ### single-responsibility principle
