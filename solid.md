@@ -92,7 +92,7 @@ https://en.wikipedia.org/wiki/Dependency_inversion_principle#Implementations
 
 #### example
 
-Remote file server client
+##### Remote file server client
 A remote file server (FTP, cloud storage ...) client can be modeled as a set of abstract interfaces:
 1. Connection/Disconnection (a connection persistence layer may be needed)
 2. Folder/tags creation/rename/delete/list interface
@@ -103,6 +103,10 @@ A remote file server (FTP, cloud storage ...) client can be modeled as a set of 
 If local and remote files offers the same abstract interfaces, high-level modules that implement the dependency inversion pattern can use them indiscriminately. The application will be able to save its documents locally or remotely transparently.
 The level of service required by high level modules should be considered.
 Designing a module as a set of abstract interfaces, and adapting other modules to it, can provide a common interface for many systems.
+
+##### laravel defines some contracts. it’s an example of dependency inversion.
+
+Storage contract defines file interfaces. the high level code can use the same code with different config. It increase reusablity of high level code.
 
 https://en.wikipedia.org/wiki/Dependency_inversion_principle#Remote_file_server_client
 
