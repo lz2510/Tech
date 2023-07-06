@@ -106,6 +106,16 @@ Designing a module as a set of abstract interfaces, and adapting other modules t
 
 https://en.wikipedia.org/wiki/Dependency_inversion_principle#Remote_file_server_client
 
+#### Generalization restrictions
+
+All variable instantiation requires the implementation of a creational pattern such as the factory method or the factory pattern, or the use of a dependency-injection framework.
+
+instantiation of interfaces has two methods: 
+1. a creational pattern such as the factory method or the factory pattern
+2. the use of a dependency-injection framework
+
+When using interface as an constructor argument, laravel use dependency injection to load it, which should be setup in another file.
+
 #### boundary
 
 ![IMG_7550 copy 2](https://github.com/lz2510/TechInterview/assets/1209204/40ec8cb8-f43c-4cb4-8013-17c9d80896ea)
