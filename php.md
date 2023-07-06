@@ -371,3 +371,20 @@ The default is used only when the parameter is not specified; in particular, not
     string(13) "default_value"
 
 https://www.php.net/manual/en/functions.arguments.php#functions.arguments.default
+
+## null coalescing operator vs null safe operator
+
+null pointer exceptions 
+
+Null represents the absence of a value in PHP. However, when attempting to access properties or call methods on null objects, a fatal error occurs, leading to application crashes. 
+
+It’s important to note that the null safe operator short-circuits the expression as soon as it encounters a null value. This means that subsequent method calls or property accesses in the chain will not be executed if any of the preceding objects are null.
+
+The null coalescing operator and the null safe operator serve different use cases:
+
+Use the null coalescing operator when you want to provide a default value or handle fallback scenarios for null values.
+
+Use the null safe operator when you want to safely access properties and invoke methods on potentially null objects without encountering null pointer exceptions.
+
+https://medium.com/@prevailexcellent/mastering-null-safety-in-php-8-a-comprehensive-guide-to-using-the-null-safe-operator-47835ba1140b
+
