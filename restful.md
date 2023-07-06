@@ -15,9 +15,14 @@ https://docs.gitlab.com/ee/api/invitations.html
 
 ## Use hyphens or underscores to separate words
 
-Use hyphens or underscores to separate words: Hyphens and underscores are both acceptable ways to separate words in resource URIs. For example, /blog-posts or /blog_posts are both valid URIs.
+One says it's acceptable to use hyphens or underscores. Another says should NOT use hyphenated leading name-parts. So it's not recommended to use hyphens.
 
-https://medium.com/@bubu.tripathy/best-practices-for-designing-rest-apis-5b1809545e3c
+One oppion is that use hyphens or underscores to separate words: Hyphens and underscores are both acceptable ways to separate words in resource URIs. For example, /blog-posts or /blog_posts are both valid URIs.
+
+The opposite is that the name of the API resource & document should NOT be namespaced with hyphenated leading name-parts; API paths, teams and groups should provide domain & sub-domain namespacing. e.g. /membership/v1/applications NOT membership-applications
+
+https://medium.com/@bubu.tripathy/best-practices-for-designing-rest-apis-5b1809545e3c  
+https://medium.com/api-center/api-documentation-rules-192c127cf401  
 
 ## Get parameter should be put in query string or request boyd?
 
@@ -107,4 +112,11 @@ Use HTTP caching headers: HTTP caching headers such as Cache-Control and ETag ca
     }
 
 https://medium.com/@bubu.tripathy/best-practices-for-designing-rest-apis-5b1809545e3c  
+
+## Resource instance payloads should be substantially similar 
+
+Resource instance payloads will be substantially similar across POST (request), PUT (request), GET (response) and PATCH (update), and SHOULD reference the same schema where possible. 
+
+https://medium.com/api-center/api-documentation-rules-192c127cf401
+
 

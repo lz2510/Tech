@@ -42,6 +42,7 @@
 - [Webhook](webhook.md)
 - [JWT](jwt.md)
 - [Class Diagram](class-diagram.md)
+- [Cache](cache.md)
 
 # Project
 - [project](project.md)
