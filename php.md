@@ -200,6 +200,18 @@ Fatal error: Interfaces may not include properties
 https://www.php.net/manual/en/language.oop5.interfaces.php  
 https://medium.com/@ibrbayazit/php-interface-vs-abstract-class-2b708ea4347c  
 
+### benefits
+
+1. Interface benefits
+- Does not modify the hierarchy tree
+- Allows to implement N Interfaces
+
+2. Benefits of Abstract Class
+   
+- It allows to develop the Template Method¹ pattern by pushing the logic to the model.
+
+https://medium.com/@niranjan.sth8/boosting-laravel-quality-with-solid-principles-best-practices-and-examples-part-iii-l-1f89d8cef180  
+
 ## how to log error
 
 There are 2 types of errors.
