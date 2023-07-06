@@ -14,11 +14,14 @@ https://medium.com/@niranjan.sth8/boosting-laravel-quality-with-solid-principles
 
 "There should never be more than one reason for a class to change."[5] In other words, every class should have only one responsibility.
 
+https://medium.com/@niranjan.sth8/boosting-laravel-quality-with-solid-principles-best-practices-and-examples-cf84f1651393  
+
 ### Open closed principle
 
 "Software entities ... should be open for extension, but closed for modification."
 
-https://mohasin-dev.medium.com/how-to-use-open-closed-principal-in-php-laravel-af4fa3b2a1c1
+https://mohasin-dev.medium.com/how-to-use-open-closed-principal-in-php-laravel-af4fa3b2a1c1  
+https://medium.com/@niranjan.sth8/boosting-laravel-quality-with-solid-principles-best-practices-and-examples-part-ii-5dfb53db0822  
 
 ### Liskov substitution principle 
 
@@ -32,9 +35,20 @@ https://en.wikipedia.org/wiki/Liskov_substitution_principle
 https://stackify.com/solid-design-liskov-substitution-principle/  
 https://www.baeldung.com/solid-principles  
 
+#### challeges
+This sounds obvious, however, there are some important thing that needs to be satisfied:
+
+- **Same method signatures.** In PHP we’re not forced to use types so it can happen that the method has different types in MailChimp compared to ConvertKit.
+- **It’s also true for return types.** Of course, we can type-hint these, but what about an array or a Collection ? It’s not guaranteed that an array contains the same types in multiple classes, right? As you can see, the addSubscriber method returns an array that contains the subscriber’s data received from the APIs. Both MailChimp and ConvertKit return a different shape. They are arrays, yes, but they are completely different data structures. So we cannot be 100% sure that RegisterController works correctly with any email provider implementation. This is why it’s a good idea to have DTOs when working with 3rd parties.
+- **The same exceptions should be thrown from each method.** Since exceptions cannot be type-hinted in the signature it’s also a source of difference between these classes.
+
+https://medium.com/@niranjan.sth8/boosting-laravel-quality-with-solid-principles-best-practices-and-examples-part-iii-l-1f89d8cef180
+
 ### interface segregation principle
 
  "Clients should not be forced to depend upon interfaces that they do not use."
+
+ https://medium.com/@niranjan.sth8/boosting-laravel-quality-with-solid-principles-best-practices-and-examples-part-iv-i-7e07a2fcac96  
  
 ### dependency inversion principle
 
@@ -46,6 +60,7 @@ The principle states:[1]
 - Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
 
 https://en.wikipedia.org/wiki/Dependency_inversion_principle  
+https://medium.com/@niranjan.sth8/boosting-laravel-quality-with-solid-principles-best-practices-and-examples-part-v-d-478f11c5b9c3  
 
 #### description
 
