@@ -10,8 +10,20 @@ https://oai.github.io/Documentation/introduction.html
 
 ## restful
 
-https://github.com/microsoft/api-guidelines
+https://github.com/microsoft/api-guidelines  
 https://docs.gitlab.com/ee/api/invitations.html
+
+## There are several best practices to keep in mind when designing a REST API:
+
+1. Use HTTP methods correctly: Use HTTP methods (GET, POST, PUT, DELETE, etc.) as intended. For example, use GET for retrieving data, POST for creating a new resource, PUT for updating an existing resource, and DELETE for deleting a resource.
+2. Use nouns for resource naming: Use nouns instead of verbs for resource naming. For example, use /products instead of /getProducts.
+3. Use plural for collection resources: Use plural for collection resources. For example, use /products instead of /product.
+4. Use specific names for resources: Use specific names for resources instead of generic ones. For example, use /users/{userId}/orders instead of /orders.
+5. Use query parameters for filtering and sorting: Use query parameters for filtering and sorting data. For example, use /products?category=electronics&sort=price to get electronics products sorted by price.
+6. Use HTTP status codes correctly: Use HTTP status codes correctly to indicate the status of a request. For example, use 200 for successful responses, 201 for resource creation, 400 for bad requests, 404 for resources not found, etc.
+7. Use versioning for your API: Use versioning to manage changes to your API. For example, use /v1/products and /v2/products for different versions of the same resource.
+
+https://shahedbd.medium.com/beginner-guide-to-rest-api-and-best-practices-b909e3cbea7
 
 ## Use hyphens or underscores to separate words
 
@@ -119,4 +131,10 @@ Resource instance payloads will be substantially similar across POST (request), 
 
 https://medium.com/api-center/api-documentation-rules-192c127cf401
 
+## Http PUT
 
+The HTTP PUT method is similar to the HTTP POST method in that it is used to send data to the server, but it differs in its semantics. 
+
+In general, the PUT method should be idempotent, meaning that multiple identical PUT requests should have the same effect as a single PUT request. This means that if a client sends the same PUT request multiple times, the server should perform the update or replacement operation only once, and subsequent requests should have no further effect.
+
+https://shahedbd.medium.com/beginner-guide-to-rest-api-and-best-practices-b909e3cbea7  
