@@ -6,13 +6,16 @@
 
 PHP has added support for the top type mixed, the bottom type never and null, false and true type.
 
-And support for composite types union types,intersection types and DNF types which combine union and intersection types..
+And support for composite types union types,intersection types and DNF types which combine union and intersection types.
+
+One benefit of union type is improved type safety: Union types can help to catch errors at compile-time rather than run-time, which can make code more reliable and easier to maintain.
 
 - https://wiki.php.net/rfc/union_types_v2
 - https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.mixed
 - https://wiki.php.net/rfc/null-false-standalone-types
 - https://wiki.php.net/rfc/true-type
 - https://wiki.php.net/rfc/dnf_types
+- https://medium.com/@moslem.deris/a-guide-to-union-types-in-php-8-examples-best-practices-and-benefits-d51c292f5f54  
 
 ## readonly properties and readonly classes
 
@@ -39,6 +42,7 @@ This RFC proposes to introduce a short hand syntax, which allows combining the d
 
 https://wiki.php.net/rfc/constructor_promotion  
 https://medium.com/@benr77/how-to-eliminate-boilerplate-code-with-php-8-1-766637d48353  
+https://medium.com/@nemanjamilenkovic_58178/constructor-property-promotion-shakes-up-the-php-world-3c9e1c3d9ed4  
 
 ### Enum
 
@@ -193,7 +197,20 @@ Below is wrong.
     }
 Fatal error: Interfaces may not include properties 
 
-https://www.php.net/manual/en/language.oop5.interfaces.php
+https://www.php.net/manual/en/language.oop5.interfaces.php  
+https://medium.com/@ibrbayazit/php-interface-vs-abstract-class-2b708ea4347c  
+
+### benefits
+
+1. Interface benefits
+- Does not modify the hierarchy tree
+- Allows to implement N Interfaces
+
+2. Benefits of Abstract Class
+   
+- It allows to develop the Template Method¹ pattern by pushing the logic to the model.
+
+https://medium.com/@niranjan.sth8/boosting-laravel-quality-with-solid-principles-best-practices-and-examples-part-iii-l-1f89d8cef180  
 
 ## how to log error
 
@@ -217,8 +234,157 @@ So if you only want to type hint anonymous function use: Closure and if you want
 
 https://stackoverflow.com/questions/29730720/type-hinting-difference-between-closure-and-callable  
 
+### Invokable Objects
+
+Invokable Objects: Objects that implement the __invoke() method can be treated as callables.
+
+    class Greeting {
+        public function __invoke($name) {
+            echo "Hello, $name!";
+        }
+    }
+
+    $obj = new Greeting();
+    $callable = $obj;
+    $callable('John'); // Output
+
+In this example, the Greeting class implements the __invoke() method, allowing objects of that class to be callable.
+
+To summarize, “callable” is a type hint or declaration that denotes a parameter or return value as being a function or method reference, whereas “closure” refers specifically to an anonymous function that can capture variables from its surrounding scope. Closures are a subset of callables but offer additional features such as variable encapsulation.
+
+https://medium.com/@miladev95/php-closure-and-callable-and-difference-2e5d176b3fca
+
 ## Variable-length argument lists
 
 PHP has support for variable-length argument lists in user-defined functions by using the ... token.
 
 https://www.php.net/manual/en/functions.arguments.php  
+
+## ReflectionClass
+
+- dependency injection 
+- test private and protected properties and methods 
+
+https://rakibdevs.medium.com/exploring-the-power-of-reflectionclass-in-php-a26d5ce533f3  
+
+## Dependency Injection
+
+The basic principle remains the same: rather than having objects create their own dependencies, we pass them in from outside. The benefits are as below:
+
+1. Our class is no longer tightly coupled to the database implementation. We can easily swap out the database object for a different implementation
+
+2. It also make testing better because you can change the real classes for mock classes, or change implementations for the speed of testing, like an SQLite in-memory database.
+
+https://darkghosthunter.medium.com/php-a-noob-explanation-for-dependency-injection-and-di-container-a7179390b26c  
+https://medium.com/@miqayelsrapionyan/php-dependency-injection-for-beginners-8eed8f105b4  
+
+## array type hint of objects of a specific calss
+
+option 1:
+/** @var ProductSku[] */
+private $skus;
+
+option 2:
+/** @var ProductSku[] */
+private array $skus;
+
+The phpdoc ProductSku[] is only for IDE or static analytic tool like phpstan to check or auto-completed. 
+It still works even $skus are assigned not ProductSku[].
+Option 2 at least type hint array, while option 1 type hint nothing. Option 2 is better.
+
+Below syntax is not supported by PHP.
+option 3:
+private ProductSku[] $skus;
+private string[] $skus;
+
+https://stackoverflow.com/questions/71265229/is-there-a-type-hint-for-an-array-of-objects-of-a-specific-class-in-php-8-2  
+https://externals.io/message/108175  
+
+## array type hint for general
+
+type[] is preferred than array<type>
+if type hint key, only array<key, type>
+
+typehint in nested array for phpstan
+
+https://github.com/phpstan/phpstan/discussions/7316  
+https://phpstan.org/writing-php-code/phpdoc-types#local-type-aliases  
+https://stackoverflow.com/questions/20543050/phpdoc-typehint-in-nested-arrays-with-e-g-2-dimensions  
+https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc.md  
+https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc-tags.md  
+    
+## phpdoc official syntax
+    
+There’s no official. psr is standard and preferred . PHPDocumentor isn’t.
+    
+I found the reference of PHPDocumentor, but I have the feeling, that it is not the official PHP one and not (yet) compatible with PHP 8.0+.
+https://stackoverflow.com/questions/66711759/official-phpdoc-reference-for-documenting-php-code   
+    
+## if nullable type should set default value or not
+
+    public function getReverseList(string $storerKey, ?string $reverseOrderId, ?int $interval = '', ?int $size=20): void
+
+The default is used only when the parameter is not specified; in particular, note that passing null does not assign the default value. the parameter is not specified means don't pass the parameter, passing null still means the parameter is specified.
+
+If a parameter could not be specified in some scenario, then the default value is needed. For example, there are two calls. One pass full parameters, another only passes part of parameters.
+
+If the parameters must be specified in any scenario, then the default value is not needed. 
+
+If the parameter could be null which means still be specified, then use nullable type.
+
+If the parameter can't be null based on business logic, then don't use nullable type, let php language do the type hint check when the parameter is null incorrectly.
+
+### Nullable types
+    
+Nullable types means null can be passed as an argument. But if there's no default and the parameter is not specified, an error will emit.
+
+    function test(?string $name)
+    {
+        var_dump($name);
+    }
+
+    test('elePHPant');
+    test(null);
+    test();
+
+    string(10) "elePHPant"
+    NULL
+    Uncaught Error: Too few arguments to function test(), 0 passed in...
+
+https://www.php.net/manual/en/migration71.new-features.php
+
+
+
+### default values
+    
+The default is used only when the parameter is not specified; in particular, note that passing null does not assign the default value.
+
+    function test2(?string $name='default_value')
+    {
+        var_dump($name);
+    }
+
+    test2(null);
+    test2();
+
+    NULL
+    string(13) "default_value"
+
+https://www.php.net/manual/en/functions.arguments.php#functions.arguments.default
+
+## null coalescing operator vs null safe operator
+
+null pointer exceptions 
+
+Null represents the absence of a value in PHP. However, when attempting to access properties or call methods on null objects, a fatal error occurs, leading to application crashes. 
+
+It’s important to note that the null safe operator short-circuits the expression as soon as it encounters a null value. This means that subsequent method calls or property accesses in the chain will not be executed if any of the preceding objects are null.
+
+The null coalescing operator and the null safe operator serve different use cases:
+
+Use the null coalescing operator when you want to provide a default value or handle fallback scenarios for null values.
+
+Use the null safe operator when you want to safely access properties and invoke methods on potentially null objects without encountering null pointer exceptions.
+
+https://medium.com/@prevailexcellent/mastering-null-safety-in-php-8-a-comprehensive-guide-to-using-the-null-safe-operator-47835ba1140b
+

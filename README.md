@@ -5,6 +5,7 @@
 - [laravel](laravel.md)
 - [code review](code-review.md)
 - [class](class.md)
+- [exception](exception.md)
 
 # Microservices
 - [cloud native](cloud-native.md)
@@ -34,10 +35,15 @@
 - [engineering](engineering.md)
 - [SOLID principles](solid.md)
 - [Clean Code](cleancode.md)
+- [Clean Architecture](clean-architecture.md)
 - [Event-Driven Architecture](eda.md)
 - [Domain-Driven Design](ddd.md)
 - [Design Pattern](design-pattern.md)
 - [Messaging](messaging.md)
+- [Webhook](webhook.md)
+- [JWT](jwt.md)
+- [Class Diagram](class-diagram.md)
+- [Cache](cache.md)
 
 # Project
 - [project](project.md)

@@ -13,6 +13,12 @@ In a pub/sub model, any message published to a topic is immediately received by 
 
 ![image](https://user-images.githubusercontent.com/1209204/228853264-0640d851-9193-44be-9ad0-a427e590038c.png)
 
+### implementation in aws
+
+1. SNS
+2. SQS
+
+https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-integrating-microservices/pub-sub.html#example-business-case-3  
 
 ## Queue Message vs Pub/Sub Messaging
 
@@ -22,3 +28,23 @@ In a pub/sub model, any message published to a topic is immediately received by 
 
 https://aws.amazon.com/message-queue/  
 https://aws.amazon.com/pub-sub-messaging/  
+
+## Poll model in SQS
+
+Amazon SQS is a message queue service used by distributed applications to exchange messages through a polling model.
+
+Receiver direction is from receiver to sqs, as receiver retrieve message actively, not wait to receive.
+
+<img width="967" alt="Screenshot 2023-04-02 at 09 30 51" src="https://user-images.githubusercontent.com/1209204/229521980-3c4f689b-b2c7-4a33-928e-13c1a44db98b.png">
+
+## Use cases of queue
+
+1. Processing large volumes of data: If you have a task that requires processing a large amount of data, such as generating reports or updating a large number of records, you can use RabbitMQ to break the task up into smaller pieces and distribute the work across multiple workers.
+   
+2. Sending notifications: If you need to send notifications to users or other parts of your application, you can use RabbitMQ to queue up the messages and send them asynchronously. This can help improve the performance of your application and prevent delays caused by sending notifications in real-time.
+   
+3. Handling user events: If you need to handle user events, such as sending welcome emails or processing user registrations, you can use RabbitMQ to handle these tasks asynchronously. This can help improve the responsiveness of your application and prevent delays caused by waiting for the user events to complete.
+
+4. Decoupling application components: If you have different parts of your application that need to communicate with each other, you can use RabbitMQ to decouple these components and reduce their dependencies. This can help make your application more modular and easier to maintain over time.
+
+https://medium.com/@256cub/rabbitmq-is-a-message-queue-system-that-allows-you-to-send-and-receive-messages-between-different-f0af4c9b3e06

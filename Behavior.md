@@ -62,7 +62,11 @@ https://www.indeed.com/career-advice/interviewing/how-to-prepare-for-an-intervie
 
 ### what’s most proud of thing in your project?
 
-I built the middleware project core function. Then other people can follow this to add additional functions.
+My most proud of project is using SP api in Amazon. We use OAuth2.0 to do the authorization and authetication. The api is restful. I know what the restful api looks like and how to use different http status method and code.
+
+For example, to create a resouce, we use post. To query, update and delete a resource, the url is the same such as order/{order_id}, we use get for querying, put or patch for updating and delete for deleting. If we call it successfully, 200 will return. If some parameters has problems, 400 bad request will return. If there's no authorization, 401 will be returned.
+
+~~I built the middleware project core function. Then other people can follow this to add additional functions.~~
 
 ### what’s your motivation or what motivates you? or Please tell us something about yourself we can’t read on your cv.
 

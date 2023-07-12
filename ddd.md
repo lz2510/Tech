@@ -43,7 +43,7 @@ At the same time, the application service is another layer that doesn’t contai
 
 ### repository
 
-The repository pattern is a collection of business entities that simplifies the data infrastructure. It releases the domain model from infrastructure concerns. The layering concept enforces the separation of concerns.
+The Repository Pattern is a widely-used software design pattern that separates the application logic from the underlying data storage mechanism. It provides an abstraction layer between the application code and the database.
 
 #### benefits of repository pattern
 
@@ -55,6 +55,7 @@ The repository pattern is a collection of business entities that simplifies the 
 
 https://docs.microsoft.com/en-us/archive/msdn-magazine/2009/february/best-practice-an-introduction-to-domain-driven-design  
 https://medium.com/microtica/the-concept-of-domain-driven-design-explained-3184c0fd7c3f  
+https://medium.com/@soulaimaneyh/laravel-repository-pattern-da4e1e3efc01  
 
 ## value object
 
@@ -64,3 +65,12 @@ There are two main characteristics for value objects:
 
 https://learn.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/implement-value-objects  
 https://martinfowler.com/bliki/ValueObject.html  
+
+## should a repository return eloquent model or domain model?
+
+Should return domain model. Can add a mapper to transfer from eloquent model to domain model.  The same as Request of http.
+
+As repository interface is defined in domain. A domain shouldn’t rely on Eloquent of the framework or Request from http. A domain only rely on domain. Even return an array, the element should also be domain instead of eloquent model.
+
+https://github.com/Orphail/laravel-ddd/blob/master/src/Agenda/Company/Application/Repositories/Eloquent/CompanyRepository.php  
+https://github.com/Orphail/laravel-ddd/blob/master/src/Agenda/Company/Application/Mappers/CompanyMapper.php  
