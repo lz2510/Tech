@@ -13,6 +13,12 @@ In a pub/sub model, any message published to a topic is immediately received by 
 
 ![image](https://user-images.githubusercontent.com/1209204/228853264-0640d851-9193-44be-9ad0-a427e590038c.png)
 
+### implementation in aws
+
+1. SNS
+2. SQS
+
+https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-integrating-microservices/pub-sub.html#example-business-case-3  
 
 ## Queue Message vs Pub/Sub Messaging
 
