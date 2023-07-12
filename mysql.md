@@ -125,3 +125,11 @@ https://medium.com/@aizaz2117/mysql-top-most-asked-interview-questions-d7ec27f73
 A stored procedure is a set of pre-compiled SQL statements that are stored in the database and can be executed later. It helps in modularizing and reusing SQL code, improving performance, and enhancing security.
 
 https://medium.com/@aizaz2117/mysql-top-most-asked-interview-questions-d7ec27f737ee  
+
+## Normalization in database design
+
+Normalization is the process of organizing data in a database to eliminate redundancy and improve data integrity. It involves breaking down a table into multiple tables and defining relationships between them using primary keys and foreign keys.
+
+https://medium.com/@aizaz2117/mysql-top-most-asked-interview-questions-d7ec27f737ee  
+
+
