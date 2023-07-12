@@ -111,3 +111,17 @@ In this case, you have an AUTO_INCREMENT ID column, so you would not have negati
 Do note, however, that UNSIGNED is MySQL-specific and not a standard SQL feature. This means that using UNSIGNED can make a future migration to a different RDBMS more complicated or cause you difficulties when using software libraries targeting standard SQL such as SQLAlchemy. 
 
 https://stackoverflow.com/questions/11515594/when-should-i-use-unsigned-and-signed-int-in-mysql  
+
+## where vs having
+
+The WHERE clause is used in a SELECT, UPDATE, or DELETE statement to filter rows based on a condition. It operates on individual rows before any grouping or aggregation occurs. 
+
+The HAVING clause is used in conjunction with the GROUP BY clause in a SELECT statement to filter groups based on a condition. It operates on the result set after the grouping and aggregation have taken place. It is typically used with aggregate functions like SUM, COUNT, AVG, etc.
+
+https://medium.com/@aizaz2117/mysql-top-most-asked-interview-questions-d7ec27f737ee  
+
+## stored procedure
+
+A stored procedure is a set of pre-compiled SQL statements that are stored in the database and can be executed later. It helps in modularizing and reusing SQL code, improving performance, and enhancing security.
+
+https://medium.com/@aizaz2117/mysql-top-most-asked-interview-questions-d7ec27f737ee  
