@@ -42,4 +42,28 @@ The compile-time dependency is lower level depends on high levels. run-time depe
 
 ![IMG_7670](https://github.com/lz2510/TechInterview/assets/1209204/75b16e29-10c2-4150-9aac-8af22e527220)
 
+## three principles of components
+
+![IMG_7780](https://github.com/lz2510/TechInterview/assets/1209204/a9474fb3-e6ea-45a9-9ea8-2da6a2ce2c68)
+
+![IMG_7779](https://github.com/lz2510/TechInterview/assets/1209204/ce2e4a84-714f-42e8-8919-46484b5609ac)
+
+### CCP
+
+![IMG_7786](https://github.com/lz2510/TechInterview/assets/1209204/06354dd8-fbb0-4843-928b-ca14e41ce983)
+
+![IMG_7787](https://github.com/lz2510/TechInterview/assets/1209204/d5495f16-98fc-453c-a57c-4bb4801241bc)
+
+![IMG_7781](https://github.com/lz2510/TechInterview/assets/1209204/1b342735-32d8-40e9-85d0-c63a142c6300)
+
+### CRP
+
+![IMG_7782](https://github.com/lz2510/TechInterview/assets/1209204/08609a3b-a15f-4b70-829a-c396986f11c1)
+
+## Acyclic dependencies principle
+
+![IMG_7783](https://github.com/lz2510/TechInterview/assets/1209204/db6f7bff-5e30-482a-8279-7eee12772855)
+
+![IMG_7784](https://github.com/lz2510/TechInterview/assets/1209204/a0c45b7c-ec2d-4e1d-bed3-8ca7018ff324)
+
 
