@@ -1,5 +1,21 @@
 # Exception
 
+## The uniqueness of the exception in PHP
+
+The uniqueness of exceptions in PHP, that is, the exceptions in PHP are different from the exceptions in the mainstream languages ​​C++ and Java. In Java, exceptions are the only way to report bugs, but not in PHP, but treat all abnormal situations as errors. The two languages ​​differ in their definition of anomalies and errors. What is an exception and what is wrong, the designers of the two languages ​​have different opinions.
+
+Exceptions in PHP:
+
+It is a situation in which the program does not meet expectations and is different from the normal process. An abnormal situation, an error that should not be made according to normal logic, but still errors that occur, which are logic and business process errors, not compilation or syntax errors.
+
+Error in PHP:
+
+It is a problem of the php script itself, most of which is caused by the wrong syntax, the server environment, so that the compiler can not pass the check, or even run. Warning, notice are all errors, but their level is different, and the error can not be captured by try-catch.
+
+Any error in PHP will trigger an error instead of throwing an exception. Once PHP encounters unusual code, it usually triggers an error instead of throwing an exception. Therefore, if you want to use the exception handling to deal with unforeseen problems, you can’t do it.
+
+https://medium.com/@mena.meseha/talking-about-php-exception-handling-7e19f0026ab4
+
 ## Laravel for error_report() that is issued by php, like E_WARNING, E_NOTICE, convert to ErrorException.
 
 set_error_handler($this->forwardsTo('handleError'));
