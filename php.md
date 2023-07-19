@@ -388,3 +388,22 @@ Use the null safe operator when you want to safely access properties and invoke 
 
 https://medium.com/@prevailexcellent/mastering-null-safety-in-php-8-a-comprehensive-guide-to-using-the-null-safe-operator-47835ba1140b
 
+## type safety
+
+Type safety, also known as type correctness or type soundness, is a concept in computer programming that ensures that operations on data are performed with the correct data types and that type-related errors are caught at compile-time or runtime rather than resulting in unexpected behaviors or crashes.
+
+In a type-safe programming language, variables, functions, and expressions have well-defined data types, and the language’s compiler or runtime system enforces rules to ensure that these types are used appropriately. Type safety provides several benefits, including:
+
+1. Compile-time type checking: The compiler checks the types of variables and expressions during the compilation phase. It can catch type-related errors early in the development process, reducing the likelihood of runtime errors and making it easier to maintain and debug code.
+
+2. Prevention of type-related bugs: Type safety helps prevent bugs that may occur due to incompatible data types or incorrect type conversions. This can lead to more robust and reliable software.
+
+3. Increased code readability: Type information provides developers with additional context, making code easier to understand and maintain.
+
+4. Enhanced refactoring support: Type safety facilitates refactoring by ensuring that changes to types propagate consistently through the codebase.
+
+Languages that prioritize type safety are often statically typed, meaning that variable types are checked at compile-time, like Java, C++, or TypeScript. In contrast, dynamically typed languages (e.g., Python, JavaScript) perform type checking at runtime, which may result in type-related errors occurring during program execution.
+
+However, it is worth noting that type safety is just one aspect of a programming language’s design. Some languages may choose to trade-off strict type safety for other features, such as increased flexibility and ease of use, depending on the language’s intended use case and target audience.
+
+https://medium.com/@miladev95/type-safety-45b361d888d1
