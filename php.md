@@ -407,3 +407,9 @@ Languages that prioritize type safety are often statically typed, meaning that v
 However, it is worth noting that type safety is just one aspect of a programming language’s design. Some languages may choose to trade-off strict type safety for other features, such as increased flexibility and ease of use, depending on the language’s intended use case and target audience.
 
 https://medium.com/@miladev95/type-safety-45b361d888d1
+
+## CGI vs FastCGI vs PHP-FPM
+
+CGI is the simplest and oldest method for executing server-side scripts but suffers from performance overhead. FastCGI improves upon CGI by introducing a persistent process pool, resulting in better performance. PHP-FPM, on the other hand, is a specific FastCGI implementation tailored for PHP execution, providing superior performance, scalability, and security for serving PHP applications. For modern PHP applications, PHP-FPM is the recommended method for handling dynamic content.
+
+https://medium.com/@miladev95/cgi-vs-fastcgi-vs-php-fpm-afbc5a886d6d
