@@ -94,3 +94,4 @@ RepositoryImpl 仓储接口实现
 
 another naming is repositoryInterface in domain layer. use repository in implement layer.
 
+https://mp.weixin.qq.com/s/HMLpjcE0UENUTfMK0Z9n8A
