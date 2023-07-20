@@ -15,3 +15,14 @@ https://rezakhademi.medium.com/using-laravel-controllers-events-listeners-servic
 ## Why are model observers in Laravel a bad practice?
 
 https://medium.com/@dkhorev/why-are-model-observers-in-laravel-a-bad-practice-8feb8526c95e  
+
+## Contextual Binding
+
+Here we are telling the service container that whenever an implementation of the NotificationInterfaceis requested by our ApplicationNotificationController, it should provide an instance of the DatabaseNotificationclass.
+
+And whenever an implementation of the NotificationInterfaceis requested by our SmsNotificationController, it should provide an instance of the SmsNotificationclass.
+
+This type of binding is called Contextual Binding.
+
+https://medium.com/@opadaalziede/supercharge-your-laravel-application-with-service-providers-fb0b19d6b5f5
+https://laravel.com/docs/10.x/container#contextual-binding
