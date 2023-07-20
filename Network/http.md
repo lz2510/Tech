@@ -17,6 +17,16 @@ Any status code in the 500-599 range generally means that the HTTP request looke
 400 validation failed  
 500 application error  
 
+### Create request with POST, which response codes 200 or 201 and content
+
+The idea is that the response body gives you a page that links you to the thing: 201 Created
+
+In a few words:
+* 200 when an object is created and returned
+* 201 when an object is created but only its reference is returned (such as an ID or a link)
+
+prefer 201
+
 https://stackoverflow.com/questions/1860645/create-request-with-post-which-response-codes-200-or-201-and-content
 
 ## http method

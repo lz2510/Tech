@@ -408,8 +408,19 @@ However, it is worth noting that type safety is just one aspect of a programming
 
 https://medium.com/@miladev95/type-safety-45b361d888d1
 
+## trait
+
+We all know about object-oriented programming and how we can inherit from one class to another. However, sometimes we need to implement multiple inheritance, which means allowing a class to inherit from more than one class. Unfortunately, this feature is not supported in PHP, so we use traits instead.
+
+Apart from its main purpose, which is solving the problem of multiple inheritances, traits have many other uses, such as in SOLID principles, object-oriented programming, and more.
+
+https://medium.com/@aliabdm/what-is-trait-in-php-4f15c77caa8
+
 ## CGI vs FastCGI vs PHP-FPM
 
 CGI is the simplest and oldest method for executing server-side scripts but suffers from performance overhead. FastCGI improves upon CGI by introducing a persistent process pool, resulting in better performance. PHP-FPM, on the other hand, is a specific FastCGI implementation tailored for PHP execution, providing superior performance, scalability, and security for serving PHP applications. For modern PHP applications, PHP-FPM is the recommended method for handling dynamic content.
 
 https://medium.com/@miladev95/cgi-vs-fastcgi-vs-php-fpm-afbc5a886d6d
+
+
+

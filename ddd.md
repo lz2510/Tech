@@ -74,3 +74,23 @@ As repository interface is defined in domain. A domain shouldn’t rely on Eloqu
 
 https://github.com/Orphail/laravel-ddd/blob/master/src/Agenda/Company/Application/Repositories/Eloquent/CompanyRepository.php  
 https://github.com/Orphail/laravel-ddd/blob/master/src/Agenda/Company/Application/Mappers/CompanyMapper.php  
+
+## Repository Interface in domain layer, Repository Implementation in repository layer
+
+应用层要调用仓储查询或者使用中间件都应该使用领域层声明的接口，不能够直接使用仓储层和基础设施层的实现，例如应用层中不能直接使用Mapper，而应该使用Repository接口。
+
+![IMG_6450](https://github.com/lz2510/TechInterview/assets/1209204/fa1965f4-f7a6-48f6-a256-6caa29a9dad8)
+
+仓储层（repository）：
+仓储层负责数据查询及持久化，仓储层本质上也属于一种基础设施，但是仓储层作为系统中重要的一环，因此从基础设施层中独立开来。 DO对象只存在于仓储层，通过内部定义的Converter转为领域对象后供上层使用。
+
+注意：Converter建议逐个字段手写转换，不建议使用BeanUtils.copyProperties 或者 MapStruct对象转换工具，理由是使用了这类工具后，字段发生变化没法在编译阶段感知到，容易导致生产事故，所以推荐转换就使用笨方法，逐个字段转换。
+
+
+Repository 仓储接口
+仓储接口定义在领域层，其实现在仓储层，实现文件命名为 XXRepositoryImpl。
+RepositoryImpl 仓储接口实现
+仓储接口实现在仓储层，这是倒置依赖的体现。
+
+another naming is repositoryInterface in domain layer. use repository in implement layer.
+
