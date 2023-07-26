@@ -422,5 +422,86 @@ CGI is the simplest and oldest method for executing server-side scripts but suff
 
 https://medium.com/@miladev95/cgi-vs-fastcgi-vs-php-fpm-afbc5a886d6d
 
+## php strict types
+
+WxAppRefundServiceTest.php
+
+    $refundService = app()->make(RefundService::class);
+    $result = $refundService->getAfterSaleType(0);
+    $this->assertequals("仅退款", $result);
 
 
+RefundService.php
+
+    public function getAfterSaleType(string $hasGoodsReturn): string
+    {
+       var_dump($hasGoodsReturn);
+    }
+
+1. if there's no strict type, int 0 will be converted to string "0"
+string(1) "0"
+
+2. if enable strict type, TypeError will be thrown.
+
+TypeError: Argument 1 passed to App\Platform\WeChat\Services\RefundService::getAfterSaleType() must be of the type string, int given, called in /data/tests/Unit/WxAppRefundServiceTest.php on line 18
+
+Note that: declare(strict_types=1); must be written in file that calls the function, not define the function. It's in WxAppRefundServiceTest.php, not RefundService.php.
+
+
+Strict typing applies to function calls made from within the file with strict typing enabled, not to the functions declared within that file. If a file without strict typing enabled makes a call to a function that was defined in a file with strict typing, the caller's preference (coercive typing) will be respected, and the value will be coerced.
+
+Strict typing is only defined for scalar type declarations.
+
+
+https://stackoverflow.com/questions/48723637/what-do-strict-types-do-in-php
+https://www.php.net/manual/en/control-structures.declare.php
+https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.strict
+
+## php string casting
+
+A value can be converted to a string using the (string) cast or the strval() function. 
+
+A bool true value is converted to the string "1". bool false is converted to "" (the empty string). 
+
+An int or float is converted to a string representing the number textually (including the exponent part for floats). 
+
+null is always converted to an empty string.
+
+For null, if using the (string) cast or the strval() function, it will be converted to an empty sting. But if it's type hinting, an TypeError will be thrown.
+
+    getAfterSaleType(true);
+    getAfterSaleType(false);
+    getAfterSaleType(25);
+    getAfterSaleType(25.60);
+
+    var_dump(strval(null));
+    var_dump((string)null);
+    
+    getAfterSaleType(null);
+
+    function getAfterSaleType(string $hasGoodsReturn): string
+    {
+        var_dump($hasGoodsReturn);
+        if ($hasGoodsReturn === 'false' || $hasGoodsReturn === "0" || $hasGoodsReturn === "") {
+            return "仅退款";
+        } else {
+            return "退货退款";
+        }
+    
+     }
+
+string(1) "1"  
+string(0) ""  
+string(2) "25"  
+string(4) "25.6"  
+string(0) ""  
+string(0) ""  
+
+Fatal error: Uncaught TypeError: Argument 1 passed to getAfterSaleType() must be of the type string, null given, called in /box/script.php on line 11 and defined in /box/script.php:13
+Stack trace:
+#0 /box/script.php(11): getAfterSaleType(NULL)
+#1 {main}
+  thrown in /box/script.php on line 13
+
+https://www.php.net/manual/en/language.types.string.php#language.types.string.casting
+https://www.php.net/manual/en/language.types.type-juggling.php#language.types.typecasting
