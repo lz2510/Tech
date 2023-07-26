@@ -2,11 +2,21 @@
 
 ## New features in laravel 9 and 10
 
-1. type hint complement
+1. type hint complement or Native type declaration
+ 
+Before this upgrade, the skeleton code for Laravel used DocBlocks to describe the code and the expected replies and parameters. However, DocBlocks are replaced with native-type declarations in Laravel 10.
+
+Laravel 10.x thoroughly updates the application skeleton and all stubs utilized by the framework to introduce argument and return types to all method signatures. In addition, extraneous "doc block" type-hint information has been deleted.
+
 2. enum router bind
+3. Native column modification is supported.
+
+Before this latest Laravel version, you had to rely on a separate package called DBAL (doctrine/dbal) in order to edit columns using the change() function. However, Laravel 10 fully removes this need.
+In SQL Server, MySQL, and PostgreSQL, you can edit a column without using the DBAL package.
 
 https://laravel.com/docs/10.x/releases#types  
 https://laravel.com/docs/9.x/releases#implicit-route-bindings-with-enums  
+https://medium.com/@rkumaraj5694/why-laravel-10-dc680a7776cc
 
 ## Using Laravel Controllers, Events, Listeners, Services and Validation Together!
 
