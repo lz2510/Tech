@@ -66,4 +66,7 @@ The compile-time dependency is lower level depends on high levels. run-time depe
 
 ![IMG_7784](https://github.com/lz2510/TechInterview/assets/1209204/a0c45b7c-ec2d-4e1d-bed3-8ca7018ff324)
 
+## abstract component
+
+![IMG_8019](https://github.com/lz2510/TechInterview/assets/1209204/c492ce35-aac7-41cd-b7d6-a1932b046923)
 
