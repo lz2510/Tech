@@ -15,9 +15,9 @@ One benefit of union type is improved type safety: Union types can help to catch
 - https://wiki.php.net/rfc/null-false-standalone-types
 - https://wiki.php.net/rfc/true-type
 - https://wiki.php.net/rfc/dnf_types
-- https://medium.com/@moslem.deris/a-guide-to-union-types-in-php-8-examples-best-practices-and-benefits-d51c292f5f54  
+- https://medium.com/@moslem.deris/a-guide-to-union-types-in-php-8-examples-best-practices-and-benefits-d51c292f5f54
 
-## readonly properties and readonly classes
+### readonly properties and readonly classes
 
 This RFC introduces a readonly property modifier, which prevents modification of the property after initialization.
 
@@ -43,6 +43,15 @@ This RFC proposes to introduce a short hand syntax, which allows combining the d
 https://wiki.php.net/rfc/constructor_promotion  
 https://medium.com/@benr77/how-to-eliminate-boilerplate-code-with-php-8-1-766637d48353  
 https://medium.com/@nemanjamilenkovic_58178/constructor-property-promotion-shakes-up-the-php-world-3c9e1c3d9ed4  
+
+### Consistent Type Errors
+
+For user-defined functions, passing a parameter of illegal type results in a TypeError. For internal functions, the behavior depends on multiple factors, but the default is to throw a warning and return null. This RFC proposes to consistently generate TypeError exceptions for all invalid parameter types, regardless of whether the function is user-defined or extension-defined.
+
+PHP 8 introduces consistent type errors, which treat all type errors as fatal errors. This can help to catch errors more quickly and accurately and can reduce the likelihood of unexpected behavior caused by type errors.
+
+https://wiki.php.net/rfc/consistent_type_errors
+https://medium.com/your-software-development-stories/php-8-features-and-improvements-what-developers-need-to-know-3251249e4b8a
 
 ### Enum
 
