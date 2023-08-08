@@ -59,12 +59,26 @@ https://blog.ecotone.tech/implementing-outbox-pattern-in-php-symfony-laravel-eco
 
 ## My Database is not a Message Broker!
 
-Ghost Buster
+Whenever we send Messages to Message Broker and store changes in our database, one of those actions may fail. If this happen we will end up in inconsistent state of the system.
+
+### Sending Retries
+
+It’s important to provide a delay between each attempt, this way we give Message Broker a chance to become available, so sending Message can be self-healed.
+
+### Ghost Buster
+
+Messages that have been sent where related data has been rolled back are Ghost Messages. When Message will be consumed there will be nothing to reference too, which will make your Message Handlers fail.
+
 - sending asynchronous Messages happens just before the transaction is committed or simply after Command Handler have finished execution. 
-Sending Retries
-Dead letter
-Message Serialization Failure
-Critical Messages still uses outbox pattern
+
+### Dead letter
+Storing Messages that failed on sending in Database Dead Letter help us recover from failure and allows for safe commit of the data without losing any information. After Error Message is stored in the database, we can safely review and replay it.
+
+### Message Serialization Failure
+
+To make sending reliable on architecture level, we will need to split serialization from sending and serialize all Messages before we will start sending them. This way we ensure that from application perspective all Messages are fine and what is left to be done is to send Messages to the Message Broker.
+
+### Critical Messages still uses outbox pattern
 
 https://blog.devgenius.io/my-database-is-not-a-message-broker-75d95ea56abc
 
