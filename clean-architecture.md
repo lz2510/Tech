@@ -14,6 +14,10 @@ The compile-time dependency is lower level depends on high levels. run-time depe
 
 ![IMG_7556 copy](https://github.com/lz2510/TechInterview/assets/1209204/2efb733e-7c7e-4e6f-b23e-769f4e8c7010)
 
+## Which data cross the boundary
+
+![IMG_8382 copy](https://github.com/lz2510/TechInterview/assets/1209204/c6daceb4-491e-4fe0-8186-b5ebdc8171ce)
+
 ## Policy
 
 ![IMG_7672](https://github.com/lz2510/TechInterview/assets/1209204/fe01682d-748b-45f9-bd15-1ab1bc0b0f1e)
@@ -69,4 +73,16 @@ The compile-time dependency is lower level depends on high levels. run-time depe
 ## abstract component
 
 ![IMG_8019](https://github.com/lz2510/TechInterview/assets/1209204/c492ce35-aac7-41cd-b7d6-a1932b046923)
+
+## humble object
+
+![IMG_8376 copy](https://github.com/lz2510/TechInterview/assets/1209204/b1304b69-dce8-4f8f-8803-38a49faabf6d)
+
+![IMG_8377 copy](https://github.com/lz2510/TechInterview/assets/1209204/54ae4a59-4fec-4bc6-92f8-67fc0829dd22)
+
+![IMG_8379 copy](https://github.com/lz2510/TechInterview/assets/1209204/c87048de-165a-46a6-b058-9e22dab4ee93)
+
+![IMG_8380 copy](https://github.com/lz2510/TechInterview/assets/1209204/f3a46e59-2745-4553-8b35-f1b533be9c8a)
+
+![IMG_8381 copy](https://github.com/lz2510/TechInterview/assets/1209204/f9ef54ce-21dd-4248-8219-ae5f6d32b98f)
 
