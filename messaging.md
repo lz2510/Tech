@@ -48,3 +48,24 @@ Receiver direction is from receiver to sqs, as receiver retrieve message activel
 4. Decoupling application components: If you have different parts of your application that need to communicate with each other, you can use RabbitMQ to decouple these components and reduce their dependencies. This can help make your application more modular and easier to maintain over time.
 
 https://medium.com/@256cub/rabbitmq-is-a-message-queue-system-that-allows-you-to-send-and-receive-messages-between-different-f0af4c9b3e06
+
+## outbox pattern
+
+![image](https://github.com/lz2510/TechInterview/assets/1209204/76186cd1-f8ca-4f42-8ffd-e01f97b4a990)
+
+https://microservices.io/patterns/data/transactional-outbox.html  
+https://en.wikipedia.org/wiki/Inbox_and_outbox_pattern  
+https://blog.ecotone.tech/implementing-outbox-pattern-in-php-symfony-laravel-ecotone/  
+
+## My Database is not a Message Broker!
+
+Ghost Buster
+- sending asynchronous Messages happens just before the transaction is committed or simply after Command Handler have finished execution. 
+Sending Retries
+Dead letter
+Message Serialization Failure
+Critical Messages still uses outbox pattern
+
+https://blog.devgenius.io/my-database-is-not-a-message-broker-75d95ea56abc
+
+
