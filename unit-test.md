@@ -301,3 +301,59 @@ https://mp.weixin.qq.com/s/R4ZKWcB4TMFAiQlnIRqNeQ
 
 https://mp.weixin.qq.com/s/HROhxieLa_g394QiYZUpuw  
 
+## Should I use real or sample data for unit tests?
+
+I recently came across something a similar problem which was transforming large xml feeds from an upstream system into a proprietary format.
+
+1. for intergration test, write a set of integration black box tests for the full feeds testing things like record counts and other high level success metrics.
+
+2. for unit test, break down inputs into smaller and smaller chunks until I was able to test all the permutations of the data. 
+
+You do not need to interact with 250 fields to create one useful test. You need to break down the problem into smaller parts. If you somehow managed to write a test that used 250 fields I certainly wouldn't trust it because I'd have no hope of understanding it.
+
+https://stackoverflow.com/questions/4317747/should-i-use-real-or-sample-data-for-unit-tests  
+https://softwareengineering.stackexchange.com/questions/382287/what-is-recommended-way-to-create-test-data-for-unit-test-cases
+
+## 用例设计问题
+
+黑盒测试：将被测代码当作黑盒，基于程序对外提供的功能(包括它的输入、输出、以及输入输出作用关系)设计测试用例。典型方法包括边界值分析、等价类划分、决策树、状态机转换等。
+
+白盒测试：将被测代码当作白盒，基于程序内部的实现结构(包括条件、分支、循环等语句)设计测试用例。典型方法有语句覆盖、分支覆盖、条件覆盖、代码路径覆盖等。
+
+有人也许会说，这个方法是否过于繁琐、成本太高？事实上，如下图所示，根据二八原则，对于绝大部分逻辑简单的方法，只需要简单设计用例就可以了。只有少数长尾的、逻辑复杂的(特征：代码中分支多、判断条件多、执行路径多)的方法才需要严谨地设计用例。事实上，它们也值得这样测试，因为逻辑复杂往往意味着更高的出错可能性和质量风险。
+
+https://mp.weixin.qq.com/s/8JC_vaFOgiJPIH7yfbP25A
+
+## 边界测试问题
+
+软件测试，说一千道一万，它的根本目的是发现软件BUG。投资大师芒格有句名言，“要去鱼多的地方捕鱼”。同理，对于测试来说，我们要去BUG多的地方找BUG。
+
+那么，什么地方BUG多呢？经验告诉我们，边界场景BUG多。这里的边界场景是相对于主干流程(即程序的happy path)而言的，它包含了程序的各种分支(branch)、角落(corner)、边缘(edge)、异常(exceptional)、无效(invalid)场景。那么，如何在边界场景找BUG呢？这就要用到边界测试(boundary testing)方法。﻿
+
+如何寻找边界呢？有两种方法。一种是黑盒法，从需求中寻找边界。另一种是白盒法，从代码中寻找边界。
+
+https://mp.weixin.qq.com/s/8JC_vaFOgiJPIH7yfbP25A
+
+## 什么样的依赖需要Mock，什么样的依赖不需要Mock呢
+
+当A依赖B时，以下情形，不建议Mock B：
+
+B是A的本地依赖：例如系统内置类(ArrayList等)、Utility类(StringUtils等)
+B是A的简单依赖：B的逻辑非常简单
+B是A的实体依赖：例如数据类，只有简单的getter、setter方法，没有复杂处理逻辑
+B是A的独占依赖：B只被A依赖，不被其他类依赖
+当A依赖B时，以下情形，建议Mock B：
+
+B是A的外部依赖：例如外部HTTP服务，需要复杂的设置或返回结果不可控
+B是A的复杂依赖：B的逻辑复杂，返回结果有很多情形
+B是A的慢依赖：B的某些行为很慢，例如存在等待、超时
+B是A的共享依赖：B不止被A依赖，还被C、D、E依赖
+
+https://mp.weixin.qq.com/s/8JC_vaFOgiJPIH7yfbP25A
+
+## 单元测试和集成测试分工问题
+
+在实践中，我们要有全局意识，统筹考虑单元测试和集成测试，在必要的时候，随时准备从单元测试切换到集成测试、或者从集成测试切换到单元测试。﻿
+
+![image](https://github.com/lz2510/TechInterview/assets/1209204/b27f6e79-166a-43a6-affd-1bc8b3e0377e)
+
