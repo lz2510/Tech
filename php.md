@@ -514,3 +514,36 @@ Stack trace:
 
 https://www.php.net/manual/en/language.types.string.php#language.types.string.casting
 https://www.php.net/manual/en/language.types.type-juggling.php#language.types.typecasting
+
+## Inheritance vs. Composition
+
+### Inheritance 
+
+Inheritance is a mechanism that enables a class to inherit properties and behaviors from another class, known as the parent or base class. The derived or child class inherits all the public and protected members of the parent class, promoting code reuse and establishing an “is-a” relationship.
+
+Pros of Inheritance
+1. Code Reusability: Inheritance allows you to reuse code from parent classes, reducing duplication and promoting maintainability.
+2. Polymorphism: You can use polymorphism to interchangeably use derived classes wherever the base class is expected.
+
+Cons of Inheritance
+
+1. Tight Coupling: Inheritance creates a tight coupling between classes, making it difficult to change the implementation of the base class without affecting derived classes.
+2. Inflexible: Changes to the base class can have unintended consequences in derived classes, leading to fragile code.
+
+### Composition
+
+Composition, on the other hand, is a design principle that emphasizes building complex objects by combining simpler objects. It establishes a “has-a” relationship, where a class contains an instance of another class to access its functionalities.
+
+Pros of Composition
+1. Flexibility: Composition offers more flexibility than inheritance, as you can easily change the behavior of a class by swapping out components.
+2. Loose Coupling: Classes are loosely coupled, reducing dependencies and making the codebase more maintainable.
+
+Cons of Composition
+1. Boilerplate Code: Composition might introduce extra boilerplate code to delegate functionalities to composed objects.
+
+### Favor Composition over Inheritance
+
+Prefer using composition to build complex objects rather than relying solely on inheritance. This promotes flexibility and avoids tight coupling.
+
+https://kvnc-inc.medium.com/inheritance-vs-composition-in-php-choosing-the-right-path-for-your-code-d01dbd96388c
+https://medium.com/@moslem.deris/mastering-clean-code-in-php-principles-best-practices-and-real-world-examples-62a2ff550944
