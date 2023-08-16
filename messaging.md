@@ -56,6 +56,7 @@ https://medium.com/@256cub/rabbitmq-is-a-message-queue-system-that-allows-you-to
 https://microservices.io/patterns/data/transactional-outbox.html  
 https://en.wikipedia.org/wiki/Inbox_and_outbox_pattern  
 https://blog.ecotone.tech/implementing-outbox-pattern-in-php-symfony-laravel-ecotone/  
+https://medium.com/devwarlocks/symfony-outbox-pattern-rabbitmq-a-key-for-reliable-microservices-10bf267fdb0a  
 
 ## My Database is not a Message Broker!
 
@@ -82,4 +83,17 @@ To make sending reliable on architecture level, we will need to split serializat
 
 https://blog.devgenius.io/my-database-is-not-a-message-broker-75d95ea56abc
 
+## Dead Letter Queue
 
+### What is a Dead Letter Queue (DLQ)?
+
+In the world of message brokers, not all messages are processed successfully. Some might fail due to various reasons: validation errors, system outages, or even unexpected bugs. Instead of discarding or continuously retrying these messages, they are sent to a DLQ. A DLQ is a holding area for messages that cannot be delivered or processed.
+
+### Why Use a Dead Letter Queue?
+
+1. Fault Tolerance: In any distributed system, failures are a given. DLQs ensure that these failures don't lead to data loss.
+2. Inspection and Debugging: Failed messages in a DLQ can be inspected to determine the root cause of the failure, aiding in debugging.
+3. System Health: Continuously retrying a failed message can lead to other problems, such as system slowdowns or outages. By offloading them to a DLQ, system health is maintained.
+4. Retrying: Once the root cause of a failure is fixed, messages from the DLQ can be replayed or processed again.
+
+https://medium.com/devwarlocks/dead-letter-queue-in-symfony-6-3-an-essential-guide-c95d7491851d
