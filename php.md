@@ -547,3 +547,16 @@ Prefer using composition to build complex objects rather than relying solely on 
 
 https://kvnc-inc.medium.com/inheritance-vs-composition-in-php-choosing-the-right-path-for-your-code-d01dbd96388c
 https://medium.com/@moslem.deris/mastering-clean-code-in-php-principles-best-practices-and-real-world-examples-62a2ff550944
+
+### Plain Old PHP Object (POPO)
+
+Plain Old {Insert Language Here} Object is an simple approach that says you don't always need to use an extensive class, or inheritance chain, to store data or perform logic. It allows you to simplify the understanding of your structure by encapsulating details, not deriving details or creating dependencies on other sources.
+
+Consider use of POPO in these cases:
+
+1. To transfer data across the boundary. Like transferring data from Model to Controllers or from controllers to View or from one application to other application. In this case it would behave like Data Transfer Object (DTO). More details - DTO vs Value Object vs POCO
+2. If we have a json data, we could bind that json data and map it to a POPO. So we exactly know what's there in json field. This will also ensure that our json data has a consistent structure always. It will also prevent abuse of JSON structure.
+3. If there are too many parameters for a function, we could use "Introduce Parameter Object" refactoring to replace all those parameters with a POPO containing those members.
+4. For mapping a database composite type
+
+https://stackoverflow.com/questions/41188002/what-does-the-term-plain-old-php-object-popo-exactly-mean
