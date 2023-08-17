@@ -55,21 +55,22 @@ https://medium.com/your-software-development-stories/php-8-features-and-improvem
 
 ### Enum
 
-- similar to class but has return type
+It's similar to class but has return type.
 
-#### Enum vs Number and Constants
+#### The Pre-Enum Era in PHP
 
-- First of all, there is readability. compared use numbers directly not constants.
+Before PHP 8.1, developers typically used class constants or arrays to represent related values. 
 
-- Notice that this ambiguity is not finally solved when you move the values to a (class) constant.
-
-Sure, you would keep a little order by using constants, but at a very low level you still deal with primitive values(it means you are using int, strings primitive values, but enum is php level type) and there is technically no obstacle to use a hardcoded value instead of the constant.
+While this approach works, it isn’t devoid of problems. There’s no type safety — any string could be passed instead of one of the constants, leading to potential bugs. Moreover, these constants don’t group themselves under a single type, making it unclear.
 
 #### Enum benefits
 
-Personally, I classify enums under “type safety” and a good tool to increase strictness of source code. There are no more value checks, type castings, null checks and so on — you simply define an enum parameter in your method and the programming language is doing all the work.
+1. It's type safety as enum is php level type, so you can use type hint. 
+
+2. Readability. There are no more value checks, type castings, null checks, and so on — you simply define an enum parameter in your method and the programming language is doing all the work.
 
 https://doganoo.medium.com/unlocking-the-power-of-php-enums-best-practices-for-effective-use-2c3fbbf529e8  
+https://medium.com/devwarlocks/understanding-and-using-enums-in-php-8-1-3ed076f9f3a8
 
 ### Reference
 
