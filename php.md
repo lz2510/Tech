@@ -72,6 +72,23 @@ While this approach works, it isn’t devoid of problems. There’s no type safe
 https://doganoo.medium.com/unlocking-the-power-of-php-enums-best-practices-for-effective-use-2c3fbbf529e8  
 https://medium.com/devwarlocks/understanding-and-using-enums-in-php-8-1-3ed076f9f3a8
 
+### Attribute
+
+#### What are Attributes?
+Attributes provide a way to add metadata to your code. They are similar to docblocks but are structured and can be retrieved at runtime using PHP's reflection API. This makes them more versatile and powerful than simple comments.
+
+#### The History of Attributes: From Annotations to PHP 8
+
+1. Java and Annotations
+1. C# and Attributes
+1. Python and Decorators
+1. PHP and DocBlocks
+1. The Arrival of Attributes in PHP 8
+
+https://medium.com/devwarlocks/creating-custom-attributes-in-php-8-a-guide-6e667c9035d8  
+https://wiki.php.net/rfc/attributes_v2  
+https://www.doctrine-project.org/2022/11/04/annotations-to-attributes.html  
+
 ### Reference
 
 https://www.php.net/releases/8_0_0.php 
