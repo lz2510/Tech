@@ -401,7 +401,7 @@ https://www.php.net/manual/en/functions.arguments.php#functions.arguments.defaul
 
 ## null coalescing operator vs null safe operator
 
-null pointer exceptions 
+### null pointer exceptions 
 
 Null represents the absence of a value in PHP. However, when attempting to access properties or call methods on null objects, a fatal error occurs, leading to application crashes. 
 
@@ -413,7 +413,35 @@ Use the null coalescing operator when you want to provide a default value or han
 
 Use the null safe operator when you want to safely access properties and invoke methods on potentially null objects without encountering null pointer exceptions.
 
-https://medium.com/@prevailexcellent/mastering-null-safety-in-php-8-a-comprehensive-guide-to-using-the-null-safe-operator-47835ba1140b
+### defination
+
+Elvis ?: returns the first argument if it contains a "true-ish" value (see which values are considered loosely equal to true in the first line of the Loose comparisons with == table). Or the second argument otherwise
+
+          $result = $var ?: 'default';
+          // is a shorthand for 
+          $result = $var ? $var : 'default';
+          
+Null coalescing ?? returns the first argument if it's set and is not null. Or the second argument otherwise
+
+          $result = $var ?? 'default';
+          // is a shorthand for 
+          $result = isset($var) ? $var : 'default';
+          
+When your first argument is null, they're basically the same except that the null coalescing won't output an E_NOTICE when you have an undefined variable. 
+
+### difference with not null
+
+Of course, this is always assuming the first argument is null. Once it's no longer null, then you end up with differences in that the ?? operator would always return the first argument while the ?: shorthand would only if the first argument was truthy, and that relies on how PHP would type-cast things to a boolean.
+
+So:
+
+        $a = false ?? 'f'; // false
+        $b = false ?: 'g'; // 'g'
+
+would then have $a be equal to false and $b equal to 'g'.
+
+https://medium.com/@prevailexcellent/mastering-null-safety-in-php-8-a-comprehensive-guide-to-using-the-null-safe-operator-47835ba1140b  
+https://stackoverflow.com/questions/34571330/php-short-ternary-elvis-operator-vs-null-coalescing-operator  
 
 ## type safety
 
