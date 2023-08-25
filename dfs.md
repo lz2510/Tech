@@ -1,5 +1,13 @@
 # DFS
 
+![image](https://github.com/lz2510/TechInterview/assets/1209204/65fd0fcd-bf2c-446f-b230-acb7571fcdb6)
+
+Order in which the nodes are visited
+
+![Depth-First-Search](https://github.com/lz2510/TechInterview/assets/1209204/8e0dfdcc-63a1-4e65-8147-920a5ad5254b)
+
+Animated example of a depth-first search
+
 ## A recursive implementation of DFS
 
 ### Pseudocode
