@@ -1,5 +1,15 @@
 # BFS
 
+![image](https://github.com/lz2510/TechInterview/assets/1209204/84f0f7df-3e5f-4eab-8bf3-b8547e357354)
+
+Order in which the nodes are expanded
+
+![Animated_BFS](https://github.com/lz2510/TechInterview/assets/1209204/9d7a6904-03c3-4f95-9c09-c693479e776a)
+
+Animated example of a breadth-first search. Black: explored, grey: queued to be explored later on
+
+When exploring, add children nodes to the queue immediately. but explore other brother nodes first which enqueue first. As queue is FIFO.
+
 ## Pseudocode
 
      1 procedure BFS(G, root) is
