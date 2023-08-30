@@ -18,6 +18,18 @@
 
 ![image](https://user-images.githubusercontent.com/1209204/188356255-2a3887cc-6de3-417a-b8f4-12946e282ee7.png)
 
+The Saga pattern consists of two main types:
+
+1. Choreography-Based Saga:
+
+In this approach, each microservice is responsible for orchestrating its part of the saga. When a microservice performs its operation, it emits events or messages to notify other microservices about the progress. The other microservices listen to these events and perform their respective operations accordingly. This loosely coupled approach allows for flexibility but might require more complex event handling.
+
+2. Orchestration-Based Saga:
+   
+In this approach, a centralized orchestrator (a dedicated service or component) is responsible for coordinating the saga steps. The orchestrator determines the order of execution and communicates with each microservice to execute the necessary operations. This approach offers better control and visibility but introduces a single point of failure.
+
+https://medium.com/@miladev95/microservices-saga-5eec6dfa59b4
+
 ## High volume data
 
 ### CQRS
