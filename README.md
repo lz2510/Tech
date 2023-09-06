@@ -46,12 +46,6 @@
 - [Cache](cache.md)
 - [Software Engineering Google](software_engineering_google.md)
 
-# Project
-- [project](project.md)
-
-# Behavior Interview
-- [Behavior](Behavior.md)
-
 # Data structure & Algorithm
 - [Data structure](data-structure.md)
 - [Algorithm](algorithm.md)
