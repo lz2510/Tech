@@ -29,17 +29,34 @@ An OAuth Refresh Token is a string that the OAuth client can use to get a new ac
 
 The refresh token exists to enable authorization servers to use short lifetimes for access tokens without needing to involve the user when the token expires.
 
-Refresh token is long term, for example tiktok is 1 year.
-
 https://oauth.net/2/refresh-tokens/  
+
+### Refresh Token Rotation
+
+There'are two strategy.
+
+1. Refresh token doesn't change every get new token. Refresh token is long term, for example tiktok is 1 year.  It will expire after a fixed period, no matter if client is active such as getting new token or not.
+
+2. Refresh token changes every get new token.
+
+Strategy of frequently replacing refresh tokens to minimize vulnerability. With refresh token rotation, every time your application exchanges a refresh token to get a new access token, Auth0 also returns a new refresh token.
+
+![rtr-state-diagram](https://github.com/lz2510/Tech/assets/1209204/e4b1f760-6171-4b88-82e4-63459d816058)
+
+How should we be using refresh tokens?
+
+The specifics of how refresh token rotation is implemented can vary, but in general the rotation ensures that each time a refresh token is used to request a new access token, the authorization server will return a new access token as well as a new refresh token. When refresh tokens are being rendered invalid more frequently, the risk of replay attacks will decrease significantly.
+
+https://dev.to/jobber/refresh-token-rotation-what-why-and-how-2eh  
+https://stackoverflow.com/questions/69314616/how-do-i-implement-refresh-token-rotation  
+https://auth0.com/docs/secure/tokens/refresh-tokens/refresh-token-rotation  
 
 ### How about refresh token expired
 
 If a refresh token expires for any reason, then the only action the application can take is to ask the user to log in again, starting a new OAuth flow from scratch, which will issue a new access token and refresh token to the application.
 
-https://www.oauth.com/oauth2-servers/making-authenticated-requests/refreshing-an-access-token/#:~:text=If%20a%20refresh%20token%20expires,refresh%20token%20to%20the%20application.  
-
-https://stackoverflow.com/questions/40555855/does-the-refresh-token-expire-and-if-so-when
+https://www.oauth.com/oauth2-servers/making-authenticated-requests/refreshing-an-access-token/  
+https://stackoverflow.com/questions/40555855/does-the-refresh-token-expire-and-if-so-when  
 
 ## Grant Types
 
