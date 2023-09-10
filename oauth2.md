@@ -10,8 +10,6 @@ https://tools.ietf.org/html/rfc6749
 
 <img width="734" alt="Screenshot 2023-03-08 at 21 43 43" src="https://user-images.githubusercontent.com/1209204/223728697-ceabf7ef-1e36-4624-a772-8ede94e9b375.png">
 
-
-
 ## Authorization Code Grant Types
 
 The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.
@@ -76,7 +74,15 @@ An OAuth Refresh Token is a string that the OAuth client can use to get a new ac
 
 The refresh token exists to enable authorization servers to use short lifetimes for access tokens without needing to involve the user when the token expires.
 
+POST /token HTTP/1.1  
+Host: server.example.com  
+Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW  
+Content-Type: application/x-www-form-urlencoded  
+
+grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA  
+     
 https://oauth.net/2/refresh-tokens/  
+https://datatracker.ietf.org/doc/html/rfc6749#autoid-57  
 
 ### Refresh Token Rotation
 
