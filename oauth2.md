@@ -10,8 +10,55 @@ https://tools.ietf.org/html/rfc6749
 
 <img width="734" alt="Screenshot 2023-03-08 at 21 43 43" src="https://user-images.githubusercontent.com/1209204/223728697-ceabf7ef-1e36-4624-a772-8ede94e9b375.png">
 
+
+
+## Authorization Code Grant Types
+
+The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.
+
+After the user returns to the client via the redirect URL, the application will get the authorization code from the URL and use it to request an access token.
+
 <img width="705" alt="Screenshot 2023-03-08 at 21 44 23" src="https://user-images.githubusercontent.com/1209204/223728788-8ba8e559-a96f-4c89-abe5-44513fd3c7fe.png">
 
+### Authorization Request
+
+GET /authorize?response_type=code&client_id=s6BhdRkqt3&state=xyz  
+        &redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb HTTP/1.1  
+Host: server.example.com  
+
+### Authorization Response
+
+HTTP/1.1 302 Found  
+Location: https://client.example.com/cb?code=SplxlOBeZQQYbYS6WxSbIA  
+          &state=xyz  
+
+### Access Token Request 
+
+POST /token HTTP/1.1  
+Host: server.example.com  
+Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW  
+Content-Type: application/x-www-form-urlencoded  
+
+grant_type=authorization_code&code=SplxlOBeZQQYbYS6WxSbIA  
+&redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb  
+
+### Access Token Response
+
+HTTP/1.1 200 OK  
+Content-Type: application/json;charset=UTF-8  
+Cache-Control: no-store  
+Pragma: no-cache  
+
+{  
+ "access_token":"2YotnFZFEjr1zCsicMWpAA",  
+ "token_type":"example",  
+ "expires_in":3600,  
+ "refresh_token":"tGzv3JOkF0XG5Qx2TlKWIA",  
+ "example_parameter":"example_value"  
+}  
+
+https://oauth.net/2/grant-types/authorization-code/  
+https://datatracker.ietf.org/doc/html/rfc6749#autoid-35  
 
 ## Access Token
 
@@ -58,15 +105,7 @@ If a refresh token expires for any reason, then the only action the application 
 https://www.oauth.com/oauth2-servers/making-authenticated-requests/refreshing-an-access-token/  
 https://stackoverflow.com/questions/40555855/does-the-refresh-token-expire-and-if-so-when  
 
-## Grant Types
-
-The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.
-
-After the user returns to the client via the redirect URL, the application will get the authorization code from the URL and use it to request an access token.
-
-https://oauth.net/2/grant-types/authorization-code/  
-
-## Client Authentication
+## Client Authentication Grant Types
 
 Confidential clients authenticate when making requests to the OAuth authorization server.
 
