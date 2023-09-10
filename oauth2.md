@@ -30,6 +30,18 @@ HTTP/1.1 302 Found
 Location: https://client.example.com/cb?code=SplxlOBeZQQYbYS6WxSbIA  
           &state=xyz  
 
+#### Login with Amazon (LWA) implementation
+
+#### request
+
+https://sellercentral.amazon.com/apps/authorize/consent?application_id=appidexample&state=stateexample&version=beta           
+
+#### response
+
+https://client-example.com?state=state-example&mws_auth_token=mwsauthtokenexample&selling_partner_id=sellingpartneridexample&spapi_oauth_code=spapioauthcodeexample  
+
+https://developer-docs.amazon.com/sp-api/docs/website-authorization-workflow#step-2-the-selling-partner-consents-to-authorize-the-application  
+
 ### Access Token Request 
 
 POST /token HTTP/1.1  
@@ -58,6 +70,29 @@ Pragma: no-cache
 https://oauth.net/2/grant-types/authorization-code/  
 https://datatracker.ietf.org/doc/html/rfc6749#autoid-35  
 
+#### Login with Amazon (LWA) implementation
+
+##### request
+
+POST /auth/o2/token HTTP/l.l  
+Host: api.amazon.com  
+Content-Type: application/x-www-form-urlencoded;charset=UTF-8  
+grant_type=authorization_code&code=SplxlOexamplebYS6WxSbIA&client_id=foodev&client_secret=Y76SDl2F  
+
+##### response
+
+HTTP/l.l 200 OK  
+Content-Type: application/json;  
+charset UTF-8  
+Cache-Control: no-store  
+Pragma: no-cache  
+{  
+  "access_token":"Atza|IQEBLjAsAexampleHpi0U-Dme37rR6CuUpSR",  
+  "token_type":"bearer",  
+  "expires_in":3600,  
+  "refresh_token":"Atzr|IQEBLzAtAhexamplewVz2Nn6f2y-tpJX2DeX"  
+}  
+
 ## Access Token
 
 An OAuth Access Token is a string that the OAuth client uses to make requests to the resource server.
@@ -67,6 +102,28 @@ Access tokens do not have to be in any particular format, and in practice, vario
 Access tokens may be "bearer tokens".
 
 https://oauth.net/2/access-tokens/  
+
+## Client Authentication Grant Types
+
+Confidential clients authenticate when making requests to the OAuth authorization server.
+
+The core OAuth 2.0 specification defines the "client password" client authentication type, which defines the client_secret parameter as well as the method of including the client password in the HTTP Authorization header.
+
+https://oauth.net/2/client-authentication/  
+
+### Login with Amazon (LWA) implementation
+
+client_credentials. Use this for calling grantless operations. When specifying this value, include the scope parameter.  
+
+POST /auth/o2/token HTTP/l.l  
+Host: api.amazon.com  
+Content-Type: application/x-www-form-urlencoded;charset=UTF-8  
+grant_type=client_credentials  
+&scope=sellingpartnerapi::notifications  
+&client_id=foodev  
+&client_secret=Y76SDl2F  
+
+https://developer-docs.amazon.com/sp-api/docs/connecting-to-the-selling-partner-api  
 
 ## Refresh Token
 
@@ -83,6 +140,33 @@ grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA
      
 https://oauth.net/2/refresh-tokens/  
 https://datatracker.ietf.org/doc/html/rfc6749#autoid-57  
+
+### Login with Amazon (LWA) implementation
+
+#### request
+
+POST /auth/o2/token HTTP/l.l  
+Host: api.amazon.com  
+Content-Type: application/x-www-form-urlencoded;charset=UTF-8  
+grant_type=refresh_token  
+&refresh_token=Aztr|...  
+&client_id=foodev  
+&client_secret=Y76SDl2F  
+
+#### response
+
+HTTP/l.l 200 OK  
+Content-Type: application/json;charset UTF-8  
+Cache-Control: no-store  
+Pragma:no-cache  
+{  
+  "access_token":"Atza|IQEBLjAsAhRmHjNgHpi0U-Dme37rR6CuUpSREXAMPLE",  
+  "token_type":"bearer",  
+  "expires_in":3600,  
+  "refresh_token":"Atzr|IQEBLzAtAhRPpMJxdwVz2Nn6f2y-tpJX2DeXEXAMPLE"  
+}  
+
+https://developer-docs.amazon.com/sp-api/docs/connecting-to-the-selling-partner-api#step-1-request-a-login-with-amazon-access-token  
 
 ### Refresh Token Rotation
 
@@ -111,13 +195,20 @@ If a refresh token expires for any reason, then the only action the application 
 https://www.oauth.com/oauth2-servers/making-authenticated-requests/refreshing-an-access-token/  
 https://stackoverflow.com/questions/40555855/does-the-refresh-token-expire-and-if-so-when  
 
-## Client Authentication Grant Types
+## grant_type
 
-Confidential clients authenticate when making requests to the OAuth authorization server.
+They have the same url: https://api.amazon.com/auth/o2/token
 
-The core OAuth 2.0 specification defines the "client password" client authentication type, which defines the client_secret parameter as well as the method of including the client password in the HTTP Authorization header.
+The type of access grant requested. Values have 3 as below:
 
-https://oauth.net/2/client-authentication/  
+1. authorization_code. The type of access grant requested. Must be authorization_code.
+
+2. refresh_token. Use this for calling operations that require authorization from a selling partner. All operations that are not grantless operations require authorization from a selling partner. When specifying this value, include the rrefresh_token parameter.
+
+3. client_credentials. Use this for calling grantless operations. When specifying this value, include the scope parameter.
+
+https://developer-docs.amazon.com/sp-api/docs/website-authorization-workflow#step-4-your-application-exchanges-the-lwa-authorization-code-for-a-lwa-refresh-token  
+https://developer-docs.amazon.com/sp-api/docs/connecting-to-the-selling-partner-api#step-1-request-a-login-with-amazon-access-token  
 
 ## Bearer Token
 
