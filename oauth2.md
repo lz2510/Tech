@@ -195,6 +195,21 @@ If a refresh token expires for any reason, then the only action the application 
 https://www.oauth.com/oauth2-servers/making-authenticated-requests/refreshing-an-access-token/  
 https://stackoverflow.com/questions/40555855/does-the-refresh-token-expire-and-if-so-when  
 
+## grant_type
+
+They have the same url: https://api.amazon.com/auth/o2/token
+
+The type of access grant requested. Values have 3 as below:
+
+1. authorization_code. The type of access grant requested. Must be authorization_code.
+
+2. refresh_token. Use this for calling operations that require authorization from a selling partner. All operations that are not grantless operations require authorization from a selling partner. When specifying this value, include the rrefresh_token parameter.
+
+3. client_credentials. Use this for calling grantless operations. When specifying this value, include the scope parameter.
+
+https://developer-docs.amazon.com/sp-api/docs/website-authorization-workflow#step-4-your-application-exchanges-the-lwa-authorization-code-for-a-lwa-refresh-token  
+https://developer-docs.amazon.com/sp-api/docs/connecting-to-the-selling-partner-api#step-1-request-a-login-with-amazon-access-token  
+
 ## Bearer Token
 
 Bearer Tokens are the predominant type of access token used with OAuth 2.0.
