@@ -28,3 +28,8 @@ The term bearer authentication refers to the process of giving access control to
 
 https://aws.amazon.com/what-is/restful-api/  
 https://blog.hubspot.com/website/api-authentication  
+
+## API Key
+
+https://cloud.google.com/docs/authentication/api-keys  
+https://swagger.io/docs/specification/authentication/api-keys/  
