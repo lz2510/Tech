@@ -10,6 +10,10 @@ https://tools.ietf.org/html/rfc6749
 
 <img width="734" alt="Screenshot 2023-03-08 at 21 43 43" src="https://user-images.githubusercontent.com/1209204/223728697-ceabf7ef-1e36-4624-a772-8ede94e9b375.png">
 
+## four grant types
+
+An authorization grant is a credential representing the resource owner's authorization (to access its protected resources) used by the client to obtain an access token.  This specification defines four grant types -- authorization code, implicit, resource owner password credentials, and client credentials -- as well as an extensibility mechanism for defining additional types.
+
 ## Authorization Code Grant Types
 
 The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.
