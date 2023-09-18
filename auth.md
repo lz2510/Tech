@@ -28,8 +28,36 @@ The term bearer authentication refers to the process of giving access control to
 
 https://aws.amazon.com/what-is/restful-api/  
 https://blog.hubspot.com/website/api-authentication  
+https://cloud.google.com/blog/products/api-management/5-ways-to-implement-rest-api-authentication  
 
 ## API keys
 
 https://cloud.google.com/docs/authentication/api-keys  
 https://swagger.io/docs/specification/authentication/api-keys/  
+
+## Oauth
+
+[OAuth2.0](oauth2.md)
+
+## JWT
+
+[JWT](jwt.md)
+
+## aws
+
+1. The authorization model for the Selling Partner API is based on Login with Amazon, Amazon's implementation of OAuth 2.0. 
+
+2. For S3 and SQS, It uses IAM or other models.
+
+2.1 we use sdk to do auth.
+
+2.2 In Postman, on the Authorization tab, do the following:
+For Type, choose AWS Signature.
+For AccessKey and SecretKey, enter the IAM access key ID and secret access key for an IAM user. The IAM user must be in the IAM group that has access to your API.
+
+https://repost.aws/knowledge-center/iam-authentication-api-gateway  
+https://aws.amazon.com/blogs/compute/evaluating-access-control-methods-to-secure-amazon-api-gateway-apis/  
+https://developer-docs.amazon.com/sp-api/docs/authorizing-selling-partner-api-applications  
+https://developer.amazon.com/docs/login-with-amazon/authorization-code-grant.html
+
+
