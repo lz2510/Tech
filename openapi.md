@@ -49,3 +49,22 @@ In OpenAPI, a path parameter is defined using in: path. The parameter name must 
 https://support.smartbear.com/swaggerhub/docs/tutorials/openapi-3-tutorial.html#create-api  
 https://swagger.io/docs/specification/describing-parameters/  
 
+## http status code
+
+http status code can have quote or not. quote is optional.
+
+        responses: 
+                200:
+                  description: successfully create a new account
+
+or
+
+        responses: 
+                '200':
+                  description: successfully create a new account
+
+## what does "content" : mean in swagger/openapi "responses":
+
+content means that the response has a body and specifies the media type (JSON/XML/etc.) and structure of the response body.
+
+https://stackoverflow.com/questions/45697667/what-does-content-mean-in-swagger-openapi-responses
