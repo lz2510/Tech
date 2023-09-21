@@ -49,6 +49,26 @@ In OpenAPI, a path parameter is defined using in: path. The parameter name must 
 https://support.smartbear.com/swaggerhub/docs/tutorials/openapi-3-tutorial.html#create-api  
 https://swagger.io/docs/specification/describing-parameters/  
 
+## Reusable components
+
+The OpenAPI Specification has a solution – reusable components that can be used across multiple endpoints in the same API. These components are defined in the global components section and then are referenced in individual endpoints. 
+
+Schemas
+The schemas subsection of the global components section can contain various data models consumed and returned by the API. 
+
+Parameters and Responses
+The components section also has subsections for storing reusable parameters and responses. The subsections are parameters and responses.
+
+### $ref: must be string(JSON-Ref)
+
+        $ref: #/components/schemas/Account
+        
+to
+
+        $ref: '#/components/schemas/Account'
+
+https://support.smartbear.com/swaggerhub/docs/tutorials/openapi-3-tutorial.html#reuse
+
 ## http status code
 
 http status code can have quote or not. quote is optional.
