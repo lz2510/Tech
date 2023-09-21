@@ -15,6 +15,56 @@ OpenAPI Specification (formerly known as Swagger Specification) is an open-sourc
 
 The latest version of OpenAPI is 3.0. OpenAPI definitions can be written in JSON or YAML. We recommend YAML, because it is easier to read and write.
 
+## basic structure
+
+        openapi: 3.0.0
+        info:
+          version: 1.0.0
+          title: Sample API
+          description: A sample API to illustrate OpenAPI concepts
+        paths:
+          /list:
+            get:
+              description: Returns a list of stuff              
+              responses:
+                '200':
+                  description: Successful response
+
+### Metadata
+
+Every API definition must include the version of the OpenAPI Specification that this definition is based on.
+The info section contains API information: title, description (optional), version.
+
+### Servers
+
+The servers section specifies the API server and base URL. You can define one or several servers, such as production and sandbox.
+
+### Paths
+
+The paths section defines individual endpoints (paths) in your API, and the HTTP methods (operations) supported by these endpoints.
+
+### Parameters
+
+Operations can have parameters passed via URL path (/users/{userId}), query string (/users?role=admin), headers (X-CustomHeader: Value) or cookies (Cookie: debug=0). 
+
+### Request Body
+   
+If an operation sends a request body, use the requestBody keyword to describe the body content and media type.
+
+### Responses
+
+For each operation, you can define possible status codes, such as 200 OK or 404 Not Found, and the response body schema. Schemas can be defined inline or referenced via $ref. 
+
+### Input and Output Models
+
+The global components/schemas section lets you define common data structures used in your API. They can be referenced via $ref whenever a schema is required – in parameters, request bodies, and response bodies.
+
+### Authentication
+
+The securitySchemes and security keywords are used to describe the authentication methods used in your API.
+
+https://swagger.io/docs/specification/basic-structure/
+
 ## Parameters
 
 RESTful parameters specify the variable part of the resource a user works with. If you want to get some advanced information on parameters, see Describing Parameters.
