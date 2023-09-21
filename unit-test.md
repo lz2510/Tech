@@ -357,3 +357,45 @@ https://mp.weixin.qq.com/s/8JC_vaFOgiJPIH7yfbP25A
 
 ![image](https://github.com/lz2510/TechInterview/assets/1209204/b27f6e79-166a-43a6-affd-1bc8b3e0377e)
 
+## Do you use constants from the implementation in your test cases?
+
+          constant float PI = 3.14;
+          float getPi() 
+          { 
+             return PI;
+          }
+Would you test it like this:
+
+          testPiIs3point14()
+          {
+             // Test using literal in test case
+             AssertEquals( getPi(), 3.14 );
+          }
+          
+Or like this:
+
+          testPiIs3Point14()
+          {
+             // Test using constant from implementation in test case
+             AssertEquals( getPi(), PI );
+          }
+In other words, do you use constants from your system under test in your test cases? Or is this considered an implementation detail?
+
+The best alternative IMHO is to implement a unit test to check the constant's value to be what you expect, and then use the constant freely in your other tests.
+
+Something along the lines of implementing these two tests:
+
+          testPiIs3point14()
+          {
+             AssertEquals( PI, 3.14 );
+          }
+
+          testGetPiReturnsPi()
+          {
+             AssertEquals( getPi(), PI );
+          }
+PS: While checking the value may not be so important for all constants, it could be very important for some.
+
+I think this is the question about coupling between the tests and the production code. When I first started TDD I thought that having the constant in the tests makes the tests more thorough. However, now I think it just causes tighter coupling between the tests and the implementation. Does it make it more safe if you copy and paste the constant to the test? Not really. It just makes it more painful to change the constant, especially if its copy-pasted to multiple tests. These tests don't test if it is the right constant, they just test that this constant is returned from the method, so now I would definitely go for test number two.
+
+https://stackoverflow.com/questions/3360074/do-you-use-constants-from-the-implementation-in-your-test-cases
