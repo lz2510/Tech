@@ -74,6 +74,7 @@
 - [Authentication & Authorization](auth.md)
 - [OAuth2.0](oauth2.md)
 - [JWT](jwt.md)
+- [Encryption](encrypt.md)
 - [OSI 7](Network/OSI%207.md)
 - [TCP 3 way handshake & 4 way handshake](Network/shake.md)
 - [TCP/IP](Network/TCP-IP.md)
