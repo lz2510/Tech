@@ -1,5 +1,23 @@
 # Authentication & Authorization
 
+## Authentication vs authorization
+
+Authentication is the process of verifying the digital identity of the user or the app, before granting access to an API. To keep transactions on TikTok Shop platform safe and secure, all apps connecting with TikTok Shop APIs must authenticate when making API requests.
+
+Authorization is the process of determining what resources an app can access and giving permissions to apps. Sellers can authorize TikTok Shop apps to access data in a shop.
+
+https://partner.tiktokshop.com/docv2/page/64f199569495ef0281851ac2#Back%20To%20Top 
+
+## Authentication concept
+
+When TikTok Shop receives an authenticated request, it recreates the signature using the authentication information contained in the request. If the signatures match, the service processes the request. Otherwise, it rejects the request.
+
+Shop APIs use hmac-sha256 as the default algorithm for generating signatures.
+
+HS256 (HMAC with SHA-256): A symmetric algorithm, which means that there is only one private key that must be kept secret, and it is shared between the two parties. Since the same key is used both to generate the signature and to validate it, care must be taken to ensure that the key is not compromised. This private key (or secret) is created when you register your application (app secret).
+
+https://partner.tiktokshop.com/docv2/page/64f199709495ef0281851fd0#Back%20To%20Top
+
 ## RESTful API authentication methods
 
 RESTful API has four common authentication methods:
@@ -59,5 +77,15 @@ https://repost.aws/knowledge-center/iam-authentication-api-gateway
 https://aws.amazon.com/blogs/compute/evaluating-access-control-methods-to-secure-amazon-api-gateway-apis/  
 https://developer-docs.amazon.com/sp-api/docs/authorizing-selling-partner-api-applications  
 https://developer.amazon.com/docs/login-with-amazon/authorization-code-grant.html
+
+## User Authorization Methods
+
+There are two ways a seller can grant authorization to a TikTok Shop app for accessing their data:
+
+App Installation via App & Service Store: Sellers have the option to install a TikTok Shop app from the App & Service Store. During this process, the seller is directed to a dedicated page where they can grant the app controlled access to their data. In return, the application receives secure access permissions to retrieve the required data seamlessly.
+
+Authorization Link: Alternatively, you can provide an authorization link directly to the seller. This link serves as a means for sellers to authorize your application in a more personalized and targeted manner.
+
+https://partner.tiktokshop.com/docv2/page/64f199569495ef0281851ac2#Back%20To%20Top  
 
 

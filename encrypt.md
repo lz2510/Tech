@@ -121,3 +121,27 @@ https://en.wikipedia.org/wiki/Secure_Hash_Algorithms
 The Advanced Encryption Standard (AES), also known by its original name Rijndael (Dutch pronunciation: [ˈrɛindaːl]),[5] is a specification for the encryption of electronic data established by the U.S. National Institute of Standards and Technology (NIST) in 2001.[6]
 
 https://en.wikipedia.org/wiki/Advanced_Encryption_Standard
+
+## md5($str) vs hash('md5', $str)
+
+1. the result generated are the same
+
+         $str = 'Hello World!';
+         var_dump(md5($str));
+         var_dump(hash('md5', $str));
+         var_dump(md5($str) === hash('md5', $str));
+      
+         string(32) "ed076287532e86365e841e92bfc50d8c"
+         string(32) "ed076287532e86365e841e92bfc50d8c"
+         bool(true)
+
+2. md5 is platform agnostic, which means if you generate message digest on a bash script on one and php script on another computer, the result are still the same.
+
+https://stackoverflow.com/questions/8996839/are-all-md5-hashes-the-same
+
+3. performance are different
+
+the md5() function is about 3 times slower than the equivalent hash() function.
+
+https://stackoverflow.com/questions/15500026/why-is-hashmd5-string-faster-than-md5string
+
