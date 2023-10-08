@@ -76,6 +76,7 @@
 - [OAuth2.0](oauth2.md)
 - [JWT](jwt.md)
 - [Encryption](encrypt.md)
+- [Amazon sp-api](amazon-sp-api.md)
 - [OSI 7](Network/OSI%207.md)
 - [TCP 3 way handshake & 4 way handshake](Network/shake.md)
 - [TCP/IP](Network/TCP-IP.md)
