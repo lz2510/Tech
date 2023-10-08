@@ -71,6 +71,7 @@
 # Network
 - [HTTP](Network/http.md)
 - [Restful API](restful.md)
+- [TikTok api upgrade](tiktok-api-upgrade.md)
 - [Authentication & Authorization](auth.md)
 - [OAuth2.0](oauth2.md)
 - [JWT](jwt.md)
