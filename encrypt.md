@@ -14,6 +14,31 @@ In general, hashing is for maintaining integrity, while encryption is for mainta
 
 https://security.stackexchange.com/questions/15553/what-is-better-salted-hash-or-openssl-encryption
 
+## Hash vs HMAC
+
+A hash lets you verify only the authenticity of the data (i,.e., that the data you received is what was originally sent). An HMAC lets you verify both the authenticity and the originator of the data.
+
+A hash doesn’t use a key. I do a hash of some data, and I get a result. Normally, you use a hash function that’s large and presumed to be cryptographically secure, so there’s only a negligible chance of two different inputs producing the same hash by accident, and no feasible way for anybody to intentionally find a second input that produces the same hash. So, when (for example) you download a binary over the web, you can check the hash to verify that your download wasn’t corrupted in transmission, or something modified by somebody to add a virus (or whatever).
+
+An HMAC uses a key. The sender uses the key to create the HMAC, and then sends that HMAC along with the message itself. When you receive the message, you also use the key to re-create the HMAC, and compare that to the HMAC that was sent with the message. If they match, you know not only that the data is the same as was sent, but also that the sender had a copy of that secret key to use in creating the HMAC. Thus, an HMAC is normally based on a secret key that has to be transmitted by some other secure means.
+
+https://www.quora.com/What-is-the-difference-between-a-HMAC-and-a-hash-of-data  
+https://crypto.stackexchange.com/questions/6493/what-is-the-difference-between-a-hmac-and-a-hash-of-data  
+
+## php implementation
+
+1. hash
+
+hash('sha256', $canonicalRequest)
+
+2. hmac
+
+hash_hmac('sha256', $date, $kSecret, true)
+
+3. encryption
+
+openssl_encrypt($string, "AES-256-CBC", $key, OPENSSL_RAW_DATA, $iv)
+
 ## MAC
 
 Message Authentication Code (MAC), also referred to as a tag, is used to authenticate the origin and nature of a message. MACs use authentication cryptography to verify the legitimacy of data sent through a network or transferred from one person to another. 
@@ -95,14 +120,6 @@ https://www.ibm.com/docs/en/ibm-mq/7.5?topic=concepts-message-digests
 SHA isn't encryption, it's a one-way hash function. AES (Advanced_Encryption_Standard) is a symmetric encryption standard.
 
 https://stackoverflow.com/questions/990705/whats-the-difference-between-sha-and-aes-encryption
-
-## php implementation
-
-hash('sha256', $canonicalRequest)
-
-hash_hmac('sha256', $date, $kSecret, true)
-
-openssl_encrypt($string, "AES-256-CBC", $key, OPENSSL_RAW_DATA, $iv)
 
 ## SHA
 
