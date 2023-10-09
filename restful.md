@@ -1,5 +1,14 @@
 # Restful API
 
+## what's restful api
+
+REST is an architectural style of services that utilizes web standards. Web services designed using REST are called RESTful web services, and their main principles are:
+- Everything can be identified as a resource, and each resource can be uniquely identified by a URI.
+- Use standard HTTP methods to interact with the resource: GET to retrieve a re-source, POST to create a resource, PUT to update a resource, and DELETE to remove a resource.
+- Communication between the client and the endpoint is stateless. All the associated state required by the server is passed by the client in each invocation.
+
+![REST is an architectural style of services that utilizes web standards  Web serviccs de- copy](https://github.com/lz2510/Tech/assets/1209204/0107a0cf-09c6-4e7f-9720-3d72dfad9746)
+
 ## API benefits
 
 - APIs provide **information hiding**: neither side of the API (the provider and the consumer) know the implementation details of the other one. As long as both adhere to the API, they can be changed as much as needed without the other party even noticing.
