@@ -1,5 +1,14 @@
 # amazon sp-api
 
+## app information
+
+amazon: client id, client secret  
+tiktok: app key, app secret  
+They are used to obtain access token.  
+
+https://developer-docs.amazon.com/sp-api/docs/viewing-your-application-information-and-credentials  
+https://partner.tiktokshop.com/docv2/page/64f1994264ed2e0295f3d631  
+
 ## three authorization models
 
 1. Login with Amazon (LWA) access token for all operations expect grantless operation and restricted operations 
