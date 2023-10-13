@@ -162,3 +162,13 @@ the md5() function is about 3 times slower than the equivalent hash() function.
 
 https://stackoverflow.com/questions/15500026/why-is-hashmd5-string-faster-than-md5string
 
+## IV (initialization vector)
+
+An IV or initialization vector is, in its broadest sense, just the initial value used to start some iterated process. The term is used in a couple of different contexts and implies different security requirements in each of them. For example, cryptographic hash functions typically have a fixed IV, which is just an arbitrary constant which is included in the hash function specification and is used as the initial hash value before any data is fed in:
+
+
+Conversely, most block cipher modes of operation require an IV which is random and unpredictable, or at least unique for each message encrypted with a given key. (Of course, if each key is only ever used to encrypt a single message, one can get away with using a fixed IV.) This random IV ensures that each message encrypts differently, such that seeing multiple messages encrypted with the same key doesn't give the attacker any more information than just seeing a single long message. In particular, it ensures that encrypting the same message twice yields two completely different ciphertexts, which is necessary in order for the encryption scheme to be semantically secure.
+
+
+https://crypto.stackexchange.com/questions/3965/what-is-the-main-difference-between-a-key-an-iv-and-a-nonce  
+https://en.wikipedia.org/wiki/Initialization_vector  
