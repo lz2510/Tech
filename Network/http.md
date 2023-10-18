@@ -29,6 +29,23 @@ prefer 201
 
 https://stackoverflow.com/questions/1860645/create-request-with-post-which-response-codes-200-or-201-and-content
 
+### http status code returned by inventory update
+
+tiktok inventory update return 200.
+
+AWS sp-api inventory update return 202. Because they are processing asychronously. So they also provide another api to retrieve the process status.
+
+Rakuten inventory update return 204. It's handled successfully and no content to return.
+
+### 200, 201, 202, 204
+
+Use HTTP status code 200: OK for successful requests that retrieve or update a resource.  
+Use HTTP status code 201: Created for successful requests that create a new resource on the server.  
+Use HTTP status code 202: Accepted for requests that have been accepted for processing but the processing has not yet been completed.  
+Use HTTP status code 204: No Content for successful requests that delete a resource or do not have any content to return.  
+
+https://melkornemesis.medium.com/http-status-code-decoded-a-guide-to-understanding-200-201-202-and-204-c08904e7f0fe
+
 ## http method
 
 |方法	|描述	|幂等
