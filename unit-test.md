@@ -399,3 +399,41 @@ PS: While checking the value may not be so important for all constants, it could
 I think this is the question about coupling between the tests and the production code. When I first started TDD I thought that having the constant in the tests makes the tests more thorough. However, now I think it just causes tighter coupling between the tests and the implementation. Does it make it more safe if you copy and paste the constant to the test? Not really. It just makes it more painful to change the constant, especially if its copy-pasted to multiple tests. These tests don't test if it is the right constant, they just test that this constant is returned from the method, so now I would definitely go for test number two.
 
 https://stackoverflow.com/questions/3360074/do-you-use-constants-from-the-implementation-in-your-test-cases
+
+## Testing class with private/protected constant
+
+          private const RANDOM = 18;
+
+However, that stops the test from working, as now we are trying to access private constant.
+
+So now we have two options:
+
+1. Declare the constant as public.
+2. Use reflection in test. Meaning the test becomes:
+
+          $this->assertEquals(
+          (new ReflectionClass(FooBar::class))->getConstant('RANDOM'),
+          $mock->doSomething()
+          );
+
+The first approach feels very wrong, as we are making constant public only for the sake of test, not because class/hierarchy/business model needs it to be public.
+
+The second one doesn't feel right either, as this use case would not be found by any IDE, so any search/replace/refactor would simply fail here.
+
+So my question(s) is, should the second scenario be used without caring that refactoring will break tests? Or maybe even the use of constants in general should be discouraged in asserts?
+
+Using the constant in test is actually a bad practice IMHO.
+
+You should test the constant's literal value. ($this->assertSame(18, $mock->doSomething())
+
+Why?
+
+Because one of the important values testing brings you is that you notice unintended consequences of changes to the code. As the constant is private it's value is never used outside of the class. But many different things may depend on it's value internally.
+
+Now imagine a junior developer, who is not familiar with the codebase is tasked with changing one of the places where the constant is used and change it from 18 to 16. He will go and change the constant's value from 18 to 16 and do a rough check of where the constant is used (not noticing your doSomething() method). Now, in your method you absolutely need the random to be 18, not 16! But if you used the constant, he'd never know, because as he changed it from 18 to 16 the assert would also change from 18 to 16. And the test would pass.
+
+Rule of thumb for me:
+
+          Never use expected value of assert that is pulled from the code of the app. Always use literal value where possible.
+
+https://stackoverflow.com/questions/53089098/testing-class-with-private-protected-constant
