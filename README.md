@@ -76,6 +76,7 @@
 - [OAuth2.0](oauth2.md)
 - [JWT](jwt.md)
 - [Encryption](encrypt.md)
+- [Encoding](encoding.md)
 - [Amazon sp-api](amazon-sp-api.md)
 - [Computing](computing.md)
 - [OSI 7](Network/OSI%207.md)
