@@ -37,6 +37,11 @@ AWS sp-api inventory update return 202. Because they are processing asychronousl
 
 Rakuten inventory update return 204. It's handled successfully and no content to return.
 
+amazon return 204 for ship and order status update like pack. Both use POST method.
+
+https://developer-docs.amazon.com/sp-api/lang-en_US/docs/orders-api-v0-reference#post-ordersv0ordersorderidshipmentconfirmation   
+https://developer-docs.amazon.com/sp-api/lang-en_US/docs/orders-api-v0-reference#post-ordersv0ordersorderidshipment 
+
 ### 200, 201, 202, 204
 
 Use HTTP status code 200: OK for successful requests that retrieve or update a resource.  
