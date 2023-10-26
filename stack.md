@@ -17,4 +17,5 @@ It has array and linked list two methods.
 
 ## use case
 
-DFS
+- DFS
+- check balanced symbol like valid () {} []
