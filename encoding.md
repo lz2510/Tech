@@ -65,3 +65,63 @@ ISO/IEC 8859-1:1998, Information technology — 8-bit single-byte coded graphic 
 
 https://en.wikipedia.org/wiki/ISO/IEC_8859-1
 
+## Locale
+
+locale in setlocale() meaning locale.
+
+ja_JP.SJIS and en_US.UTF-8 are locale.
+
+In computing, a locale is a set of parameters that defines the user's language, region and any special variant preferences that the user wants to see in their user interface. Usually a locale identifier consists of at least a language code and a country/region code. Locale is an important aspect of i18n.
+
+### POSIX platforms
+
+[language[_territory][.codeset][@modifier]]
+
+On POSIX platforms such as Unix, Linux and others, locale identifiers are defined in a way similar to the BCP 47 definition of language tags, but the locale variant modifier is defined differently, and the character set is optionally included as a part of the identifier. The POSIX or "XPG" format is [language[_territory][.codeset][@modifier]]. (For example, Australian English using the UTF-8 encoding is en_AU.UTF-8.)[2] 
+
+https://en.wikipedia.org/wiki/Locale_(computer_software)
+
+## Tags for the Identification of Languages
+
+en-US, zh-Hans, is BCP47
+
+en, ja are ISO standard 639.   
+US, JP are ISO 3166 alpha-2 country codes.  
+
+The language tag is composed of 1 or more parts: A primary language tag and a (possibly empty) series of subtags.
+
+   The syntax of this tag in RFC-822 EBNF is:
+
+    Language-Tag = Primary-tag *( "-" Subtag )
+    Primary-tag = 1*8ALPHA
+    Subtag = 1*8ALPHA
+
+A single primary language subtag based on a two-letter language code from ISO 639-1.
+An optional script subtag, based on a four-letter script code from ISO 15924 (usually written in Title Case);
+An optional region subtag based on a two-letter country code from ISO 3166-1 alpha-2 (usually written in upper case), or a three-digit code from UN M.49 for geographical regions;
+
+
+http://www.faqs.org/rfcs/rfc1766.html
+https://en.wikipedia.org/wiki/IETF_language_tag#Syntax_of_language_tags
+https://www.loc.gov/standards/iso639-2/php/code_list.php
+https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes
+
+
+### convention format
+
+The ISO 639/ISO 3166 convention is that language names are written in lower case, while country codes are written in upper case.
+
+This convention is recommended, but not enforced; the tags are case insensitive.
+
+For example: en-US, zh-Hans.
+
+http://www.faqs.org/rfcs/rfc1766.html
+
+### region subtag vs script subtag
+
+Region subtags are used to specify the variety of a language "as used in" a particular region. They are appropriate when the variety is regional in nature, and can be captured adequately by identifying the countries involved, as when distinguishing British English (en-GB) from American English (en-US). 
+
+When the difference is one of script or script variety, as for simplified versus traditional Chinese characters, it should be expressed with a script subtag instead of a region subtag; in this example, zh-Hans and zh-Hant should be used instead of zh-CN/zh-SG/zh-MY and zh-TW/zh-HK/zh-MO.
+
+https://en.wikipedia.org/wiki/IETF_language_tag#ISO_3166-1_and_UN_M.49
+
