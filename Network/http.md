@@ -15,6 +15,7 @@ Any status code in the 500-599 range generally means that the HTTP request looke
 200 PATCH successfully  
 200 PUT successfully  
 400 validation failed  
+429 too many request, exceed rate limiting
 500 application error  
 
 ### Create request with POST, which response codes 200 or 201 and content
