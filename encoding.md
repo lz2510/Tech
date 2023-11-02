@@ -12,6 +12,21 @@ Character encoding is the process of assigning numbers to graphical characters, 
 
 https://en.wikipedia.org/wiki/Character_encoding
 
+## charset = code page
+
+sjis means Shift JIS. 
+
+In setLocale use siji by 
+
+      setlocale(LC_ALL, 'ja_JP.sijs');
+
+In mb_convert_encoding, use SJIS-win. It’s a variant for windows, it also has SJIS-mac for Mac.
+
+      $content = mb_convert_encoding($content, “UTF-8", "SJIS-win");
+
+https://en.wikipedia.org/wiki/Character_encoding#Code_pages  
+https://stackoverflow.com/questions/34544285/php-cant-read-file-with-shift-jis-encoding  
+
 ## Morse code
 
 The earliest well-known electrically transmitted character code, Morse code, introduced in the 1840s, used a system of four "symbols" (short signal, long signal, short space, long space) to generate codes of variable length.
@@ -29,7 +44,7 @@ ISO/IEC 646, like ASCII, is a 7-bit character set. It does not make any addition
 
 https://en.wikipedia.org/wiki/ASCII#7-bit_codes
 
-## ASCUU bit width. 
+## ASCII bit width. 
 
 US_ASCII uses 7-bit instead of 8-bit
 
@@ -125,3 +140,8 @@ When the difference is one of script or script variety, as for simplified versus
 
 https://en.wikipedia.org/wiki/IETF_language_tag#ISO_3166-1_and_UN_M.49
 
+## Halfwidth and fullwidth forms
+
+In CJK (Chinese, Japanese, and Korean) computing, graphic characters are traditionally classed into fullwidth[a] and halfwidth[b] characters. Unlike monospaced fonts, a halfwidth character occupies half the width of a fullwidth character, hence the name.
+
+https://en.wikipedia.org/wiki/Halfwidth_and_fullwidth_forms
