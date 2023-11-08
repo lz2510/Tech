@@ -1,5 +1,13 @@
 # Security
 
+## resources
+
+Security: OWASP Top 10, SANS CWE Top 25
+
+https://owasp.org/www-project-top-ten/  
+https://www.sans.org/top25-software-errors/  
+https://cwe.mitre.org/top25/index.html  
+
 ## Top 10 Web Application Security Risks
 
 ![image](https://github.com/lz2510/Tech/assets/1209204/43469836-cdd7-420c-bbc1-b316bbd0aa84)
@@ -253,3 +261,62 @@ Be aware that any JavaScript input validation performed on the client can be byp
 
 https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html
 
+## Broken Access Control
+
+Description:
+
+1. Violation of the principle of least privilege or deny by default, where access should only be granted for particular capabilities, roles, or users, but is available to anyone.
+2. Accessing API with missing access controls for POST, PUT and DELETE.
+
+https://owasp.org/Top10/A01_2021-Broken_Access_Control/
+
+## Cryptographic Failures
+
+Notable Common Weakness Enumerations (CWEs) included are CWE-259: Use of Hard-coded Password, CWE-327: Broken or Risky Crypto Algorithm
+
+Description:
+
+1. Is any data transmitted in clear text? This concerns protocols such as HTTP, SMTP, FTP also using TLS upgrades like STARTTLS. External internet traffic is hazardous. Verify all internal traffic, e.g., between load balancers, web servers, or back-end systems.
+
+2. Are any old or weak cryptographic algorithms or protocols used either by default or in older code?
+
+https://owasp.org/Top10/A02_2021-Cryptographic_Failures/
+
+## Insecure Design
+
+Overview:
+ Notable Common Weakness Enumerations (CWEs) include CWE-209: Generation of Error Message Containing Sensitive Information, CWE-256: Unprotected Storage of Credentials,
+
+https://owasp.org/Top10/A04_2021-Insecure_Design/
+
+## Security Misconfiguration
+
+### How to Prevent
+
+Secure installation processes should be implemented, including:
+
+CI/CD, A repeatable hardening process makes it fast and easy to deploy another environment that is appropriately locked down. Development, QA, and production environments should all be configured identically, with different credentials used in each environment. This process should be automated to minimize the effort required to set up a new secure environment.
+
+https://owasp.org/Top10/A05_2021-Security_Misconfiguration/
+
+## A06:2021 – Vulnerable and Outdated Components
+
+### How to Prevent
+
+Remove unused dependencies, unnecessary features, components, files, and documentation.
+
+Continuously inventory the versions of both client-side and server-side components (e.g., frameworks, libraries) and their dependencies using tools like versions, OWASP Dependency Check, retire.js, etc. Continuously monitor sources like Common Vulnerability and Exposures (CVE) and National Vulnerability Database (NVD) for vulnerabilities in the components. Use software composition analysis tools to automate the process. Subscribe to email alerts for security vulnerabilities related to components you use.
+
+Only obtain components from official sources over secure links. Prefer signed packages to reduce the chance of including a modified, malicious component (See A08:2021-Software and Data Integrity Failures).
+
+https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/
+
+## A07:2021 – Identification and Authentication Failures
+
+How to Prevent
+
+Where possible, implement multi-factor authentication to prevent automated credential stuffing, brute force, and stolen credential reuse attacks.
+
+Implement weak password checks, such as testing new or changed passwords against the top 10,000 worst passwords list.
+
+https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/
