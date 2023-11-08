@@ -39,14 +39,12 @@ https://owasp.org/www-community/attacks/SQL_Injection
 
 Primary Defenses:
 
-Option 1: Use of Prepared Statements (with Parameterized Queries)
-Option 2: Use of Properly Constructed Stored Procedures
-Option 3: Allow-list Input Validation
-Option 4: Escaping All User Supplied Input
+- Option 1: Use of Prepared Statements (with Parameterized Queries)
+- Option 2: Use of Properly Constructed Stored Procedures
+- Option 3: Allow-list Input Validation
+- Option 4: Escaping All User Supplied Input
 
-Primary Defenses¶
-
-Defense Option 1: Prepared Statements (with Parameterized Queries)
+##### Defense Option 1: Prepared Statements (with Parameterized Queries)
 
 Use modern framework like Laravel, ORM model or query builder use prepared statements in default.
 
@@ -56,13 +54,11 @@ The use of prepared statements with variable binding (aka parameterized queries)
 
 Prepared statements ensure that an attacker is not able to change the intent of a query, even if SQL commands are inserted by an attacker. In the safe example below, if an attacker were to enter the userID of tom' or '1'='1, the parameterized query would not be vulnerable and would instead look for a username which literally matched the entire string tom' or '1'='1.
 
-
 Language specific recommendations:
 
 PHP – use PDO with strongly typed parameterized queries (using bindParam())
 
-
-Defense Option 2: Stored Procedures¶
+##### Defense Option 2: Stored Procedures¶
 
 - Use bind variables in database
 - Use input validation or proper escaping in code
@@ -81,15 +77,13 @@ Dynamic SQL can be parameterized using bind variables, to ensure the dynamically
 
 Bind variables are used to tell the database that the inputs to this dynamic SQL are 'data' and not possibly code.
 
-
-Defense Option 3: Allow-list Input Validation¶
+##### Defense Option 3: Allow-list Input Validation¶
 
 Various parts of SQL queries aren't legal locations for the use of bind variables, such as the names of tables or columns, and the sort order indicator (ASC or DESC). In such situations, input validation or query redesign is the most appropriate defense. For the names of tables or columns, ideally those values come from the code, and not from user parameters.
 
 But if user parameter values are used for targeting different table names and column names, then the parameter values should be mapped to the legal/expected table or column names to make sure unvalidated user input doesn't end up in the query. Please note, this is a symptom of poor design and a full rewrite should be considered if time allows.
 
-
-Defense Option 4: Escaping All User-Supplied Input¶
+##### Defense Option 4: Escaping All User-Supplied Input¶
 
 This technique should only be used as a last resort, when none of the above are feasible. Input validation is probably a better choice as this methodology is frail compared to other defenses and we cannot guarantee it will prevent all SQL Injections in all situations.
 
