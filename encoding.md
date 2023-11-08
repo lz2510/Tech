@@ -145,3 +145,26 @@ https://en.wikipedia.org/wiki/IETF_language_tag#ISO_3166-1_and_UN_M.49
 In CJK (Chinese, Japanese, and Korean) computing, graphic characters are traditionally classed into fullwidth[a] and halfwidth[b] characters. Unlike monospaced fonts, a halfwidth character occupies half the width of a fullwidth character, hence the name.
 
 https://en.wikipedia.org/wiki/Halfwidth_and_fullwidth_forms
+
+## charset pronunciation 
+
+> I mostly hear "charset" pronounced "care-set" /kɛ(ə)rsɛt/, probably because that makes the root word "character" clear.
+> A rarer deviant pronunciation is "char-set" /tʃɑrsɛt/ (as if it where somewhat charring).
+
+https://lists.w3.org/Archives/Public/ietf-http-wg/2013AprJun/0779.html
+
+## default_charset string
+
+"UTF-8" is the default value and its value is used as the default character encoding for htmlentities(), html_entity_decode() and htmlspecialchars() if the encoding parameter is omitted. The value of default_charset will also be used to set the default character set for iconv functions if the iconv.input_encoding, iconv.output_encoding and iconv.internal_encoding configuration options are unset, and for mbstring functions if the mbstring.http_input mbstring.http_output mbstring.internal_encoding configuration option is unset.
+
+All versions of PHP will use this value as the charset within the default Content-Type header sent by PHP if the header isn't overridden by a call to header().
+
+Setting default_charset to an empty value is not recommended.
+
+https://www.php.net/manual/en/ini.core.php#ini.default-charset
+
+## php supported encoding
+
+https://www.php.net/manual/en/function.htmlentities.php  
+https://www.php.net/manual/en/mbstring.encodings.php  
+https://www.php.net/manual/en/mbstring.supported-encodings.php  
