@@ -17,17 +17,96 @@ An application is vulnerable to attack when:
 1. User-supplied data is not validated, filtered, or sanitized by the application.
 2. Dynamic queries or non-parameterized calls without context-aware escaping are used directly in the interpreter.
 
+SQL Injection flaws are introduced when software developers create dynamic database queries constructed with string concatenation which includes user supplied input. To avoid SQL injection flaws is simple. Developers need to either: a) stop writing dynamic queries with string concatenation; and/or b) prevent user supplied input which contains malicious SQL from affecting the logic of the executed query.
+
+#### Risk Factors
+The platform affected can be:
+
+Language: SQL
+Platform: Any (requires interaction with a SQL database)
+
+https://owasp.org/www-community/attacks/SQL_Injection
 
 #### How to Prevent
 
-Preventing injection requires keeping data separate from commands and queries:
+Primary Defenses:
 
-1. The preferred option is to use a safe API like php PDO which has a prepared statement feature or ORM.
-2. Use server-side input validation.
-3. Escape special characters and quote arguments.
+Option 1: Use of Prepared Statements (with Parameterized Queries)
+Option 2: Use of Properly Constructed Stored Procedures
+Option 3: Allow-list Input Validation
+Option 4: Escaping All User Supplied Input
+
+Primary Defenses¶
+
+Defense Option 1: Prepared Statements (with Parameterized Queries)
+
+Use modern framework like Laravel, ORM model or query builder use prepared statements in default.
+
+SQL Injection is best prevented through the use of parameterized queries or called Query Parameterization. Prepared statements are one of the query parameterization. Another is bind variations in store procedure.
+
+The use of prepared statements with variable binding (aka parameterized queries) is how all developers should first be taught how to write database queries. They are simple to write, and easier to understand than dynamic queries. Parameterized queries force the developer to first define all the SQL code, and then pass in each parameter to the query later. This coding style allows the database to distinguish between code and data, regardless of what user input is supplied.
+
+Prepared statements ensure that an attacker is not able to change the intent of a query, even if SQL commands are inserted by an attacker. In the safe example below, if an attacker were to enter the userID of tom' or '1'='1, the parameterized query would not be vulnerable and would instead look for a username which literally matched the entire string tom' or '1'='1.
+
+
+Language specific recommendations:
+
+PHP – use PDO with strongly typed parameterized queries (using bindParam())
+
+
+Defense Option 2: Stored Procedures¶
+
+- Use bind variables in database
+- Use input validation or proper escaping in code
+
+bind variations in store procedure is one of the query parameterization. Another is Prepared statements.
+
+Stored procedures are not always safe from SQL injection. However, certain standard stored procedure programming constructs have the same effect as the use of parameterized queries when implemented safely which is the norm for most stored procedure languages.
+
+They require the developer to just build SQL statements with parameters which are automatically parameterized unless the developer does something largely out of the norm. The difference between prepared statements and stored procedures is that the SQL code for a stored procedure is defined and stored in the database itself, and then called from the application. Both of these techniques have the same effectiveness in preventing SQL injection so your organization should choose which approach makes the most sense for you.
+
+Note: "Implemented safely" means the stored procedure does not include any unsafe dynamic SQL generation. Developers do not usually generate dynamic SQL inside stored procedures. However, it can be done, but should be avoided. If it can't be avoided, the stored procedure must use input validation or proper escaping as described in this article to make sure that all user supplied input to the stored procedure can't be used to inject SQL code into the dynamically generated query. 
+
+The SQL you write in your web application isn't the only place that SQL injection vulnerabilities can be introduced. If you are using Stored Procedures, and you are dynamically constructing SQL inside them, you can also introduce SQL injection vulnerabilities.
+
+Dynamic SQL can be parameterized using bind variables, to ensure the dynamically constructed SQL is secure.
+
+Bind variables are used to tell the database that the inputs to this dynamic SQL are 'data' and not possibly code.
+
+
+Defense Option 3: Allow-list Input Validation¶
+
+Various parts of SQL queries aren't legal locations for the use of bind variables, such as the names of tables or columns, and the sort order indicator (ASC or DESC). In such situations, input validation or query redesign is the most appropriate defense. For the names of tables or columns, ideally those values come from the code, and not from user parameters.
+
+But if user parameter values are used for targeting different table names and column names, then the parameter values should be mapped to the legal/expected table or column names to make sure unvalidated user input doesn't end up in the query. Please note, this is a symptom of poor design and a full rewrite should be considered if time allows.
+
+
+Defense Option 4: Escaping All User-Supplied Input¶
+
+This technique should only be used as a last resort, when none of the above are feasible. Input validation is probably a better choice as this methodology is frail compared to other defenses and we cannot guarantee it will prevent all SQL Injections in all situations.
+
+This technique is to escape user input before putting it in a query. It is very database specific in its implementation. It's usually only recommended to retrofit legacy code when implementing input validation isn't cost effective. Applications built from scratch, or applications requiring low risk tolerance should be built or re-written using parameterized queries, stored procedures, or some kind of Object Relational Mapper (ORM) that builds your queries for you.
+
+This technique works like this. Each DBMS supports one or more character escaping schemes specific to certain kinds of queries. If you then escape all user supplied input using the proper escaping scheme for the database you are using, the DBMS will not confuse that input with SQL code written by the developer, thus avoiding any possible SQL injection vulnerabilities.
 
 https://owasp.org/Top10/A03_2021-Injection/  
 https://cwe.mitre.org/data/definitions/89.html  
+https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html  
+https://cheatsheetseries.owasp.org/cheatsheets/Query_Parameterization_Cheat_Sheet.html  
+
+### dynamic query vs parameterized query
+
+The main difference between a dynamic query and a parameterized query is that in a dynamic query, the SQL logic is built along with the user input. In a parameterized query, the SQL logic is defined first and locked, then user input is passed as parameters along with its data type defined.
+
+### prepared statements vs bind variables
+
+The prepared statements is a feature in programming language, like PDO in php. bind variables are a feature in database. Both are query parameterization.
+
+Bind variables are often called bind parameters or query parameters.
+
+A SQL bind variable is a feature that allows you to turn part of a query into a parameter. Bind variables are often used in WHERE clauses to filter data.
+
+https://www.databasestar.com/sql-bind-variables/#:~:text=A%20bind%20variable%20is%20an,WHERE%20clauses%20to%20filter%20data.
 
 ## XSS
 
