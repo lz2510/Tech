@@ -79,7 +79,7 @@
 - [Encoding](encoding.md)
 - [Amazon sp-api](amazon-sp-api.md)
 - [Computing](computing.md)
-- [security](security.md)
+- [Security](security.md)
 - [OSI 7](Network/OSI%207.md)
 - [TCP 3 way handshake & 4 way handshake](Network/shake.md)
 - [TCP/IP](Network/TCP-IP.md)
