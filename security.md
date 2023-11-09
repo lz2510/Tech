@@ -110,6 +110,99 @@ A SQL bind variable is a feature that allows you to turn part of a query into a 
 
 https://www.databasestar.com/sql-bind-variables/#:~:text=A%20bind%20variable%20is%20an,WHERE%20clauses%20to%20filter%20data.
 
+### SQL Injection in Laravel
+
+SQL Injection attacks are unfortunately quite common in modern web applications and entail attackers providing malicious request input data to interfere with SQL queries. This guide covers SQL injection and how it can be prevented specifically for Laravel applications. You may also refer the SQL Injection Prevention Cheatsheet for more information that is not specific to Laravel.
+
+#### Eloquent ORM SQL Injection Protection
+
+By default, Laravel's Eloquent ORM protects against SQL injection by parameterizing queries and using SQL bindings. For instance, consider the following query:
+
+          use App\Models\User;
+          
+          User::where('email', $email)->get();
+          
+The code above fires the query below:
+
+          select * from `users` where `email` = ?
+          
+So, even if $email is untrusted user input data, you are protected from SQL injection attacks.
+
+#### Raw Query SQL Injection
+
+Laravel also offers raw query expressions and raw queries to construct complex queries or database specific queries that aren't supported out of the box.
+
+While this is great for flexibility, you must be careful to always use SQL data bindings for such queries. Consider the following query:
+
+          use Illuminate\Support\Facades\DB;
+          use App\Models\User;
+          
+          User::whereRaw('email = "'.$request->input('email').'"')->get();
+          DB::table('users')->whereRaw('email = "'.$request->input('email').'"')->get();
+          
+Both lines of code actually execute the same query, which is vulnerable to SQL injection as the query does not use SQL bindings for untrusted user input data.
+
+The code above fires the following query:
+
+          select * from `users` where `email` = "value of email query parameter"
+          
+Always remember to use SQL bindings for request data. We can fix the above code by making the following modification:
+
+          use App\Models\User;
+          
+          User::whereRaw('email = ?', [$request->input('email')])->get();
+          
+We can even use named SQL bindings like so:
+
+          use App\Models\User;
+          
+          User::whereRaw('email = :email', ['email' => $request->input('email')])->get();
+          
+#### Column Name SQL Injection
+
+You must never allow user input data to dictate column names referenced by your queries.
+
+The following queries may be vulnerable to SQL injection:
+
+          use App\Models\User;
+          
+          User::where($request->input('colname'), 'somedata')->get();
+          User::query()->orderBy($request->input('sortBy'))->get();
+          
+It is important to note that even though Laravel has some in-built features such as wrapping column names to protect against the above SQL injection vulnerabilities, some database engines (depending on versions and configurations) may still be vulnerable because binding column names is not supported by databases.
+
+At the very least, this may result in a mass assignment vulnerability instead of a SQL injection because you may have expected a certain set of column values, but since they are not validated here, the user is free to use other columns as well.
+
+Always validate user input for such situations like so:
+
+          use App\Models\User;
+          
+          $request->validate(['sortBy' => 'in:price,updated_at']);
+          User::query()->orderBy($request->validated()['sortBy'])->get();
+          
+#### Validation Rule SQL Injection
+
+Certain validation rules have the option of providing database column names. Such rules are vulnerable to SQL injection in the same manner as column name SQL injection because they construct queries in a similar manner.
+
+For example, the following code may be vulnerable:
+
+          use Illuminate\Validation\Rule;
+          
+          $request->validate([
+              'id' => Rule::unique('users')->ignore($id, $request->input('colname'))
+          ]);
+          
+Behind the scenes, the above code triggers the following query:
+
+          use App\Models\User;
+          
+          $colname = $request->input('colname');
+          User::where($colname, $request->input('id'))->where($colname, '<>', $id)->count();
+          
+Since the column name is dictated by user input, it is similar to column name SQL injection.
+
+https://cheatsheetseries.owasp.org/cheatsheets/Laravel_Cheat_Sheet.html#sql-injection  
+
 ## XSS
 
 Cross-Site Scripting (XSS) attacks are a type of injection.
@@ -136,6 +229,26 @@ https://owasp.org/www-community/attacks/xss/
 2. Output Encoding, for example use html entity for “HTML Contexts”.&    &amp;  <    &lt;  >    &gt;
 
 https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#output-encoding-for-html-contexts
+
+### Cross Site Scripting (XSS)
+
+XSS attacks are injection attacks where malicious scripts (such as JavaScript code snippets) are injected into trusted websites.
+
+Laravel's Blade templating engine has echo statements {{ }} that automatically escape variables using the htmlspecialchars PHP function to protect against XSS attacks.
+
+Laravel also offers displaying unescaped data using the unescaped syntax {!! !!}. This must not be used on any untrusted data, otherwise your application will be subject to an XSS attack.
+
+For instance, if you have something like this in any of your Blade templates, it would result in a vulnerability:
+
+          {!! request()->input('somedata') !!}
+          
+This, however, is safe to do:
+
+          {{ request()->input('somedata') }}
+          
+For other information on XSS prevention that is not specific to Laravel, you may refer the Cross Site Scripting Prevention Cheatsheet.
+
+https://cheatsheetseries.owasp.org/cheatsheets/Laravel_Cheat_Sheet.html#cross-site-scripting-xss  
 
 ### escaping and htmlentities
 
@@ -254,6 +367,52 @@ If the input field comes from a fixed set of options, like a drop down list or r
 Be aware that any JavaScript input validation performed on the client can be bypassed by an attacker that disables JavaScript or uses a Web Proxy. Ensure that any input validation performed on the client is also performed on the server.
 
 https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html
+
+#### File Upload Validation
+
+Unrestricted File Uploads¶
+
+Unrestricted file upload attacks entail attackers uploading malicious files to compromise web applications. This section describes how to protect against such attacks while building Laravel applications. 
+
+##### Always Validate File Type and Size
+
+Always validate the file type (extension or MIME type) and file size to avoid storage DOS attacks and remote code execution:
+
+          $request->validate([
+              'photo' => 'file|size:100|mimes:jpg,bmp,png'
+          ]);
+          
+Storage DOS attacks exploit missing file size validations and upload massive files to cause a denial of service (DOS) by exhausting the disk space.
+
+Remote code execution attacks entail first, uploading malicious executable files (such as PHP files) and then, triggering their malicious code by visiting the file URL (if public).
+
+Both these attacks can be avoided by simple file validations as mentioned above.
+
+##### Do Not Rely On User Input To Dictate Filenames or Path
+
+If your application allows user controlled data to construct the path of a file upload, this may result in overwriting a critical file or storing the file in a bad location.
+
+Consider the following code:
+
+          Route::post('/upload', function (Request $request) {
+              $request->file('file')->storeAs(auth()->id(), $request->input('filename'));
+          
+              return back();
+          });
+          
+This route saves a file to a directory specific to a user ID. Here, we rely on the filename user input data and this may result in a vulnerability as the filename could be something like ../2/filename.pdf. This will upload the file in user ID 2's directory instead of the directory pertaining to the current logged in user.
+
+To fix this, we should use the basename PHP function to strip out any directory information from the filename input data:
+
+          Route::post('/upload', function (Request $request) {
+              $request->file('file')->storeAs(auth()->id(), basename($request->input('filename')));
+          
+              return back();
+          });
+
+https://cheatsheetseries.owasp.org/cheatsheets/Laravel_Cheat_Sheet.html#unrestricted-file-uploads  
+https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html#file-upload-validation  
+https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html 
 
 ## Broken Access Control
 
