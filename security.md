@@ -255,6 +255,52 @@ Be aware that any JavaScript input validation performed on the client can be byp
 
 https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html
 
+#### File Upload Validation
+
+Unrestricted File Uploads¶
+
+Unrestricted file upload attacks entail attackers uploading malicious files to compromise web applications. This section describes how to protect against such attacks while building Laravel applications. 
+
+##### Always Validate File Type and Size
+
+Always validate the file type (extension or MIME type) and file size to avoid storage DOS attacks and remote code execution:
+
+          $request->validate([
+              'photo' => 'file|size:100|mimes:jpg,bmp,png'
+          ]);
+          
+Storage DOS attacks exploit missing file size validations and upload massive files to cause a denial of service (DOS) by exhausting the disk space.
+
+Remote code execution attacks entail first, uploading malicious executable files (such as PHP files) and then, triggering their malicious code by visiting the file URL (if public).
+
+Both these attacks can be avoided by simple file validations as mentioned above.
+
+##### Do Not Rely On User Input To Dictate Filenames or Path
+
+If your application allows user controlled data to construct the path of a file upload, this may result in overwriting a critical file or storing the file in a bad location.
+
+Consider the following code:
+
+          Route::post('/upload', function (Request $request) {
+              $request->file('file')->storeAs(auth()->id(), $request->input('filename'));
+          
+              return back();
+          });
+          
+This route saves a file to a directory specific to a user ID. Here, we rely on the filename user input data and this may result in a vulnerability as the filename could be something like ../2/filename.pdf. This will upload the file in user ID 2's directory instead of the directory pertaining to the current logged in user.
+
+To fix this, we should use the basename PHP function to strip out any directory information from the filename input data:
+
+          Route::post('/upload', function (Request $request) {
+              $request->file('file')->storeAs(auth()->id(), basename($request->input('filename')));
+          
+              return back();
+          });
+
+https://cheatsheetseries.owasp.org/cheatsheets/Laravel_Cheat_Sheet.html#unrestricted-file-uploads  
+https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html#file-upload-validation  
+https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html 
+
 ## Broken Access Control
 
 Description:
