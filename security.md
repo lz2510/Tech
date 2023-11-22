@@ -30,8 +30,8 @@ SQL Injection flaws are introduced when software developers create dynamic datab
 #### Risk Factors
 The platform affected can be:
 
-Language: SQL
-Platform: Any (requires interaction with a SQL database)
+Language: SQL  
+Platform: Any (requires interaction with a SQL database)  
 
 https://owasp.org/www-community/attacks/SQL_Injection
 
