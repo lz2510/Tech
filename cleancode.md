@@ -57,16 +57,45 @@ Bad Comments:
 ## Error handling
 
 Use exceptions when possible: rather than returning null or error flag, throw exceptions.
+
 Provide context in exception: try to have well-formed exception handling strategy.
+
 Don’t return null, don’t pass null.
 
 ## general
 
 G29: Avoid Negative Conditionals
-Negatives are just a bit harder to understand than positives. So, when possible, condition-
-als should be expressed as positives. For example:
-    if (buffer.shouldCompact())
+
+Negatives are just a bit harder to understand than positives. So, when possible, conditionals should be expressed as positives. For example:
+
+        if (buffer.shouldCompact())
 is preferable to
-    if (!buffer.shouldNotCompact())
+
+        if (!buffer.shouldNotCompact())
+
+## formatting 
+
+### The Newspaper Metaphor
+
+Think of a well-written newspaper article. You read it vertically. At the top you expect a headline that will tell you what the story is about and allows you to decide whether it is something you want to read. The first paragraph gives you a synopsis of the whole story, hiding all the details while giving you the broad-brush concepts. As you continue down- ward, the details increase until you have all the dates, names, quotes, claims, and other minutia.
+
+### Vertical Formatting
+
+It appears to be possible to build significant systems out of files that are typically 200 lines long, with an upper limit of 500. 
+
+#### Vertical Openness Between Concepts
+
+Nearly all code is read left to right and top to bottom. Each line represents an expression or a clause, and each group of lines represents a complete thought. Those thoughts should be separated from each other with blank lines.
+
+#### Vertical Density
+If openness separates concepts, then vertical density implies close association. So lines of code that are tightly related should appear vertically dense.
+
+#### Vertical Distance
+
+1. Variable Declarations. Variables should be declared as close to their usage as possi- ble.
+
+2. Instance variables, on the other hand, should be declared at the top of the class. 
+
+3. Dependent Functions. If one function calls another, they should be vertically close, and the caller should be above the callee.
 
 
