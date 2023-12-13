@@ -455,11 +455,20 @@ https://owasp.org/Top10/A04_2021-Insecure_Design/
 
 ## Security Misconfiguration
 
+### Description
+
+The application might be vulnerable if the application is:
+
+- Missing appropriate security hardening across any part of the application stack or improperly configured permissions on cloud services.
+- Unnecessary features are enabled or installed (e.g., unnecessary ports, services, pages, accounts, or privileges).
+- Error handling reveals stack traces or other overly informative error messages to users.
+- For upgraded systems, the latest security features are disabled or not configured securely.
+
 ### How to Prevent
 
 Secure installation processes should be implemented, including:
 
-CI/CD, A repeatable hardening process makes it fast and easy to deploy another environment that is appropriately locked down. Development, QA, and production environments should all be configured identically, with different credentials used in each environment. This process should be automated to minimize the effort required to set up a new secure environment.
+- CI/CD. A repeatable hardening process makes it fast and easy to deploy another environment that is appropriately locked down. Development, QA, and production environments should all be configured identically, with different credentials used in each environment. This process should be automated to minimize the effort required to set up a new secure environment.
 
 https://owasp.org/Top10/A05_2021-Security_Misconfiguration/
 
