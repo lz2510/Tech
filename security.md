@@ -437,18 +437,38 @@ https://owasp.org/Top10/A02_2021-Cryptographic_Failures/
 
 ## Insecure Design
 
-Overview:
+### Overview:
  Notable Common Weakness Enumerations (CWEs) include CWE-209: Generation of Error Message Containing Sensitive Information, CWE-256: Unprotected Storage of Credentials,
+
+### Description
+
+Insecure design is a broad category representing different weaknesses, expressed as “missing or ineffective control design.” Insecure design is not the source for all other Top 10 risk categories. There is a difference between insecure design and insecure implementation. We differentiate between design flaws and implementation defects for a reason, they have different root causes and remediation. A secure design can still have implementation defects leading to vulnerabilities that may be exploited. An insecure design cannot be fixed by a perfect implementation as by definition, needed security controls were never created to defend against specific attacks. 
+
+### How to prevent
+
+- Use threat modeling for critical authentication, access control, business logic, and key flows
+- Integrate plausibility checks at each tier of your application (from frontend to backend)
+- Write unit and integration tests to validate that all critical flows are resistant to the threat model. Compile use-cases and misuse-cases for each tier of your application.
+- Limit resource consumption by user or service
 
 https://owasp.org/Top10/A04_2021-Insecure_Design/
 
 ## Security Misconfiguration
 
+### Description
+
+The application might be vulnerable if the application is:
+
+- Missing appropriate security hardening across any part of the application stack or improperly configured permissions on cloud services.
+- Unnecessary features are enabled or installed (e.g., unnecessary ports, services, pages, accounts, or privileges).
+- Error handling reveals stack traces or other overly informative error messages to users.
+- For upgraded systems, the latest security features are disabled or not configured securely.
+
 ### How to Prevent
 
 Secure installation processes should be implemented, including:
 
-CI/CD, A repeatable hardening process makes it fast and easy to deploy another environment that is appropriately locked down. Development, QA, and production environments should all be configured identically, with different credentials used in each environment. This process should be automated to minimize the effort required to set up a new secure environment.
+- CI/CD. A repeatable hardening process makes it fast and easy to deploy another environment that is appropriately locked down. Development, QA, and production environments should all be configured identically, with different credentials used in each environment. This process should be automated to minimize the effort required to set up a new secure environment.
 
 https://owasp.org/Top10/A05_2021-Security_Misconfiguration/
 
