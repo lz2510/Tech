@@ -440,6 +440,8 @@ https://owasp.org/Top10/A02_2021-Cryptographic_Failures/
 Overview:
  Notable Common Weakness Enumerations (CWEs) include CWE-209: Generation of Error Message Containing Sensitive Information, CWE-256: Unprotected Storage of Credentials,
 
+Insecure design is a broad category representing different weaknesses, expressed as “missing or ineffective control design.” Insecure design is not the source for all other Top 10 risk categories. There is a difference between insecure design and insecure implementation. We differentiate between design flaws and implementation defects for a reason, they have different root causes and remediation. A secure design can still have implementation defects leading to vulnerabilities that may be exploited. An insecure design cannot be fixed by a perfect implementation as by definition, needed security controls were never created to defend against specific attacks. 
+
 https://owasp.org/Top10/A04_2021-Insecure_Design/
 
 ## Security Misconfiguration
