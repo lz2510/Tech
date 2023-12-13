@@ -8,7 +8,7 @@ A 300-399 status code means that the client needs to do additional work to have 
 
 A status code in the 400-499 range effectively means the user has caused an error condition and the request needs to be corrected before the server can successfully process it. The most common, of course is a 404 meaning the resource could not be found. Other popular ones include 400 meaning a payload of data was bad, 401 meaning the user is not authorized, and a 403 which means the request looked okay but the resource is forbidden. Rate limiting often happens with a 429. Bonus points for knowing that a 418 status code means “I’m a little teapot” and was introduced as an April Fool’s joke.
 
-Any status code in the 500-599 range generally means that the HTTP request looked valid and all other conditions passed (authorized, not forbidden, etc), but that something has caused an error on the server. By far, the most common is the generic 500 status message meaning no other more-specific error message could be presented. Other common codes in this range are 504 for timeouts and 503 for a temporary outage.
+Any status code in the 500-599 range generally means that the HTTP request looked valid and all other conditions passed (authorized, not forbidden, etc), but that something has caused an error on the server. By far, the most common is the generic 500 status message meaning no other more-specific error message could be presented. Other common codes in this range are 504 for timeouts and 503 for a temporary service unavailable.
 
 200 GET successfully  
 201 POST successfully  
@@ -17,6 +17,8 @@ Any status code in the 500-599 range generally means that the HTTP request looke
 400 validation failed  
 429 too many request, exceed rate limiting
 500 application error  
+503 service unavailable
+504 timeout
 
 ### Create request with POST, which response codes 200 or 201 and content
 
