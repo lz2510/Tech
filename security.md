@@ -420,6 +420,7 @@ Description:
 
 1. Violation of the principle of least privilege or deny by default, where access should only be granted for particular capabilities, roles, or users, but is available to anyone.
 2. Accessing API with missing access controls for POST, PUT and DELETE.
+3. CORS misconfiguration allows API access from unauthorized/untrusted origins.
 
 https://owasp.org/Top10/A01_2021-Broken_Access_Control/
 
@@ -427,11 +428,20 @@ https://owasp.org/Top10/A01_2021-Broken_Access_Control/
 
 Notable Common Weakness Enumerations (CWEs) included are CWE-259: Use of Hard-coded Password, CWE-327: Broken or Risky Crypto Algorithm
 
-Description:
+### Description:
 
 1. Is any data transmitted in clear text? This concerns protocols such as HTTP, SMTP, FTP also using TLS upgrades like STARTTLS. External internet traffic is hazardous. Verify all internal traffic, e.g., between load balancers, web servers, or back-end systems.
-
 2. Are any old or weak cryptographic algorithms or protocols used either by default or in older code?
+3. Are deprecated hash functions such as MD5 or SHA1 in use, or are non-cryptographic hash functions used when cryptographic hash functions are needed?
+
+### How to prevent
+
+1. Disable caching for response that contain sensitive data.
+2. Do not use legacy protocols such as FTP and SMTP for transporting sensitive data.
+3. Initialization vectors must be chosen appropriate for the mode of operation. For many modes, this means using a CSPRNG (cryptographically secure pseudo random number generator). For modes that require a nonce, then the initialization vector (IV) does not need a CSPRNG. In all cases, the IV should never be used twice for a fixed key.
+
+Avoid deprecated cryptographic functions and padding schemes, such as MD5, SHA1, PKCS number 1 v1.5 .
+
 
 https://owasp.org/Top10/A02_2021-Cryptographic_Failures/
 
