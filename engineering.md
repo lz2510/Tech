@@ -195,4 +195,53 @@ https://github.com/vlucas/phpdotenv
 https://www.geeksforgeeks.org/dont-forget-edge-cases/  
 https://softwareengineering.stackexchange.com/questions/72761/how-do-you-identify-edge-cases-on-algorithms  
 
+## Data Mapper vs Active Record
 
+Martin Fowler described two main patterns of object persistence. Here they are with very simplistic descriptions:
+
+Active Record — Objects manage their own persistence
+Data Mapper — Object persistence is managed by a separate mapper class
+
+Both are ORM. Among ORMs, there are a two very common philosophies or patterns: Active Record and Data Mapper. 
+
+The biggest difference between the data mapper pattern and the active record pattern is that the data mapper is meant to be a layer between the actual business domain of your application and the database that persists its data. Where active record seeks to invisibly bridge the gaps between the two as seamlessly as possible, the role of the data mapper is to allow you to consider the two more independently.
+
+note: business domain, business logic, domain logic, domain object are similar.
+
+### examples
+
+Examples of Active Record ORMs
+Ruby on Rails
+Laravel’s Eloquent
+
+Examples of Data Mapper
+Java Hibernate
+Doctrine2
+
+### Data Mapper
+
+The Data Mapper concept insists of business logic, the data mapper itself and database.
+
+From image in website, Data Mapper itself is the separate mapper class that is for persistence. It has sql interface for CURD.
+
+In Docrine, business logic is Entity, Object persistence is managed by EntityManger. So EntityMangager is the data mapper itself.
+
+### Active Record
+
+Active Record means business logic and persistence are put together. For example, in Laravel Equloment, business logic are defined in child model file, and persistence is defined in parent model class. Evey child model file should inherit parent model class.
+
+### Business logic should have both data and behavior
+
+if docrine rich entity violate data mapper without behavior? or it just makes data more flexiabl, it’s not behavior?
+
+It is my belief that data and behavior should not be separate. The two are organic to each other and they exist solely because the other exists. They're like bread and butter, love and marriage, or Jenny and Forrest. They're soulmates. Don't split them up.
+
+### properties defination between Eloquent and Docrine
+
+And how you define properties, which unlike Eloquent (active record) you must explicitly define:
+The core thing to note is that table columns and names are explicitly defined.
+
+https://martinfowler.com/eaaCatalog/activeRecord.html
+https://martinfowler.com/eaaCatalog/dataMapper.html
+https://www.thoughtfulcode.com/orm-active-record-vs-data-mapper/
+http://jgaskins.org/blog/2012/04/20/data-mapper-vs-active-record/
