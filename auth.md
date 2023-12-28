@@ -6,7 +6,12 @@ Authentication is the process of verifying the digital identity of the user or t
 
 Authorization is the process of determining what resources an app can access and giving permissions to apps. Sellers can authorize TikTok Shop apps to access data in a shop.
 
-https://partner.tiktokshop.com/docv2/page/64f199569495ef0281851ac2#Back%20To%20Top 
+Authorization may be defined as "the process of verifying that a requested action or service is approved for a specific entity" (NIST). Authorization is distinct from authentication which is the process of verifying an entity's identity.
+
+When designing and developing a software solution, it is important to keep these distinctions in mind. A user who has been authenticated (perhaps by providing a username and password) is often not authorized to access every resource and perform every action that is technically possible through a system. For example, a web app may have both regular users and admins, with the admins being able to perform actions the average user is not privileged to do so, even though they have been authenticated. Additionally, authentication is not always required for accessing resources; an unauthenticated user may be authorized to access certain public resources, such as an image or login page, or even an entire web app.
+
+https://partner.tiktokshop.com/docv2/page/64f199569495ef0281851ac2#Back%20To%20Top  
+https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html  
 
 ## Authentication concept
 
@@ -89,3 +94,38 @@ Authorization Link: Alternatively, you can provide an authorization link directl
 https://partner.tiktokshop.com/docv2/page/64f199569495ef0281851ac2#Back%20To%20Top  
 
 
+## SAML single sign-on (SSO)
+
+### SSO
+
+Single sign-on (SSO) is an authentication scheme that allows a user to log in with a single ID to any of several related, yet independent, software systems.
+
+True single sign-on allows the user to log in once and access services without re-entering authentication factors.
+
+### SAML
+
+SAML stands for Security Assertion Markup Language. It is an XML-based open-standard for transferring identity data between two parties: an identity provider (IdP) and a service provider (SP).
+
+Identity Provider — Performs authentication and passes the user's identity and authorization level to the service provider.
+
+Service Provider — Trusts the identity provider and authorizes the given user to access the requested resource.
+
+If you configure SAML SSO, members of your organization will continue to sign into their personal accounts on GitHub.com. When a member accesses most resources within your organization, GitHub redirects the member to your IdP to authenticate. After successful authentication, your IdP redirects the member back to GitHub.
+
+https://en.wikipedia.org/wiki/Single_sign-on  
+https://auth0.com/blog/how-saml-authentication-works/  
+https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on  
+
+## revoke access
+
+### Token Database
+
+If you store access tokens in a database, then it is relatively easy to revoke all tokens that belong to a particular user. You can easily write a query that finds and deletes tokens belonging to the user, such as looking in the token table for their user_id.
+
+### Self-Encoded Tokens
+
+If you have a truly stateless mechanism of verifying tokens, and your resource server is validating tokens without sharing information with another system, then the only option is to wait for all outstanding tokens to expire, and prevent the application from being able to generate new tokens for that user by blocking any refresh token requests from that client ID. This is the primary reason to use extremely short-lived tokens when you are using self-encoded tokens.
+
+You will also need to invalidate the application’s refresh tokens that were issued along with an access token. Revoking the refresh token means the next time the application attempts to refresh the access token, the request for a new access token will be denied.
+
+https://www.oauth.com/oauth2-servers/listing-authorizations/revoking-access/
