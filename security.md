@@ -505,10 +505,19 @@ https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/
 
 ## A07:2021 – Identification and Authentication Failures
 
-How to Prevent
+### Description
 
-Where possible, implement multi-factor authentication to prevent automated credential stuffing, brute force, and stolen credential reuse attacks.
+It happens when
+* Permits default, weak, or well-known passwords, such as "Password1" or "admin/admin".
+* Uses weak or ineffective credential recovery and forgot-password processes, such as "knowledge-based answers," which cannot be made safe.
+* Uses plain text, encrypted, or weakly hashed passwords data stores (see A02:2021-Cryptographic Failures).
 
-Implement weak password checks, such as testing new or changed passwords against the top 10,000 worst passwords list.
+#### How to Prevent
+
+* Where possible, implement multi-factor authentication to prevent automated credential stuffing, brute force, and stolen credential reuse attacks.
+* Implement weak password checks, such as testing new or changed passwords against the top 10,000 worst passwords list.
+* Align password length, complexity, and rotation policies 
+* Limit or increasingly delay failed login attempts, but be careful not to create a denial of service scenario. Log all failures and alert administrators when credential stuffing, brute force, or other attacks are detected.
+* Use a server-side, secure, built-in session manager that generates a new random session ID with high entropy after login. Session identifier should not be in the URL, be securely stored, and invalidated after logout, idle, and absolute timeouts.
 
 https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/
