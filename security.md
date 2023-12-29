@@ -416,11 +416,20 @@ https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html
 
 ## Broken Access Control
 
-Description:
+### Description:
 
 1. Violation of the principle of least privilege or deny by default, where access should only be granted for particular capabilities, roles, or users, but is available to anyone.
 2. Accessing API with missing access controls for POST, PUT and DELETE.
 3. CORS misconfiguration allows API access from unauthorized/untrusted origins.
+
+### How to prevent
+
+* Except for public resources, deny by default.
+* Implement access control mechanisms once and re-use them throughout the application, including minimizing Cross-Origin Resource Sharing (CORS) usage.
+* Disable web server directory listing and ensure file metadata (e.g., .git) and backup files are not present within web roots.
+* Log access control failures, alert admins when appropriate (e.g., repeated failures).
+* Rate limit API and controller access to minimize the harm from automated attack tooling.
+* Stateful session identifiers should be invalidated on the server after logout. Stateless JWT tokens should rather be short-lived so that the window of opportunity for an attacker is minimized. For longer lived JWTs it's highly recommended to follow the OAuth standards to revoke access.
 
 https://owasp.org/Top10/A01_2021-Broken_Access_Control/
 
@@ -496,10 +505,19 @@ https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/
 
 ## A07:2021 – Identification and Authentication Failures
 
-How to Prevent
+### Description
 
-Where possible, implement multi-factor authentication to prevent automated credential stuffing, brute force, and stolen credential reuse attacks.
+It happens when
+* Permits default, weak, or well-known passwords, such as "Password1" or "admin/admin".
+* Uses weak or ineffective credential recovery and forgot-password processes, such as "knowledge-based answers," which cannot be made safe.
+* Uses plain text, encrypted, or weakly hashed passwords data stores (see A02:2021-Cryptographic Failures).
 
-Implement weak password checks, such as testing new or changed passwords against the top 10,000 worst passwords list.
+#### How to Prevent
+
+* Where possible, implement multi-factor authentication to prevent automated credential stuffing, brute force, and stolen credential reuse attacks.
+* Implement weak password checks, such as testing new or changed passwords against the top 10,000 worst passwords list.
+* Align password length, complexity, and rotation policies 
+* Limit or increasingly delay failed login attempts, but be careful not to create a denial of service scenario. Log all failures and alert administrators when credential stuffing, brute force, or other attacks are detected.
+* Use a server-side, secure, built-in session manager that generates a new random session ID with high entropy after login. Session identifier should not be in the URL, be securely stored, and invalidated after logout, idle, and absolute timeouts.
 
 https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/
