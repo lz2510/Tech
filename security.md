@@ -433,6 +433,28 @@ https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html
 
 https://owasp.org/Top10/A01_2021-Broken_Access_Control/
 
+### CSRF
+
+CSRF belonds to broken access control.
+
+Cross-Site Request Forgery (CSRF) is an attack that forces an end user to execute unwanted actions on a web application in which they’re currently authenticated. With a little help of social engineering (such as sending a link via email or chat), an attacker may trick the users of a web application into executing actions of the attacker’s choosing. If the victim is a normal user, a successful CSRF attack can force the user to perform state changing requests like transferring funds, changing their email address, and so forth. If the victim is an administrative account, CSRF can compromise the entire web application.
+
+https://cwe.mitre.org/data/definitions/352.html  
+https://owasp.org/www-community/attacks/csrf  
+https://owasp.org/Top10/A01_2021-Broken_Access_Control/  
+https://cwe.mitre.org/data/definitions/1345.html  
+
+### CSRF vs XSS
+
+CSRF and XSS are different in several ways. First, CSRF relies on the user's browser to send a request to the target site, while XSS relies on the user's browser to execute code from the attacker's site. Second, CSRF does not require the attacker to compromise the target site, while XSS does.
+
+https://www.linkedin.com/advice/0/how-do-you-compare-contrast-csrf-xss-terms#:~:text=CSRF%20and%20XSS%20are%20different,target%20site%2C%20while%20XSS%20does.  
+
+### CORS
+
+https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+
 ## Cryptographic Failures
 
 Notable Common Weakness Enumerations (CWEs) included are CWE-259: Use of Hard-coded Password, CWE-327: Broken or Risky Crypto Algorithm
