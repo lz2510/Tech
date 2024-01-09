@@ -51,3 +51,15 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 - Implement Appropriate Logging
 
 https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html  
+
+## Implement Security Logging and Monitoring
+
+- Follow a common logging format and approach within the system and across systems of an organization. An example of a common logging framework is the Apache Logging Services which helps provide logging consistency between Java, PHP, .NET, and C++ applications.
+- Do not log too much or too little. For example, make sure to always log the timestamp and identifying information including the source IP and user-id, but be careful not to log private or confidential data.
+- Pay close attention to time syncing across nodes to ensure that timestamps are consistent.
+
+https://owasp.org/www-project-proactive-controls/v3/en/c9-security-logging.html  
+https://logging.apache.org  
+
+
+
