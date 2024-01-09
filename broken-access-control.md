@@ -1,6 +1,6 @@
-## Broken Access Control
+# Broken Access Control
 
-### Description:
+## Description:
 1. Violation of the principle of least privilege or deny by default, where access should only be granted for particular capabilities, roles, or users, but is available to anyone.
 2. Accessing API with missing access controls for POST, PUT and DELETE.
 3. CORS misconfiguration allows API access from unauthorized/untrusted origins.
@@ -16,7 +16,7 @@
 
 https://owasp.org/Top10/A01_2021-Broken_Access_Control/
 
-### CSRF
+## CSRF
 
 CSRF belonds to broken access control.
 
@@ -33,7 +33,21 @@ CSRF and XSS are different in several ways. First, CSRF relies on the user's bro
 
 https://www.linkedin.com/advice/0/how-do-you-compare-contrast-csrf-xss-terms#:~:text=CSRF%20and%20XSS%20are%20different,target%20site%2C%20while%20XSS%20does.  
 
-### CORS
+## CORS
 
-https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
-https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources. CORS also relies on a mechanism by which browsers make a "preflight" request to the server hosting the cross-origin resource, in order to check that the server will permit the actual request. In that preflight, the browser sends headers that indicate the HTTP method and headers that will be used in the actual request.
+
+https://en.wikipedia.org/wiki/Cross-origin_resource_sharing  
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS  
+
+## Authorization
+
+### Recommendations
+
+- Enforce Least Privileges
+- Deny by Default
+- Validate the Permissions on Every Request
+- Enforce Authorization Checks on Static Resources
+- Implement Appropriate Logging
+
+https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html  
