@@ -14,9 +14,12 @@
 * Rate limit API and controller access to minimize the harm from automated attack tooling.
 * Stateful session identifiers should be invalidated on the server after logout. Stateless JWT tokens should rather be short-lived so that the window of opportunity for an attacker is minimized. For longer lived JWTs it's highly recommended to follow the OAuth standards to revoke access.
 
-https://owasp.org/Top10/A01_2021-Broken_Access_Control/
+https://owasp.org/Top10/A01_2021-Broken_Access_Control/  
+https://cwe.mitre.org/data/definitions/1345.html  
 
 ## CSRF
+
+### Description
 
 CSRF belongs to broken access control.
 
@@ -27,8 +30,11 @@ The target site cannot distinguish between a legitimate request and a forged one
 https://cwe.mitre.org/data/definitions/352.html  
 https://owasp.org/www-community/attacks/csrf  
 https://owasp.org/Top10/A01_2021-Broken_Access_Control/  
-https://cwe.mitre.org/data/definitions/1345.html  
 https://www.linkedin.com/advice/0/how-do-you-compare-contrast-csrf-xss-terms  
+
+### How to prevent
+
+https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html  
 
 ### CSRF vs XSS
 
