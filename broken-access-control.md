@@ -34,6 +34,10 @@ https://www.linkedin.com/advice/0/how-do-you-compare-contrast-csrf-xss-terms
 
 ### How to prevent
 
+1. IMPORTANT: Remember that Cross-Site Scripting (XSS) can defeat all CSRF mitigation techniques!
+2. If an API-driven site can't use <form> tags, consider using custom request headers.
+3. User Interaction-Based CSRF Defense. Like login to platform to grant. OAuth2
+
 https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html  
 
 ### CSRF vs XSS
