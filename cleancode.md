@@ -98,4 +98,17 @@ If openness separates concepts, then vertical density implies close association.
 
 3. Dependent Functions. If one function calls another, they should be vertically close, and the caller should be above the callee.
 
+## Concepts
+
+### Flag argument
+
+https://martinfowler.com/bliki/FlagArgument.html
+
+### Magic number
+
+https://en.wikipedia.org/wiki/Magic_number_(programming)
+
+### Output argument
+
+https://softwareengineering.stackexchange.com/questions/322490/what-is-an-output-argument-as-refered-to-in-martins-clean-code
 
