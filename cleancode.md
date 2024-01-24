@@ -114,5 +114,7 @@ It is simply talking about readability.
 
 The problem with the appendFooter example is, if you find the code line appendFooter(s) somewhere in a program, it is not immediately obvious if that call takes s as an input and appends it somewhere, or if s is used as an output argument, only passed into the method to take the output of that function. To be sure, you need to check the function's documentation. A call like report.appendFooter(), however, avoids that problem: it is much more obvious now what happens.
 
+It's a matter of using an unexpected mechanism for returning a value from the function, which is usually a result of doing too much in the function or having misaligned responsibilities. By far, the best way to communicate a function's result is to use the return value. I hope that's self-evident. In object-oriented languages, the second-best method is to mutate the object.
+
 https://softwareengineering.stackexchange.com/questions/322490/what-is-an-output-argument-as-refered-to-in-martins-clean-code
 
