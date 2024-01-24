@@ -118,3 +118,22 @@ It's a matter of using an unexpected mechanism for returning a value from the fu
 
 https://softwareengineering.stackexchange.com/questions/322490/what-is-an-output-argument-as-refered-to-in-martins-clean-code
 
+### artificial coupling
+
+An artificial coupling is a coupling which is only there for technical reasons.
+
+The following couplings are natural ones:
+
+- Library depending on Book
+- Stopwatch depending on Time
+- Order depending on OrderItem
+- OrderProxy depending on Order
+…
+The following couplings are artificial:
+
+- Time depending on Stopwatch (time should be meaningful without a stopwatch)
+- OrderItem depending on Order (an order item way at least be viewed separately from the order whereas an order without any items is not an order anymore)
+- Order depending on DatabaseConnection (an order which is not persisted is normally still an order, the dependency is not necessary from a conceptual point of view)
+- Order depending on OrderProxy
+
+http://principles-wiki.net/glossary:artificial_coupling  
