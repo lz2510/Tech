@@ -108,7 +108,11 @@ https://martinfowler.com/bliki/FlagArgument.html
 
 https://en.wikipedia.org/wiki/Magic_number_(programming)
 
-### Output argument
+### Avoid Output argument
+
+It is simply talking about readability.
+
+The problem with the appendFooter example is, if you find the code line appendFooter(s) somewhere in a program, it is not immediately obvious if that call takes s as an input and appends it somewhere, or if s is used as an output argument, only passed into the method to take the output of that function. To be sure, you need to check the function's documentation. A call like report.appendFooter(), however, avoids that problem: it is much more obvious now what happens.
 
 https://softwareengineering.stackexchange.com/questions/322490/what-is-an-output-argument-as-refered-to-in-martins-clean-code
 
