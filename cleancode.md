@@ -112,3 +112,13 @@ https://en.wikipedia.org/wiki/Magic_number_(programming)
 
 https://softwareengineering.stackexchange.com/questions/322490/what-is-an-output-argument-as-refered-to-in-martins-clean-code
 
+### temporal coupling
+
+In object-oriented programming, sequential coupling (also known as temporal coupling) is a form of coupling where a class requires its methods to be called in a particular sequence. This may be an anti-pattern, depending on context.
+
+Methods whose name starts with Init, Begin, Start, etc. may indicate the existence of sequential coupling.
+
+solution: template methods design pattern 
+
+https://en.wikipedia.org/wiki/Sequential_couplin  
+https://www.codeproject.com/Articles/72734/Refactor-Sequential-Coupling-Template-Method  
