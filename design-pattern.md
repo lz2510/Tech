@@ -66,3 +66,101 @@ Patterns are not only about UML, but their definition and idea that stand behind
 
 https://medium.com/@iamprovidence/strategy-vs-state-pattern-6168cc102c91  
 
+## factory method pattern
+
+In class-based programming, the factory method pattern is a creational pattern that uses factory methods to deal with the problem of creating objects without having to specify the exact class of the object that will be created. This is done by creating objects by calling a factory method—either specified in an interface and implemented by child classes, or implemented in a base class and optionally overridden by derived classes—rather than by calling a constructor. 
+
+### interface
+
+Another example in PHP follows, this time using interface implementations as opposed to subclassing (however, the same can be achieved through subclassing). It is important to note that the factory method can also be defined as public and called directly by the client code (in contrast with the Java example above).
+
+    /* Concrete implementations of the factory and car */
+    class SedanFactory implements CarFactory
+    {
+        public function makeCar(): Car
+        {
+            return new Sedan();
+        }
+    }
+    
+    class Sedan implements Car
+    {
+        public function getType(): string
+        {
+            return 'Sedan';
+        }
+    }
+
+https://en.wikipedia.org/wiki/Factory_method_pattern#PHP
+
+### base class and subclass override
+
+1. no subclass
+
+  /// <summary>
+  /// Implementation of Factory - Used to create objects.
+  /// </summary>
+  public class PersonFactory
+  {
+      public IPerson GetPerson(PersonType type)
+      {
+          switch (type)
+          {
+              case PersonType.Rural:
+                  return new Villager();
+              case PersonType.Urban:
+                  return new CityPerson();
+              default:
+                  throw new NotSupportedException();
+          }
+      }
+  }
+
+2. abstract function in baseclass
+   
+  /* Almost same as Factory, just an additional exposure to do something with the created method */
+  public abstract class ProductAbstractFactory
+  {
+      protected abstract IProduct MakeProduct();
+  
+      public IProduct GetObject() // Implementation of Factory Method.
+      {
+          return this.MakeProduct();
+      }
+  }
+  
+  public class PhoneConcreteFactory : ProductAbstractFactory
+  {
+      protected override IProduct MakeProduct()
+      {
+          IProduct product = new Phone();
+          // Do something with the object after you get the object.
+          product.SetPrice(20.30);
+          return product;
+      }
+  }
+
+3. no abstract function in baseclass
+
+        class A {
+            public void doSomething() {
+            Foo f = makeFoo();
+            f.whatever();   
+        }
+
+        protected Foo makeFoo() {
+            return new RegularFoo();
+        }
+
+
+      class B extends A {
+          protected Foo makeFoo() {
+              //subclass is overriding the factory method 
+              //to return something different
+              return new SpecialFoo();
+          }
+      }
+   
+https://en.wikipedia.org/wiki/Factory_method_pattern#C#  
+https://stackoverflow.com/questions/5739611/what-are-the-differences-between-abstract-factory-and-factory-design-patterns  
+
