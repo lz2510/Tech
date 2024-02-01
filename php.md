@@ -227,6 +227,46 @@ Fatal error: Interfaces may not include properties
 https://www.php.net/manual/en/language.oop5.interfaces.php  
 https://medium.com/@ibrbayazit/php-interface-vs-abstract-class-2b708ea4347c  
 
+### all methonds both in interface and abstract must be fully implemented. 
+
+all methonds in interface must be implemented. the same as abstract method, must be implementd in the subclass. 
+
+        interface A 
+        {
+        	public function abc(): void;
+        	
+        	public function abd(): void;
+        }
+        
+        class B implements A
+        {
+        	public function abc(): void
+        	{
+        	  echo 'this is abc';
+        	}
+        }
+
+        Fatal error: Class B contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (A::abd)
+
+below is abstract error. the error message is the same, so interface and abstract both are abstraction in php.
+
+        Fatal error: Class B contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (A::abd) 
+        
+        abstract class A 
+        {
+        	public abstract function abc(): void;
+        	
+        	public abstract function abd(): void;
+        }
+        
+        class B extends A
+        {
+        	public function abc(): void
+        	{
+        	  echo 'this is abc';
+        	}
+        }
+
 ### benefits
 
 1. Interface benefits
