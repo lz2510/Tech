@@ -51,6 +51,8 @@ When exploring, add children nodes to the queue immediately. but explore other b
         return $levels;
     }
 
+https://leetcode.com/problems/maximum-depth-of-binary-tree/  
+
 ## Python
 
 <img width="650" alt="bfs" src="https://user-images.githubusercontent.com/1209204/209937599-3a49bc2a-3c29-4ca0-b8cc-0ac7117c57c2.png">
@@ -60,8 +62,4 @@ This non-recursive implementation is similar to the non-recursive implementation
 2. it checks whether a vertex has been explored before enqueueing the vertex rather than delaying this check until the vertex is dequeued from the queue.
 
 https://en.wikipedia.org/wiki/Breadth-first_search  
-https://medium.com/@CleytonBonamigo/mastering-the-depth-understanding-and-calculating-the-maximum-depth-of-binary-trees-in-php-633a7ad5a053  
-
-## leetcode
-
-https://leetcode.com/problems/maximum-depth-of-binary-tree/  
+https://medium.com/@CleytonBonamigo/mastering-the-depth-understanding-and-calculating-the-maximum-depth-of-binary-trees-in-php-633a7ad5a053   

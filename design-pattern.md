@@ -164,3 +164,63 @@ https://en.wikipedia.org/wiki/Factory_method_pattern#PHP
 https://en.wikipedia.org/wiki/Factory_method_pattern#C#  
 https://stackoverflow.com/questions/5739611/what-are-the-differences-between-abstract-factory-and-factory-design-patterns  
 
+## Template Method Pattern
+
+### These helpers methods like getToSendProductList has three options.
+
+1. abstract methods. like the example.
+2. default implemention. For example getToSendProductList can have default implement and not abstract method. If subclasses use the same logic, don't need to override. If the logic is different, override it.
+3. hook method. If getToSendProductList is not abstract method, but has empty boday. It's a hook.
+
+### final and protected
+template method itself like sendProduct should not be overriden, so declare as final.
+abstract functions in superclass should be declared as protected, which means only subclasses can implement them. The implementation in subclasses can be protected or public, as subclasses function visibility can the same or bigger than superclasses.
+
+
+        abstract class ProductService
+        {
+            final public function sendProduct(int $limit)
+            {
+                $productList = $this->getToSendProductList($limit);
+                
+                $sendProductList = $this->generateData($productList);
+            }
+        
+            abstract protected function getToSendProductList(int $limit): array;
+        
+            abstract protected function generateData(array $productList): array;
+        }
+
+        class ProductNewService extends ProductService
+        {
+            protected function getToSendProductList(int $limit): array
+            {
+             	$productList = ['test];   
+                return $productList;
+            }
+        
+            protected function generateData(array $productList): array
+            {
+                $result = ['test'];
+                return $result;
+            }
+        }
+
+
+### abstract can be place before or after public or protected.
+
+        abstract protected function getToSendProductList(int $limit): array;
+or 
+
+        protected abstract function getToSendProductList(int $limit): array;
+
+
+
+### final can be place before or after public or protected.
+
+        final public function sendProduct(int $limit)
+or
+
+        public final function sendProduct(int $limit)
+
+https://en.wikipedia.org/wiki/Template_method_pattern
