@@ -6,25 +6,39 @@ Two common approaches are cache-aside or lazy loading (a reactive approach) and 
 
 ### Cache-Aside (Lazy Loading) (Read-Through)
 
-![image](https://github.com/lz2510/Tech/assets/1209204/b091659c-ea41-4c56-b157-1b598f175df0)
-
-
 An application can emulate the functionality of read-through caching by implementing the cache-aside strategy. 
 
 A cache-aside cache is the most common caching strategy available. The fundamental data retrieval logic can be summarized as follows:
 
-When your application needs to read data from the database, it checks the cache first to determine whether the data is available.
-If the data is available (a cache hit), the cached data is returned, and the response is issued to the caller.
-If the data isn’t available (a cache miss), the database is queried for the data. The cache is then populated with the data that is retrieved from the database, and the data is returned to the caller.
+1. When your application needs to read data from the database, it checks the cache first to determine whether the data is available.
+2. If the data is available (a cache hit), the cached data is returned, and the response is issued to the caller.
+3. If the data isn’t available (a cache miss), the database is queried for the data. The cache is then populated with the data that is retrieved from the database, and the data is returned to the caller.
+
+![image](https://github.com/lz2510/Tech/assets/1209204/b091659c-ea41-4c56-b157-1b598f175df0)
+
+This approach has a couple of advantages:
+
+1. The cache contains only data that the application actually requests, which helps keep the cache size cost-effective.
+2. Implementing this approach is straightforward and produces immediate performance gains, whether you use an application framework that encapsulates lazy caching or your own custom application logic.
+
+A disadvantage when using cache-aside as the only caching pattern is that because the data is loaded into the cache only after a cache miss, some overhead is added to the initial response time because additional roundtrips to the cache and database are needed.
 
 ### Write-Through
 
-![image](https://github.com/lz2510/Tech/assets/1209204/670f1275-d591-4220-a411-e10082af83bb)
-
 A write-through cache reverses the order of how the cache is populated. Instead of lazy-loading the data in the cache after a cache miss, the cache is proactively updated immediately following the primary database update. The fundamental data retrieval logic can be summarized as follows:
 
-The application, batch, or backend process updates the primary database.
-Immediately afterward, the data is also updated in the cache.
+1. The application, batch, or backend process updates the primary database.
+2. Immediately afterward, the data is also updated in the cache.
+
+![image](https://github.com/lz2510/Tech/assets/1209204/670f1275-d591-4220-a411-e10082af83bb)
+
+The write-through pattern is almost always implemented along with lazy loading. If the application gets a cache miss because the data is not present or has expired, the lazy loading pattern is performed to update the cache.
+The write-through approach has a couple of advantages:
+- Because the cache is up-to-date with the primary database, there is a much greater likelihood that the data will be found in the cache. This, in turn, results in better overall application performance and user experience.
+- The performance of your database is optimal because fewer database reads are performed.
+
+A disadvantage of the write-through approach is that infrequently-requested data is also written to the cache, resulting in a larger and more expensive cache.
+A proper caching strategy includes effective use of both write-through and lazy loading of your data and setting an appropriate expiration for the data to keep it relevant and lean.
 
 ### Write-Behind
 
