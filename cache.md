@@ -6,6 +6,9 @@ Two common approaches are cache-aside or lazy loading (a reactive approach) and 
 
 ### Cache-Aside (Lazy Loading) (Read-Through)
 
+![image](https://github.com/lz2510/Tech/assets/1209204/b091659c-ea41-4c56-b157-1b598f175df0)
+
+
 An application can emulate the functionality of read-through caching by implementing the cache-aside strategy. 
 
 A cache-aside cache is the most common caching strategy available. The fundamental data retrieval logic can be summarized as follows:
@@ -16,6 +19,7 @@ If the data isn’t available (a cache miss), the database is queried for the da
 
 ### Write-Through
 
+![image](https://github.com/lz2510/Tech/assets/1209204/670f1275-d591-4220-a411-e10082af83bb)
 
 A write-through cache reverses the order of how the cache is populated. Instead of lazy-loading the data in the cache after a cache miss, the cache is proactively updated immediately following the primary database update. The fundamental data retrieval logic can be summarized as follows:
 
