@@ -97,69 +97,69 @@ https://en.wikipedia.org/wiki/Factory_method_pattern#PHP
 
 1. no subclass
 
-  /// <summary>
-  /// Implementation of Factory - Used to create objects.
-  /// </summary>
-  public class PersonFactory
-  {
-      public IPerson GetPerson(PersonType type)
-      {
-          switch (type)
+          /// <summary>
+          /// Implementation of Factory - Used to create objects.
+          /// </summary>
+          public class PersonFactory
           {
-              case PersonType.Rural:
-                  return new Villager();
-              case PersonType.Urban:
-                  return new CityPerson();
-              default:
-                  throw new NotSupportedException();
+              public IPerson GetPerson(PersonType type)
+              {
+                  switch (type)
+                  {
+                      case PersonType.Rural:
+                          return new Villager();
+                      case PersonType.Urban:
+                          return new CityPerson();
+                      default:
+                          throw new NotSupportedException();
+                  }
+              }
           }
-      }
-  }
 
 2. abstract function in baseclass
    
-  /* Almost same as Factory, just an additional exposure to do something with the created method */
-  public abstract class ProductAbstractFactory
-  {
-      protected abstract IProduct MakeProduct();
-  
-      public IProduct GetObject() // Implementation of Factory Method.
-      {
-          return this.MakeProduct();
-      }
-  }
-  
-  public class PhoneConcreteFactory : ProductAbstractFactory
-  {
-      protected override IProduct MakeProduct()
-      {
-          IProduct product = new Phone();
-          // Do something with the object after you get the object.
-          product.SetPrice(20.30);
-          return product;
-      }
-  }
+          /* Almost same as Factory, just an additional exposure to do something with the created method */
+          public abstract class ProductAbstractFactory
+          {
+              protected abstract IProduct MakeProduct();
+          
+              public IProduct GetObject() // Implementation of Factory Method.
+              {
+                  return this.MakeProduct();
+              }
+          }
+          
+          public class PhoneConcreteFactory : ProductAbstractFactory
+          {
+              protected override IProduct MakeProduct()
+              {
+                  IProduct product = new Phone();
+                  // Do something with the object after you get the object.
+                  product.SetPrice(20.30);
+                  return product;
+              }
+          }
 
 3. no abstract function in baseclass
 
-        class A {
-            public void doSomething() {
-            Foo f = makeFoo();
-            f.whatever();   
-        }
+            class A {
+                public void doSomething() {
+                Foo f = makeFoo();
+                f.whatever();   
+            }
+    
+            protected Foo makeFoo() {
+                return new RegularFoo();
+            }
 
-        protected Foo makeFoo() {
-            return new RegularFoo();
-        }
 
-
-      class B extends A {
-          protected Foo makeFoo() {
-              //subclass is overriding the factory method 
-              //to return something different
-              return new SpecialFoo();
+          class B extends A {
+              protected Foo makeFoo() {
+                  //subclass is overriding the factory method 
+                  //to return something different
+                  return new SpecialFoo();
+              }
           }
-      }
    
 https://en.wikipedia.org/wiki/Factory_method_pattern#C#  
 https://stackoverflow.com/questions/5739611/what-are-the-differences-between-abstract-factory-and-factory-design-patterns  
