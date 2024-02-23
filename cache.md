@@ -18,7 +18,9 @@ Two common approaches are cache-aside or lazy loading (a reactive approach) and 
 
 ### Cache-Aside (Lazy Loading) (Read-Through)
 
-An application can emulate the functionality of read-through caching by implementing the cache-aside strategy. 
+In a cache-aside arrangement, the database cache sits next to the database. When the application requests data, it will check the cache first. If the cache has the data (a cache hit), then it will return it. If the cache does not have the data (a cache miss), then the application will query the database. The application then stores that data in the cache for any subsequent queries.
+
+Read-through caches are good for read-heavy workloads. 
 
 A cache-aside cache is the most common caching strategy available. The fundamental data retrieval logic can be summarized as follows:
 
@@ -28,12 +30,29 @@ A cache-aside cache is the most common caching strategy available. The fundament
 
 ![image](https://github.com/lz2510/Tech/assets/1209204/b091659c-ea41-4c56-b157-1b598f175df0)
 
+![image](https://github.com/lz2510/Tech/assets/1209204/e0fbfd64-7d91-4c76-bcbb-ecfa254e17c7)
+
+
 This approach has a couple of advantages:
 
 1. The cache contains only data that the application actually requests, which helps keep the cache size cost-effective.
 2. Implementing this approach is straightforward and produces immediate performance gains, whether you use an application framework that encapsulates lazy caching or your own custom application logic.
 
 A disadvantage when using cache-aside as the only caching pattern is that because the data is loaded into the cache only after a cache miss, some overhead is added to the initial response time because additional roundtrips to the cache and database are needed.
+
+### Read-Through
+
+![image](https://github.com/lz2510/Tech/assets/1209204/f7dc5bba-8da4-41ba-ad1d-36fd7cddbffb)
+
+In a read through cache arrangement, the cache sits between the application and the database. It can be envisioned like a straight line from application to database with the cache in the middle. In this strategy, the application will always speak with the cache for a read, and when there is a cache hit, the data is immediately returned. In the case of a cache miss, the cache will populate the missing data from the database and then return it to the application. For any data writes, the application will still go directly to the database.
+
+Read-through caches are also good for read-heavy workloads. 
+
+#### differences between read-through and cache-aside
+
+"An application can emulate the functionality of read-through caching by implementing the cache-aside strategy." It's not correct. They are slightly different as below.
+
+The main differences between read-through and cache-aside is that in a cache-aside strategy the application is responsible for fetching the data and populating the cache, while in a read-through setup, the logic is done by a library or some separate cache provider. A read-through setup is similar to a cache-aside in regards to potential data inconsistency between cache and database.
 
 ### Write-Through
 
@@ -44,6 +63,8 @@ A write-through cache reverses the order of how the cache is populated. Instead 
 
 ![image](https://github.com/lz2510/Tech/assets/1209204/670f1275-d591-4220-a411-e10082af83bb)
 
+![image](https://github.com/lz2510/Tech/assets/1209204/b253e345-1247-4195-8306-fd2196619a6b)
+
 The write-through pattern is almost always implemented along with lazy loading. If the application gets a cache miss because the data is not present or has expired, the lazy loading pattern is performed to update the cache.
 The write-through approach has a couple of advantages:
 - Because the cache is up-to-date with the primary database, there is a much greater likelihood that the data will be found in the cache. This, in turn, results in better overall application performance and user experience.
@@ -52,18 +73,29 @@ The write-through approach has a couple of advantages:
 A disadvantage of the write-through approach is that infrequently-requested data is also written to the cache, resulting in a larger and more expensive cache.
 A proper caching strategy includes effective use of both write-through and lazy loading of your data and setting an appropriate expiration for the data to keep it relevant and lean.
 
-### Write-Behind
+### Write-Behind/Wirte-Back
 
 In the Write-Behind scenario, modified cache entries are asynchronously written to the data source after a configured delay, whether after 10 seconds, 20 minutes, a day, a week or even longer.
+
+In this scenario, the application writes data to the cache, which is immediately acknowledged, and then the cache itself writes the data back to the database in the background. Write-behind caches, sometimes known as write-back caches, are best for write-heavy workloads, and they improve write performance because the application doesn't need to wait for the write to complete before moving to the next task.
+
+![image](https://github.com/lz2510/Tech/assets/1209204/df36c16a-0f2a-44cc-b0f3-655c17b53427)
+
 
 ### Refresh-Ahead
 
 In the Refresh-Ahead scenario, Coherence allows a developer to configure a cache to automatically and asynchronously reload (refresh) any recently accessed cache entry from the cache loader before its expiration
 
-https://docs.aws.amazon.com/whitepapers/latest/database-caching-strategies-using-redis/caching-patterns.html  
+### write around
+
+![image](https://github.com/lz2510/Tech/assets/1209204/c1680adb-16ac-4ad3-8941-3f181cd9392d)
+
+https://docs.aws.amazon.com/whitepapers/latest/database-caching-strategies-using-redis/caching-patterns.html 
+https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-caching/#Types-of-caching  
+https://www.prisma.io/dataguide/managing-databases/introduction-database-caching#what-are-the-different-database-caching-strategies  
 https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside  
 https://docs.oracle.com/cd/E15357_01/coh.360/e15723/cache_rtwtwbra.htm#COHDG5177  
-https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-caching/#Types-of-caching  
+https://www.enjoyalgorithms.com/blog/write-around-caching-pattern  
 
 ## Benefits of caching
 
@@ -110,5 +142,18 @@ When data is updated, the corresponding cache entries should be invalidated to e
 
 The order of the steps is important. Update the data store before removing the item from the cache. If you remove the cached item first, there is a small window of time when a client might fetch the item before the data store is updated. That will result in a cache miss (because the item was removed from the cache), causing the earlier version of the item to be fetched from the data store and added back into the cache. The result will be stale cache data.
 
+## Distributed cache vs. session store
 
+People often confuse distributed caches with session stores, which are similar but with different requirements and purposes. Instead of using a distributed cache to supplement a database, developers implement session stores, which are temporary data stores at the user layer, for profiles, messages, and other user data in session-oriented applications like web apps.
+
+What is a session store?
+Session-oriented applications track actions that users take while they're signed into the applications. To preserve that data when the user signs out, you can keep it in a session store, which improves session management, reduces costs, and speeds application performance.
+
+How is using a session store different from caching a database?
+In a session store, data isn't shared between different users, while with caching, different users can access the same cache. Developers use caching to improve the performance of a database or storage instance, while they use session stores to boost application performance by writing data to the in-memory store, eliminating the need to access a database at all.
+
+Data that's written to a session store is typically short-lived, while data that’s cached with a primary database is usually meant to last much longer. A session store requires replication, high availability, and data durability to ensure that transactional data doesn’t get lost and users remain engaged. On the other hand, if the data in a side-cache gets lost, there’s always a copy of it in the permanent database.
+
+https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-caching/#Cache-vs-session-store  
+https://stackoverflow.com/questions/33897276/what-is-the-difference-between-a-session-store-and-database  
 
