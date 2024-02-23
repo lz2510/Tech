@@ -12,6 +12,8 @@ Developers can supplement a primary database with a database cache, which they c
 
 ## Caching patterns
 
+Your caching strategy depends on how your application reads and writes data. Is your application write-heavy, or is data written once and read frequently? Is the data that's returned always unique? Different data access patterns will influence how you configure a cache. Common caching types include cache-aside, read-through/write-through, and write-behind/write-back.
+
 Two common approaches are cache-aside or lazy loading (a reactive approach) and write-through (a proactive approach). A cache-aside cache is updated after the data is requested. A write-through cache is updated immediately when the primary database is updated. With both approaches, the application is essentially managing what data is being cached and for how long.
 
 ### Cache-Aside (Lazy Loading) (Read-Through)
@@ -50,6 +52,8 @@ The write-through approach has a couple of advantages:
 A disadvantage of the write-through approach is that infrequently-requested data is also written to the cache, resulting in a larger and more expensive cache.
 A proper caching strategy includes effective use of both write-through and lazy loading of your data and setting an appropriate expiration for the data to keep it relevant and lean.
 
+The order of the steps is important. Update the data store before removing the item from the cache. If you remove the cached item first, there is a small window of time when a client might fetch the item before the data store is updated. That will result in a cache miss (because the item was removed from the cache), causing the earlier version of the item to be fetched from the data store and added back into the cache. The result will be stale cache data.
+
 ### Write-Behind
 
 In the Write-Behind scenario, modified cache entries are asynchronously written to the data source after a configured delay, whether after 10 seconds, 20 minutes, a day, a week or even longer.
@@ -61,6 +65,24 @@ In the Refresh-Ahead scenario, Coherence allows a developer to configure a cache
 https://docs.aws.amazon.com/whitepapers/latest/database-caching-strategies-using-redis/caching-patterns.html  
 https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside  
 https://docs.oracle.com/cd/E15357_01/coh.360/e15723/cache_rtwtwbra.htm#COHDG5177  
+https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-caching/#Types-of-caching  
+
+## Benefits of caching
+
+### Improved application performance
+
+Reading data from an in-memory cache is much faster than accessing data from a disk-driven data store. And with faster access to data, the overall application experience significantly improves.
+
+### Reduced database usage and costs
+
+Caching leads to fewer database queries, improving performance and reducing costs by limiting the need to scale database infrastructure and decreasing throughput charges.
+
+### Scalable and predictable performance
+
+A single cache instance can handle millions of requests per second, offering a level of throughput and scalability that databases can't match. Caching also offers the flexibility you need whether you're scaling out or scaling up your applications and data stores. Then your application can let many users access the same files simultaneously, without increasing the load on back-end databases. And if an application often experiences spikes in usage and high throughput, in-memory caches can mitigate latency.
+
+https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-caching/#Benefits-of-caching  
+https://medium.com/@noor1yasser9/understanding-caching-in-laravel-b140542f08dd  
 
 ## What is caching used for?
 
@@ -76,15 +98,7 @@ Database speed and throughput can be key factors in overall application performa
 
 Application users often generate data that must be stored for short periods. An in-memory data store like Redis is perfect for efficiently and reliably storing high volumes of session data like user input, shopping cart entries, or personalization preferences at a lower cost than storage or databases.
 
-## Benefits of caching
-
-1. **Faster Response Times**: By serving cached data, the application can respond to user requests much faster, as the data is readily available without the need for expensive database queries or computations.
-   
-2. **Reduced Database Load**: Frequent database queries can put a strain on the database server, leading to slower performance. Caching helps offload the database by serving frequently accessed data from the cache.
-
-3. **Improved Scalability**: Caching allows the application to handle more concurrent users efficiently, as cached data can be served without consuming additional server resources.
-
-https://medium.com/@noor1yasser9/understanding-caching-in-laravel-b140542f08dd
+https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-caching/#Uses-and-reasons-for-caching  
 
 ## Invalidate caches appropriately
 
