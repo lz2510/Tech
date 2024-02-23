@@ -1,5 +1,15 @@
 # Cache
 
+## Overview
+
+Developers and IT professionals use caching to save and access key-value data in temporary memory faster and with less effort than data stored in conventional data storage. Caches are useful in multiple scenarios with multiple technologies, such as computer caching with random access memory (RAM), network caching on a content delivery network, a web cache for web multimedia data, or a cloud cache to help make cloud-apps more resilient. Developers often design applications to cache processed data and then repurpose it to serve requests faster than in standard database queries.
+
+You can use caching to reduce database costs, deliver higher throughput and lower latency than most databases can offer, and boost the performance of cloud and web applications.
+
+## How does caching work for databases?
+
+Developers can supplement a primary database with a database cache, which they can place within the database or application, or set up as a standalone layer. While they typically rely on a conventional database to store large, durable, complete datasets, they use a cache to store transient subsets of data for quick retrieval.
+
 ## Caching patterns
 
 Two common approaches are cache-aside or lazy loading (a reactive approach) and write-through (a proactive approach). A cache-aside cache is updated after the data is requested. A write-through cache is updated immediately when the primary database is updated. With both approaches, the application is essentially managing what data is being cached and for how long.
@@ -51,6 +61,20 @@ In the Refresh-Ahead scenario, Coherence allows a developer to configure a cache
 https://docs.aws.amazon.com/whitepapers/latest/database-caching-strategies-using-redis/caching-patterns.html  
 https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside  
 https://docs.oracle.com/cd/E15357_01/coh.360/e15723/cache_rtwtwbra.htm#COHDG5177  
+
+## What is caching used for?
+
+### Output caching
+
+Output caching helps increase webpage performance by storing the full source code of pages such as HTML and client scripts that a server sends to browsers for rendering. Every time a user views the page, the server caches the output code in the application's memory. This enables the application to serve requests without running page code or communicating with other servers.
+
+### Data caching and database caching
+
+Database speed and throughput can be key factors in overall application performance. Database caching is used for frequent calls to data that doesn't change often, such as pricing or inventory data. It helps websites and applications load faster while increasing throughput and lowering data retrieval latency from back-end databases.
+
+### Storing user session data
+
+Application users often generate data that must be stored for short periods. An in-memory data store like Redis is perfect for efficiently and reliably storing high volumes of session data like user input, shopping cart entries, or personalization preferences at a lower cost than storage or databases.
 
 ## Benefits of caching
 
