@@ -52,8 +52,6 @@ The write-through approach has a couple of advantages:
 A disadvantage of the write-through approach is that infrequently-requested data is also written to the cache, resulting in a larger and more expensive cache.
 A proper caching strategy includes effective use of both write-through and lazy loading of your data and setting an appropriate expiration for the data to keep it relevant and lean.
 
-The order of the steps is important. Update the data store before removing the item from the cache. If you remove the cached item first, there is a small window of time when a client might fetch the item before the data store is updated. That will result in a cache miss (because the item was removed from the cache), causing the earlier version of the item to be fetched from the data store and added back into the cache. The result will be stale cache data.
-
 ### Write-Behind
 
 In the Write-Behind scenario, modified cache entries are asynchronously written to the data source after a configured delay, whether after 10 seconds, 20 minutes, a day, a week or even longer.
@@ -104,6 +102,13 @@ https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-c
 
 When data is updated, the corresponding cache entries should be invalidated to ensure that clients receive the latest data. 
 
-One common approach to cache invalidation is to use a time-based expiration, where cache entries are invalidated after a fixed time period. 
+1. **time-based expiration** One common approach to cache invalidation is to use a time-based expiration, where cache entries are invalidated after a fixed time period. 
 
-Another approach is to use a "write-through" cache, where updates to the data are also written to the cache to ensure that the cache is always up to date.
+2. **update cache from db** Another approach is to use a "write-through" cache, where updates to the data are also written to the cache to ensure that the cache is always up to date.
+
+3. **remove cache and wait for cache aside to add back** It's similiar write around pattern. Only update db and remove cache. Add cache when the next query. The UpdateEntityAsync method shown below demonstrates how to invalidate an object in the cache when the value is changed by the application. The code updates the original data store and then removes the cached item from the cache.
+
+The order of the steps is important. Update the data store before removing the item from the cache. If you remove the cached item first, there is a small window of time when a client might fetch the item before the data store is updated. That will result in a cache miss (because the item was removed from the cache), causing the earlier version of the item to be fetched from the data store and added back into the cache. The result will be stale cache data.
+
+
+
