@@ -140,7 +140,32 @@ When data is updated, the corresponding cache entries should be invalidated to e
 
 3. **remove cache and wait for cache aside to add back** It's similiar write around pattern. Only update db and remove cache. Add cache when the next query. The UpdateEntityAsync method shown below demonstrates how to invalidate an object in the cache when the value is changed by the application. The code updates the original data store and then removes the cached item from the cache.
 
+### update db first or removing cache first
+
 The order of the steps is important. Update the data store before removing the item from the cache. If you remove the cached item first, there is a small window of time when a client might fetch the item before the data store is updated. That will result in a cache miss (because the item was removed from the cache), causing the earlier version of the item to be fetched from the data store and added back into the cache. The result will be stale cache data.
+
+和陈皓，有过几次架构方案的讨论，其中一个话题是：数据写操作时，应该先淘汰缓存，还是先修改数据库。
+
+我的观点是：应该先淘汰缓存。理由是：
+
+![image](https://github.com/lz2510/Tech/assets/1209204/856df1d5-ef90-4f3c-b4c8-65b0f3f0e315)
+
+如果先修改数据库，再淘汰缓存，毕竟这两个操作不是原子操作，可能出现修改数据库成功，然后中断（例如，服务重启），导致缓存存在脏数据的问题（数据库中为新，缓存中为旧）。
+
+![image](https://github.com/lz2510/Tech/assets/1209204/ea0b01b4-89a5-4014-b11a-a9d957194986)
+
+然而如果先淘汰缓存，即使操作中断，未来得及修改数据库，也最多额外引入一次cache miss，而不会引发脏数据（数据库中为旧，缓存中为NULL）。
+
+陈皓的观点是：应该先修改数据库。理由是：
+
+![image](https://github.com/lz2510/Tech/assets/1209204/3827e80d-0116-4477-accb-d76074ca9e93)
+
+如果先淘汰缓存，则并发读操作，会cache miss（2.1操作），并将从库中的脏数据（1.3仍未完成）读取出来（2.2操作），放入缓存，导致缓存存在脏数据的问题（2.3操作）。我俩争论不下。
+
+画外音：按照Cache Aside Pattern，建议先修改数据库。
+
+https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside  
+https://mp.weixin.qq.com/s/5KaHnfuj1EaiUPsOURglVw  
 
 ## Distributed cache vs. session store
 
