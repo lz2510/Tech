@@ -35,6 +35,20 @@ HTTP and HTTPS – HTTP stands for Hypertext transfer protocol. It is used by th
 SSH – SSH stands for Secure Shell. It is a terminal emulations software similar to Telnet. The reason SSH is more preferred is because of its ability to maintain the encrypted connection. It sets up a secure session over a TCP/IP connection.
 NTP – NTP stands for Network Time Protocol. It is used to synchronize the clocks on our computer to one standard time source. It is very useful in situations like bank transactions. Assume the following situation without the presence of NTP. Suppose you carry out a transaction, where your computer reads the time at 2:30 PM while the server records it at 2:28 PM. The server can crash very badly if it’s out of sync.
 
-
-# ref
 https://www.geeksforgeeks.org/tcp-ip-model/
+
+## Why would a ping to an IP be successful but a telnet to a port with the IP results in "Host is unreachable" 
+
+A successful ping just means a machine is reachable. For services such as telnet, ssh, smtp, http etc… to work, two things must be operational. 1. The port must be “open”, that is, not blocked by a firewall and not closed by the host. 2. A service (like telnet) must be “listening” on the open port.
+Telnet is fairly insecure, so is often blocked on many firewalls. You would have to “open a hole” (in common parlance) in the firewall to enable incoming connections. You would also have to start the Telnet service on the host.
+
+https://www.quora.com/Why-would-a-ping-to-an-IP-be-successful-but-a-telnet-to-a-port-with-the-IP-results-in-Host-is-unreachable-Linux-networking-docker-alpine
+
+## why ping failed but telnet 442 success 
+
+You say
+Ping fails while Telnet/ SSH works fine
+Ping uses ICMP while Telnet and SSH use TCP/IP. These are different protocols and are blocked differently at firewalls. Many firewall operators explicitly block ICMP to mitigate denial of service attacks, so this is not surprising.
+
+https://stackoverflow.com/questions/19556282/trying-to-connect-to-aws-instance-ping-fails-while-telnet-ssh-works-fine#:~:text=2%20Answers&text=Ping%20uses%20ICMP%20while%20Telnet,so%20this%20is%20not%20surprising.
+
