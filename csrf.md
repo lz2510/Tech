@@ -1,6 +1,6 @@
-## CSRF
+# CSRF
 
-### Description
+## Description
 
 CSRF belongs to broken access control.
 
@@ -13,7 +13,7 @@ https://owasp.org/www-community/attacks/csrf
 https://owasp.org/Top10/A01_2021-Broken_Access_Control/  
 https://www.linkedin.com/advice/0/how-do-you-compare-contrast-csrf-xss-terms  
 
-### How to prevent
+## How to prevent
 
 IMPORTANT: Remember that Cross-Site Scripting (XSS) can defeat all CSRF mitigation techniques!
 
@@ -24,9 +24,9 @@ IMPORTANT: Remember that Cross-Site Scripting (XSS) can defeat all CSRF mitigati
 5. User Interaction-Based CSRF Defense. Like login to platform to grant. OAuth2
 6. Do not use GET requests for state changing operations.
 
-#### Defense In Depth Techniques
+### Defense In Depth Techniques
 
-##### SameSite (Cookie Attribute)
+#### SameSite (Cookie Attribute)
 
 SameSite is a cookie attribute (similar to HTTPOnly, Secure etc.) which aims to mitigate CSRF attacks. It is defined in RFC6265bis. This attribute helps the browser decide whether to send cookies along with cross-site requests. Possible values for this attribute are Lax, Strict, or None.
 
@@ -41,7 +41,7 @@ Example of cookies using this attribute:
     Set-Cookie: JSESSIONID=xxxxx; SameSite=Strict
     Set-Cookie: JSESSIONID=xxxxx; SameSite=Lax
 
-##### Using Standard Headers to Verify Origin
+#### Using Standard Headers to Verify Origin
 
 There are two steps to this mitigation method, both of which examine an HTTP request header value:
 
@@ -50,7 +50,7 @@ There are two steps to this mitigation method, both of which examine an HTTP req
 
 At server-side, we verify if both of them match. If they do, we accept the request as legitimate (meaning it's the same origin request) and if they don't, we discard the request (meaning that the request originated from cross-domain). Reliability on these headers comes from the fact that they cannot be altered programmatically as they fall under forbidden headers list, meaning that only the browser can set them.
 
-###### Identifying Source Origin (via Origin/Referer Header)
+##### Identifying Source Origin (via Origin/Referer Header)
 
 ###### CHECKING THE ORIGIN HEADER
 
@@ -64,7 +64,7 @@ In both cases, make sure the target origin check is strong. For example, if your
 
 If neither of these headers are present, you can either accept or block the request. We recommend blocking. Alternatively, you might want to log all such instances, monitor their use cases/behavior, and then start blocking requests only after you get enough confidence.
 
-###### Identifying the Target Origin
+##### Identifying the Target Origin
 
 Generally, it's not always easy to determine the target origin. You are not always able to simply grab the target origin (i.e., its hostname and port #) from the URL in the request, because the application server is frequently sitting behind one or more proxies. This means that the original URL can be different from the URL the app server actually receives. However, if your application server is directly accessed by its users, then using the origin in the URL is fine and you're all set.
 
@@ -76,7 +76,7 @@ If you are behind a proxy, there are a number of options to consider.
 
 **Use the X-Forwarded-Host header value**: To avoid the possibility that the proxy will alter the host header, you can use another header called X-Forwarded-Host to contain the original Host header value the proxy received. Most proxies will pass along the original Host header value in the X-Forwarded-Host header. So the value in X-Forwarded-Host is likely to be the target origin value that you need to compare to the source origin in the Origin or Referer header.
 
-##### Using Cookies with Host Prefixes to Identify Origins¶
+#### Using Cookies with Host Prefixes to Identify Origins¶
 
 Another solution for this problem is using Cookie Prefixes for cookies with CSRF tokens. If cookies have __Host- prefixes e.g. Set-Cookie: __Host-token=RANDOM; path=/; Secure then each cookie:
 
@@ -86,13 +86,13 @@ Another solution for this problem is using Cookie Prefixes for cookies with CSRF
 
 https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html  
 
-### CSRF vs XSS
+## CSRF vs XSS
 
-#### How are CSRF and XSS different?
+### How are CSRF and XSS different?
 
 CSRF and XSS are different in several ways. First, CSRF relies on the user's browser to send a request to the target site, while XSS relies on the user's browser to execute code from the attacker's site. Second, CSRF does not require the attacker to compromise the target site, while XSS does. Third, CSRF does not affect the user's browser directly, while XSS does. 
 
-#### How are CSRF and XSS similar?
+### How are CSRF and XSS similar?
 
 CSRF and XSS are similar in some ways. First, both attacks aim to exploit the user's trust and session with the target site. Second, both attacks can cause serious damage to the user's data and privacy, as well as the reputation and functionality of the target site. Third, both attacks can be performed by sending a link or an email to the user, or embedding the malicious code or request in a third-party site or application.
 
