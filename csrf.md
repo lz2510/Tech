@@ -60,6 +60,9 @@ For example:
         
 Since requests with custom headers are automatically subject to the same-origin policy, it is more secure to insert the CSRF token in a custom HTTP request header via JavaScript than adding a CSRF token in the hidden field form parameter.
 
+https://medium.com/@kaviru.mihisara/synchronizer-token-pattern-e6b23f53518e  
+https://medium.com/cross-site-request-forgery-csrf/synchronizer-token-pattern-63871b4c83ad  
+
 #### ALTERNATIVE: Using A Double-Submit Cookie Pattern
 
 If maintaining the state for CSRF token on the server is problematic, you can use an alternative technique known as the Double Submit Cookie pattern. This technique is easy to implement and is stateless. There are different ways to implement this technique, where the naive pattern is the most commonly used variation.
@@ -100,6 +103,20 @@ Below is an example in pseudo-code that demonstrates the implementation steps de
         
         // Store the CSRF Token in a cookie
         response.setCookie("csrf_token=" + csrfToken + "; Secure) // Set Cookie without HttpOnly flag
+
+https://medium.com/@kaviru.mihisara/double-submit-cookie-pattern-820fc97e51f2  
+https://medium.com/cross-site-request-forgery-csrf/double-submit-cookie-pattern-65bb71d80d9f  
+
+The CSRF token can be transmitted to the client as part of a response payload, such as a HTML or JSON response, then it can be transmitted back to the server as a hidden field on a form submission or via an AJAX request as a custom header value or part of a JSON payload. a CSRF token should not be transmitted in a cookie for synchronized patterns. A CSRF token must not be leaked in the server logs or in the URL. 
+
+
+Double submitting cookies is defined as sending a random value in both a cookie and as a request parameter, with the server verifying if the cookie value and request value are equal.
+
+![image](https://github.com/lz2510/Tech/assets/1209204/cc01fb2b-b437-4dea-a789-253dbd27748b)
+
+When a user logs into the site, a session is created, and the session ID is set as a cookie in the browser. At the same time, another cookie is set for the CSRF token
+Next, when the user submits a secure form, this token is extracted from the cookie and is set as a hidden input field in the HTML. This cookie cannot be set as Http Only as the client-side script requires to access this because in this scenario, the token endpoint does not exist, and the server has no record of the generated token for this session.
+The server will validate the token sent as a form parameter against the cookie value and authorize the action to be completed. A cross origin attacker cannot read any data sent from the server or modify cookie values, per the same-origin policy.
 
 ##### Naive Double-Submit Cookie Pattern (DISCOURAGED)
 
@@ -190,7 +207,17 @@ If you are behind a proxy, there are a number of options to consider.
 
 **Use the X-Forwarded-Host header value**: To avoid the possibility that the proxy will alter the host header, you can use another header called X-Forwarded-Host to contain the original Host header value the proxy received. Most proxies will pass along the original Host header value in the X-Forwarded-Host header. So the value in X-Forwarded-Host is likely to be the target origin value that you need to compare to the source origin in the Origin or Referer header.
 
-#### Using Cookies with Host Prefixes to Identify Origins¶
+###### http header Host vs x-forwarded-host
+
+For the need for 'x-forwarded-host', I can think of a virtual hosting scenario where there are several internal hosts (internal network) and a reverse proxy sitting in between those hosts and the internet. If the requested host is part of the internal network, the requested host resolves to the reverse proxy IP and the web browser sends the request to the reverse proxy. This reverse proxy finds the appropriate internal host and forwards the request sent by the client to this host. In doing so, the reverse proxy changes the host field to match the internal host and sets the x-forward-host to the actual host requested by the client. More details on reverse proxy can be found in this wikipedia page http://en.wikipedia.org/wiki/Reverse_proxy
+
+If you use a front-end service like Apigee as the front-end to your APIs, you will need something like X-FORWARDED-HOST to understand what hostname was used to connect to the API, because Apigee gets configured with whatever your backend DNS is, nginx and your app stack only see the Host header as your backend DNS name, not the hostname that was called in the first place.
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host  
+https://stackoverflow.com/questions/19084340/real-life-usage-of-the-x-forwarded-host-header  
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host  
+
+#### Using Cookies with Host Prefixes to Identify Origins
 
 Another solution for this problem is using Cookie Prefixes for cookies with CSRF tokens. If cookies have __Host- prefixes e.g. Set-Cookie: __Host-token=RANDOM; path=/; Secure then each cookie:
 
