@@ -38,11 +38,14 @@ IMPORTANT: Remember that Cross-Site Scripting (XSS) can defeat all CSRF mitigati
 
 1. See the OWASP XSS Prevention Cheat Sheet for detailed guidance on how to prevent XSS flaws.
 2. First, check if your framework has built-in CSRF protection and use it
-3. If an API-driven site can't use <form> tags, consider using custom request headers.
+3. If an API-driven site can't use \<form\> tags, consider using custom request headers.
 4. SameSite Cookie Attribute can be used for session cookies but be careful to NOT set a cookie specifically for a domain. This action introduces a security vulnerability because all subdomains of that domain will share the cookie, and this is particularly an issue if a subdomain has a CNAME to domains not in your control.
 5. User Interaction-Based CSRF Defense. Like login to platform to grant. OAuth2
+6. Do not use GET requests for state changing operations.
 
-#### SameSite (Cookie Attribute)¶
+#### Defense In Depth Techniques
+
+##### SameSite (Cookie Attribute)¶
 
 SameSite is a cookie attribute (similar to HTTPOnly, Secure etc.) which aims to mitigate CSRF attacks. It is defined in RFC6265bis. This attribute helps the browser decide whether to send cookies along with cross-site requests. Possible values for this attribute are Lax, Strict, or None.
 
@@ -57,18 +60,38 @@ Example of cookies using this attribute:
     Set-Cookie: JSESSIONID=xxxxx; SameSite=Strict
     Set-Cookie: JSESSIONID=xxxxx; SameSite=Lax
 
-#### Using Standard Headers to Verify Origin¶
+##### Using Standard Headers to Verify Origin¶
 
 There are two steps to this mitigation method, both of which examine an HTTP request header value:
 
 - Determine the origin that the request is coming from (source origin). Can be done via Origin or Referer headers.
 - Determining the origin that the request is going to (target origin).
 
-##### Identifying the Target Origin
+At server-side, we verify if both of them match. If they do, we accept the request as legitimate (meaning it's the same origin request) and if they don't, we discard the request (meaning that the request originated from cross-domain). Reliability on these headers comes from the fact that they cannot be altered programmatically as they fall under forbidden headers list, meaning that only the browser can set them.
+
+###### Identifying Source Origin (via Origin/Referer Header)¶
+
+**CHECKING THE ORIGIN HEADER¶**
+
+If the Origin header is present, verify that its value matches the target origin. Unlike the referer, the Origin header will be present in HTTP requests that originate from an HTTPS URL.
+
+**CHECKING THE REFERER HEADER IF ORIGIN HEADER IS NOT PRESENT¶**
+
+If the Origin header is not present, verify that the hostname in the Referer header matches the target origin. This method of CSRF mitigation is also commonly used with unauthenticated requests, such as requests made prior to establishing a session state, which is required to keep track of a synchronization token.
+
+In both cases, make sure the target origin check is strong. For example, if your site is example.org make sure example.org.attacker.com does not pass your origin check (i.e, match through the trailing / after the origin to make sure you are matching against the entire origin).
+
+If neither of these headers are present, you can either accept or block the request. We recommend blocking. Alternatively, you might want to log all such instances, monitor their use cases/behavior, and then start blocking requests only after you get enough confidence.
+
+###### Identifying the Target Origin
 
 Generally, it's not always easy to determine the target origin. You are not always able to simply grab the target origin (i.e., its hostname and port #) from the URL in the request, because the application server is frequently sitting behind one or more proxies. This means that the original URL can be different from the URL the app server actually receives. However, if your application server is directly accessed by its users, then using the origin in the URL is fine and you're all set.
 
 If you are behind a proxy, there are a number of options to consider.
+
+**Configure your application to simply know its target origin**: Since it is your application, you can find its target origin and set that value in some server configuration entry. This would be the most secure approach as its defined server side, so it is a trusted value. However, this might be problematic to maintain if your application is deployed in many places, e.g., dev, test, QA, production, and possibly multiple production instances. Setting the correct value for each of these situations might be difficult, but if you can do it via some central configuration and provide your instances the ability to grab the value from it, that's great! (Note: Make sure the centralized configuration store is maintained securely because major part of your CSRF defense depends on it.)
+
+**Use the Host header value**: If you want your application to find its own target so it doesn't have to be configured for each deployed instance, we recommend using the Host family of headers. The Host header is meant to contain the target origin of the request. But, if your app server is sitting behind a proxy, the Host header value is most likely changed by the proxy to the target origin of the URL behind the proxy, which is different than the original URL. This modified Host header origin won't match the source origin in the original Origin or Referer headers.
 
 **Use the X-Forwarded-Host header value**: To avoid the possibility that the proxy will alter the host header, you can use another header called X-Forwarded-Host to contain the original Host header value the proxy received. Most proxies will pass along the original Host header value in the X-Forwarded-Host header. So the value in X-Forwarded-Host is likely to be the target origin value that you need to compare to the source origin in the Origin or Referer header.
 
