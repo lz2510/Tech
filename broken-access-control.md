@@ -45,7 +45,7 @@ IMPORTANT: Remember that Cross-Site Scripting (XSS) can defeat all CSRF mitigati
 
 #### Defense In Depth Techniques
 
-##### SameSite (Cookie Attribute)¶
+##### SameSite (Cookie Attribute)
 
 SameSite is a cookie attribute (similar to HTTPOnly, Secure etc.) which aims to mitigate CSRF attacks. It is defined in RFC6265bis. This attribute helps the browser decide whether to send cookies along with cross-site requests. Possible values for this attribute are Lax, Strict, or None.
 
@@ -60,7 +60,7 @@ Example of cookies using this attribute:
     Set-Cookie: JSESSIONID=xxxxx; SameSite=Strict
     Set-Cookie: JSESSIONID=xxxxx; SameSite=Lax
 
-##### Using Standard Headers to Verify Origin¶
+##### Using Standard Headers to Verify Origin
 
 There are two steps to this mitigation method, both of which examine an HTTP request header value:
 
@@ -69,13 +69,13 @@ There are two steps to this mitigation method, both of which examine an HTTP req
 
 At server-side, we verify if both of them match. If they do, we accept the request as legitimate (meaning it's the same origin request) and if they don't, we discard the request (meaning that the request originated from cross-domain). Reliability on these headers comes from the fact that they cannot be altered programmatically as they fall under forbidden headers list, meaning that only the browser can set them.
 
-###### Identifying Source Origin (via Origin/Referer Header)¶
+###### Identifying Source Origin (via Origin/Referer Header)
 
-**CHECKING THE ORIGIN HEADER¶**
+###### CHECKING THE ORIGIN HEADER
 
 If the Origin header is present, verify that its value matches the target origin. Unlike the referer, the Origin header will be present in HTTP requests that originate from an HTTPS URL.
 
-**CHECKING THE REFERER HEADER IF ORIGIN HEADER IS NOT PRESENT¶**
+###### CHECKING THE REFERER HEADER IF ORIGIN HEADER IS NOT PRESENT
 
 If the Origin header is not present, verify that the hostname in the Referer header matches the target origin. This method of CSRF mitigation is also commonly used with unauthenticated requests, such as requests made prior to establishing a session state, which is required to keep track of a synchronization token.
 
