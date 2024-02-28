@@ -28,9 +28,16 @@ IMPORTANT: Remember that Cross-Site Scripting (XSS) can defeat all CSRF mitigati
 
 The synchronizer token pattern is one of the most popular and recommended methods to mitigate CSRF.
 
-Use Built-In Or Existing CSRF Implementations for CSRF Protection¶
+#### Use Built-In Or Existing CSRF Implementations for CSRF Protection
 
 Since synchronizer token defenses are built into many frameworks, find out if your framework has CSRF protection available by default before you build a custom token generating system. 
+
+##### CSRF Tokens & SPAs in Laravel
+
+If you are building a SPA that is utilizing Laravel as an API backend, you should consult the Laravel Sanctum documentation for information on authenticating with your API and protecting against CSRF vulnerabilities.
+
+https://laravel.com/docs/10.x/csrf  
+https://laravel.com/docs/10.x/sanctum  
 
 #### Synchronizer Token Pattern
 
@@ -134,12 +141,12 @@ When handling the request, the API checks for the existence of this header. If t
 
 - UI changes are not required
 - no server state is introduced to track tokens
-- 
+
 This defense relies on the CORS preflight mechanism which sends an OPTIONS request to verify CORS compliance with the destination server. All modern browsers designate requests with custom headers as "to be preflighted". When the API verifies that the custom header is there, you know that the request must have been preflighted if it came from a browser.
 
-When a <form> tag is used to submit data, it sends a "simple" request that browsers do not designate as "to be preflighted". These "simple" requests introduce risk of CSRF because browsers permit them to be sent to any origin. If your application uses <form> tags to submit data anywhere in your client, you will still need to protect them with alternate approaches described in this document such as tokens.
+When a \<form\> tag is used to submit data, it sends a "simple" request that browsers do not designate as "to be preflighted". These "simple" requests introduce risk of CSRF because browsers permit them to be sent to any origin. If your application uses <form> tags to submit data anywhere in your client, you will still need to protect them with alternate approaches described in this document such as tokens.
 
-#####* Custom Headers and CORS
+##### Custom Headers and CORS
 
 Cookies are not set on cross-origin requests (CORS) by default. To enable cookies on an API, you will set Access-Control-Allow-Credentials=true. The browser will reject any response that includes Access-Control-Allow-Origin=* if credentials are allowed. To allow CORS requests, but protect against CSRF, you need to make sure the server only whitelists a few select origins that you definitively control via the Access-Control-Allow-Origin header. Any cross-origin request from an allowed domain will be able to set custom headers.
 
