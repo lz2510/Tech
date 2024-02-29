@@ -23,18 +23,7 @@ https://cwe.mitre.org/data/definitions/1345.html
 
 ## CORS
 
-Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources. CORS also relies on a mechanism by which browsers make a "preflight" request to the server hosting the cross-origin resource, in order to check that the server will permit the actual request. In that preflight, the browser sends headers that indicate the HTTP method and headers that will be used in the actual request.
-
-https://en.wikipedia.org/wiki/Cross-origin_resource_sharing  
-https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS  
-
-### CORS is not a vunelrubity, the question is how to make it safe.
-
-### CORS in Laravel
-
-Laravel can automatically respond to CORS OPTIONS HTTP requests with values that you configure. All CORS settings may be configured in your application's config/cors.php configuration file. The OPTIONS requests will automatically be handled by the HandleCors middleware that is included by default in your global middleware stack.
-
-https://laravel.com/docs/10.x/routing#cors  
+[CORS](cors.md)
 
 ## Authorization
 
