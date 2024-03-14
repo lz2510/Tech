@@ -34,3 +34,67 @@ The Extended Regular Expressions or ERE flavor standardizes a flavor similar to 
 
 Perl Compatible Regular Expressions (PCRE) is a library written in C, which implements a regular expression engine, inspired by the capabilities of the Perl programming language. Philip Hazel started writing PCRE in summer 1997. PCRE's syntax is much more powerful and flexible than either of the POSIX regular expression flavors (BRE, ERE) and than that of many other regular-expression libraries.
 
+## 1 half-width alphanumeric characters 
+
+$pattern = '/^[a-zA-Z0-9]+$/';
+        if (!preg_match($pattern, $request->input('user_id'))) { 
+            return response()->json(["message"=> "Account creation failed", "cause" => "The user_id contains non-alphanumeric characters or full-width characters."], 400);
+        
+        }
+
+[a-zA-Z0-9]+: Matches one or more occurrences of any lowercase or uppercase letter (a-z, A-Z) or number (0-9).
+
+## 2 ASCII characters without space or control codes
+
+$pattern = '/^[[:graph:]]+$/';
+        if (!preg_match($pattern, $request->input('password'))) {
+            return response()->json(["message"=> "Account creation failed", "cause" => "The user_id contains non-alphanumeric characters or full-width characters."], 400);
+        
+        }
+
+For [[:graph:]], [] in the leftmost and rightmost is regexp class syntax. [] inside is POSIX syntax.
+
+[:graph:]+: Matches one or more occurrences of any printable character according to the POSIX character class. This includes printable ASCII characters from ! (decimal 33) to ~ (decimal 126), excluding space ( - decimal 32).
+
+[:graph:], Visible characters (anything except spaces and control characters). unicide is [^\p{Z}\p{C}].	
+
+## 3 matching any character except control code.
+
+1. \P{C}
+2. [^\p{Cntrl}]
+
+$pattern = "/\P{C}/";
+        if ($request->input('nickname') && !preg_match($pattern, $request->input('nickname'))) {
+            return response()->json(["message"=> "User updation failed", "cause" => "The nick matched a control character"], 400);
+        }
+
+
+\P{C} means Visible characters and spaces (anything except control characters) according to below link. It equals to [:print:] in POSIX.
+
+\P{C} means match a single character not belonging to invisible control characters and unused code points.
+
+
+1. \P means you can match a single character not belonging to that category.
+
+Unicode Categories
+In addition to complications, Unicode also brings new possibilities. One is that each Unicode character belongs to a certain category. You can match a single character belonging to the “letter” category with \p{L}. You can match a single character not belonging to that category with \P{L}.
+
+2. {C} means Other
+
+The most basic overall character property is the General_Category, which is a basic categorization of Unicode characters into: Letters, Punctuation, Symbols, Marks, Numbers, Separators, and Other. These property values each have a single letter abbreviation, which is the uppercase first character except for separators, which use Z. The official data mapping Unicode characters to the General_Category value is in UnicodeData.txt.
+
+Each of these categories has different subcategories. For example, the subcategories for Letter are uppercase, lowercase, titlecase, modifier, and other (in this case, other includes uncased letters such as Chinese). By convention, the subcategory is abbreviated by the category letter (in uppercase), followed by the first character of the subcategory in lowercase. For example, Lu stands for Uppercase Letter.
+
+3. \p{C} or \p{Other}: invisible control characters and unused code points.
+
+It includes below subcategories Cc | Cf | Cs | Co | Cn.
+  \p{Cc} or \p{Control}: an ASCII or Latin-1 control character: 0x00–0x1F and 0x7F–0x9F.
+  \p{Cf} or \p{Format}: invisible formatting indicator.
+  \p{Co} or \p{Private_Use}: any code point reserved for private use.
+  \p{Cs} or \p{Surrogate}: one half of a surrogate pair in UTF-16 encoding.
+  \p{Cn} or \p{Unassigned}: any code point to which no character has been assigned.
+
+https://www.regular-expressions.info/unicode.html  
+https://www.unicode.org/reports/tr18/#General_Category_Property  
+https://www.regular-expressions.info/posixbrackets.html  
+
