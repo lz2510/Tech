@@ -6,6 +6,15 @@ Backtracking is a class of algorithms for finding solutions to some computationa
 
 https://en.wikipedia.org/wiki/Backtracking
 
+## Backtracking vs DFS
+
+Backtracking is a more general purpose algorithm.
+
+Depth-First search is a specific form of backtracking where the process of backtracking takes place in the leaf nodes.
+
+https://stackoverflow.com/questions/1294720/whats-the-difference-between-backtracking-and-depth-first-search  
+https://leetcode.com/discuss/general-discussion/136503/what-is-difference-between-backtracking-and-depth-first-search  
+
 ## example
 
 The classic textbook example of the use of backtracking is the eight queens puzzle. Backtracking is an important tool for solving constraint satisfaction problems,[2] such as crosswords, verbal arithmetic, Sudoku, and many other puzzles.
