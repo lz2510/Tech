@@ -8,6 +8,20 @@
 
 There are two key attributes that a problem must have in order for dynamic programming to be applicable: optimal substructure and overlapping sub-problems. If a problem can be solved by combining optimal solutions to non-overlapping sub-problems, the strategy is called "divide and conquer" instead.[1] This is why merge sort and quick sort are not classified as dynamic programming problems.
 
+**1. Optimal substructure**: Remember that larger palindromes are made of smaller palindromes. Congratulation, we have discovered a substructure to our problem! Knowing that a string is made up of a palindrome helps us determine if the string itself is a palindrome.
+
+Here's an example: for the string "axbobxa", the first and the last characters match, so it's a potential palindrome. If we knew already that its substring "xbobx" is also a palindrome, there wouldn't be a need for any further checks.
+
+But is this substructure optimal?
+
+Yes! Since the optimal result for a string relies only on the optimal result for just one subproblem, and has to do just one check for the boundary characters (in constant time), this is an optimal substructure. We cannot get this result by checking fewer than one subproblem (it wouldn't be a substructure anymore) or doing the boundary characters check faster (it's already constant time!).
+
+**2. Overlapping sub-problems**: While checking all substrings of a large string for palindromicity, we might need to check some smaller substrings for the same, repeatedly. If we store the result of processing those smaller substrings, we can reuse those while processing larger substrings.
+
+Here's an example: for the string "axbobxa", the substring "bob" needs to checked for the substring "xbobx" and the string "axbobxa". In fact, to check all three of these strings, the single character string "o" needs to be checked.
+
+https://leetcode.com/problems/palindromic-substrings/editorial/  
+
 ## two approaches
 
 This can be achieved in either of two ways:
