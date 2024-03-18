@@ -45,6 +45,32 @@ For most people, it's easiest to start by coming up with a recursive brute-force
 https://en.wikipedia.org/wiki/Dynamic_programming#Computer_programming  
 https://leetcode.com/problems/longest-common-subsequence/editorial/  
 
+## framework
+
+Here's the simple framework for our dynamic programming solution:
+
+1. Define the dynamic programming state. This is the result that gets reused in further computations.
+
+Let's define our state dp(i, j), which tells us whether the substring composed of the i^{th} to the j^{th} characters of the input string, is a palindrome or not.
+
+Thus, the answer to our problem lies in counting all substrings whose state is true.
+
+2. Identify the base cases. There are essentially two base-cases:
+
+- Single letter substrings are palindromes by definition.
+- Double letter substrings composed of the same character are palindromes. 
+
+3. Identify the optimal substructure. A string is considered a palindrome if:
+
+- Its first and last characters are equal, and
+- The rest of the string (excluding the boundary characters) is also a palindrome.
+ 
+4. Identify overlapping sub-problems and compute them only once. The optimal substructure mentioned above ensures that the state for a string depends only on the state for a single substring. If we compute (and save) the states for all smaller strings first, larger strings can be processed by reusing previously saved states. The base cases that we have identified already define states for single and double letter strings. We can use those to compute states for three character (and subsequently larger) strings.
+
+5. The answer is found by counting all states that evaluate true. Since each state tells whether a unique substring is a palindrome or not, counting true states provides us the number of palindromic substrings.
+
+https://leetcode.com/problems/palindromic-substrings/editorial/  
+
 ## dp vs recrusion and divide and conque
 
 ![image](img/dp-vs-recursion-divide-conque.png)
