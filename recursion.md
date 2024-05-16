@@ -147,4 +147,5 @@ In the Path Sum problem on leetcode, base case and checking leaf nodes both used
         if ($treeNode->left === null && $treeNode->right === null){
             return $sum == $targetSum;
         }
-
+        
+https://stackoverflow.com/questions/34249476/in-binary-tree-checking-if-given-node-is-leaf-node-or-not#
