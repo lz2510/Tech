@@ -87,7 +87,12 @@ Perhaps the writer of preorder2 wants to protect against the case where the root
 
 The design of preorder2 is inferior to that of preorder for a deeper reason as well. Looking at the children to see if they are null means that we are worrying too much about something that can be dealt with just as well by the children. This makes the function more complex, which can become a real problem for more complex tree structures. Even in the relatively simple preorder2 function, we had to write two tests for null rather than the one needed by preorder. This makes it more complicated than the original version. The key issue is that it is much easier to write a recursive function on a tree when we only think about the needs of the current node. Whenever we can, we want to let the children take care of themselves. In this case, we care that the current node is not null, and we care about how to invoke the recursion on the children, but we do not have to care about how or when that is done.
 
-https://opendsa-server.cs.vt.edu/ODSA/Books/CS3/html/WritingTraversals.html#the-recursive-call
+Another way to say base case.
+
+Eventually, a null node will be reached, in which case the recursion will break. This means we need a base case for null nodes. It's pretty obvious that visiting all the nodes in a null tree is the same as doing nothing, so here's the base case for all 3 recursions:
+
+https://opendsa-server.cs.vt.edu/ODSA/Books/CS3/html/WritingTraversals.html#the-recursive-call  
+https://deriveit.org/coding/tree-dfs-113  
 
 ## The Recursive Call
 
