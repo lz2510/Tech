@@ -59,4 +59,93 @@ https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-dat
 
 ![image](img/recursion-template.png)
 
+## base case of binary trees
 
+In binary tree traversals, most often the base case is to check if we have an empty tree. A common mistake is to check the child pointers of the current node, and only make the recursive call for a non-null child.
+
+Recall the basic preorder traversal function.
+
+        static void preorder(BinNode rt) {
+          if (rt == null) return; // Empty subtree - do nothing
+          visit(rt);              // Process root node
+          preorder(rt.left());    // Process all nodes in left
+          preorder(rt.right());   // Process all nodes in right
+        }
+
+Here is an alternate design for the preorder traversal, in which the left and right pointers of the current node are checked so that the recursive call is made only on non-empty children.
+
+        // This is a bad idea
+        static void preorder2(BinNode rt) {
+          visit(rt);
+          if (rt.left() != null) preorder2(rt.left());
+          if (rt.right() != null) preorder2(rt.right());
+        }
+
+At first it might appear that preorder2 is more efficient than preorder, because it makes only half as many recursive calls (since it won’t try to call on a null pointer). On the other hand, preorder2 must access the left and right child pointers twice as often. The net result is that there is no performance improvement.
+
+Perhaps the writer of preorder2 wants to protect against the case where the root is null. But preorder2 has an error. While preorder2 insures that no recursive calls will be made on empty subtrees, it will fail if the orignal call from outside passes in a null pointer. This would occur if the original tree is empty. Since an empty tree is a legitimate input to the initial call on the function, there is no safe way to avoid this case. So it is necessary that the first thing you do on a binary tree traversal is to check that the root is not null. If we try to fix preorder2 by adding this test, then making the tests on the children is completely redundant because the pointer will be checked again in the recursive call.
+
+The design of preorder2 is inferior to that of preorder for a deeper reason as well. Looking at the children to see if they are null means that we are worrying too much about something that can be dealt with just as well by the children. This makes the function more complex, which can become a real problem for more complex tree structures. Even in the relatively simple preorder2 function, we had to write two tests for null rather than the one needed by preorder. This makes it more complicated than the original version. The key issue is that it is much easier to write a recursive function on a tree when we only think about the needs of the current node. Whenever we can, we want to let the children take care of themselves. In this case, we care that the current node is not null, and we care about how to invoke the recursion on the children, but we do not have to care about how or when that is done.
+
+https://opendsa-server.cs.vt.edu/ODSA/Books/CS3/html/WritingTraversals.html#the-recursive-call
+
+## The Recursive Call
+
+The secret to success when writing a recursive function is to not worry about how the recursive call works. Just accept that it will work correctly. One aspect of this principle is not to worry about checking your children when you don’t need to. You should only look at the values of your children if you need to know those values in order to compute some property of the current node. Child values should not be used to decide whether to call them recursviely. Make the call, and let their own base case handle it.
+
+Example 7.6.1
+
+Consider the problem of incrementing the value for each node in a binary tree. The following solution has an error, since it does redundant manipulation to left and the right children of each node.
+
+        static void ineff_BTinc(BinNode root) {
+          if (root != null) {
+              root.setValue((int)(root.value()) + 1);
+            if (root.left() != null) {
+              root.left().setValue((int)(root.left().value()) + 1);
+              ineff_BTinc(root.left().left());
+            }
+            if (root.right() != null) {
+              root.right().setValue((int)(root.right().value()) + 1);
+              ineff_BTinc(root.right().right());
+            }
+          }
+        }
+
+The efficient solution should not explicitly set the children values that way. Changing the value of a node does not depend on the child values. So the function should simply increment the root value, and make recursive calls on the children.
+
+In rare problems, you might need to explicitly check if the children are null or access the children values for each node. For example, you might need to check if all nodes in a tree satisfy the property that each node stores the sum of its left and right children. In this situation you must look at the values of the children to decide something about the current node. You do not look at the children to decide whether to make a recursive call.
+
+https://opendsa-server.cs.vt.edu/ODSA/Books/CS3/html/WritingTraversals.html#the-recursive-call
+
+## base case vs leaf node in tree
+
+base case if to check if the current itself is empty or not. return statement depends on context, can be null, false or zero.
+
+        if ($node === null) {
+                return;
+        } 
+        or
+        if ($node === null) {
+                return false;
+        } 
+        or
+        if ($node === null) {
+                return 0;
+        }
+
+Checking if a node is leaf is to check both left and right children are empty.
+
+    if ($treeNode->left === null && $treeNode->right === null){
+    }
+
+In the Path Sum problem on leetcode, base case and checking leaf nodes both used in the solution. But they are doing different things.
+
+        if ($treeNode === null) {
+            return false;
+        }
+        $sum += $treeNode->val;
+        if ($treeNode->left === null && $treeNode->right === null){
+            return $sum == $targetSum;
+        }
+        
+https://stackoverflow.com/questions/34249476/in-binary-tree-checking-if-given-node-is-leaf-node-or-not#
