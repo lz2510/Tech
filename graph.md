@@ -28,6 +28,7 @@ Example: Social media graph, where if two persons are friend, it implies that bo
 4: 3
 ```
 It means there are edges from 0 to 1, 2 and 3; from 1 to 0 and 2 and so on.
+
 2. **Adjacency Matrix**: The graph is represented as a matrix of size `|V| x |V|` and an entry 1 in cell `(i,j)` implies that there is an edge from i to j. 0 represents no edge.
 The mtrix for the above graph:
 
@@ -40,6 +41,47 @@ The mtrix for the above graph:
 3  1 0 0 0 1
 4  0 0 0 1 0
 ```
+## graph given in problems
+
+1. a graph given as an adjacency list.
+
+In Keys and Rooms prolbem, the graph is given as an adjacenty list.
+
+Input: rooms = [[1],[2],[3],[]]
+Input: rooms = [[1,3],[3,0,1],[2],[0]]
+
+https://leetcode.com/problems/keys-and-rooms/description/
+
+2. a graph given as an adjacency matrix.
+
+In Number of Provinces problems, given as an adjacency matrix
+
+Input: isConnected = [[1,1,0],[1,1,0],[0,0,1]]
+Input: isConnected = [[1,0,0],[0,1,0],[0,0,1]]
+
+https://leetcode.com/problems/number-of-provinces/description/
+ 
+2-1 a graph in the form of a matrix.
+
+In Number of Islands problem, a graph is in the form of a matrix. it's not adjacency matrix, but still a matrix. it's similiar to travse like adjacency matrix.
+
+Input: grid = [
+  ["1","1","1","1","0"],
+  ["1","1","0","1","0"],
+  ["1","1","0","0","0"],
+  ["0","0","0","0","0"]
+]
+
+https://leetcode.com/problems/number-of-islands/editorial/
+ 
+3. a graph given as an array of edges.
+
+In Reorder Routes to Make All Paths Lead to the City Zero problem, it's given as an array of edges. So we have to build a graph first, usually by adjency list.
+
+Input: n = 6, connections = [[0,1],[1,3],[2,3],[4,0],[4,5]]
+
+https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/description/
+
 
 ## code template dfs
 <img width="690" alt="graph_dfs" src="https://user-images.githubusercontent.com/1209204/209646474-65b3f913-a009-40b5-a68d-58428af80e40.png">
