@@ -106,7 +106,7 @@ https://leetcode.com/problems/number-of-connected-components-in-an-undirected-gr
 1. `$graph` is more general.
 2. `$adjList` is more specific for implemention.
 
-## how to use set to store and judge visited
+## how to store and judge visited
 
 1. store node value 
 
@@ -123,6 +123,35 @@ if (!in_array($val, $visited)) {}
 $visited[$from] = true;
  if (!$visited[$val]) {}
 ```
+3. in java, there're three ways.
+
+3.1 use set
+
+	Set<Integer> visited = new HashSet<>();
+	if (visited.add(i)) {
+	dfsVisit(i, map, visited);
+	}
+ 
+3.2 use array of int
+ https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/solutions/77578/java-concise-dfs/
+
+	 int[] visited = new int[n];
+	 visited[startNode] = 1;
+	 if (visited[i] == 0) {
+	 	dfs(adjList, visited, i);
+	 }
+
+  https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/editorial/
+
+3.3 use array of bool
+
+	  boolean[] seen = new boolean[n];
+	  seen[currNode] = true;
+	  if (!seen[currNode]) {
+		dfs(graph, seen, nextNode, destination)
+	  }
+
+   https://leetcode.com/problems/find-if-path-exists-in-graph/editorial/
 
 ## why need build a graph
 
@@ -141,8 +170,15 @@ as it's bi-direction, so $graph[$from][] = $to; and $graph[$to][] = $from; both 
 ## how to store the result, directly by return or use a reference variable
 
 1. for bool result, can directly return result. or count number result, can also directly return.
-2. for array result, should only by a reference variable
-3. both above can use property in class, but it's not recommended as it's not clear for dfs function definition.
+   return true or false
+https://leetcode.com/problems/find-if-path-exists-in-graph/editorial/
+
+return 1 or 0
+   https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/solutions/516491/java-union-find-dfs-bfs-solutions-complexity-explain-clean-code/
+3. for array result, should only by a reference variable
+4. both above can use property in class, but it's not recommended as it's not clear for dfs function definition.
+
+In conclusion, the best is to use a reference variable for bool, count number or array. Because the dfs function will be close to the code template.
 		
 ## should I create a new function to build a graph as adjency list
 
