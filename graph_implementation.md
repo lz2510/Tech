@@ -29,13 +29,13 @@ https://en.wikipedia.org/wiki/Depth-first_search#Pseudocode
 explanation:
 1. If need  to add ternimal to check if visited at the beginning of dfs?
 
-no need to add ternimal as below like version 1
+No need to add ternimal as below like version 1
 
     if ($visited[$node] == true) {
         return;
     }
 
-as already check the node is not visited before recursively call dfs.
+As already check the node is not visited before recursively call dfs. Although putting terminor at the beginning is more like a recursion.
 
     if ($visited[$val] == false) {
         $this->dfs($graph, $val, $visited, $result);
