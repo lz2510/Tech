@@ -19,9 +19,9 @@ https://en.wikipedia.org/wiki/Depth-first_search#Pseudocode
     function dfs(array $graph, int $node, array &$visited, int &$result): void
     {        
         $visited[$node] = true;
-        foreach ($graph[$node] as $val) {
-            if ($visited[$val] == false) {
-                $this->dfs($graph, $val, $visited, $result);
+        foreach ($graph[$node] as $neighbor) {
+            if ($visited[$neighbor] == false) {
+                $this->dfs($graph, $neighbor, $visited, $result);
             }           
         }
     }
@@ -41,7 +41,15 @@ as already check the node is not visited before recursively call dfs.
         $this->dfs($graph, $val, $visited, $result);
     }
 
+2. $variable naming
 
+use $node to name the current node
+
+    function dfs(array $graph, int $node, array &$visited, int &$result)
+
+use $neighbor to name one of all neighbors of the current node
+
+    foreach ($graph[$node] as $neighbor)
 
 #### version 1
 
