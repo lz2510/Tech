@@ -92,16 +92,6 @@ The purpose of the algorithm is to mark each vertex as visited while avoiding cy
 https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/  
 https://www.programiz.com/dsa/graph-dfs  
 
-## how to use set in php?
-
-```
-$visited[$node] = true;
-if (!$visited[$node]) {
-		//unvisited
-} else {
-		//visited
-}
-```
 ## how to choose the start node to call dfs in original function
 
 1. if there's a source node from parameter, choose the source node. like Find if Path Exists in Graph
@@ -116,7 +106,7 @@ https://leetcode.com/problems/number-of-connected-components-in-an-undirected-gr
 1. `$graph` is more general.
 2. `$adjList` is more specific for implemention.
 
-## how to store and judge visited
+## how to use set to store and judge visited
 
 1. store node value 
 
