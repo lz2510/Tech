@@ -1,1 +1,43 @@
 # Graph implementation
+
+## DFS 
+
+### Pseudocode 
+
+    DFS(G, v) is
+        label v as discovered
+        for all directed edges from v to w that are in G.adjacentEdges(v) do
+            if vertex w is not labeled as discovered then
+                recursively call DFS(G, w)
+
+https://en.wikipedia.org/wiki/Depth-first_search#Pseudocode
+
+### code template
+
+#### version 1
+
+<img width="690" alt="graph_dfs" src="https://user-images.githubusercontent.com/1209204/209646474-65b3f913-a009-40b5-a68d-58428af80e40.png">
+
+#### version 2
+    Set<Integer> seen = new HashSet<>();
+    
+    public int fn(int[][] graph) {
+        seen.add(START_NODE);
+        return dfs(START_NODE, graph);
+    }
+    
+    public int dfs(int node, int[][] graph) {
+        int ans = 0;
+        // do some logic
+        for (int neighbor: graph[node]) {
+            if (!seen.contains(neighbor)) {
+                seen.add(neighbor);
+                ans += dfs(neighbor, graph);
+            }
+        }
+    
+        return ans;
+    }
+
+https://leetcode.com/explore/interview/card/cheatsheets/720/resources/4723/
+
