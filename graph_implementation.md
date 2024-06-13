@@ -14,6 +14,18 @@ https://en.wikipedia.org/wiki/Depth-first_search#Pseudocode
 
 ### code template
 
+#### final version
+
+    function dfs(array $graph, int $node, array &$visited, int &$result): void
+    {        
+        $visited[$node] = true;
+        foreach ($graph[$node] as $val) {
+            if ($visited[$val] == false) {
+                $this->dfs($graph, $val, $visited, $result);
+            }           
+        }
+    }
+
 #### version 1
 
 <img width="690" alt="graph_dfs" src="https://user-images.githubusercontent.com/1209204/209646474-65b3f913-a009-40b5-a68d-58428af80e40.png">
