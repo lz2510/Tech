@@ -203,3 +203,35 @@ private function buildAdjList($edges) { $result = [];
 ```
 
 https://leetcode.com/problems/find-if-path-exists-in-graph/solutions/3128404/php-dfs-solution/
+
+## where to calulate result like compare max area, or numbes of islands
+
+it's outside of dfs. as it's different to determine whether a chain of node end. so in Max Area of Island is 
+
+```
+foreach ($grid as $row => $rowVals) {
+    foreach ($rowVals as $col => $colVals) {
+	$max = max($max, $this->dfs($grid, $row, $col));
+    }
+}
+```
+				
+like  Number of Islands and Number of Provinces.
+
+```
+if ($grid[$i][$j] == 1) {
+    $result++;
+    $this->dfs($i, $j, $grid);
+}						
+								
+if (!in_array($i, $visited)) {
+    $nums++;
+    $result = $this->dfs($isConnected, $i, $nums, $visited);
+}			
+						
+```			
+
+https://leetcode.com/problems/max-area-of-island/description/
+https://leetcode.com/problems/number-of-islands/description/?envType=problem-list-v2&envId=mns2un7j
+https://leetcode.com/problems/number-of-provinces/description/?envType=problem-list-v2&envId=mns2un7j
+
