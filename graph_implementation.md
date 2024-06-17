@@ -206,30 +206,45 @@ https://leetcode.com/problems/find-if-path-exists-in-graph/solutions/3128404/php
 
 ## where to calulate result like compare max area, or numbes of islands
 
-it's outside of dfs. as it's different to determine whether a chain of node end. so in Max Area of Island is 
+it's outside of dfs. as it's different to determine whether a chain of node end. 
+
+how to detemine a chain of node end? use if (`$`grid[$row][$col] == 1){} as inside dfs marked the node and it's neighbors as visited. so in outside of dfs, check the cell value is 1 means a new chain of node start.
+
+so in Max Area of Island is as below. 
 
 ```
 foreach ($grid as $row => $rowVals) {
-    foreach ($rowVals as $col => $colVals) {
-	$max = max($max, $this->dfs($grid, $row, $col));
-    }
+		foreach ($rowVals as $col => $colVals) {
+				if ($grid[$row][$col] == 1) {
+$max = max($max, $this->dfs($grid, $row, $col));
+				}               
+		}
 }
 ```
-				
-like  Number of Islands and Number of Provinces.
 
+although if (`$`grid[$row][$col] == 1){} can be removed as the terminal condtions contain check that if `$`grid[$row][$col] is zero, will return. but it's more understandable to put if (`$`grid[$row][$col] == 1){} out there.
+
+like  Number of Islands 
+check if (`$`grid[$i][$j] == 1) to plus one as it means a new chain of nodes start.
 ```
-if ($grid[$i][$j] == 1) {
-    $result++;
-    $this->dfs($i, $j, $grid);
-}						
-								
+for ($i = 0; $i < $m; $i++) {
+            for ($j = 0; $j < $n; $j++) {
+                if ($grid[$i][$j] == 1) {
+                    $result++;
+                    $this->dfs($i, $j, $grid);
+                }               
+            }
+        }				
+```	
+
+and Number of Provinces.
+	
+	```
 if (!in_array($i, $visited)) {
-    $nums++;
-    $result = $this->dfs($isConnected, $i, $nums, $visited);
-}			
-						
-```			
+                $nums++;
+                $result = $this->dfs($isConnected, $i, $nums, $visited);
+            }	
+```				
 
 https://leetcode.com/problems/max-area-of-island/description/
 https://leetcode.com/problems/number-of-islands/description/?envType=problem-list-v2&envId=mns2un7j
