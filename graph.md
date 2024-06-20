@@ -92,8 +92,27 @@ Number of Connected Components in an Undirected Graph
 
 In the original function, iterate the graph. Then increase the number of result under the condition if the node is visited or not. Because every visited node will be marked as visited in dfs function. For visited, there're two ways.
 
-1. A new array contained node. It's used for adjacency list or can be built as adjacency list.
-2. Mark original matrix as 0. 
+first. A new array contained node. It's used for adjacency list or can be built as adjacency list.
+second. Mark original matrix as 0.
+
+1.1. area of connected nodes
+
+Max Area of Island
+
+The difference from numbers of connected nodes is that it needs to track the size of connected nodes inside. The dfs function can return 0 or 1 to calculate.
+
+2. find path
+
+Reorder Routes to Make All Paths Lead to the City Zero
+Keys and Rooms
+Find if Path Exists in Graph
+Reachable Nodes With Restrictions
+
+The start node or maybe end node is specified. So there's no need to iteratively call dfs in the original function. Like in "Find if Path Exists in Graph", the source and destination is specified. In "Reachable Nodes With Restrictions", the start node 0 is specified, as well as adding restrictions. 
+
+In "Keys and Rooms", the start node is also node 0. Checking if can reach all the rooms means check the reachable node num is equals the rooms num.
+
+In "Reorder Routes to Make All Paths Lead to the City Zero", seems that the destination node is city zero, can be reversed to start node is city zero in the context. the result is to sum all the path.
 
 
 ## code template bfs
