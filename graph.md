@@ -30,7 +30,7 @@ Example: Social media graph, where if two persons are friend, it implies that bo
 It means there are edges from 0 to 1, 2 and 3; from 1 to 0 and 2 and so on.
 
 2. **Adjacency Matrix**: The graph is represented as a matrix of size `|V| x |V|` and an entry 1 in cell `(i,j)` implies that there is an edge from i to j. 0 represents no edge.
-The mtrix for the above graph:
+The matrix for the above graph:
 
 ```
    0 1 2 3 4
@@ -82,9 +82,19 @@ Input: n = 6, connections = [[0,1],[1,3],[2,3],[4,0],[4,5]]
 
 https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/description/
 
+## graph problems
 
-## code template dfs
-<img width="690" alt="graph_dfs" src="https://user-images.githubusercontent.com/1209204/209646474-65b3f913-a009-40b5-a68d-58428af80e40.png">
+1. numbers of connected nodes
+
+Number of Provinces
+Number of Islands
+Number of Connected Components in an Undirected Graph
+
+In the original function, iterate the graph. Then increase the number of result under the condition if the node is visited or not. Because every visited node will be marked as visited in dfs function. For visited, there're two ways.
+
+1. A new array contained node. It's used for adjacency list or can be built as adjacency list.
+2. Mark original matrix as 0. 
+
 
 ## code template bfs
 <img width="731" alt="graph_bfs" src="https://user-images.githubusercontent.com/1209204/209646529-14c7b0c2-8699-4125-9e89-c3da48986bcb.png">
