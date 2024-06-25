@@ -1,16 +1,33 @@
 # tree implemention
 
+## code template
+
+```
+public int dfs(TreeNode root) {
+    if (root == null) {
+        return 0;
+    }
+
+    int ans = 0;
+    // do logic
+    dfs(root.left);
+    dfs(root.right);
+    return ans;
+}
+```
+https://leetcode.com/explore/interview/card/cheatsheets/720/resources/4723/
+
 ## how to check if has children?
 
-it's recommend solution 1. because the base case in a recursion should be put at the beginning.
+it's recommend solution 1. because the base case in a recursion should be put at the beginning. and it's the same as the code template above.
 
 solution 1: call anyway without check if has children, check as a base case at the beginning and check node self treeNode. note that the node must can be null ?TreeNode in the argument definition by adding question ? mark.
 
 ```
-    function dfs(?TreeNode $treeNode, int $sum, int $targetSum): bool
+function dfs(?TreeNode $treeNode, int $sum, int $targetSum): bool
 
 if ($treeNode === null) {
-		return false;
+	return false;
 }
 $leftRes = $this->dfs($treeNode->left, $sum, $targetSum);
 $rightRes = $this->dfs($treeNode->right, $sum, $targetSum);
