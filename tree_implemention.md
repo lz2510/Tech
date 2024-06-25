@@ -2,7 +2,7 @@
 
 ## code template
 
-noted that both sources check node itself instead of node's value as base code. about base case, deep describption is below section "how to check if has children?".
+noted that both sources check node itself instead of node's value as base code. about base case, deep describption is below section [base case](#base-case).
 
 below is from leetcode 
 ```
@@ -31,7 +31,9 @@ procedure preorder(node)
 ```
 https://en.wikipedia.org/wiki/Tree_traversal#Depth-first_search_implementation
 
-## how to check if has children?
+## base case
+
+how to check if has children?
 
 it's recommend solution 1. because the base case in a recursion should be put at the beginning. and it's the same as the code template above.
 
