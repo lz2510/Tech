@@ -1,10 +1,8 @@
 # tree implemention
 
-## base case
+## how to check if has children?
 
-how to check if has children?
-
-it's recommend solution 1.
+it's recommend solution 1. because the base case in a recursion should be put at the beginning.
 
 solution 1: call anyway without check if has children, check as a base case at the beginning and check node self treeNode. note that the node must can be null ?TreeNode in the argument definition by adding question ? mark.
 
