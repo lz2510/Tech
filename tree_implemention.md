@@ -2,6 +2,9 @@
 
 ## code template
 
+noted that both sources check node itself instead of node's value as base code. about base case, deep describption is below section [base case](#base-case).
+
+below is from leetcode 
 ```
 public int dfs(TreeNode root) {
     if (root == null) {
@@ -17,7 +20,20 @@ public int dfs(TreeNode root) {
 ```
 https://leetcode.com/explore/interview/card/cheatsheets/720/resources/4723/
 
-## how to check if has children?
+below is from wiki
+```
+procedure preorder(node)
+    if node = null
+        return
+    visit(node)
+    preorder(node.left)
+    preorder(node.right)
+```
+https://en.wikipedia.org/wiki/Tree_traversal#Depth-first_search_implementation
+
+## base case
+
+how to check if has children?
 
 it's recommend solution 1. because the base case in a recursion should be put at the beginning. and it's the same as the code template above.
 
