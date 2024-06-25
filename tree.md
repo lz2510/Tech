@@ -32,3 +32,7 @@ b. **DFS:** Depth-first-search where the first discovered child is traversed fir
 ## Binay search tree
 
 It's a rooted binary tree data structure with the key of each internal node being greater than all the keys in the respective node's left subtree and less than the ones in its right subtree.
+
+## Tree implemention
+
+[Tree implemention](tree_implemention.md)
