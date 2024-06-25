@@ -2,6 +2,9 @@
 
 ## code template
 
+noted that both sources check node itself instead of node's value as base code. about base case, deep describption is below section "how to check if has children?".
+
+below is from leetcode 
 ```
 public int dfs(TreeNode root) {
     if (root == null) {
@@ -16,6 +19,17 @@ public int dfs(TreeNode root) {
 }
 ```
 https://leetcode.com/explore/interview/card/cheatsheets/720/resources/4723/
+
+below is from wiki
+```
+procedure preorder(node)
+    if node = null
+        return
+    visit(node)
+    preorder(node.left)
+    preorder(node.right)
+```
+https://en.wikipedia.org/wiki/Tree_traversal#Depth-first_search_implementation
 
 ## how to check if has children?
 
