@@ -70,6 +70,11 @@
 - [Graph](graph.md)
 - [Backtracking](backgracking.md)
 
+# System Design
+- [System Design Problems](system_design_problems.md)
+- [System Design Basics](system_design_basics.md)
+- [System Design Trad-offs](system_design_trade-offs.md)
+
 # Network
 - [HTTP](Network/http.md)
 - [Restful API](restful.md)
