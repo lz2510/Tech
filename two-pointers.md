@@ -1,5 +1,8 @@
 # Two pointers
 
+## introduction
+
+https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/703/arraystrings/4501/
 
 ## time complexity
 
@@ -25,6 +28,19 @@ That means, the elements after nums[slow] and before nums[fast] are numbers we'v
 
 In this approach, two pointers are used to process two array elements at the same time. Usual implementation is to set one pointer in the beginning and one at the end and then to move them until they both meet.
 
+### code template
+
+    function fn(arr):
+        left = 0
+        right = arr.length - 1
+    
+        while left < right:
+            Do some logic here depending on the problem
+            Do some more logic here to decide on one of the following:
+                1. left++
+                2. right--
+                3. Both left++ and right--
+
 ### code sample
 
     function removeDuplicates(&$nums) {
@@ -39,6 +55,27 @@ In this approach, two pointers are used to process two array elements at the sam
     }
     
 ## One pointer starts from the beginning while the other pointer starts from the end.
+
+### code template
+
+    function fn(arr1, arr2):
+        i = j = 0
+        while i < arr1.length AND j < arr2.length:
+            Do some logic here depending on the problem
+            Do some more logic here to decide on one of the following:
+                1. i++
+                2. j++
+                3. Both i++ and j++
+    
+        // Step 4: make sure both iterables are exhausted
+        // Note that only one of these loops would run
+        while i < arr1.length:
+            Do some logic here depending on the problem
+            i++
+    
+        while j < arr2.length:
+            Do some logic here depending on the problem
+            j++
 
 ### code sample
 
