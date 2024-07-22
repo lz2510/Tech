@@ -52,7 +52,9 @@
 - [Algorithm](algorithm.md)
 - [Time and Space Complexity](complexity.md)
 - [Hash table](hash-table.md)
-- [Two pointers](two-pointers.md)
+- Array and String
+  - [Two pointers](two-pointers.md)
+  - [Sliding window](sliding_window.md)
 - [Queue](queue.md)
 - [Stack](stack.md)
 - [Recursion](recursion.md)
