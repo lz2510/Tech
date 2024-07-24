@@ -43,7 +43,7 @@ it's intuitive that increase in a while loop unitl it becomes valid again then g
 
 ## where to initialize left
 
-solution 1: out of for loop (which is prefered)
+solution 1: out of for loop (which is prefered as for loop is only used to expand the window by increasing right.)
 
     left = 0
     for (int right = 0; right < arr.length; right++):
