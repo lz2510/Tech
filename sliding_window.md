@@ -63,3 +63,7 @@ solution 2: in for loop
 
     for (int left = 0, int right = 0; right < arr.length; right++):
 
+## the length of the window
+
+The formula for the length of a window is right - left + 1.
+
