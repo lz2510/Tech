@@ -28,7 +28,7 @@ Space complexity : O(1).  We don't store anything other than variables. Thus, th
     
             Do some logic to update the answer
 
-## when window becomes invalid
+### when window becomes invalid
 
 But what if after adding a new element, the subarray becomes invalid? We need to "remove" some elements from our window until it becomes valid again. To "remove" elements, we can increment left, which shrinks our window. 
 
@@ -50,9 +50,15 @@ Another way is to use outside for loop. when the window is invalid, increase lef
         $i++;
     }
 
-it's intuitive that increase in a while loop unitl it becomes valid again then go the next for loop which increases right. for loop is only used to expand the window by increasing right. while loop is responsible for making the window become valid again.    
+it's intuitive that increase in a while loop unitl it becomes valid again then go the next for loop which increases right. for loop is only used to expand the window by increasing right. while loop is responsible for making the window become valid again. 
 
-## where to initialize left
+### where to update the answer
+
+Finally, how do we update the answer? In each for loop iteration, after the while loop, the current window is valid. We can write code here to update the answer.
+
+If we update before the while loop and after 'Do some logic to "remove" element at arr[left] from window', the window might become invalid. We updated the answer  after the while loop, when the window must be valid. the while loop is to make sure the window in valid.
+
+### where to initialize left
 
 solution 1: out of for loop (which is prefered as for loop is only used to expand the window by increasing right.)
 
@@ -63,7 +69,7 @@ solution 2: in for loop
 
     for (int left = 0, int right = 0; right < arr.length; right++):
 
-## the length of the window
+### the length of the window
 
 The formula for the length of a window is right - left + 1.
 
