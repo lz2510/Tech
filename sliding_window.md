@@ -15,7 +15,7 @@ O(n^2)? The reason it is still O(n) is that the while loop can only iterate n ti
 
 Space complexity : O(1).  We don't store anything other than variables. Thus, the space we use is constant because it is not correlated to the length of the input array.
 
-## code template
+## code template of dymanic window size
 
     function fn(arr):
         left = 0
@@ -73,3 +73,25 @@ solution 2: in for loop
 
 The formula for the length of a window is right - left + 1.
 
+## code template of fixed window size
+
+    function fn(arr, k):
+        curr = some data to track the window
+    
+        // build the first window
+        for (int i = 0; i < k; i++)
+            Do something with curr or other variables to build first window
+    
+        ans = answer variable, probably equal to curr here depending on the problem
+        for (int i = k; i < arr.length; i++)
+            Add arr[i] to window
+            Remove arr[i - k] from window
+            Update ans
+    
+        return ans
+
+https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/703/arraystrings/4502/
+
+### problems
+
+[643. Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/description/)
