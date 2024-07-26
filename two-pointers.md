@@ -4,11 +4,12 @@
 
 https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/703/arraystrings/4501/
 
-## time complexity
+## complexity
 
-O(n)
+time complexity: O(n)
+space complexity: O(1)
 
-The precondition is array is sorted. If it's not, sort first. Usually sort time complexity is O(nlogn), so overall complexity would be O(nlogn).
+The strength of this technique is that we will never have more than O(n) iterations for the while loop because the pointers start n away from each other and move at least one step closer in every iteration. Therefore, if we can keep the work inside each iteration at O(1), this technique will result in a linear runtime, which is usually the best possible runtime. 
 
 ## two types
 
