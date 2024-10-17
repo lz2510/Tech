@@ -25,6 +25,7 @@
 
 # MySQL
 - [mysql](mysql.md)
+- [lock and transaction](lock-transaction.md)
 
 # Redis
 - [redis](redis.md)
