@@ -74,9 +74,31 @@ A gap might span a single index value, multiple index values, or even be empty.
 
 A next-key lock is a combination of a record lock on the index record and a gap lock on the gap before the index record.
 
+Transaction data for a next-key lock appears similar to the following in SHOW ENGINE INNODB STATUS and InnoDB monitor output:
+
+
+    RECORD LOCKS space id 58 page no 3 n bits 72 index `PRIMARY` of table `test`.`t`
+    trx id 10080 lock_mode X
+    Record lock, heap no 1 PHYSICAL RECORD: n_fields 1; compact format; info bits 0
+     0: len 8; hex 73757072656d756d; asc supremum;;
+    
+    Record lock, heap no 2 PHYSICAL RECORD: n_fields 3; compact format; info bits 0
+     0: len 4; hex 8000000a; asc     ;;
+     1: len 6; hex 00000000274f; asc     'O;;
+     2: len 7; hex b60000019d0110; asc        ;;
+
 ## Insert Intention Locks
 
 An insert intention lock is a type of gap lock set by INSERT operations prior to row insertion. This lock signals the intent to insert in such a way that multiple transactions inserting into the same index gap need not wait for each other if they are not inserting at the same position within the gap. Suppose that there are index records with values of 4 and 7. Separate transactions that attempt to insert values of 5 and 6, respectively, each lock the gap between 4 and 7 with insert intention locks prior to obtaining the exclusive lock on the inserted row, but do not block each other because the rows are nonconflicting.
+
+Transaction data for an insert intention lock appears similar to the following in SHOW ENGINE INNODB STATUS and InnoDB monitor output:
+
+    RECORD LOCKS space id 31 page no 3 n bits 72 index `PRIMARY` of table `test`.`child`
+    trx id 8731 lock_mode X locks gap before rec insert intention waiting
+    Record lock, heap no 3 PHYSICAL RECORD: n_fields 3; compact format; info bits 0
+     0: len 4; hex 80000066; asc    f;;
+     1: len 6; hex 000000002215; asc     " ;;
+     2: len 7; hex 9000000172011c; asc     r  ;;...
 
 ## AUTO-INC Locks
 
