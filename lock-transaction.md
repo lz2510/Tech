@@ -34,11 +34,33 @@ The intention locking protocol is as follows:
 
 - Before a transaction can acquire an exclusive lock on a row in a table, it must first acquire an IX lock on the table.
 
+Table-level lock type compatibility is summarized in the following matrix.
+
+![comatibility](https://github.com/user-attachments/assets/da34f4f0-53c7-42f4-8883-12f31f5b1516)
+
+
+A lock is granted to a requesting transaction if it is compatible with existing locks, but not if it conflicts with existing locks. A transaction waits until the conflicting existing lock is released. If a lock request conflicts with an existing lock and cannot be granted because it would cause deadlock, an error occurs.
+
+Intention locks do not block anything except full table requests (for example, LOCK TABLES ... WRITE). The main purpose of intention locks is to show that someone is locking a row, or going to lock a row in the table.
+
+Transaction data for an intention lock appears similar to the following in SHOW ENGINE INNODB STATUS and InnoDB monitor output:
+
+    TABLE LOCK table `test`.`t` trx id 10080 lock mode IX
+
 ## Record Locks
 
 A record lock is a lock on an index record. For example, SELECT c1 FROM t WHERE c1 = 10 FOR UPDATE; prevents any other transaction from inserting, updating, or deleting rows where the value of t.c1 is 10.
 
 Record locks always lock index records, even if a table is defined with no indexes. For such cases, InnoDB creates a hidden clustered index and uses this index for record locking.
+
+Transaction data for a record lock appears similar to the following in SHOW ENGINE INNODB STATUS and InnoDB monitor output:
+
+    RECORD LOCKS space id 58 page no 3 n bits 72 index `PRIMARY` of table `test`.`t`
+    trx id 10078 lock_mode X locks rec but not gap
+    Record lock, heap no 2 PHYSICAL RECORD: n_fields 3; compact format; info bits 0
+     0: len 4; hex 8000000a; asc     ;;
+     1: len 6; hex 00000000274f; asc     'O;;
+     2: len 7; hex b60000019d0110; asc        ;;
 
 https://dev.mysql.com/doc/refman/8.4/en/innodb-locking.html#innodb-record-locks
 
