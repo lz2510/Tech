@@ -38,5 +38,12 @@ https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/
 ## http long polling vs websockets
 
 https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/638c0b83ac93e7ae59a1b111
+https://leetcode.com/problems/Documents/LeetBook/systemdesigncourse/47_push_and_pull_technologies.pdf  
+https://leetcode.com/problems/Documents/LeetBook/systemdesigncourse/48_push_and_pull_technologies_in_real_life_systems.pdf  
+
+## consistent hashing
+
+https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/638c0b81ac93e7ae59a1b0f5
+
 
 
