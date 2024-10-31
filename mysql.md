@@ -132,4 +132,41 @@ Normalization is the process of organizing data in a database to eliminate redun
 
 https://medium.com/@aizaz2117/mysql-top-most-asked-interview-questions-d7ec27f737ee  
 
+## Replication Strategies
 
+Here are the top three database replication strategies:
+
+1. Synchronous replication
+2. Asynchronous replication
+3. Semi-synchronous replication
+
+https://www.designgurus.io/course-play/grokking-system-design-fundamentals/doc/what-is-replication
+
+## replication methods
+
+Primary-Replica (Master-Slave) Replication
+Primary-Primary (Master-Master) Replication
+Multi-Master Replication
+
+https://www.designgurus.io/course-play/grokking-system-design-fundamentals/doc/replication-methods
+
+## Redundancy and Replication
+
+Redundancy is the duplication of critical components or functions of a system with the intention of increasing the reliability of the system, usually in the form of a backup or fail-safe, or to improve actual system performance. 
+
+Database replication is the process of copying and synchronizing data from one database to one or more additional databases. This is commonly used in distributed systems where multiple copies of the same data are required to ensure data availability, fault tolerance, and scalability.
+
+Redundancy vs. Replication: Key Differences
+* Active vs. Passive:
+    * Redundancy is often passive – the backup components are there in case of failure but are not actively used in normal operations.
+    * Replication is active – all copies of the data are usually utilized in some way, either for load balancing or data recovery.
+* Focus:
+    * Redundancy focuses on the reliability and availability of the overall system.
+    * Replication focuses on the availability and integrity of the data.
+* Implementation:
+    * Redundancy might involve identical backup systems or components.
+    * Replication involves distributing and synchronizing data across different systems.
+In essence, while both redundancy and replication are about ensuring high availability and system reliability, redundancy is more about having backup resources at the ready, and replication is about keeping multiple active copies of data. In distributed systems, using both strategies can significantly enhance performance and reliability.
+
+https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/638c0b7dac93e7ae59a1b0d9  
+https://www.designgurus.io/course-play/grokking-system-design-fundamentals/doc/what-is-replication
