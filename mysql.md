@@ -170,3 +170,17 @@ In essence, while both redundancy and replication are about ensuring high availa
 
 https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/638c0b7dac93e7ae59a1b0d9  
 https://www.designgurus.io/course-play/grokking-system-design-fundamentals/doc/what-is-replication
+
+## data partition
+
+Data partitioning is process of dividing a large database (DB) into smaller, more manageable parts called partitions or shards. Each partition is independent and contains a subset of the overall data.
+
+Partitioning Methods
+
+a. Horizontal Partitioning: Also known as sharding, horizontal data partitioning involves dividing a database table into multiple partitions or shards, with each partition containing a subset of rows.
+
+b. Vertical Partitioning: Vertical data partitioning involves splitting a database table into multiple partitions or shards, with each partition containing a subset of columns. This technique can help optimize performance by reducing the amount of data that needs to be scanned, especially when certain columns are accessed more frequently than others.
+
+c. Hybrid Partitioning: Hybrid data partitioning combines both horizontal and vertical partitioning techniques to partition data into multiple shards. This technique can help optimize performance by distributing the data evenly across multiple servers, while also minimizing the amount of data that needs to be scanned.
+
+https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/638c0b7aac93e7ae59a1b0c1
