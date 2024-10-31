@@ -23,6 +23,10 @@ Another difference between the two is the type of requests that they typically h
 
 https://www.designgurus.io/course-play/grokking-system-design-fundamentals/doc/introduction-to-api-gateway
 
+## Load Balancer vs. API Gateway
+
+https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/65b2df61d7a044ad8209f529
+
 ## Proxies
 
 A proxy is a piece of software or hardware that sits between a client and a server to facilitate traffic. A forward proxy hides the identity of the client, whereas a reverse proxy conceals the identity of the server. So, when you want to protect your clients on your internal network, you should put them behind a forward proxy; on the other hand, when you want to protect your servers, you should put them behind a reverse proxy.
