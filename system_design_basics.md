@@ -34,3 +34,9 @@ A proxy is a piece of software or hardware that sits between a client and a serv
 <img width="870" alt="Screenshot 2024-06-26 at 21 45 29" src="https://github.com/lz2510/Tech/assets/1209204/aa80574c-f64e-4357-a634-a0bae7bb2d71">
 
 https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/638c0b7cac93e7ae59a1b0cd
+
+## http long polling vs websockets
+
+https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/638c0b83ac93e7ae59a1b111
+
+
