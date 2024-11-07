@@ -120,6 +120,42 @@ instantiation of interfaces has two methods:
 
 When using interface as an constructor argument, laravel use dependency injection to load it, which should be setup in another file.
 
+#### IoC, DIP, and DI, IoC continer 
+
+These three terms are often used interchangeably, but they represent distinct concepts, although they are closely related:
+
+**Inversion of Control (IoC)**
+* A broader design principle that suggests inverting the control flow of a program. 
+* Instead of your code directly controlling the flow, a framework or container takes over.
+* This allows for more flexible and modular designs.
+
+**Dependency Inversion Principle (DIP)**
+* A specific implementation of IoC.
+* It states that high-level modules should not depend on low-level modules. Both should depend on abstractions.
+* This promotes loose coupling and makes code more testable and maintainable.
+
+**Dependency Injection (DI)**
+* A technique for implementing DIP.
+* It involves passing dependencies to a class or component from the outside, rather than creating them internally.
+* This allows for greater flexibility and testability.
+
+**To summarize:**
+* **IoC** is a general principle about control flow.
+* **DIP** is a specific design principle for managing dependencies.
+* **DI** is a technique for implementing DIP.
+
+**IoC Containers:**
+* IoC containers are frameworks that implement IoC and DI.
+* They automate the process of creating and injecting dependencies.
+* They can simplify development and promote modularity.
+
+**In essence:**
+* **IoC** is the overarching principle.
+* **DIP** is a specific guideline for achieving IoC.
+* **DI** is a technique for implementing DIP.
+* **IoC containers** are tools that automate DI.
+
+By understanding these concepts, you can write more flexible, testable, and maintainable software.
 
 
 
