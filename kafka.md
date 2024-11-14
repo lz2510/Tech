@@ -1,5 +1,19 @@
 # Kafka
 
+## Kafka vs RabbitMQ
+
+Apache Kafka:
+
+- Core Design is Distributed streaming platform: Designed for high-throughput, low-latency data streams. A streaming platform is a technology that allows continuous data flow from a source to a destination in real-time. Key characteristic is Real-time processing. Data is processed as it arrives, without the need for batch processing.
+- Data Flow Model is Pub-sub model. Messages are published to topics and consumed by multiple subscribers.
+
+RabbitMQ:
+
+- Core Design is Message broker: Designed for reliable, flexible, and scalable messaging.   
+- Data Flow Model is Message queuing. Advanced message routing: Offers features like message queues, exchanges, and bindings for complex routing patterns.   
+
+https://aws.amazon.com/compare/the-difference-between-rabbitmq-and-kafka/  
+
 ## Kafka vs Redis
 
 1. Subscription
