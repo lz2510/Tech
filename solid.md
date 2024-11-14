@@ -25,7 +25,10 @@ https://medium.com/@niranjan.sth8/boosting-laravel-quality-with-solid-principles
 
 ### Liskov substitution principle 
 
-The principle defines that objects of a superclass shall be replaceable with objects of its subclasses without breaking the application. That requires the objects of your subclasses to behave in the same way as the objects of your superclass. 
+"Objects of a superclass shall be replaceable with objects of its subclasses without breaking the application."
+"Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program."
+
+That requires the objects of your subclasses to behave in the same way as the objects of your superclass. 
 
 To achieve that, your subclasses need to follow these rules: 
 * Don’t implement any stricter validation rules on input parameters than implemented by the parent class. 
@@ -34,6 +37,7 @@ To achieve that, your subclasses need to follow these rules:
 https://en.wikipedia.org/wiki/Liskov_substitution_principle  
 https://stackify.com/solid-design-liskov-substitution-principle/  
 https://www.baeldung.com/solid-principles  
+https://www.designgurus.io/course-play/grokking-solid-design-principles/doc/introduction-to-the-liskov-substitution-principle  
 
 #### challeges
 This sounds obvious, however, there are some important thing that needs to be satisfied:
@@ -49,6 +53,7 @@ https://medium.com/@niranjan.sth8/boosting-laravel-quality-with-solid-principles
  "Clients should not be forced to depend upon interfaces that they do not use."
 
  https://medium.com/@niranjan.sth8/boosting-laravel-quality-with-solid-principles-best-practices-and-examples-part-iv-i-7e07a2fcac96  
+ https://www.designgurus.io/course-play/grokking-solid-design-principles/doc/introduction-to-the-interface-segregation-principle  
  
 ### dependency inversion principle
 
