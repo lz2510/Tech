@@ -85,18 +85,34 @@ https://spec.openapis.org/oas/latest.html
 
 ## Api versioning
 
-### URI-based versioning
+API versioning refers to providing multiple versions of API to ensure backward compatibility and maintain the stability of the existing system, allowing the introduction of new features in API.
+
+### Advantages of API versioning:
+
+- It offers backward compatibility.
+- It prevents breaking changes in the system.
+- It gives flexibility to clients to stick with the older version or migrate to the new version.
+- By versioning, you can improve API without forcing clients to upgrade their code.
+
+### Methods for API versioning
+
+1. URI-based versioning
 
 - https://www.my-webside.com/api/v1/users
 - https://www.my-webside.com/api/v2/users
 
-### Header-based versioning
+2. Header-based versioning
 
-#### Media type-based versioning
+Include a custom API-Version header in the request.
+
+3. Query Parameter
+
+https://api.example.com/resource?version=1
 
 https://restfulapi.net/versioning/  
 https://medium.com/mestredev/versioning-your-rest-api-with-laravel-646bcc1f70a4    
 https://medium.com/@mukesh.ram/laravel-api-versioning-strategies-for-managing-api-versions-in-laravel-applications-69d388900d4  
+https://www.designgurus.io/blog/mastering-the-api-interview-common-questions-and-expert-answers  
 
 ## Nested collections and properties
 
