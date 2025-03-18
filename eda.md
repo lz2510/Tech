@@ -29,6 +29,21 @@ https://en.wikipedia.org/wiki/Event-driven_architecture
 
 https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven  
 
+## events styles
+
+There are two main styles of EDA:
+
+- Event notification
+
+In this style of EDA, the event is a “thin” event that contains minimal information about the context of the event. It simply serves as a notification that something has happened, and it’s up to the interested parties to query the system for more information. In this style, the event does not carry any state or payload. The interested parties subscribe to the event and receive notifications when the event occurs.
+
+- Event-carried state transfer
+
+In contrast, in the event-carried state transfer style of EDA, the event is a “fat” event that carries a lot more information about the context of the event. It contains a payload of data that represents the state changes that have occurred. This payload is used to update the state of the interested parties’ systems, eliminating the need for them to query the system for more information. In this style, the event serves as a means of transferring state between systems.
+
+https://ddd-practitioners.com/home/glossary/event-driven-architecture/  
+https://martinfowler.com/articles/201701-event-driven.html  
+
 ## two models
 
 An event driven architecture can use a pub/sub model or an event stream model.
