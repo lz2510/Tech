@@ -9,6 +9,15 @@
 
 https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/ddd-oriented-microservice
 
+## Parterns
+
+Aggregate pattern  
+Entity pattern  
+Value Object pattern  
+Repository pattern  
+[Domain event pattern](ddd-event-pattern.md)   
+[Service in DDD](ddd-service.md)
+
 ## references
 
 https://mp.weixin.qq.com/s/brbK62nty2cWBmjitvfgPQ  
