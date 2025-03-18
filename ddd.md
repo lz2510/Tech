@@ -11,11 +11,11 @@ https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-
 
 ## Parterns
 
-Aggregate pattern
-Entity pattern
-Value Object pattern
-Repository pattern
-Domain event pattern
+Aggregate pattern  
+Entity pattern  
+Value Object pattern  
+Repository pattern  
+[Domain event pattern](ddd-event-pattern.md)   
 [Service in DDD](ddd-service.md)
 
 ## references
