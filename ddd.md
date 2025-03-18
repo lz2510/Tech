@@ -48,12 +48,6 @@ Value objects have attributes, but can’t exist on their own. For example, the 
 
 Large and complicated systems have countless entities and value objects. That’s why the domain model needs some kind of structure. This will put them into logical groups that will be easier to manage. These groups are called aggregates. They represent a collection of objects that are connected to each other, with the goal to treat them as units. Moreover, they also have an aggregate root. This is the only entity that any object outside of the aggregate can reference to.
 
-### domain service vs application service
-
-The domain service is an additional layer that also contains domain logic. It’s part of the domain model, just like entities and value objects. 
-
-At the same time, the application service is another layer that doesn’t contain business logic. However, it’s here to coordinate the activity of the application, placed above the domain model.
-
 ### repository
 
 The Repository Pattern is a widely-used software design pattern that separates the application logic from the underlying data storage mechanism. It provides an abstraction layer between the application code and the database.
