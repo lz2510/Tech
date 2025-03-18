@@ -12,4 +12,10 @@ The Service in DDD is a design pattern that defines operations not specific to a
 
 - Application Services act as a coordination layer or facade over the domain layer, orchestrating the flow of data to and from the domain entities and domain services, and directing results to the outside world. They are typically where transactions are controlled and can be an entry point for calls from the presentation layer or external systems.
 
-- https://ddd-practitioners.com/home/glossary/service/
+### domain service vs application service
+
+The domain service is an additional layer that also contains domain logic. It’s part of the domain model, just like entities and value objects. 
+
+At the same time, the application service is another layer that doesn’t contain business logic. However, it’s here to coordinate the activity of the application, placed above the domain model.
+
+https://ddd-practitioners.com/home/glossary/service/
