@@ -127,3 +127,27 @@ It is not recommended to mix locking statements (UPDATE, INSERT, DELETE, or SELE
 Each consistent read, even within the same transaction, sets and reads its own fresh snapshot. For information about consistent reads, see Section 17.7.2.3, “Consistent Nonlocking Reads”.
 
 For locking reads (SELECT with FOR UPDATE or FOR SHARE), UPDATE statements, and DELETE statements, InnoDB locks only index records, not the gaps before them, and thus permits the free insertion of new records next to locked records. Gap locking is only used for foreign-key constraint checking and duplicate-key checking.
+
+## optimistic locking and ABA problems
+
+In the context of optimistic locking, the ABA problem arises when a value is read, another process changes it to a different value, and then changes it back to the original value before the first process attempts to update it, leading to a false assumption of no change. 
+
+Here's a breakdown:
+
+Optimistic Locking:
+This concurrency control mechanism assumes that conflicts are rare and allows multiple transactions to access and modify data without immediately locking it. 
+
+ABA Problem:
+This occurs when a resource (like a database row) is read, then modified by another process to a different state (B), and then modified back to the original state (A) before the first process attempts to update it. 
+
+How it Fails:
+The first process, unaware of the intervening changes, might incorrectly assume that the resource hasn't changed and proceed with its update, potentially leading to data inconsistencies or conflicts. 
+
+### Solutions to the ABA Problem:
+
+#### Version Numbers:
+Add a version or timestamp column to the data, incrementing it with each update. The update process can then check if the version number has changed since the data was read, preventing incorrect updates. 
+
+#### Pessimistic Locking:
+As an alternative, consider using pessimistic locking, which locks the data during the transaction to prevent conflicts. 
+
