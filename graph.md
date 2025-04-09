@@ -107,6 +107,38 @@ reference:
 
 https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/707/traversals-trees-graphs/4721/
 
+## time and space complexity in DFS
+
+### time complexity is O(v+e) where V is the number of vertices and E is the number of edges.
+
+In the worst-case scenario where every node is connected with every other node, e=n^2.
+
+- Each node is visited only once
+- We iterate over a node's edges only when we are visiting that node
+- Because we can only visit a node once, a node's edges are only iterated over once
+- Therefore, all edges are iterated over only once, which costs O(e)
+
+This is similar to the argument we made in the sliding window article that justified an 
+O(n) time complexity despite the nested while loop. The nested while loop could only iterate n times across the entire algorithm. Here, the for loop inside the function iterates e times total across the entire algorithm.
+
+### space complexity is O(v) where V is the number of vertices in the graph. 
+
+this is due to the recursion stack or visited array.
+
+**Recursion Stack:**
+
+- DFS uses a function call stack to track vertices.
+- Space complexity depends on the maximum recursion depth.
+- Maximum depth in a graph with V vertices is O(V). When a graph is long, linera path, the recursion depth can reach V.
+
+**Visited Array (Optional):**
+
+- May use a visited array to mark visited vertices.
+- Size equals the number of vertices (V).
+
+https://www.geeksforgeeks.org/time-and-space-complexity-of-depth-first-search-dfs/  
+https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/707/traversals-trees-graphs/4626/  
+
 ## graph problems
 
 1. numbers of connected nodes
