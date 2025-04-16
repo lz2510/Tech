@@ -171,6 +171,50 @@ In "Keys and Rooms", the start node is also node 0. Checking if can reach all th
 
 In "Reorder Routes to Make All Paths Lead to the City Zero", seems that the destination node is city zero, can be reversed to start node is city zero in the context. the result is to sum all the path.
 
+## how to check boundary
+
+Method 1: isset($grid[$newRow][$newCol]) && $grid[$newRow][$newCol] === 0
+Method 2: $newRow >= 0 && $newRow < $m && $newCol >= 0 && $newCol < $n && $grid[$newRow][$newCol] === 0
+
+interviewer may not a php expert, so the Method 2 give more readability. it's better. as isset is PHP-specific.
+
+Both the isset method and the explicit boundary check method are valid ways to achieve the goal of safely accessing grid elements in PHP. Neither is universally "better" – the best choice depends on the specific context and your priorities (like readability, conciseness, or performance, although performance differences are often minor here).
+
+Let's break down the pros and cons:
+
+Method 1: isset($grid[$newRow][$newCol]) && $grid[$newRow][$newCol] === 0
+
+Pros:
+Conciseness: It's shorter and combines the existence/boundary check into a single isset call for the specific cell.
+Idiomatic PHP: Using isset to check for array key existence before accessing it is a very common and standard practice in PHP. PHP developers will immediately understand its purpose.
+No Need for Dimensions: You don't explicitly need separate variables ($m, $n) holding the grid dimensions just for this check (though you often have them for other reasons). isset works directly with the array structure.
+
+Cons:
+Slightly Less Explicit: While common in PHP, a developer less familiar with PHP might not immediately realize isset is being used here for boundary checking. The explicit checks make the boundary logic crystal clear.
+
+Method 2: $newRow >= 0 && $newRow < $m && $newCol >= 0 && $newCol < $n && $grid[$newRow][$newCol] === 0
+
+Pros:
+Explicitness / Readability: It's extremely clear exactly what boundary conditions are being tested (>= 0, < $m, < $n). This can improve readability, especially for complex conditions or for developers less familiar with PHP idioms.
+Portability: This logic translates almost directly to other programming languages (Java, C++, Python, etc.), whereas isset is PHP-specific.
+
+Cons:
+Verbosity: It requires writing out all four boundary comparisons, making the code longer.
+Requires Dimensions: You must have the grid dimensions ($m - number of rows, $n - number of columns) available as variables.
+Performance Comparison:
+
+In most practical scenarios, especially within the context of algorithms like BFS/DFS where other operations often dominate the runtime, the performance difference between these two methods is likely negligible.
+isset is generally highly optimized in PHP.
+The explicit method involves simple integer comparisons which are also very fast.
+It's generally not worth optimizing based on the perceived micro-performance difference between these two approaches unless you have profiled your specific code and found this check to be a significant bottleneck (which is unlikely).
+
+Conclusion / Recommendation:
+
+For typical PHP development and LeetCode PHP solutions: The isset method is often preferred due to its conciseness and idiomatic nature in PHP. It's perfectly safe and efficient.
+
+If maximum clarity for developers unfamiliar with PHP idioms or easier portability to other languages is a priority: The explicit boundary check method is a fine choice. It leaves no ambiguity about the boundary conditions.
+
+Ultimately, both achieve the same correct result safely. Choose the one that aligns better with your coding style or the specific requirements of your project. For LeetCode in PHP, you'll commonly see the isset approach used.
 
 ## code template bfs
 <img width="731" alt="graph_bfs" src="https://user-images.githubusercontent.com/1209204/209646529-14c7b0c2-8699-4125-9e89-c3da48986bcb.png">
