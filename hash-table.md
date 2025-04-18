@@ -1,4 +1,4 @@
-# Hash table
+# Hash Map
 
 A hash map organizes data so you can quickly look up values for a given key.
 
@@ -76,21 +76,6 @@ Here's a common one: instead of storing the actual values in our array, let's ha
 <img width="355" alt="Screenshot 2023-01-08 at 11 53 08" src="https://user-images.githubusercontent.com/1209204/211179722-05f2e392-e98e-4516-9328-0a1c94c44017.png">
 
 Notice that we included the keys as well as the values in each linked list node. Otherwise we wouldn't know which key was for which value!
-
-## set
-
-A set is like a hash map except it only stores keys, without values.
-
-In PHP, arrays are used to implement sets, just like hash tables.
-
-    $lightBulbs = [
-      'incandescent' => true,
-      'compact fluorescent' => true,
-      'LED' => true
-    ];
-
-    isset($lightBulbs['LED']);  // true
-    isset($lightBulbs['halogen']);  // false
     
 https://www.interviewcake.com/concept/php/hash-map  
 https://github.com/TheAlgorithms/Java/tree/master/src/main/java/com/thealgorithms/datastructures/hashmap  
