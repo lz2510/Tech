@@ -15,6 +15,12 @@ Associated Array (Keys as Elements).
             $visited[$currentNode] = true;
         }
 
+**can i set $visited[$currentNode] to another value, like 1?**  
+
+the value of $visited[$currentNode] is just a placeholder which indicates the key exists. you can set it to any value. in java, it's a empty object instance named PRESENSE.
+
+Be careful of the value 'null'. if using isset to check, will return false even if set the value to null. that's why we use array_key_exists instead.
+
 **can i use if (!isset($visited[$currentNode])) to check?**
 
 Both isset() and array_key_exists() can be used to check if a key exists in a PHP array, but there's a subtle difference between them that makes one potentially better in specific scenarios when implementing a hash set:
