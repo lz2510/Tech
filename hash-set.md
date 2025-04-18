@@ -21,6 +21,14 @@ the value of $visited[$currentNode] is just a placeholder which indicates the ke
 
 Be careful of the value 'null'. if using isset to check, will return false even if set the value to null. that's why we use array_key_exists instead.
 
+**$visited[$currentNode] = true;  vs $visited[$currentNode] = 1;**
+
+$visited[$currentNode] = 1; can also function well. However, as discussed before, using true is generally preferred for clarity and convention because:
+
+**Semantic Meaning**: true directly represents the boolean concept of "visited" or "present." It clearly communicates the intent of your code.
+
+**Readability**: When someone reads $visited[$node2] = true;, it's immediately obvious that you are marking a boolean state. Using 1 might require the reader to remember or infer that 1 represents the "visited" state in this context.
+
 **can i use if (!isset($visited[$currentNode])) to check?**
 
 Both isset() and array_key_exists() can be used to check if a key exists in a PHP array, but there's a subtle difference between them that makes one potentially better in specific scenarios when implementing a hash set:
