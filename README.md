@@ -52,7 +52,8 @@
 - [Data structure](data-structure.md)
 - [Algorithm](algorithm.md)
 - [Time and Space Complexity](complexity.md)
-- [Hash table](hash-table.md)
+- [Hash Map](hash-table.md)
+- [Hash Set](hash-set.md)
 - Array and String
   - [Two pointers](two-pointers.md)
   - [Sliding window](sliding_window.md)
