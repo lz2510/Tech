@@ -10,10 +10,52 @@ A set is like a hash map except it only stores keys, without values.
 
 Associated Array (Keys as Elements). 
 
-        $visited = []
-        if (!isset($visited[$currentNode])) {
+        $visited = []        
+        if (!array_key_exists($currentNode, $visited)) {
             $visited[$currentNode] = true;
         }
+
+**can i use if (!isset($visited[$currentNode])) to check?**
+
+Both isset() and array_key_exists() can be used to check if a key exists in a PHP array, but there's a subtle difference between them that makes one potentially better in specific scenarios when implementing a hash set:
+isset():
+ * Determines if a variable is set and is not NULL.
+ * When used on an array key, it returns TRUE if the key exists in the array and its corresponding value is not NULL.
+ * Returns FALSE if the key does not exist or if the key exists but its value is NULL.
+array_key_exists():
+ * Checks if the given key or index exists in the array.
+ * Returns TRUE if the key exists in the array, regardless of its value (even if the value is NULL).
+ * Returns FALSE only if the key does not exist in the array.
+
+
+Which one is better for a hash set?
+
+For implementing a hash set where you only care about the presence of a key, array_key_exists() is generally the better choice.
+
+Here's why:
+ * Consistency: In a hash set implementation, the value associated with the key is often just a placeholder (like true or null) to indicate existence. You might intentionally set a value to null in certain scenarios. If you use isset(), it would incorrectly report that the element doesn't exist in such cases. array_key_exists() correctly identifies the key's existence even if the value is NULL.
+ * Clarity of Intent: When implementing a set, your primary concern is whether an element is present. array_key_exists() clearly expresses this intent by focusing solely on the key's existence.
+
+In java, the hash set is implemented by hash map. To check the existence of an element, java uses hash map constainsKey method, which equals array_key_exists in php instead of isset.
+
+Example illustrating the difference:
+$mySet = [];
+$mySet['element'] = null;
+
+if (isset($mySet['element'])) {
+    echo "isset says 'element' exists.\n"; // This will NOT be printed
+} else {
+    echo "isset says 'element' does NOT exist (because its value is NULL).\n"; // This WILL be printed
+}
+
+if (array_key_exists('element', $mySet)) {
+    echo "array_key_exists says 'element' exists.\n"; // This WILL be printed
+} else {
+    echo "array_key_exists says 'element' does NOT exist.\n";
+}
+
+In summary:
+While isset() might be suitable in some situations where you implicitly mean "exists and has a non-null value," for a strict hash set implementation where the presence of the key is the defining factor, **array_key_exists()** provides more accurate and semantically correct behavior.
 
 **can i use if ($visited[$currentNode]===true) to check? which approach is it? associated array or boolean array?**
 
