@@ -110,6 +110,10 @@ https://leetcode.com/problems/number-of-connected-components-in-an-undirected-gr
 
 ## how to store and judge visited
 
+### adjacency lists or adjacency matrices use hash set or 1 dimessional boolean array
+
+For represented using adjacency lists or adjacency matrices where vertices are typically identified by a single index (0 to V-1)
+
 1. store node value 
 
 below  time limit exceeded when n is 20000 in one test case. one reason is node itself is lenghies than bool or 1, 0. another reason is there's no removing duplication. the best way is to use a set to store which remove duplication in language level.
@@ -125,6 +129,26 @@ if (!in_array($val, $visited)) {}
 $visited[$from] = true;
  if (!$visited[$val]) {}
 ```
+
+### matrix uses 2 dimessional array
+
+Why a 2D visited array is used for grids:
+Natural Mapping: It directly corresponds to the structure of the grid. The row and column indices of the visited array align with the row and column indices of the grid cells.
+Easy Identification: It's straightforward to check if a specific cell within the grid has been visited using its row and column numbers.
+
+when 2D arrays,  
+
+	if (!$visited[$i][$j]) {
+		$visited[$i][$j] = true;
+	}
+      
+if use hash set, need generate a new key which is not good.
+	$visited[$i . '-' . $j] = true
+	if (!array_key_exists($i . '-' . $j, $visited)) {             
+	  $visited[$i . '-' . $j] = true;
+	}
+                    
+
 3. in java, there're three ways.
 
 3.1 use set
