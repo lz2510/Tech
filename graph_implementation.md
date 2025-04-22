@@ -209,18 +209,24 @@ For problems involving a 2D matrix, a **2D boolean array is almost always the be
 
 The main benefit of an associative array is when your "states" or "nodes" don't fit neatly into a contiguous integer range or have a more complex structure, which is less common in typical matrix traversal problems.
 
-//missing initilizing the array with fixed size
+```
+$visitedMatrix = array_fill(0, $numNodes, []);
+for ($i = 0; $i < $numNodes; $i++) {
+    $visitedMatrix[$i] = array_fill(0, $numNodes, false);
+}
 if (!$visited[$i][$j]) {
 	$visited[$i][$j] = true;
 }
+```
       
 if use hash set, need generate a new key which is not good.
 
-	$visited[$i . '-' . $j] = true
-	if (!array_key_exists($i . '-' . $j, $visited)) {             
-	  $visited[$i . '-' . $j] = true;
-	}
-                    
+```
+$visited[$i . '-' . $j] = true
+if (!array_key_exists($i . '-' . $j, $visited)) {             
+  $visited[$i . '-' . $j] = true;
+}
+```                   
 
 3. in java, there're three ways.
 
