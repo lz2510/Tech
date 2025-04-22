@@ -258,6 +258,41 @@ if (!array_key_exists($i . '-' . $j, $visited)) {
 
    https://leetcode.com/problems/find-if-path-exists-in-graph/editorial/
 
+
+## why boolean array is better than set sometimes
+
+Note: In a language like Python, using a set for seen is very easy and relatively fast. In other languages, it may be faster (in terms of runtime) to use an array for seen if the range of states is known (which it usually is, because most graph problems have the nodes numbered from 0 to n - 1).
+
+That note is explaining a common optimization strategy in graph algorithms for keeping track of visited states. Let's break it down:
+
+**Purpose of `seen` (or `visited`):**
+
+In graph algorithms like Breadth-First Search (BFS) and Depth-First Search (DFS), you need to keep track of the nodes (or states) you've already visited. This is crucial for:
+
+* **Avoiding infinite loops:** Especially in graphs with cycles, revisiting already explored nodes would lead to infinite loops.
+* **Ensuring efficiency:** Processing the same node multiple times is redundant and wastes computation.
+
+**Using a Set (like in Python):**
+
+* **Ease of Use in Python:** Python's `set` data structure provides a very convenient way to store and check for the existence of unique elements. You can easily add elements using `seen.add(state)` and check if an element is already present using `if state in seen:`.
+* **Runtime:** On average, adding and checking for the existence of elements in a hash set (which is the underlying implementation of `set` in Python) takes **O(1)** time (constant time). This makes it generally efficient for most graph problems.
+* **Flexibility:** Sets can store various types of hashable objects, which is useful if your states aren't just simple integers.
+
+**Using an Array (or Boolean Array) in Other Languages:**
+
+* **Potential for Faster Runtime:** In languages like C++, Java (with primitive boolean arrays), etc., you can often achieve slightly faster runtime performance by using an array (specifically a boolean array) to track visited states *under certain conditions*.
+* **Condition: Known Range of States:** The key condition here is that the range of your states (often the node numbers in a graph) must be known and reasonably bounded. For example, if the problem states that the graph nodes are numbered from 0 to `n - 1`, you know the exact range.
+* **How it Works:** You can create a boolean array of size `n` (where `n` is the number of possible states). Initialize all elements to `false`. When you visit a state `i`, you directly mark `seen[i] = true`. To check if state `i` has been visited, you simply check the value of `seen[i]`.
+* **Why it Can Be Faster:** Accessing an element in an array using its index takes **O(1)** time, which is typically very fast at the hardware level. While set operations are also average O(1), they involve hashing and comparisons, which can have a slightly higher overhead in some languages compared to direct array indexing.
+* **Memory Considerations:** This approach requires allocating an array large enough to cover the entire range of possible states. If the range of states is very large or sparse (meaning many possible state numbers are not actually used), using an array might waste more memory than a set which only stores the states that have actually been visited.
+
+**In Summary:**
+
+* Python favors sets due to their ease of use and good average-case performance for tracking visited states.
+* In other languages, if you know the range of your states (especially if they are integers within a manageable range), using a boolean array indexed by the state value can offer a potential minor performance advantage in terms of runtime due to direct memory access. However, you need to know the range beforehand and be mindful of potential memory usage if the range is very large.
+
+Ultimately, the choice between using a set or an array often depends on the specific language, the characteristics of the problem (especially the range of states), and whether you prioritize ease of implementation or absolute runtime performance. For competitive programming, especially in languages like C++, using a boolean array when the state range is known is a common optimization.
+
 ## why need build a graph
 
 For the graph templates, assume the nodes are numbered from 0 to n - 1 and the graph is given as an adjacency list. Depending on the problem, you may need to convert the input into an equivalent adjacency list before using the templates.
