@@ -6,7 +6,7 @@ A set is like a hash map except it only stores keys, without values.
 
 ## implementiion in php
 
-1. associated array(hash map)
+### 1. associated array(hash map)
 
 Associated Array (Keys as Elements). 
 
@@ -86,7 +86,7 @@ For clarity and to follow common conventions, I'd recommend sticking to:
 Boolean Array: if ($visited[$currentNode]) (or if (!$visited[$currentNode]) for unvisited).
 Associative Array: if (isset($visited[$currentNode])) (or if (!isset($visited[$currentNode])).
 
-2. boolean array
+### 2. boolean array
 
 Boolean Array (Index as Element)
 
@@ -107,7 +107,7 @@ In the context of implementing a set using a boolean array, initializing to fals
 -- **Correctness:** It avoids relying on PHP's default behavior for undefined array keys, which can sometimes be surprising.
 -- **Maintainability:** It makes the code easier to read and understand for others (and your future self).
 
-3. numerial array
+### 3. numerial array
 
         $visited = [];
         if (!in_array($currentNode, $visited)) {

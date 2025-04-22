@@ -110,11 +110,65 @@ https://leetcode.com/problems/number-of-connected-components-in-an-undirected-gr
 
 ## how to store and judge visited
 
-### adjacency lists or adjacency matrices use hash set or 1 dimessional boolean array
+### guideline
+
+Yes, that's a very reasonable and practical guideline! Here's a slightly more detailed breakdown:
+
+**Generally, it's a good starting point to consider using a boolean array for tracking visited states in graph algorithms, especially when:**
+
+* **State Indices are Integers:** The nodes or states in your graph are naturally represented by non-negative integers (common in many graph problems, often numbered from 0 to n-1).
+* **The Range of Indices is Known and Manageable:** You have an idea of the upper bound of your state indices, and creating a boolean array of that size won't consume an excessive amount of memory. This is often the case when the number of vertices in the graph is within a reasonable limit.
+* **Ease of Implementation and Speed:** Accessing elements in a boolean array using an integer index is very fast (O(1)), and it's often straightforward to implement.
+
+**Switch to an Associative Array (or a Hash Set equivalent in your language) when:**
+
+* **State Indices are Large and Sparse:** If your graph has vertices with very large indices, but the actual number of vertices or the number of visited vertices is much smaller, a boolean array sized to accommodate the maximum possible index would waste a lot of memory. In this case, an associative array (which only stores the visited states) is much more memory-efficient.
+* **States are Not Integers:** If your states or vertices are represented by data types other than non-negative integers (e.g., strings, objects, or negative integers), you cannot directly use them as indices in a standard boolean array. An associative array, which can handle various key types, is necessary here.
+
+**Influence of Graph Representation (Matrix vs. Adjacency List):**
+
+* **Adjacency Matrix:** When using an adjacency matrix where vertices are naturally indexed from 0 to n-1, a boolean array of size n aligns perfectly for tracking visited status.
+* **Adjacency List:** Similarly, even if you use an adjacency list, the vertices are usually still identified by indices (0 to n-1), making a boolean array an efficient choice for tracking visited status.
+
+**In summary, your proposed strategy is sound:**
+
+1.  **Start with a boolean array** if your states are non-negative integers within a known and manageable range. This often offers simplicity and good performance.
+2.  **Switch to an associative array** if the range of integer indices is very large and sparse (to save memory) or if your states are not conveniently representable as non-negative integers.
+
+This approach allows you to leverage the efficiency of a direct array access when possible and the flexibility of a hash-based structure when needed. Just remember to consider the trade-offs between potential slight performance gains with a boolean array (for dense, integer-indexed graphs) and the memory efficiency of an associative array (for sparse or non-integer indexed graphs).
+
+### adjacency list
 
 For represented using adjacency lists or adjacency matrices where vertices are typically identified by a single index (0 to V-1)
 
-1. store node value 
+#### boolean array
+
+below initialize array with a fixed size. a traditional way to use array. recommended.
+```
+$visited = array_fill(0, $numNodes, false);
+if (!$visited[$from]) {
+	$visited[$from] = true;
+}
+```
+
+below don't initialize array so need check if isset. not a traditional array as array is a fixed size. only work in php without specifying size. as array in php can also be a associate array. worked but not recommended.
+```
+$visited = [];
+if (!isset($visited[$from])) {
+	$visited[$from] = true;
+}
+```
+
+#### hash set
+
+```
+$visited = [];
+if (!array_key_exists($from, $visited)) {
+	$visited[$from] = true;
+}
+```
+
+**do not store node value directly**
 
 below  time limit exceeded when n is 20000 in one test case. one reason is node itself is lenghies than bool or 1, 0. another reason is there's no removing duplication. the best way is to use a set to store which remove duplication in language level.
 
@@ -123,31 +177,56 @@ $visited[] = $from;
 if (!in_array($val, $visited)) {}
 ```
 
-2. store true or false, 1 or 0
+
+
+### matrix
+
+Yes, in the specific context of a 2D matrix (with rows and columns), a **2D boolean array is generally better than a 1D associative array for storing visited states, especially because the key for the associative array can be less intuitive and more cumbersome to define.**
+
+You've hit on a key point! Here's a breakdown of why:
+
+**2D Boolean Array:**
+
+* **Natural Key:** The row and column indices `(row, col)` directly correspond to the indices of the 2D boolean array `visited[row][col]`. This is a very natural and direct mapping to the structure of the matrix.
+* **Ease of Implementation:** Marking a cell as visited is as simple as `visited[row][col] = true`. Checking if a cell is visited is equally straightforward: `if (visited[row][col])`.
+* **Readability:** The code is very clear and directly reflects the 2D nature of the problem.
+* **Performance:** Accessing elements in a 2D array is typically very fast (O(1)).
+
+**1D Associative Array:**
+
+* **Key Definition Challenge:** As you pointed out, you need to come up with a way to represent the 2D coordinates `(row, col)` as a single key for the associative array. Common methods include:
+    * **String Concatenation:** Creating a string like `"row,col"` (e.g., `"2,3"`). This involves string operations which can have some overhead.
+    * **Single Integer Encoding:** If you know the number of columns (let's say `num_cols`), you can encode the coordinates as a single integer: `key = row * num_cols + col`. This works but requires you to know `num_cols` and can be less intuitive to read in the code.
+    * **Using an Object/Tuple as Key (less common in PHP):** While other languages might support tuples directly as hash keys, PHP's array keys are primarily strings and integers. You could use an object as a key, but this adds complexity.
+
+* **Ease of Implementation:** While possible, converting the 2D coordinates to a 1D key adds an extra step in your code for every access.
+* **Readability:** Code that uses a converted 1D key to represent 2D coordinates can be less immediately clear compared to the direct `[row][col]` access.
+* **Performance:** While hash map lookups in an associative array are generally O(1) on average, the extra step of key creation (especially string concatenation) might introduce a slight overhead compared to direct 2D array access.
+
+**In Conclusion for Matrices:**
+
+For problems involving a 2D matrix, a **2D boolean array is almost always the better choice for tracking visited states due to the inherent 2D structure of the problem.** It offers a more natural, readable, and often slightly more performant way to manage the visited status of each cell compared to the extra steps required to use a 1D associative array.
+
+The main benefit of an associative array is when your "states" or "nodes" don't fit neatly into a contiguous integer range or have a more complex structure, which is less common in typical matrix traversal problems.
 
 ```
-$visited[$from] = true;
- if (!$visited[$val]) {}
+$visitedMatrix = array_fill(0, $numNodes, []);
+for ($i = 0; $i < $numNodes; $i++) {
+    $visitedMatrix[$i] = array_fill(0, $numNodes, false);
+}
+if (!$visited[$i][$j]) {
+	$visited[$i][$j] = true;
+}
 ```
-
-### matrix uses 2 dimessional array
-
-Why a 2D visited array is used for grids:
-Natural Mapping: It directly corresponds to the structure of the grid. The row and column indices of the visited array align with the row and column indices of the grid cells.
-Easy Identification: It's straightforward to check if a specific cell within the grid has been visited using its row and column numbers.
-
-when 2D arrays,  
-
-	if (!$visited[$i][$j]) {
-		$visited[$i][$j] = true;
-	}
       
 if use hash set, need generate a new key which is not good.
-	$visited[$i . '-' . $j] = true
-	if (!array_key_exists($i . '-' . $j, $visited)) {             
-	  $visited[$i . '-' . $j] = true;
-	}
-                    
+
+```
+$visited[$i . '-' . $j] = true
+if (!array_key_exists($i . '-' . $j, $visited)) {             
+  $visited[$i . '-' . $j] = true;
+}
+```                   
 
 3. in java, there're three ways.
 
@@ -178,6 +257,41 @@ if use hash set, need generate a new key which is not good.
 	  }
 
    https://leetcode.com/problems/find-if-path-exists-in-graph/editorial/
+
+
+## why boolean array is better than set sometimes
+
+Note: In a language like Python, using a set for seen is very easy and relatively fast. In other languages, it may be faster (in terms of runtime) to use an array for seen if the range of states is known (which it usually is, because most graph problems have the nodes numbered from 0 to n - 1).
+
+That note is explaining a common optimization strategy in graph algorithms for keeping track of visited states. Let's break it down:
+
+**Purpose of `seen` (or `visited`):**
+
+In graph algorithms like Breadth-First Search (BFS) and Depth-First Search (DFS), you need to keep track of the nodes (or states) you've already visited. This is crucial for:
+
+* **Avoiding infinite loops:** Especially in graphs with cycles, revisiting already explored nodes would lead to infinite loops.
+* **Ensuring efficiency:** Processing the same node multiple times is redundant and wastes computation.
+
+**Using a Set (like in Python):**
+
+* **Ease of Use in Python:** Python's `set` data structure provides a very convenient way to store and check for the existence of unique elements. You can easily add elements using `seen.add(state)` and check if an element is already present using `if state in seen:`.
+* **Runtime:** On average, adding and checking for the existence of elements in a hash set (which is the underlying implementation of `set` in Python) takes **O(1)** time (constant time). This makes it generally efficient for most graph problems.
+* **Flexibility:** Sets can store various types of hashable objects, which is useful if your states aren't just simple integers.
+
+**Using an Array (or Boolean Array) in Other Languages:**
+
+* **Potential for Faster Runtime:** In languages like C++, Java (with primitive boolean arrays), etc., you can often achieve slightly faster runtime performance by using an array (specifically a boolean array) to track visited states *under certain conditions*.
+* **Condition: Known Range of States:** The key condition here is that the range of your states (often the node numbers in a graph) must be known and reasonably bounded. For example, if the problem states that the graph nodes are numbered from 0 to `n - 1`, you know the exact range.
+* **How it Works:** You can create a boolean array of size `n` (where `n` is the number of possible states). Initialize all elements to `false`. When you visit a state `i`, you directly mark `seen[i] = true`. To check if state `i` has been visited, you simply check the value of `seen[i]`.
+* **Why it Can Be Faster:** Accessing an element in an array using its index takes **O(1)** time, which is typically very fast at the hardware level. While set operations are also average O(1), they involve hashing and comparisons, which can have a slightly higher overhead in some languages compared to direct array indexing.
+* **Memory Considerations:** This approach requires allocating an array large enough to cover the entire range of possible states. If the range of states is very large or sparse (meaning many possible state numbers are not actually used), using an array might waste more memory than a set which only stores the states that have actually been visited.
+
+**In Summary:**
+
+* Python favors sets due to their ease of use and good average-case performance for tracking visited states.
+* In other languages, if you know the range of your states (especially if they are integers within a manageable range), using a boolean array indexed by the state value can offer a potential minor performance advantage in terms of runtime due to direct memory access. However, you need to know the range beforehand and be mindful of potential memory usage if the range is very large.
+
+Ultimately, the choice between using a set or an array often depends on the specific language, the characteristics of the problem (especially the range of states), and whether you prioritize ease of implementation or absolute runtime performance. For competitive programming, especially in languages like C++, using a boolean array when the state range is known is a common optimization.
 
 ## why need build a graph
 
