@@ -139,6 +139,62 @@ this is due to the recursion stack or visited array.
 https://www.geeksforgeeks.org/time-and-space-complexity-of-depth-first-search-dfs/  
 https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/707/traversals-trees-graphs/4626/  
 
+## time and space complexity in BFS
+
+Okay, let's break down the time complexity of Breadth-First Search (BFS) on a graph.
+
+The time complexity depends on how the graph is represented. Let:
+* $V$ be the number of vertices (nodes) in the graph.
+* $E$ be the number of edges in the graph.
+
+Here are the common scenarios:
+
+1.  **Using an Adjacency List:**
+    * In this representation, each vertex has a list of its adjacent vertices.
+    * **Initialization:** Marking all vertices as unvisited takes $O(V)$ time. Initializing the queue is $O(1)$.
+    * **Vertex Processing:** Each vertex is enqueued and dequeued exactly once in the worst case (when the graph is connected). Queue operations (enqueue/dequeue) typically take $O(1)$ time. So, the total time for queue operations across all vertices is $O(V)$.
+    * **Edge Processing:** When processing a vertex `u`, BFS iterates through all its neighbors. Over the entire execution of BFS, each edge $(u, v)$ is examined exactly once (if directed) or twice (once from `u`'s list and once from `v`'s list, if undirected). Therefore, the total time spent exploring edges is proportional to the sum of the lengths of all adjacency lists, which is $O(E)$.
+    * **Overall Complexity (Adjacency List):** Combining the vertex and edge processing times, the total time complexity is $O(V + E)$.
+
+2.  **Using an Adjacency Matrix:**
+    * In this representation, a $V \times V$ matrix stores the edge information.
+    * **Initialization:** Similar to the list representation, $O(V)$ for visited status and $O(1)$ for the queue.
+    * **Vertex Processing:** Still $O(V)$ for enqueue/dequeue operations.
+    * **Edge Processing:** When processing a vertex `u`, BFS needs to check all other $V$ vertices to find its neighbors by scanning the entire row `u` in the matrix. This takes $O(V)$ time *per vertex*. Since there are $V$ vertices, the total time spent finding neighbors across all vertices becomes $O(V \times V) = O(V^2)$.
+    * **Overall Complexity (Adjacency Matrix):** The dominant factor is edge processing, so the total time complexity is $O(V^2)$.
+
+**In Summary:**
+
+* The most commonly cited time complexity for BFS is **$O(V + E)$**, which assumes the graph is represented using an **adjacency list**. This is generally more efficient for sparse graphs (where $E$ is much smaller than $V^2$).
+* If the graph is represented using an **adjacency matrix**, the time complexity is **$O(V^2)$**. This can be acceptable for dense graphs (where $E$ is close to $V^2$).
+
+Okay, let's look at the space complexity of Breadth-First Search (BFS).
+
+Again, let:
+* $V$ be the number of vertices (nodes).
+* $E$ be the number of edges.
+
+The space complexity primarily depends on the auxiliary data structures used during the search, not the representation of the graph itself (though the graph representation *does* take up space, it's often considered input space rather than auxiliary space used by the algorithm).
+
+The main data structures contributing to the space complexity of BFS are:
+
+1.  **Queue:** BFS uses a queue to store the nodes that need to be visited. In the worst-case scenario, the queue might hold a large fraction of the vertices. Consider a graph where the starting node is connected to almost all other nodes. After visiting the start node, all its neighbors are added to the queue. In the most extreme cases (like a star graph, or a very wide layer), the queue might need to hold up to $O(V)$ vertices simultaneously.
+2.  **Visited Set/Array:** To keep track of which nodes have already been visited (to prevent cycles and redundant work), BFS typically uses a boolean array (if nodes are indexed 0 to V-1) or a hash set. This structure needs to store information for potentially all $V$ vertices. Therefore, it requires $O(V)$ space.
+3.  **Parent Pointers (Optional):** If BFS is used to reconstruct the path (e.g., for shortest paths in unweighted graphs), an array or map is often used to store the predecessor of each node in the BFS tree. This also requires $O(V)$ space.
+
+**Combining these:**
+
+The space required is dominated by the queue, the visited set, and potentially the parent pointers. Each of these can require up to $O(V)$ space in the worst case.
+
+Therefore, the **auxiliary space complexity** of BFS (the extra space used by the algorithm beyond the input) is **$O(V)$**.
+
+**Note on Total Space:**
+If you consider the space taken by the graph representation itself *plus* the auxiliary space:
+* **Adjacency List:** Total space = $O(V + E)$ (graph) + $O(V)$ (auxiliary) = $O(V + E)$.
+* **Adjacency Matrix:** Total space = $O(V^2)$ (graph) + $O(V)$ (auxiliary) = $O(V^2)$.
+
+However, when asked for the "space complexity of the algorithm," it usually refers to the auxiliary space, which is $O(V)$.
+
 ## graph problems
 
 1. numbers of connected nodes
