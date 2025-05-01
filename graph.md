@@ -41,6 +41,49 @@ The matrix for the above graph:
 3  1 0 0 0 1
 4  0 0 0 1 0
 ```
+### confusion
+
+I'm confused that there're rows * columns cells in a adjacency matrix. the vertices of the graph is rows * columns, or just rows number or columns number(as they are the same)?
+
+Okay, let's clear up that confusion. It's a common point to stumble on!
+
+Think about what the adjacency matrix represents: it shows the connections *between* the vertices of the graph.
+
+* **Each row** in the adjacency matrix corresponds to **one specific vertex** in the graph (usually acting as the "source" vertex for an edge).
+* **Each column** in the adjacency matrix corresponds to **one specific vertex** in the graph (usually acting as the "destination" vertex for an edge).
+
+Since the matrix needs to represent connections *between all possible pairs* of vertices, if you have **V** vertices in your graph:
+
+1.  You need **V rows** (one for each potential source vertex).
+2.  You need **V columns** (one for each potential destination vertex).
+
+Therefore:
+
+* The number of vertices (V) is **equal to the number of rows**.
+* The number of vertices (V) is also **equal to the number of columns**.
+* **V = Number of Rows = Number of Columns**
+
+The `rows * columns` calculation (which is V * V = V^2) gives you the **total number of cells** in the matrix. Each cell `matrix[i][j]` represents the potential connection *from* vertex `i` *to* vertex `j`.
+
+**Analogy:** Imagine a small graph with 3 vertices (let's call them A, B, C). So, V = 3.
+
+* The adjacency matrix needs to show connections: A->A, A->B, A->C, B->A, B->B, B->C, C->A, C->B, C->C.
+* To do this, you need a 3x3 matrix:
+    ```
+       A B C  (Columns = Destination Vertices)
+    A [ ] [ ] [ ]
+    B [ ] [ ] [ ]
+    C [ ] [ ] [ ]
+    (Rows = Source Vertices)
+    ```
+* Here, **V = 3**.
+* Number of rows = 3.
+* Number of columns = 3.
+* Total number of cells = rows * columns = 3 * 3 = 9 (which is V^2).
+
+So, the number of vertices **V** is just the number of rows (or columns), **not** the total number of cells (rows * columns).
+
+### processing
 
 Although graphs can be represented as a matrix. But when the input format is adjacency matrix and we want to travese the graph, we have two options. 
 
@@ -141,6 +184,8 @@ https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-dat
 
 ## time and space complexity in BFS
 
+### time complexity
+
 Okay, let's break down the time complexity of Breadth-First Search (BFS) on a graph.
 
 The time complexity depends on how the graph is represented. Let:
@@ -168,6 +213,8 @@ Here are the common scenarios:
 * The most commonly cited time complexity for BFS is **$O(V + E)$**, which assumes the graph is represented using an **adjacency list**. This is generally more efficient for sparse graphs (where $E$ is much smaller than $V^2$).
 * If the graph is represented using an **adjacency matrix**, the time complexity is **$O(V^2)$**. This can be acceptable for dense graphs (where $E$ is close to $V^2$).
 
+### space complexity
+
 Okay, let's look at the space complexity of Breadth-First Search (BFS).
 
 Again, let:
@@ -179,21 +226,14 @@ The space complexity primarily depends on the auxiliary data structures used dur
 The main data structures contributing to the space complexity of BFS are:
 
 1.  **Queue:** BFS uses a queue to store the nodes that need to be visited. In the worst-case scenario, the queue might hold a large fraction of the vertices. Consider a graph where the starting node is connected to almost all other nodes. After visiting the start node, all its neighbors are added to the queue. In the most extreme cases (like a star graph, or a very wide layer), the queue might need to hold up to $O(V)$ vertices simultaneously.
-2.  **Visited Set/Array:** To keep track of which nodes have already been visited (to prevent cycles and redundant work), BFS typically uses a boolean array (if nodes are indexed 0 to V-1) or a hash set. This structure needs to store information for potentially all $V$ vertices. Therefore, it requires $O(V)$ space.
-3.  **Parent Pointers (Optional):** If BFS is used to reconstruct the path (e.g., for shortest paths in unweighted graphs), an array or map is often used to store the predecessor of each node in the BFS tree. This also requires $O(V)$ space.
+2.  **Visited Set/Array:** To keep track of which nodes have already been visited (to prevent cycles and redundant work), BFS typically uses a boolean array (if nodes are indexed 0 to V-1) or a hash set. For adjacency list, this structure needs to store information for potentially all $V$ vertices. Therefore, it requires $O(V)$ space. But for adjacency matrix, it usually uses 2D boolean array, it requires $O(V^2)$ space. Or if it's a grid, it's $O(m*n)$.
 
-**Combining these:**
+**In Summary**
 
-The space required is dominated by the queue, the visited set, and potentially the parent pointers. Each of these can require up to $O(V)$ space in the worst case.
+The space required is dominated by the queue, the visited set. 
 
-Therefore, the **auxiliary space complexity** of BFS (the extra space used by the algorithm beyond the input) is **$O(V)$**.
-
-**Note on Total Space:**
-If you consider the space taken by the graph representation itself *plus* the auxiliary space:
-* **Adjacency List:** Total space = $O(V + E)$ (graph) + $O(V)$ (auxiliary) = $O(V + E)$.
-* **Adjacency Matrix:** Total space = $O(V^2)$ (graph) + $O(V)$ (auxiliary) = $O(V^2)$.
-
-However, when asked for the "space complexity of the algorithm," it usually refers to the auxiliary space, which is $O(V)$.
+* The most commonly cited time complexity for BFS is **$O(V)$**, which assumes the graph is represented using an **adjacency list**. 
+* If the graph is represented using an **adjacency matrix**, the time complexity is **$O(V^2)$**. or **$O(m*n)$** if it's a grid.
 
 ## graph problems
 
