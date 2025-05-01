@@ -41,6 +41,49 @@ The matrix for the above graph:
 3  1 0 0 0 1
 4  0 0 0 1 0
 ```
+### confusion
+
+I'm confused that there're rows * columns cells in a adjacency matrix. the vertices of the graph is rows * columns, or just rows number or columns number(as they are the same)?
+
+Okay, let's clear up that confusion. It's a common point to stumble on!
+
+Think about what the adjacency matrix represents: it shows the connections *between* the vertices of the graph.
+
+* **Each row** in the adjacency matrix corresponds to **one specific vertex** in the graph (usually acting as the "source" vertex for an edge).
+* **Each column** in the adjacency matrix corresponds to **one specific vertex** in the graph (usually acting as the "destination" vertex for an edge).
+
+Since the matrix needs to represent connections *between all possible pairs* of vertices, if you have **V** vertices in your graph:
+
+1.  You need **V rows** (one for each potential source vertex).
+2.  You need **V columns** (one for each potential destination vertex).
+
+Therefore:
+
+* The number of vertices (V) is **equal to the number of rows**.
+* The number of vertices (V) is also **equal to the number of columns**.
+* **V = Number of Rows = Number of Columns**
+
+The `rows * columns` calculation (which is V * V = V^2) gives you the **total number of cells** in the matrix. Each cell `matrix[i][j]` represents the potential connection *from* vertex `i` *to* vertex `j`.
+
+**Analogy:** Imagine a small graph with 3 vertices (let's call them A, B, C). So, V = 3.
+
+* The adjacency matrix needs to show connections: A->A, A->B, A->C, B->A, B->B, B->C, C->A, C->B, C->C.
+* To do this, you need a 3x3 matrix:
+    ```
+       A B C  (Columns = Destination Vertices)
+    A [ ] [ ] [ ]
+    B [ ] [ ] [ ]
+    C [ ] [ ] [ ]
+    (Rows = Source Vertices)
+    ```
+* Here, **V = 3**.
+* Number of rows = 3.
+* Number of columns = 3.
+* Total number of cells = rows * columns = 3 * 3 = 9 (which is V^2).
+
+So, the number of vertices **V** is just the number of rows (or columns), **not** the total number of cells (rows * columns).
+
+### processing
 
 Although graphs can be represented as a matrix. But when the input format is adjacency matrix and we want to travese the graph, we have two options. 
 
