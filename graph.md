@@ -141,6 +141,8 @@ https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-dat
 
 ## time and space complexity in BFS
 
+### time complexity
+
 Okay, let's break down the time complexity of Breadth-First Search (BFS) on a graph.
 
 The time complexity depends on how the graph is represented. Let:
@@ -168,6 +170,8 @@ Here are the common scenarios:
 * The most commonly cited time complexity for BFS is **$O(V + E)$**, which assumes the graph is represented using an **adjacency list**. This is generally more efficient for sparse graphs (where $E$ is much smaller than $V^2$).
 * If the graph is represented using an **adjacency matrix**, the time complexity is **$O(V^2)$**. This can be acceptable for dense graphs (where $E$ is close to $V^2$).
 
+### space complexity
+
 Okay, let's look at the space complexity of Breadth-First Search (BFS).
 
 Again, let:
@@ -179,21 +183,14 @@ The space complexity primarily depends on the auxiliary data structures used dur
 The main data structures contributing to the space complexity of BFS are:
 
 1.  **Queue:** BFS uses a queue to store the nodes that need to be visited. In the worst-case scenario, the queue might hold a large fraction of the vertices. Consider a graph where the starting node is connected to almost all other nodes. After visiting the start node, all its neighbors are added to the queue. In the most extreme cases (like a star graph, or a very wide layer), the queue might need to hold up to $O(V)$ vertices simultaneously.
-2.  **Visited Set/Array:** To keep track of which nodes have already been visited (to prevent cycles and redundant work), BFS typically uses a boolean array (if nodes are indexed 0 to V-1) or a hash set. This structure needs to store information for potentially all $V$ vertices. Therefore, it requires $O(V)$ space.
-3.  **Parent Pointers (Optional):** If BFS is used to reconstruct the path (e.g., for shortest paths in unweighted graphs), an array or map is often used to store the predecessor of each node in the BFS tree. This also requires $O(V)$ space.
+2.  **Visited Set/Array:** To keep track of which nodes have already been visited (to prevent cycles and redundant work), BFS typically uses a boolean array (if nodes are indexed 0 to V-1) or a hash set. For adjacency list, this structure needs to store information for potentially all $V$ vertices. Therefore, it requires $O(V)$ space. But for adjacency matrix, it usually uses 2D boolean array, it requires $O(V^2)$ space. Or if it's a grid, it's $O(m*n)$.
 
-**Combining these:**
+**In Summary**
 
-The space required is dominated by the queue, the visited set, and potentially the parent pointers. Each of these can require up to $O(V)$ space in the worst case.
+The space required is dominated by the queue, the visited set. 
 
-Therefore, the **auxiliary space complexity** of BFS (the extra space used by the algorithm beyond the input) is **$O(V)$**.
-
-**Note on Total Space:**
-If you consider the space taken by the graph representation itself *plus* the auxiliary space:
-* **Adjacency List:** Total space = $O(V + E)$ (graph) + $O(V)$ (auxiliary) = $O(V + E)$.
-* **Adjacency Matrix:** Total space = $O(V^2)$ (graph) + $O(V)$ (auxiliary) = $O(V^2)$.
-
-However, when asked for the "space complexity of the algorithm," it usually refers to the auxiliary space, which is $O(V)$.
+* The most commonly cited time complexity for BFS is **$O(V)$**, which assumes the graph is represented using an **adjacency list**. 
+* If the graph is represented using an **adjacency matrix**, the time complexity is **$O(V^2)$**. or **$O(m*n)$** if it's a grid.
 
 ## graph problems
 
