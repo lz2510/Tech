@@ -41,47 +41,6 @@ The matrix for the above graph:
 3  1 0 0 0 1
 4  0 0 0 1 0
 ```
-### confusion
-
-I'm confused that there're rows * columns cells in a adjacency matrix. the vertices of the graph is rows * columns, or just rows number or columns number(as they are the same)?
-
-Okay, let's clear up that confusion. It's a common point to stumble on!
-
-Think about what the adjacency matrix represents: it shows the connections *between* the vertices of the graph.
-
-* **Each row** in the adjacency matrix corresponds to **one specific vertex** in the graph (usually acting as the "source" vertex for an edge).
-* **Each column** in the adjacency matrix corresponds to **one specific vertex** in the graph (usually acting as the "destination" vertex for an edge).
-
-Since the matrix needs to represent connections *between all possible pairs* of vertices, if you have **V** vertices in your graph:
-
-1.  You need **V rows** (one for each potential source vertex).
-2.  You need **V columns** (one for each potential destination vertex).
-
-Therefore:
-
-* The number of vertices (V) is **equal to the number of rows**.
-* The number of vertices (V) is also **equal to the number of columns**.
-* **V = Number of Rows = Number of Columns**
-
-The `rows * columns` calculation (which is V * V = V^2) gives you the **total number of cells** in the matrix. Each cell `matrix[i][j]` represents the potential connection *from* vertex `i` *to* vertex `j`.
-
-**Analogy:** Imagine a small graph with 3 vertices (let's call them A, B, C). So, V = 3.
-
-* The adjacency matrix needs to show connections: A->A, A->B, A->C, B->A, B->B, B->C, C->A, C->B, C->C.
-* To do this, you need a 3x3 matrix:
-    ```
-       A B C  (Columns = Destination Vertices)
-    A [ ] [ ] [ ]
-    B [ ] [ ] [ ]
-    C [ ] [ ] [ ]
-    (Rows = Source Vertices)
-    ```
-* Here, **V = 3**.
-* Number of rows = 3.
-* Number of columns = 3.
-* Total number of cells = rows * columns = 3 * 3 = 9 (which is V^2).
-
-So, the number of vertices **V** is just the number of rows (or columns), **not** the total number of cells (rows * columns).
 
 ### processing
 
@@ -184,56 +143,60 @@ https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-dat
 
 ## time and space complexity in BFS
 
-### time complexity
+Here's a comparison of BFS across the three scenarios:
 
-Okay, let's break down the time complexity of Breadth-First Search (BFS) on a graph.
+**Scenario 1: Standard Graph with `n x n` Adjacency Matrix**
 
-The time complexity depends on how the graph is represented. Let:
-* $V$ be the number of vertices (nodes) in the graph.
-* $E$ be the number of edges in the graph.
+* **Graph Type:** Standard graph with `n` vertices. Connections can be arbitrary.
+* **Representation:** Explicit `n x n` matrix `adj`. `adj[i][j]=1` means edge `i` -> `j`.
+* **Number of Nodes (V):** `V = n`.
+* **Edges (E):** Max `E` is O(n^2). Defined by 1s in the matrix.
+* **Finding Neighbors (Node `i`):** Scan row `adj[i]`. Cost = **O(n)** per node.
+* **Visited Tracking:** Typically `visited[n]` (1D array). Space = **O(n)**.
+* **BFS Time Complexity:** O(V * V) = **O(n^2)**. Dominated by scanning matrix rows.
+* **Auxiliary Space Complexity:** O(V) for queue + O(V) for visited = **O(n)**.
+* **Total Space (Incl. Representation):** O(n^2) for matrix + O(n) aux = **O(n^2)**.
 
-Here are the common scenarios:
+**Scenario 2: Grid Graph using `m x n` Grid Matrix**
 
-1.  **Using an Adjacency List:**
-    * In this representation, each vertex has a list of its adjacent vertices.
-    * **Initialization:** Marking all vertices as unvisited takes $O(V)$ time. Initializing the queue is $O(1)$.
-    * **Vertex Processing:** Each vertex is enqueued and dequeued exactly once in the worst case (when the graph is connected). Queue operations (enqueue/dequeue) typically take $O(1)$ time. So, the total time for queue operations across all vertices is $O(V)$.
-    * **Edge Processing:** When processing a vertex `u`, BFS iterates through all its neighbors. Over the entire execution of BFS, each edge $(u, v)$ is examined exactly once (if directed) or twice (once from `u`'s list and once from `v`'s list, if undirected). Therefore, the total time spent exploring edges is proportional to the sum of the lengths of all adjacency lists, which is $O(E)$.
-    * **Overall Complexity (Adjacency List):** Combining the vertex and edge processing times, the total time complexity is $O(V + E)$.
+* **Graph Type:** Implicit graph based on grid adjacencies.
+* **Representation:** The `m x n` grid itself. Adjacency defined by position (up, down, left, right).
+* **Number of Nodes (N):** Cells in the grid. `N = m * n`.
+* **Edges (E):** Implicit moves between cells. `E = O(m * n)`.
+* **Finding Neighbors (Cell `(r, c)`):** Calculate & check adjacent coords (at most 4). Cost = **O(1)** per node.
+* **Visited Tracking:** Typically `visited[m][n]` (2D array or mapped 1D). Space = **O(m * n)**.
+* **BFS Time Complexity:** O(Nodes + Edges) = O(m*n + m*n) = **O(m * n)**.
+* **Auxiliary Space Complexity:** O(N) for queue + O(N) for visited = **O(m * n)**.
+* **Total Space (Incl. Representation):** O(m*n) for grid + O(m*n) aux = **O(m * n)**.
 
-2.  **Using an Adjacency Matrix:**
-    * In this representation, a $V \times V$ matrix stores the edge information.
-    * **Initialization:** Similar to the list representation, $O(V)$ for visited status and $O(1)$ for the queue.
-    * **Vertex Processing:** Still $O(V)$ for enqueue/dequeue operations.
-    * **Edge Processing:** When processing a vertex `u`, BFS needs to check all other $V$ vertices to find its neighbors by scanning the entire row `u` in the matrix. This takes $O(V)$ time *per vertex*. Since there are $V$ vertices, the total time spent finding neighbors across all vertices becomes $O(V \times V) = O(V^2)$.
-    * **Overall Complexity (Adjacency Matrix):** The dominant factor is edge processing, so the total time complexity is $O(V^2)$.
+**Scenario 3: Standard Graph with Adjacency List (`n` nodes)**
 
-**In Summary:**
+* **Graph Type:** Standard graph with `n` vertices (same as Scenario 1).
+* **Representation:** Array of lists `adjList`. `adjList[i]` contains neighbors of `i`.
+* **Number of Nodes (V):** `V = n`.
+* **Edges (E):** Explicitly stored in the lists. Total items in lists = O(E).
+* **Finding Neighbors (Node `i`):** Iterate through `adjList[i]`. Cost = **O(degree(i))** per node `i`.
+* **Visited Tracking:** Typically `visited[n]` (1D array). Space = **O(n)**.
+* **BFS Time Complexity:** Summing O(degree(i)) over all vertices is O(E). Visiting vertices is O(V). Total = **O(V + E)** = **O(n + E)**.
+* **Auxiliary Space Complexity:** O(V) for queue + O(V) for visited = **O(n)**.
+* **Total Space (Incl. Representation):** O(V + E) for list + O(V) aux = **O(n + E)**.
 
-* The most commonly cited time complexity for BFS is **$O(V + E)$**, which assumes the graph is represented using an **adjacency list**. This is generally more efficient for sparse graphs (where $E$ is much smaller than $V^2$).
-* If the graph is represented using an **adjacency matrix**, the time complexity is **$O(V^2)$**. This can be acceptable for dense graphs (where $E$ is close to $V^2$).
+**Comparison Summary Table:**
 
-### space complexity
+| Feature                 | Adj. Matrix (`n` nodes) | Grid (`m x n` nodes)  | Adj. List (`n` nodes) |
+| :---------------------- | :---------------------- | :-------------------- | :-------------------- |
+| **Graph Type** | Standard                | Grid (Implicit)       | Standard              |
+| **Nodes** | `n` vertices            | `m * n` cells         | `n` vertices          |
+| **Neighbor Finding Cost** | O(n) / node             | O(1) / node           | O(degree) / node      |
+| **Time Complexity** | **O(n^2)** | **O(m * n)** | **O(n + E)** |
+| **Auxiliary Space** | **O(n)** | **O(m * n)** | **O(n)** |
+| **Representation Space**| O(n^2)                  | O(m * n)              | O(n + E)              |
 
-Okay, let's look at the space complexity of Breadth-First Search (BFS).
+**Key Takeaways:**
 
-Again, let:
-* $V$ be the number of vertices (nodes).
-* $E$ be the number of edges.
-
-The space complexity primarily depends on the auxiliary data structures used during the search, not the representation of the graph itself (though the graph representation *does* take up space, it's often considered input space rather than auxiliary space used by the algorithm).
-
-The main data structures contributing to the space complexity of BFS are:
-
-1.  **Queue:** BFS uses a queue to store the nodes that need to be visited. In the worst-case scenario, the queue might hold a large fraction of the vertices. Consider a graph where the starting node is connected to almost all other nodes. After visiting the start node, all its neighbors are added to the queue. In the most extreme cases (like a star graph, or a very wide layer), the queue might need to hold up to $O(V)$ vertices simultaneously.
-2.  **Visited Set/Array:** To keep track of which nodes have already been visited (to prevent cycles and redundant work), BFS typically uses a boolean array (if nodes are indexed 0 to V-1) or a hash set. For adjacency list, this structure needs to store information for potentially all $V$ vertices. Therefore, it requires $O(V)$ space. But for adjacency matrix, it usually uses 2D boolean array, it requires $O(V^2)$ space. Or if it's a grid, it's $O(m*n)$.
-
-**In Summary**
-
-The space required is dominated by the queue, the visited set. 
-
-* The most commonly cited time complexity for BFS is **$O(V)$**, which assumes the graph is represented using an **adjacency list**. 
-* If the graph is represented using an **adjacency matrix**, the time complexity is **$O(V^2)$**. or **$O(m*n)$** if it's a grid.
+* **Adjacency Matrix:** Simple for edge lookup, but BFS is slow (O(n^2)) due to checking all potential neighbors. Always uses O(n^2) storage space. Low auxiliary space needed for BFS itself (O(n)).
+* **Grid:** Represents spatial layouts. BFS time (O(m*n)) is proportional to the number of cells because neighbor finding is fast (O(1)). Requires auxiliary space proportional to the grid size (O(m*n)).
+* **Adjacency List:** Most efficient time complexity for BFS on general graphs (O(n+E)), especially sparse ones (where E << n^2). Storage space is also efficient for sparse graphs (O(n+E)). Low auxiliary space needed for BFS itself (O(n)).
 
 ## graph problems
 
