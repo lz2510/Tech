@@ -155,7 +155,6 @@ Here's a comparison of BFS across the three scenarios:
 * **Visited Tracking:** Typically `visited[n]` (1D array). Space = **O(n)**.
 * **BFS Time Complexity:** O(V * V) = **O(n^2)**. Dominated by scanning matrix rows.
 * **Auxiliary Space Complexity:** O(V) for queue + O(V) for visited = **O(n)**.
-* **Total Space (Incl. Representation):** O(n^2) for matrix + O(n) aux = **O(n^2)**.
 
 **Scenario 2: Grid Graph using `m x n` Grid Matrix**
 
@@ -167,7 +166,6 @@ Here's a comparison of BFS across the three scenarios:
 * **Visited Tracking:** Typically `visited[m][n]` (2D array or mapped 1D). Space = **O(m * n)**.
 * **BFS Time Complexity:** O(Nodes + Edges) = O(m*n + m*n) = **O(m * n)**.
 * **Auxiliary Space Complexity:** O(N) for queue + O(N) for visited = **O(m * n)**.
-* **Total Space (Incl. Representation):** O(m*n) for grid + O(m*n) aux = **O(m * n)**.
 
 **Scenario 3: Standard Graph with Adjacency List (`n` nodes)**
 
@@ -177,9 +175,8 @@ Here's a comparison of BFS across the three scenarios:
 * **Edges (E):** Explicitly stored in the lists. Total items in lists = O(E).
 * **Finding Neighbors (Node `i`):** Iterate through `adjList[i]`. Cost = **O(degree(i))** per node `i`.
 * **Visited Tracking:** Typically `visited[n]` (1D array). Space = **O(n)**.
-* **BFS Time Complexity:** Summing O(degree(i)) over all vertices is O(E). Visiting vertices is O(V). Total = **O(V + E)** = **O(n + E)**.
+* **BFS Time Complexity:** Each of the n nodes is enqueued and dequeued at most once (O(n) total for node processing). When exploring neighbors, each edge (u, v) is traversed a constant number of times (once if directed, twice if undirected). Summing the degrees of all nodes (which is how adjacency lists are processed) gives O(E). Total = **O(V + E)** = **O(n + E)**.
 * **Auxiliary Space Complexity:** O(V) for queue + O(V) for visited = **O(n)**.
-* **Total Space (Incl. Representation):** O(V + E) for list + O(V) aux = **O(n + E)**.
 
 **Comparison Summary Table:**
 
@@ -190,13 +187,12 @@ Here's a comparison of BFS across the three scenarios:
 | **Neighbor Finding Cost** | O(n) / node             | O(1) / node           | O(degree) / node      |
 | **Time Complexity** | **O(n^2)** | **O(m * n)** | **O(n + E)** |
 | **Auxiliary Space** | **O(n)** | **O(m * n)** | **O(n)** |
-| **Representation Space**| O(n^2)                  | O(m * n)              | O(n + E)              |
 
 **Key Takeaways:**
 
-* **Adjacency Matrix:** Simple for edge lookup, but BFS is slow (O(n^2)) due to checking all potential neighbors. Always uses O(n^2) storage space. Low auxiliary space needed for BFS itself (O(n)).
+* **Adjacency Matrix:** Simple for edge lookup, but BFS is slow (O(n^2)) due to checking all potential neighbors. Low auxiliary space needed for BFS itself (O(n)).
 * **Grid:** Represents spatial layouts. BFS time (O(m*n)) is proportional to the number of cells because neighbor finding is fast (O(1)). Requires auxiliary space proportional to the grid size (O(m*n)).
-* **Adjacency List:** Most efficient time complexity for BFS on general graphs (O(n+E)), especially sparse ones (where E << n^2). Storage space is also efficient for sparse graphs (O(n+E)). Low auxiliary space needed for BFS itself (O(n)).
+* **Adjacency List:** Most efficient time complexity for BFS on general graphs (O(n+E)), especially sparse ones (where E << n^2). Low auxiliary space needed for BFS itself (O(n)).
 
 ## graph problems
 
