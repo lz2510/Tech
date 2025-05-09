@@ -52,63 +52,6 @@ Option 2: Alternatively, you can pre-process the graph as we did with an array o
 
 The option 2 pre-processing the matrix to adjency list is better.
 
-## How are graphs given in algorithm problems?
-
-### 1. First input format: array of edges
-
-In Reorder Routes to Make All Paths Lead to the City Zero problem, it's given as an array of edges. So we have to build a graph first, usually by adjency list.
-
-Input: n = 6, connections = [[0,1],[1,3],[2,3],[4,0],[4,5]]
-
-https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/description/
-
-Before starting the traversal, we can pre-process the input so that we can easily find all neighbors of any given node. Ideally, you want a data structure where you can give node as an argument and be returned a list of neighbors. The easiest way to accomplish this is using a hash map.
-
-### 2. Second input format: adjacency list
-
-In Keys and Rooms prolbem, the graph is given as an adjacenty list.
-
-Input: rooms = [[1],[2],[3],[]]
-Input: rooms = [[1,3],[3,0,1],[2],[0]]
-
-https://leetcode.com/problems/keys-and-rooms/description/
-
-Notice that with this input, we can already access all the neighbors of any given node. We don't need to do any pre-processing! This makes an adjacency list the most convenient format.
-
-### 3. Third input format: adjacency matrix
-
-In Number of Provinces problems, given as an adjacency matrix
-
-Input: isConnected = [[1,1,0],[1,1,0],[0,0,1]]
-Input: isConnected = [[1,0,0],[0,1,0],[0,0,1]]
-
-https://leetcode.com/problems/number-of-provinces/description/
-
-When given this format, you have two options. 
-
-Option 1: During the traversal, at any given node you can iterate over graph[node], and if graph[node][i] == 1, then you know that node i is a neighbor. 
-
-Option 2: Alternatively, you can pre-process the graph as we did with an array of edges. Build a hash map and then iterate over the entire graph. If graph[i][j] == 1, then put j in the list associated with graph[i]. This way, when performing the traversal, you will not need to iterate n times at every node to find the neighbors. This is especially useful when nodes have only a few neighbors and n is large.
-
-Both of these approaches will have a time complexity of O(n^2).
- 
-### 4. Last input format: matrix
-
-In Number of Islands problem, a graph is in the form of a matrix. it's not adjacency matrix, but still a matrix. it's similiar to travse like adjacency matrix.
-
-Input: grid = [
-  ["1","1","1","1","0"],
-  ["1","1","0","1","0"],
-  ["1","1","0","0","0"],
-  ["0","0","0","0","0"]
-]
-
-https://leetcode.com/problems/number-of-islands/editorial/
-
-reference:
-
-https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/707/traversals-trees-graphs/4721/
-
 ## graph problems
 
 1. numbers of connected nodes
