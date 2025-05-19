@@ -82,6 +82,11 @@ https://leetcode.com/explore/interview/card/cheatsheets/720/resources/4723/
 
 ## BFS
 
+### pseudocode
+<img width="731" alt="graph_bfs" src="https://user-images.githubusercontent.com/1209204/209646529-14c7b0c2-8699-4125-9e89-c3da48986bcb.png">
+
+https://github.com/TheAlgorithms/Java/tree/e96f567bfc6e980dc5c4c48ccf185d7f7c7108ab/src/main/java/com/thealgorithms/datastructures/graphs  
+
 ### code template
 
 	function bfs(array $graph, array &$visited, array &$result, SplQueue $queue): void
