@@ -80,6 +80,36 @@ use $neighbor to name one of all neighbors of the current node
 
 https://leetcode.com/explore/interview/card/cheatsheets/720/resources/4723/
 
+## BFS
+
+### code template
+
+	function bfs(array $graph, array &$visited, array &$result, SplQueue $queue): void
+	{
+		$m = count($graph);
+		$n = count($graph[0]);
+		$directions = [[0, -1], [-1, 0], [0, 1], [1, 0]];
+		while (!$queue->isEmpty()) {
+		    $element = $queue->dequeue();
+		    $row = $element[0];
+		    $col = $element[1];
+		    $distance = $element[2];
+		    foreach ($directions as $direction) {
+			$nextRow = $row + $direction[0];
+			$nextCol = $col + $direction[1];
+			if ($nextRow < 0 || $nextRow >= $m || $nextCol < 0 || $nextCol >= $n) {
+			    continue;
+			}
+			if ($visited[$nextRow][$nextCol]) {
+			    continue;
+			}
+			$visited[$nextRow][$nextCol] = true;
+			$queue->enqueue([$nextRow, $nextCol, $distance + 1]);
+			$result[$nextRow][$nextCol] = $distance + 1;
+		    }
+		}
+	}
+
 ## why need a visited
 
 graphs may contain cycles (a node may be visited twice). To avoid processing a node more than once, use a boolean visited array.
