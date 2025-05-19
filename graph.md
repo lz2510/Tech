@@ -129,11 +129,6 @@ If maximum clarity for developers unfamiliar with PHP idioms or easier portabili
 
 Ultimately, both achieve the same correct result safely. Choose the one that aligns better with your coding style or the specific requirements of your project. For LeetCode in PHP, you'll commonly see the isset approach used.
 
-## code template bfs
-<img width="731" alt="graph_bfs" src="https://user-images.githubusercontent.com/1209204/209646529-14c7b0c2-8699-4125-9e89-c3da48986bcb.png">
-
-https://github.com/TheAlgorithms/Java/tree/e96f567bfc6e980dc5c4c48ccf185d7f7c7108ab/src/main/java/com/thealgorithms/datastructures/graphs  
-
 ## implementation
 
 [graph implementation](graph_implementation.md)
