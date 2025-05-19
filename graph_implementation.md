@@ -80,6 +80,64 @@ use $neighbor to name one of all neighbors of the current node
 
 https://leetcode.com/explore/interview/card/cheatsheets/720/resources/4723/
 
+## BFS
+
+### pseudocode
+
+version 1:
+
+<img width="731" alt="graph_bfs" src="https://user-images.githubusercontent.com/1209204/209646529-14c7b0c2-8699-4125-9e89-c3da48986bcb.png">
+
+https://github.com/TheAlgorithms/Java/tree/e96f567bfc6e980dc5c4c48ccf185d7f7c7108ab/src/main/java/com/thealgorithms/datastructures/graphs  
+
+version 2:
+
+	procedure BFS(G, root) is
+	      let Q be a queue
+	      label root as explored
+	      Q.enqueue(root)
+	      while Q is not empty do
+	          v := Q.dequeue()
+	          if v is the goal then
+	              return v
+	          for all edges from v to w in G.adjacentEdges(v) do
+	              if w is not labeled as explored then
+	                  label w as explored
+	                  w.parent := v
+	                  Q.enqueue(w)
+
+it checks whether a vertex has been explored before enqueueing the vertex rather than delaying this check until the vertex is dequeued from the queue.
+
+https://en.wikipedia.org/wiki/Breadth-first_search#Pseudocode  
+
+### code template
+
+	function bfs(array $graph, array &$visited, array &$result, SplQueue $queue): void
+	{
+		$m = count($graph);
+		$n = count($graph[0]);
+		$directions = [[0, -1], [-1, 0], [0, 1], [1, 0]];
+		while (!$queue->isEmpty()) {
+		    $element = $queue->dequeue();
+		    $row = $element[0];
+		    $col = $element[1];
+		    $distance = $element[2];
+		    foreach ($directions as $direction) {
+			$nextRow = $row + $direction[0];
+			$nextCol = $col + $direction[1];
+			if ($nextRow < 0 || $nextRow >= $m || $nextCol < 0 || $nextCol >= $n) {
+			    continue;
+			}
+			if ($visited[$nextRow][$nextCol]) {
+			    continue;
+			}
+			$visited[$nextRow][$nextCol] = true;
+			$queue->enqueue([$nextRow, $nextCol, $distance + 1]);
+			$result[$nextRow][$nextCol] = $distance + 1;
+		    }
+		}
+	}
+
 ## why need a visited
 
 graphs may contain cycles (a node may be visited twice). To avoid processing a node more than once, use a boolean visited array.
