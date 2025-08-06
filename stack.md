@@ -15,28 +15,27 @@ It has array and linked list two methods.
 1. array functions 
 2. SPL functions
 
-For implementing a stack for DFS, both standard PHP arrays (array_push/array_pop) and SplStack are efficient and perfectly viable options. Performance differences are usually negligible in this specific use case. The choice often comes down to coding style preference.
+For LeetCode problems in PHP, SplStack is the better choice.
 
-/**Semantic Clarity: Using SplStack makes the intent of your code clearer – you are explicitly using a Stack data structure.**/
+While using array_push and array_pop might seem simpler, SplStack offers more predictable performance and a clearer, more purpose-built API that aligns better with the requirements of algorithmic challenges.
 
-Detailed Explanation:
+## Performance
 
-PHP Arrays (array_push/array_pop)
+The most critical difference lies in how they handle memory and operations.
+SplStack: It's implemented as a doubly linked list. This means that push() and pop() operations (adding to or removing from the end) are always true O(1) time complexity. The operation takes a constant amount of time, regardless of the stack's size, because it only involves changing a few pointers.
+Array: A standard PHP array is actually a powerful, ordered hash map. While array_pop() is a fast O(1) operation, array_push() (or $arr[] = $value) has an amortized O(1) time complexity. This means most pushes are fast, but occasionally, when the array runs out of its pre-allocated memory capacity, PHP must allocate a new, larger chunk of memory and copy all existing elements over. This can cause an unpredictable performance spike, which could be an issue in a time-sensitive LeetCode problem.
 
-- How it works: You use array_push() to add an element to the end of the array (push onto the stack) and array_pop() to remove an element from the end of the array (pop off the stack).
-- Performance:
-array_push(): Appends to the end. Generally efficient (amortized O(1)).
-array_pop(): Removes from the end. This is crucial. Unlike array_shift (which removes from the beginning and is O(n)), removing the last element from a PHP array does not require re-indexing the other elements. It's an efficient operation with a time complexity of O(1).
-- Impact on DFS: Since both the push (array_push) and pop (array_pop) operations needed for a stack are O(1) when using a standard PHP array, this method is very efficient for DFS. It doesn't suffer from the performance bottleneck seen when using arrays as queues.
-- Common Usage: This is a very common and idiomatic way to implement stacks in PHP because it's built-in and performs well.
+## Readability and Intent
 
-SplStack
+This is a major advantage of SplStack.
+SplStack: When you see new SplStack(), you know exactly what the data structure is and how it will be used. The code becomes self-documenting. Methods like $stack->push($val) and $stack->top() are explicit about their purpose.
+Array: An array is a general-purpose tool. When someone reads your code and sees $items = [], they don't know if it will be used as a stack, a queue, a list, or a map until they analyze how it's manipulated later with array_pop or other functions. SplStack removes this ambiguity.
 
-- How it works: SplStack is part of the Standard PHP Library (SPL), specifically designed for stack (LIFO) operations. It uses push() to add to the top and pop() to remove from the top.
-- Underlying Structure: Like SplQueue, SplStack also extends SplDoublyLinkedList. It utilizes the efficient addition/removal capabilities at one end of the linked list.
-- Performance: Both push() (adding to the top/end) and pop() (removing from the top/end) operations on the underlying doubly linked list have a time complexity of O(1).
-- Impact on DFS: SplStack provides efficient O(1) push and pop operations, making it well-suited for DFS algorithms.
-- Semantic Clarity: Using SplStack makes the intent of your code clearer – you are explicitly using a Stack data structure.
+## Recommendation for LeetCode
+
+Always prefer SplStack when you need a stack.
+Safety: It provides guaranteed O(1) performance, protecting you from unexpected timeouts on large inputs.
+Clarity: It makes your code cleaner and easier to reason about, which is crucial when you're trying to solve a complex problem under pressure.
 
 ## use case
 
