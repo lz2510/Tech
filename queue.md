@@ -11,23 +11,32 @@ It has array and linked list two methods.
 1. array functions 
 2. SPL functions
 
-For implementing a queue (FIFO - First-In, First-Out) structure like needed in BFS, SplQueue is significantly better in terms of performance.
+For LeetCode queue problems, you should always use SplQueue. Using an array with array_push and array_shift is a performance trap that will cause your solution to fail on larger test cases.
 
-Detailed Explanation:
+Here’s a direct comparison:
 
-PHP Arrays (array_push/array_shift)
+## Array Method: array_push (Enqueue) + array_shift (Dequeue)
 
-- How it works: You use array_push() to add an element to the end of the array (enqueue) and array_shift() to remove an element from the beginning of the array (dequeue).
-- Performance Issue: While array_push() is generally efficient (amortized O(1)), array_shift() is the problem. When you remove the first element of a standard PHP array, all subsequent elements need to be shifted down one index (index 1 becomes 0, index 2 becomes 1, and so on). This re-indexing operation takes time proportional to the number of elements remaining in the array. Therefore, array_shift() has a time complexity of O(n), where n is the current size of the array.
-- Impact on BFS: In BFS, you often enqueue many nodes and then dequeue them one by one. If the queue becomes large (which is common in BFS), repeatedly calling array_shift() (O(n) operation) can make your algorithm very slow, potentially leading to "Time Limit Exceeded" errors on platforms like LeetCode.
+This approach is fundamentally flawed for performance-sensitive tasks like LeetCode challenges.
 
-SplQueue
+array_push($queue, $value);: This adds an element to the end of the array. This part is fast, with an amortized time complexity of O(1). (This means most pushes are fast, but occasionally, when the array runs out of its pre-allocated memory capacity, PHP must allocate a new, larger chunk of memory and copy all existing elements over. This can cause an unpredictable performance spike, which could be an issue in a time-sensitive LeetCode problem.)
 
-- How it works: SplQueue is part of the Standard PHP Library (SPL) and provides a class specifically designed for queue operations. It uses enqueue() to add to the end and dequeue() to remove from the front.
-- Underlying Structure: Importantly, SplQueue extends SplDoublyLinkedList. A doubly linked list is a data structure where adding or removing elements from either the beginning or the end is very efficient.
-- Performance Advantage: Because it uses a doubly linked list internally, both enqueue() (adding to the end) and dequeue() (removing from the front) operations have a time complexity of O(1). Removing the first element only requires updating a couple of pointers, not re-indexing the entire structure.
-- Impact on BFS: Using SplQueue means both adding nodes to the queue and removing them for processing are constant-time operations, regardless of how large the queue gets. This leads to much better performance for BFS compared to the array approach.
-   
+array_shift($queue);: This removes an element from the beginning of the array. This is the problem. To remove the first element, PHP must re-index every other element in the array (element 1 becomes 0, 2 becomes 1, and so on). This is an O(n) operation, meaning its execution time is directly proportional to the number of elements in the queue.
+
+The Verdict: This method is too slow. For a queue with 100,000 items, a single array_shift operation can take 100,000 steps, leading to a "Time Limit Exceeded" (TLE) error.
+
+Think of it like a long line of people. When the first person leaves, everyone behind them has to take one big step forward. It's inefficient.
+
+## SplQueue: The Correct Choice
+
+SplQueue is a purpose-built data structure from PHP's Standard Library (SPL) designed for this exact scenario.
+Underlying Structure: It uses a doubly linked list.
+$queue->enqueue($value);: Adds an element to the end. This is a true O(1) operation.
+$queue->dequeue();: Removes an element from the beginning. This is also a true O(1) operation.
+Because it's a linked list, adding or removing elements from either end only requires updating a few pointers, regardless of how many items are in the queue.
+
+The Verdict: SplQueue provides fast, consistent, and predictable performance, making it the only reliable choice for queue-based problems in LeetCode.  It works like a real-world queue where people at the back don't have to move when the person at the front is served.
+
 ## Uses
 
 - **Breadth-first search** uses a queue to keep track of the nodes to visit next.
