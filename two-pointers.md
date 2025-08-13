@@ -24,6 +24,103 @@ Have fast advanced in every iteration, but slow is only advanced when two pointe
 
 That means, the elements after nums[slow] and before nums[fast] are numbers we've seen before and don't need anymore (one copy of these numbers is already saved before the current slow (inclusive)).
 
+### code template
+
+```
+def floyd(f, x0) -> (int, int):
+    """Floyd's cycle detection algorithm."""
+    tortoise = f(x0) # f(x0) is the element/node next to x0.
+    hare = f(f(x0))
+    while tortoise != hare:
+        tortoise = f(tortoise)
+        hare = f(f(hare))
+```
+https://en.wikipedia.org/wiki/Cycle_detection#Floyd's_tortoise_and_hare
+
+### while loop condition for goal check or exit check
+
+Floyd's cycle-finding algorithm can be used to solive Linked List Cycle.
+
+https://leetcode.com/problems/linked-list-cycle/
+
+```
+// Solution #1
+if ($head === null) return false;
+$slow = $head;
+$fast = $head;
+while ($fast->next !== null && $fast->next->next !== null) {
+    // Move first...
+    $slow = $slow->next;
+    $fast = $fast->next->next;
+    // ...then check for match.
+    if ($slow === $fast) return true;
+}
+return false;
+```
+
+```
+// Solution #2
+if ($head === null) return false;
+$slow = $head;
+$fast = $head->next; // Fast pointer gets a head start
+while ($slow !== $fast) {
+    // Check first...
+    if ($fast === null || $fast->next === null) return false;
+    // ...then move.
+    $slow = $slow->next;
+    $fast = $fast->next->next;
+}
+return true;
+```
+
+
+You've hit on a fundamental and insightful point in algorithm design. You are correct: a loop's condition is typically a "continue-while-valid" or "exit" check.
+
+The two solutions represent two different, but equally standard, philosophies for structuring a loop's logic.
+
+The Two Philosophies of Loop Design
+
+**Philosophy A: "Guard the Loop" (Solution #1's style)**
+
+In this pattern, the while condition's only job is to be a gatekeeper. It guarantees that the code inside the loop is always safe to execute.
+
+- **Loop Condition's Job:** "Is it safe to take another step?" (while ($fast->next !== null && $fast->next->next !== null)).
+
+- **Loop Body's Job:** Assume safety, do the work (move pointers), and then check if the goal has been met (if ($slow === $fast)).
+
+- **Analogy:** A security guard at a concert. The guard at the gate (the while condition) ensures everyone entering is valid. Once inside, an usher (the if statement) finds you when it's your turn.
+
+This pattern is very defensive and separates the safety logic from the goal-finding logic.
+
+**Philosophy B: "Loop Towards the Goal" (Solution #2's style)**
+
+This is the pattern you asked about, which is common in canonical examples. Here, the while condition's job is to state the primary objective of the loop.
+
+- **Loop Condition's Job:** "Have we reached our goal yet?" (while ($slow !== $fast)). It reads like plain English: "While the pointers haven't met, keep trying."
+
+- **Loop Body's Job:** The first thing the body must do is handle any "exit" conditions that would make reaching the goal impossible (if ($fast === null || $fast->next === null)). If it's safe, it then does the work (moves the pointers) to get closer to the goal.
+
+- **Analogy:** A self-driving car. Its main directive is while (car is not at destination). The code inside that loop handles the immediate "exit" conditions: if (obstacle ahead) then stop, if (red light) then wait. The primary purpose is defined by the while loop itself.
+
+This "check for goal, check for exit, then do work" structure is considered elegant because the while statement itself describes the purpose of the loop, making the algorithm's intent immediately clear from its signature. The body then handles the necessary mechanics and safety checks. This is why it's often favored in academic settings and official solutions—it clearly separates the high-level goal from the low-level implementation details.
+
+
+For users on the LeetCode platform, the second pattern ("Loop to the Goal") is generally recommended.
+
+**Why the "Loop to the Goal" Pattern is Recommended**
+
+While both solutions are correct and professional, the second pattern has a slight edge in the specific context of LeetCode and technical interviews.
+
+**1. Alignment with "Textbook" Solutions**
+
+As you discovered, this is the implementation style you'll find in canonical sources like Wikipedia and in many official LeetCode solutions. Using this pattern shows that you are familiar with the standard, classic representation of the algorithm. An interviewer is more likely to recognize this specific structure instantly.
+
+**2. Clarity of Algorithmic Intent**
+
+The condition while ($slow !== $fast) makes the purpose of the loop immediately obvious: "Keep going until the pointers meet." It describes the high-level goal of the algorithm, not just the low-level safety conditions needed to run it. On a platform where you are communicating your understanding of an algorithm, stating the goal so clearly is very effective.
+
+While both patterns are excellent, the "Loop to the Goal" structure is slightly more aligned with the academic and performance-oriented culture of competitive programming platforms like LeetCode.
+
 ## One pointer starts from the beginning while the other pointer starts from the end.
 
 In this approach, two pointers are used to process two array elements at the same time. Usual implementation is to set one pointer in the beginning and one at the end and then to move them until they both meet.
