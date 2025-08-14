@@ -40,6 +40,22 @@ procedure postorder(node)
 	
 https://en.wikipedia.org/wiki/Tree_traversal#Depth-first_search_implementation
 
+## when to use pre-order traversal
+
+**Path-Finding from the Root**
+When you need to find a path from the root to a specific node, pre-order is a natural fit. As you traverse down the tree, you add the current node to your path list. This is the "process the node" step. Then, you recursively search the left and right children. If you don't find the target in either subtree, you backtrack by removing the current node from your path list.
+
+
+## When to Use Post-Order Traversal
+
+You should use this pattern whenever you need to know the answer for the children before you can figure out the answer for the parent.
+
+**Calculating Depth/Height:** You can't know the height of a node until you know the heights of its left and right subtrees. The "Maximum Depth" problem is a perfect example (return 1 + max($leftDepth, $rightDepth);).
+
+**Deleting a Tree:** To safely delete a tree, you must delete its children before you can delete the parent node itself.
+
+**Evaluating an Expression Tree:** For a node like +, you must first evaluate its left child (e.g., 3) and its right child (e.g., 4) before you can perform the addition (3 + 4).
+
 ## base case
 
 how to check if has children?
