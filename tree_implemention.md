@@ -4,7 +4,7 @@
 
 noted that both sources check node itself instead of node's value as base code. about base case, deep describption is below section [base case](#base-case).
 
-below is from leetcode 
+below is from leetcode, only preorder 
 ```
 public int dfs(TreeNode root) {
     if (root == null) {
@@ -20,7 +20,7 @@ public int dfs(TreeNode root) {
 ```
 https://leetcode.com/explore/interview/card/cheatsheets/720/resources/4723/
 
-below is from wiki
+below is from wiki, pre-order and post-order
 ```
 procedure preorder(node)
     if node = null
@@ -29,6 +29,15 @@ procedure preorder(node)
     preorder(node.left)
     preorder(node.right)
 ```
+```
+procedure postorder(node)
+    if node = null
+        return
+    postorder(node.left)
+    postorder(node.right)
+    visit(node)
+```
+	
 https://en.wikipedia.org/wiki/Tree_traversal#Depth-first_search_implementation
 
 ## base case
