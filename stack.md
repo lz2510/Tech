@@ -43,6 +43,10 @@ Safety: It provides guaranteed O(1) performance, protecting you from unexpected 
 
 Clarity: It makes your code cleaner and easier to reason about, which is crucial when you're trying to solve a complex problem under pressure.
 
+## java implementation
+
+[java implementation](java-stack-queue.md)
+
 ## use case
 
 - DFS
