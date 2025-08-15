@@ -37,12 +37,15 @@ Because it's a linked list, adding or removing elements from either end only req
 
 The Verdict: SplQueue provides fast, consistent, and predictable performance, making it the only reliable choice for queue-based problems in LeetCode.  It works like a real-world queue where people at the back don't have to move when the person at the front is served.
 
+## java implementation
+
+[java implementation](java-stack-queue.md)
+
 ## Uses
 
 - **Breadth-first search** uses a queue to keep track of the nodes to visit next.
 - **Web servers** use queues to manage requests—page requests get fulfilled in the order they're received.
 - **Processes** wait in the CPU scheduler's queue for their turn to run.
 
-https://www.interviewcake.com/concept/java/queue  
 
 
