@@ -1,5 +1,15 @@
 # code review
 
+## how to do it
+
+1. for obvious errors or bugs, create a channel to communicate, like send a message or call to the person.
+2. read the description, know what the PR is for.
+3. read unit test. if missing edge cases? if mock is used correctly?
+4. read the implications. if naming conventions is followed? if it implements what it says?
+5. for easy PR, do it on GitHub. for complex ones, open and run it by my IDE.
+6. if something is confusing, ask for clarification from the author.
+7. if some PR is amazing, i congratulate the author. Maybe he learned something new and apply them in the project.
+
 ## Performing code reviews
 
 A code review is a synchronization point among different
