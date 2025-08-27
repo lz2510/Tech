@@ -6,7 +6,7 @@
 - [code review](code-review.md)
 - [class](class.md)
 - [exception](exception.md)
-- [static analysis](static-analysis.md)
+- [code quality](code-quality.md)
 
 # Microservices
 - [cloud native](cloud-native.md)
